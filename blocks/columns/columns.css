@@ -1515,19 +1515,19 @@
   display: flex;
   justify-content: center;
   background: #fff;
-  padding: 40px 0 40px 0; /* reduced vertical padding for better vertical balance */
+  padding: 40px 0 40px 0;
 }
 
 .columns.columns32 > div {
   display: flex;
   flex-direction: row;
-  align-items: center;         /* vertical center between image and text block */
+  align-items: center;
   justify-content: center;
-  gap: 56px;                   /* slightly reduced gap for visual closeness */
-  max-width: 700px;            /* more compact, matches proportions of original */
+  gap: 56px;
+  max-width: 700px;
   width: 100%;
   margin: 0 auto;
-  min-height: 340px;           /* allows vertical centering to work */
+  min-height: 340px;
   position: relative;
 }
 
@@ -1575,12 +1575,12 @@
   justify-content: center;
   align-items: flex-start;
   min-width: 220px;
-  max-width: 340px;       /* narrower text block for compact look */
+  max-width: 340px;
   width: 100%;
   gap: 0;
   margin-top: auto;
   margin-bottom: auto;
-  padding-top: 12px;      /* slight nudge down for midline alignment */
+  padding-top: 12px;
 }
 
 .columns.columns32 > div > div:last-child > p:nth-child(1) {
@@ -1650,5 +1650,153 @@
   .columns.columns32 > div > div:last-child > h2 {
     font-size: 1.12rem;
     margin-bottom: 12px;
+  }
+}
+
+
+.columns.columns36 {
+  background: #fafaf6;
+  padding: 104px 0 104px 0;
+  box-sizing: border-box;
+}
+
+.columns.columns36 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 90px;
+  min-height: 740px;
+  height: 740px;
+}
+
+/* Left column: more whitespace, content vertically centered within the block */
+.columns.columns36 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 380px;
+  height: 100%;
+  padding-left: 8px;
+}
+
+/* Heading: large and prominent with generous margin below */
+.columns.columns36 h1 {
+  font-family: var(--heading-font-family);
+  font-size: 68px;
+  line-height: 1.04;
+  font-weight: 600;
+  color: #181818;
+  margin: 0 0 38px 0;
+  letter-spacing: 0.01em;
+  max-width: 100%;
+}
+
+/* Description: slightly wider, more vertical separation below */
+.columns.columns36 > div > div:first-child p:not(.button-container) {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #696969;
+  margin: 0 0 32px 0;
+  max-width: 370px;
+}
+
+/* Button: closer to text, not hugging bottom, centered with text */
+.columns.columns36 .button-container {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+/* Button: visually balanced and prominent */
+.columns.columns36 .button-container .button {
+  border-radius: 32px;
+  padding: 16px 44px;
+  font-size: 17px;
+  font-weight: 500;
+  background: var(--link-color);
+  color: #fff;
+  border: 2px solid var(--link-color);
+  min-width: 220px;
+  text-align: center;
+  box-shadow: 0 2px 16px 0 rgba(59, 99, 251, 0.08);
+}
+
+/* Image row: slightly reduced gap, cards larger and less squeezed */
+.columns.columns36 .columns-img-col > p {
+  display: flex;
+  flex-direction: row;
+  gap: 34px;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  height: 590px;
+}
+
+/* Image card styling: make each card slightly wider and maintain rounded look */
+.columns.columns36 .columns-img-col picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 44px;
+  overflow: hidden;
+  height: 100%;
+  width: 265px;
+  box-shadow: 0 8px 44px rgba(0,0,0,0.07);
+  background: #fff;
+  min-width: 0;
+}
+
+.columns.columns36 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 44px;
+  display: block;
+}
+
+/* Responsiveness */
+@media (max-width: 1000px) {
+  .columns.columns36 {
+    padding: 48px 0;
+  }
+  .columns.columns36 > div {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    min-height: unset;
+    height: unset;
+  }
+  .columns.columns36 > div > div:first-child {
+    max-width: 100%;
+    flex: unset;
+    align-items: center;
+    text-align: center;
+    height: unset;
+    padding-left: 0;
+  }
+  .columns.columns36 h1 {
+    font-size: 38px;
+    margin-bottom: 18px;
+  }
+  .columns.columns36 .columns-img-col > p {
+    flex-direction: row;
+    gap: 14px;
+    height: 190px;
+    margin-top: 32px;
+  }
+  .columns.columns36 .columns-img-col picture {
+    height: 100%;
+    width: 100px;
+    border-radius: 20px;
   }
 }
