@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .carousel .carousel-slides-container {
   position: relative;
 }
@@ -99,7 +100,6 @@
   z-index: 1;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .carousel .carousel-navigation-buttons button {
   position: relative;
   width: 44px;
@@ -149,5 +149,113 @@
 
   .carousel .carousel-slide .carousel-slide-content[data-align='justify'] {
     --slide-content-width: auto;
+  }
+}
+
+
+.carousel.carousel16 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel16 .carousel-slide-indicators {
+  display: none;
+}
+
+/* Show all images, tightly spaced with collage effect */
+.carousel.carousel16 .carousel-slides {
+  gap: 0;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 48px 0;
+  overflow: auto visible;
+}
+
+/* Each slide is just the image, no ghost cards or backgrounds */
+.carousel.carousel16 .carousel-slide {
+  flex: 0 0 auto;
+  min-width: 190px;
+  max-width: 260px;
+  width: 13vw;
+  height: 145px;
+  margin: 0;
+  border-radius: 14px;
+  overflow: visible;
+  background: none;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Slight overlap for collage look */
+  margin-left: -16px;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s;
+}
+
+.carousel.carousel16 .carousel-slide:first-child {
+  margin-left: 0;
+}
+
+.carousel.carousel16 .carousel-slide .carousel-slide-image picture {
+  position: relative;
+  inset: unset;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.carousel.carousel16 .carousel-slide .carousel-slide-image picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 4%);
+  background: none;
+  display: block;
+}
+
+/* Tilt effect for each slide for collage feel */
+.carousel.carousel16 .carousel-slide:nth-child(1) {
+.carousel.carousel16 .carousel-slide:nth-child(2) {
+.carousel.carousel16 .carousel-slide:nth-child(3) {
+.carousel.carousel16 .carousel-slide:nth-child(4) {
+  transform: rotate(-2deg) scale(1.06);
+  z-index: 3;
+}
+  z-index: 4;
+}
+  z-index: 3;
+}
+  z-index: 2;
+}
+.carousel.carousel16 .carousel-slide:nth-child(2) { transform: rotate(-3deg) scale(1.05); z-index: 3; }
+.carousel.carousel16 .carousel-slide:nth-child(3) { transform: rotate(2deg) scale(1.08); z-index: 4; }
+.carousel.carousel16 .carousel-slide:nth-child(4) { transform: rotate(-2deg) scale(1.06); z-index: 3; }
+.carousel.carousel16 .carousel-slide:nth-child(5) { transform: rotate(5deg) scale(1.05); z-index: 2; }
+.carousel.carousel16 .carousel-slide:nth-child(6) { transform: rotate(-4deg) scale(1.03); z-index: 1; }
+
+/* Hide slide content for minimal look */
+.carousel.carousel16 .carousel-slide .carousel-slide-content {
+  display: none;
+}
+
+/* Responsive adjustments for mobile/tablet */
+@media (width <= 900px) {
+  .carousel.carousel16 .carousel-slide {
+    min-width: 90px;
+    max-width: 130px;
+    height: 66px;
+    width: 23vw;
+    border-radius: 7px;
+    margin-left: -8px;
+  }
+
+  .carousel.carousel16 .carousel-slides {
+    padding: 24px 0;
+  }
+
+  .carousel.carousel16 .carousel-slide .carousel-slide-image picture > img {
+    border-radius: 7px;
   }
 }
