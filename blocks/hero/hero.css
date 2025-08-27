@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -43,5 +44,170 @@
 @media (width >= 900px) {
   .hero {
     padding: 40px 32px;
+  }
+}
+
+.hero.hero5.block {
+  display: flex;
+  flex-direction: row;
+  min-height: 520px;
+  width: 100%;
+  background: transparent;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Both columns stretch vertically */
+.hero.hero5.block > div {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+}
+
+/* Image column */
+.hero.hero5.block > div:first-child {
+  align-items: stretch;
+  justify-content: flex-end;
+  order: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero.hero5.block > div:first-child > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero.hero5.block > div:first-child picture,
+.hero.hero5.block > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  max-width: none;
+  max-height: none;
+}
+
+/* Text column with minimal left padding, align to top */
+.hero.hero5.block > div:last-child {
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #fff;
+  order: 1;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  box-sizing: border-box;
+}
+
+/* Inner text container: start higher, wider, tighter vertical spacing */
+.hero.hero5.block > div:last-child > div {
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+/* Headline */
+.hero.hero5.block h2 {
+  font-family: var(--heading-font-family), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #222;
+  margin-bottom: 1rem;
+  line-height: 1.15;
+  margin-top: 0;
+  text-align: left;
+}
+
+/* Paragraph */
+.hero.hero5.block p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
+  text-align: left;
+}
+
+/* Button container */
+.hero.hero5.block .button-container {
+  display: flex;
+  gap: 16px;
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+/* Button styling */
+.hero.hero5.block .button-container .button {
+  background: #fff;
+  border: 2px solid #222;
+  color: #222;
+  border-radius: 24px;
+  padding: 12px 32px;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  margin: 0;
+  box-shadow: none;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.hero.hero5.block .button-container .button:hover,
+.hero.hero5.block .button-container .button:focus {
+  background: #222;
+  color: #fff;
+  border-color: #222;
+  text-decoration: none;
+}
+
+/* Responsive: stack sections vertically */
+@media (width <= 900px) {
+  .hero.hero5.block {
+    flex-direction: column;
+    min-height: 0;
+  }
+
+  .hero.hero5.block > div {
+    width: 100%;
+    padding: 0;
+  }
+
+  .hero.hero5.block > div:last-child {
+    padding: 24px 8vw;
+    background: #fff;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hero.hero5.block > div:last-child > div {
+    max-width: 100%;
+    margin-top: 0;
+  }
+
+  .hero.hero5.block > div:first-child picture,
+  .hero.hero5.block > div:first-child img {
+    max-height: 320px;
+    min-height: 180px;
+    object-position: center top;
+  }
+}
+
+@media (width <= 600px) {
+  .hero.hero5.block > div:last-child {
+    padding: 16px 4vw;
+  }
+
+  .hero.hero5.block h2 {
+    font-size: 1.6rem;
   }
 }
