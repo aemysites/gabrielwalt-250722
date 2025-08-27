@@ -1019,8 +1019,6 @@
   background: #f8f9f6;
   padding: 0;
 }
-
-/* Main grid: two columns desktop, one column mobile */
 .columns.columns26 > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1035,16 +1033,12 @@
     padding: 24px 12px;
   }
 }
-
-/* LEFT COLUMN */
 .columns.columns26 > div > div:first-child {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
 }
-
-/* Heading styles */
 .columns.columns26 > div > div:first-child > p:first-child {
   font-family: 'Syncopate', 'Syncopate Fallback', 'sans-serif';
   font-size: 2.25rem;
@@ -1056,8 +1050,6 @@
   margin-bottom: 24px;
   line-height: 1.1;
 }
-
-/* Divider below heading */
 .columns.columns26 > div > div:first-child > p:nth-child(2) {
   width: 100%;
   height: 1px;
@@ -1071,8 +1063,6 @@
 .columns.columns26 > div > div:first-child > p:nth-child(2) img {
   display: none;
 }
-
-/* Avatar + name + role grouped in a horizontal flex row */
 .columns.columns26 > div > div:first-child > p:nth-child(3) {
   display: flex;
   flex-direction: row;
@@ -1081,8 +1071,6 @@
   margin: 0 0 0 0;
   padding: 0;
 }
-
-/* Avatar image styling */
 .columns.columns26 > div > div:first-child > p:nth-child(3) picture img {
   width: 40px;
   height: 40px;
@@ -1091,15 +1079,11 @@
   display: block;
   margin: 0;
 }
-
-/* Name and role stacked vertically beside avatar */
 .columns.columns26 > div > div:first-child > p:nth-child(3) .columns26-name-role {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
-/* Style for name (bold, tight spacing) */
 .columns.columns26 > div > div:first-child > p:nth-child(4) {
   font-weight: 600;
   color: #272727;
@@ -1107,16 +1091,12 @@
   margin: 2px 0 2px 0;
   padding: 0;
 }
-
-/* Style for role (subdued, tight spacing) */
 .columns.columns26 > div > div:first-child > p:nth-child(5) {
   color: #575757;
   font-size: 0.95rem;
   margin: 0;
   padding: 0;
 }
-
-/* RIGHT COLUMN: testimonial at top, logo at bottom right */
 .columns.columns26 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -1129,8 +1109,6 @@
     min-height: unset;
   }
 }
-
-/* Testimonial text */
 .columns.columns26 > div > div:last-child > p:first-child {
   font-size: 1rem;
   color: #272727;
@@ -1139,18 +1117,166 @@
   margin-bottom: 56px;
   max-width: 420px;
 }
-
-/* Logo row: right aligned */
 .columns.columns26 > div > div:last-child > p:last-child {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin: 0;
 }
-
-/* Logo image sizing */
 .columns.columns26 > div > div:last-child > p:last-child picture img {
   width: 120px;
   height: auto;
   display: block;
+}
+
+
+.columns.columns27 {
+  background: #faf9f6;
+  padding: 4rem 2rem;
+}
+
+/* Top-align both columns for editorial look */
+.columns.columns27 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 3.5rem;
+  width: 100%;
+  min-height: 520px;
+}
+
+/* Responsive: stack vertically on narrow screens */
+@media (max-width: 900px) {
+  .columns.columns27 > div {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: unset;
+  }
+  .columns.columns27 > div > div,
+  .columns.columns27 .columns-img-col {
+    max-width: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .columns.columns27 .columns-img-col img,
+  .columns.columns27 .columns-img-col picture > img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+/* Text column: slightly narrower for balance */
+.columns.columns27 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  max-width: 480px;
+  flex: 1 1 0;
+  padding-right: 0.5rem;
+}
+
+/* Author text */
+.columns.columns27 > div > div:first-child > p:first-child {
+  text-transform: uppercase;
+  font-size: 12px;
+  color: #6e6e6e;
+  letter-spacing: 0.06em;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+/* Headline */
+.columns.columns27 h2#trends-that-turn-heads {
+  font-family: 'Montserrat', 'Orbitron', 'Raleway', var(--heading-font-family), sans-serif;
+  font-size: 3.6rem;
+  font-weight: 400;
+  line-height: 1.05;
+  color: #161616;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  letter-spacing: 0;
+  text-transform: none;
+  word-break: break-word;
+}
+
+/* Main paragraph */
+.columns.columns27 > div > div:first-child > p:nth-child(3) {
+  font-size: 1.15rem;
+  color: #161616;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+/* Small print */
+.columns.columns27 > div > div:first-child > p:nth-child(4) {
+  font-size: 12px;
+  color: #b7b7b7;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+/* Button container tighter to small print */
+.columns.columns27 .button-container {
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+/* Outlined pill button */
+.columns.columns27 .button-container .button {
+  background: none;
+  border: 1.5px solid #161616;
+  color: #161616;
+  border-radius: 24px;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  padding: 0.5em 1.5em;
+  box-shadow: none;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+}
+.columns.columns27 .button-container .button:hover,
+.columns.columns27 .button-container .button:focus {
+  background: #161616;
+  color: #faf9f6;
+}
+
+/* Image column: make image larger and top-aligned */
+.columns.columns27 .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 640px;
+  height: 100%;
+}
+
+/* Large, tall image with tight radius */
+.columns.columns27 .columns-img-col img,
+.columns.columns27 .columns-img-col picture > img {
+  width: 100%;
+  max-width: 600px;
+  height: 420px;
+  border-radius: 24px;
+  display: block;
+  object-fit: cover;
+  box-shadow: none;
+  margin: 0;
+}
+
+/* Remove excess vertical spacing */
+.columns.columns27 > div > div,
+.columns.columns27 .columns-img-col {
+  margin-top: 0;
+  margin-bottom: 0;
 }
