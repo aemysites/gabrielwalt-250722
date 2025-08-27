@@ -365,7 +365,6 @@
 
 
 .hero.hero12 {
-  /* Full width hero background and centering using flexbox for vertical and horizontal centering */
   position: relative;
   width: 100vw;
   max-width: 100vw;
@@ -380,12 +379,10 @@
   justify-content: center;
 }
 
-/* Hide unused image column */
 .hero.hero12 > div:first-child {
   display: none;
 }
 
-/* Overlay panel: use flexbox centering, auto height, snug fit to content */
 .hero.hero12 > div:last-child {
   position: relative;
   z-index: 2;
@@ -404,7 +401,6 @@
   min-height: auto;
 }
 
-/* Overlay content: vertical stack, center everything, balanced spacing */
 .hero.hero12 > div:last-child > div {
   display: flex;
   flex-direction: column;
@@ -414,7 +410,6 @@
   box-sizing: border-box;
 }
 
-/* Crowd image at top, more space below */
 .hero.hero12 > div:last-child > div > p:first-child {
   margin: 0 0 14px;
   width: 100%;
@@ -433,7 +428,6 @@
   margin-bottom: 0;
 }
 
-/* Heading: centered, large, visually bold, tighter line height and max width */
 .hero.hero12 h2 {
   font-family: var(--heading-font-family);
   font-size: 3.1rem;
@@ -447,11 +441,9 @@
   text-align: center;
   width: 100%;
   max-width: 580px;
-  word-break: break-word; /* Updated to align with modern CSS */
   overflow-wrap: break-word;
 }
 
-/* Icon + text rows: vertical stack, centered text, strong spacing, good gap */
 .hero.hero12 > div:last-child > div > p {
   display: flex;
   align-items: center;
@@ -467,7 +459,6 @@
   box-sizing: border-box;
 }
 
-/* Icon style (arrow image) */
 .hero.hero12 > div:last-child > div > p picture img {
   width: 1.12em;
   height: 1.12em;
@@ -477,13 +468,11 @@
   opacity: 0.68;
 }
 
-/* Divider (border) after each list item except last and except crowd img/heading */
 .hero.hero12 > div:last-child > div > p:not(:first-child, :last-child, .button-container) {
   border-bottom: 2px solid rgb(44 44 44 / 13%);
   margin-bottom: 2px;
 }
 
-/* Button container: center the button, reduce space below */
 .hero.hero12 .button-container {
   margin: 13px 0 0;
   padding: 0;
@@ -494,7 +483,6 @@
   background: none;
 }
 
-/* Button: pill, border, background, horizontally centered */
 .hero-container > .hero-wrapper > .hero.hero12 .button {
   background: rgb(255 255 255 / 22%);
   color: #232323;
@@ -517,7 +505,6 @@
   color: #111;
 }
 
-/* Responsive: scale down overlay and content, keep overlay centered, adjust padding/gaps/font sizes */
 @media (width <= 900px) {
   .hero.hero12 {
     min-height: 420px;
@@ -556,4 +543,188 @@
     justify-content: center;
     margin-top: 9px;
   }
+}
+
+
+.hero.hero20 {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  box-sizing: border-box;
+  background: transparent;
+  display: block;
+  padding: 0;
+}
+
+/* Background image fills entire hero area */
+.hero.hero20 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero20 > div:first-child picture,
+.hero.hero20 > div:first-child img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Vertically and horizontally center overlay content block */
+.hero.hero20 > div:last-child {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+/* Extra padding to improve vertical centering and open up top/bottom whitespace */
+.hero.hero20 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3.5em 0 2.5em; /* More space above the headline, a little below buttons */
+}
+
+/* Headline: reduce size, add bottom margin for more separation */
+.hero.hero20 h1 {
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-size: clamp(2rem, 6vw, 4.7rem);
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.09;
+  letter-spacing: 0.03em;
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 4px 32px rgb(0 0 0 / 32%);
+  max-width: 96vw;
+}
+
+/* Paragraph: more margin above and below, more overlay for contrast */
+.hero.hero20 > div:last-child > div > p:not(.button-container) {
+  font-size: 1.15rem;
+  color: #fff;
+  font-weight: 400;
+  margin-top: 1.6rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.4;
+  max-width: 720px;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 38%);
+  text-align: center;
+  background: rgb(0 0 0 / 22%);
+  border-radius: 12px;
+  padding: 0.6em 1.2em;
+  display: inline-block;
+}
+
+/* Button stacking and spacing: add margin between buttons and below last */
+.hero.hero20 .button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.hero.hero20 .button-container + .button-container {
+  margin-top: 1.3rem;
+}
+
+.hero.hero20 .button-container:last-child {
+  margin-bottom: 2.2em;
+}
+
+/* Button style: pill outline, spacing, hover */
+.hero.hero20 .button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 170px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  padding: 0.85em 2.2em;
+  background: transparent;
+  color: #fff;
+  font-size: 1.16rem;
+  font-weight: 600;
+  letter-spacing: 0.055em;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 13%);
+}
+
+.hero.hero20 .button:hover,
+.hero.hero20 .button:focus {
+  background: #fff;
+  color: #222;
+  border-color: #fff;
+}
+
+/* Responsive: adjust headline/container/padding for small screens */
+@media (width <= 900px) {
+  .hero.hero20 {
+    height: auto;
+    min-height: 500px;
+  }
+
+  .hero.hero20 > div:last-child {
+    height: auto;
+    min-height: 500px;
+    padding: 0 1rem;
+  }
+
+  .hero.hero20 > div:last-child > div {
+    max-width: 98vw;
+    padding: 2em 0 1.5em;
+  }
+
+  .hero.hero20 h1 {
+    font-size: clamp(1.1rem, 4vw, 2.1rem);
+    max-width: 99vw;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero.hero20 .button {
+    min-width: 110px;
+    padding: 0.55em 1.2em;
+    font-size: 1rem;
+  }
+
+  .hero.hero20 > div:last-child > div > p:not(.button-container) {
+    padding: 0.25em 0.4em;
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+    margin-top: 0.9rem;
+  }
+
+  .hero.hero20 .button-container:last-child {
+    margin-bottom: 1.4em;
+  }
+}
+
+/* Boost text contrast for readability */
+.hero.hero20 h1,
+.hero.hero20 > div:last-child > div > p:not(.button-container),
+.hero.hero20 .button {
+  text-shadow: 0 4px 32px rgb(0 0 0 / 36%);
 }
