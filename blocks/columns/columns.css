@@ -1269,7 +1269,6 @@
   flex: 1 1 0;
   display: flex;
   align-items: stretch;
-  /* Make the images taller to match the reference */
   aspect-ratio: 4/3;
   min-height: 380px;
 }
@@ -1282,8 +1281,6 @@
   object-fit: cover;
   border-radius: 20px;
 }
-
-/* Responsive: stack columns vertically on small screens */
 @media (max-width: 899px) {
   .columns.columns29 > div {
     flex-direction: column;
@@ -1293,4 +1290,139 @@
     aspect-ratio: unset;
     min-height: 200px;
   }
+}
+
+
+.columns.columns30 {
+  background: #fff;
+  padding: 0;
+}
+
+/* Use grid for strict column containment to prevent overlap */
+.columns.columns30 > div {
+  display: grid;
+  grid-template-columns: minmax(370px, 1fr) minmax(340px, 1fr);
+  gap: 48px;
+  align-items: start;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 0 72px 24px;
+  box-sizing: border-box;
+}
+
+/* Left column: stack name, pills, heading vertically */
+.columns.columns30 > div > div:nth-child(1),
+.columns.columns30 > div > div:nth-child(2) {
+  width: 100%;
+}
+
+/* Name styling: tight margin below */
+.columns.columns30 > div > div:nth-child(1) p {
+  font-size: var(--body-font-size-s);
+  color: #7D7D7D;
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+/* Pills styling and vertical stack */
+.columns.columns30 > div > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 370px;
+}
+
+/* Pills themselves */
+.columns.columns30 > div > div:nth-child(2) p {
+  display: inline-block;
+  background: #F0F0F0;
+  color: #7D7D7D;
+  font-size: var(--body-font-size-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 7px 22px;
+  margin: 0;
+  line-height: 1.1;
+  box-sizing: border-box;
+}
+
+/* Heading: large, blocky, properly contained */
+.columns.columns30 > div > div:nth-child(2) h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 400;
+  color: #101010;
+  line-height: 1.05;
+  margin: 34px 0 0 0;
+  padding: 0;
+  max-width: 370px;
+  width: 100%;
+  letter-spacing: 0.01em;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  /* Prevent heading from overflowing column */
+  overflow: hidden;
+}
+
+/* Paragraph column: top-aligned, tight to heading, never overlapping */
+.columns.columns30 > div > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 340px;
+  max-width: 410px;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Paragraph text styling */
+.columns.columns30 > div > div:nth-child(3) p {
+  font-size: var(--body-font-size-s);
+  color: #383838;
+  font-family: var(--body-font-family);
+  line-height: 1.6;
+  margin: 0 0 17px 0;
+  padding: 0;
+}
+
+/* Responsive: stack vertically, adjust sizing/gaps */
+@media (max-width: 899px) {
+  .columns.columns30 > div {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 40px 12px 40px 12px;
+    max-width: 100%;
+  }
+  .columns.columns30 > div > div:nth-child(1),
+  .columns.columns30 > div > div:nth-child(2),
+  .columns.columns30 > div > div:nth-child(3) {
+    min-width: 0;
+    max-width: 100%;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .columns.columns30 > div > div:nth-child(2) h2 {
+    font-size: var(--heading-font-size-xl);
+    margin-top: 18px;
+    max-width: 100%;
+  }
+  .columns.columns30 > div > div:nth-child(3) {
+    margin-top: 10px;
+  }
+  .columns.columns30 > div > div:nth-child(3) p {
+    font-size: var(--body-font-size-xs);
+  }
+}
+
+/* Ensure block background is white */
+.columns.columns30 {
+  background: #fff;
 }
