@@ -769,10 +769,6 @@
   background: #f6f6f3;
   padding: 64px 0;
 }
-
-/* Use grid for main layout: two columns, two rows.
-   Align items center so heading & image are truly paired vertically.
-*/
 .columns.columns15 > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -780,10 +776,8 @@
   gap: 0 48px;
   max-width: 1200px;
   margin: 0 auto;
-  align-items: center; /* <-- THIS centers items in each grid row */
+  align-items: center;
 }
-
-/* Responsive: stack all on small screens */
 @media (max-width: 900px) {
   .columns.columns15 > div {
     display: flex;
@@ -793,8 +787,6 @@
     align-items: stretch;
   }
 }
-
-/* Heading: first row, first column — ensure vertical centering */
 .columns.columns15 h1 {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -807,8 +799,6 @@
   line-height: 1.05;
   margin: 0 0 32px 0;
 }
-
-/* Image: first row, second column — ensure vertical centering */
 .columns.columns15 .columns-img-col {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -840,8 +830,6 @@
     border-radius: 18px;
   }
 }
-
-/* Supporting text: second row, first column */
 .columns.columns15 > div > div:first-child > p:not(.button-container) {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
@@ -851,15 +839,11 @@
   font-weight: 400;
   margin: 0 0 32px 0;
 }
-
-/* Button container: second row, first column */
 .columns.columns15 .button-container {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   margin: 0;
 }
-
-/* Button style override */
 .columns.columns15 .button-container .button {
   background: #fff;
   color: #222;
@@ -875,4 +859,178 @@
   transition: background 0.2s, color 0.2s;
   display: inline-block;
   line-height: 1.25;
+}
+
+
+.columns.columns18 {
+  /* Compact block, less vertical padding, more space for image */
+  margin: 0 auto;
+  padding: 20px 32px 14px 32px;
+  background: #fff;
+  border-radius: 24px;
+  box-sizing: border-box;
+  max-width: 1200px;
+}
+
+/* Favor the image column even more, make text column very narrow */
+.columns.columns18 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 48px;
+  width: 100%;
+}
+
+/* Left column: narrowest yet */
+.columns.columns18 > div > div:first-child {
+  flex-basis: 34%;
+  max-width: 36%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Right column: image is very dominant */
+.columns.columns18 > div > .columns-img-col {
+  flex-basis: 66%;
+  max-width: 66%;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+/* Image: large, rounded */
+.columns.columns18 .columns-img-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 32px;
+  display: block;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .columns.columns18 {
+    padding: 10px 2vw;
+    border-radius: 16px;
+  }
+  .columns.columns18 > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .columns.columns18 > div > div:first-child,
+  .columns.columns18 > div > .columns-img-col {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+  .columns.columns18 .columns-img-col img {
+    border-radius: 16px;
+  }
+}
+
+/* Headings and text styling for hero area */
+.columns.columns18 h2 {
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  color: #5e5e5e;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.columns.columns18 h3 {
+  font-size: 38px;
+  font-family: var(--heading-font-family);
+  letter-spacing: 0.5px;
+  color: #232323;
+  font-weight: 400;
+  line-height: 1.06;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.columns.columns18 p {
+  font-size: 16px;
+  color: #5e5e5e;
+  margin-bottom: 14px;
+  margin-top: 0;
+}
+
+/* Contact info: stack blocks vertically, very tight */
+.columns.columns18 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.columns.columns18 ul li {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+}
+
+/* Icon style: circular background, slightly smaller for compact feel */
+.columns.columns18 ul picture,
+.columns.columns18 ul img {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: #f3f3f3;
+  padding: 6px;
+  width: 36px;
+  height: 36px;
+  margin-right: 0;
+  box-sizing: content-box;
+  object-fit: contain;
+}
+
+/* Contact label refinement */
+.columns.columns18 h4 {
+  font-size: 10px;
+  letter-spacing: 0.15px;
+  text-transform: uppercase;
+  font-weight: 400;
+  color: #7d7d7d;
+  margin: 10px 0 2px 0;
+  line-height: 1.1;
+}
+
+/* Space out contact blocks consistently, but very compactly */
+.columns.columns18 h4 + ul {
+  margin-bottom: 4px;
+}
+
+.columns.columns18 ul + h4 {
+  margin-top: 10px;
+}
+
+.columns.columns18 ul + ul {
+  margin-top: 0;
+}
+
+.columns.columns18 ul a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  word-break: break-all;
+}
+
+.columns.columns18 ul a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* Remove any stray top margin on the first child in the block */
+.columns.columns18 > div > div:first-child > *:first-child {
+  margin-top: 0;
 }
