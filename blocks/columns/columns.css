@@ -1134,8 +1134,6 @@
   background: #faf9f6;
   padding: 4rem 2rem;
 }
-
-/* Top-align both columns for editorial look */
 .columns.columns27 > div {
   display: flex;
   flex-direction: row;
@@ -1144,8 +1142,6 @@
   width: 100%;
   min-height: 520px;
 }
-
-/* Responsive: stack vertically on narrow screens */
 @media (max-width: 900px) {
   .columns.columns27 > div {
     flex-direction: column;
@@ -1165,8 +1161,6 @@
     max-width: 100%;
   }
 }
-
-/* Text column: slightly narrower for balance */
 .columns.columns27 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -1176,8 +1170,6 @@
   flex: 1 1 0;
   padding-right: 0.5rem;
 }
-
-/* Author text */
 .columns.columns27 > div > div:first-child > p:first-child {
   text-transform: uppercase;
   font-size: 12px;
@@ -1188,8 +1180,6 @@
   font-family: inherit;
   font-weight: 400;
 }
-
-/* Headline */
 .columns.columns27 h2#trends-that-turn-heads {
   font-family: 'Montserrat', 'Orbitron', 'Raleway', var(--heading-font-family), sans-serif;
   font-size: 3.6rem;
@@ -1202,8 +1192,6 @@
   text-transform: none;
   word-break: break-word;
 }
-
-/* Main paragraph */
 .columns.columns27 > div > div:first-child > p:nth-child(3) {
   font-size: 1.15rem;
   color: #161616;
@@ -1212,8 +1200,6 @@
   font-weight: 400;
   font-family: inherit;
 }
-
-/* Small print */
 .columns.columns27 > div > div:first-child > p:nth-child(4) {
   font-size: 12px;
   color: #b7b7b7;
@@ -1222,14 +1208,10 @@
   font-family: inherit;
   font-weight: 400;
 }
-
-/* Button container tighter to small print */
 .columns.columns27 .button-container {
   margin-top: 0.5rem;
   text-align: left;
 }
-
-/* Outlined pill button */
 .columns.columns27 .button-container .button {
   background: none;
   border: 1.5px solid #161616;
@@ -1249,8 +1231,6 @@
   background: #161616;
   color: #faf9f6;
 }
-
-/* Image column: make image larger and top-aligned */
 .columns.columns27 .columns-img-col {
   display: flex;
   align-items: flex-start;
@@ -1260,8 +1240,6 @@
   max-width: 640px;
   height: 100%;
 }
-
-/* Large, tall image with tight radius */
 .columns.columns27 .columns-img-col img,
 .columns.columns27 .columns-img-col picture > img {
   width: 100%;
@@ -1273,10 +1251,46 @@
   box-shadow: none;
   margin: 0;
 }
-
-/* Remove excess vertical spacing */
 .columns.columns27 > div > div,
 .columns.columns27 .columns-img-col {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.columns.columns29 .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  /* Make the images taller to match the reference */
+  aspect-ratio: 4/3;
+  min-height: 380px;
+}
+
+.columns.columns29 .columns-img-col picture,
+.columns.columns29 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (max-width: 899px) {
+  .columns.columns29 > div {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .columns.columns29 .columns-img-col {
+    aspect-ratio: unset;
+    min-height: 200px;
+  }
 }
