@@ -161,7 +161,6 @@
   display: none;
 }
 
-/* Show all images, tightly spaced with collage effect */
 .carousel.carousel16 .carousel-slides {
   gap: 0;
   justify-content: center;
@@ -170,7 +169,6 @@
   overflow: auto visible;
 }
 
-/* Each slide is just the image, no ghost cards or backgrounds */
 .carousel.carousel16 .carousel-slide {
   flex: 0 0 auto;
   min-width: 190px;
@@ -185,8 +183,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* Slight overlap for collage look */
   margin-left: -16px;
   position: relative;
   z-index: 1;
@@ -215,37 +211,11 @@
   display: block;
 }
 
-/* Tilt effect for each slide for collage feel */
 .carousel.carousel16 .carousel-slide:nth-child(1) {
 .carousel.carousel16 .carousel-slide:nth-child(2) {
 .carousel.carousel16 .carousel-slide:nth-child(3) {
-.carousel.carousel16 .carousel-slide:nth-child(4) {
-  transform: rotate(-2deg) scale(1.06);
   z-index: 3;
 }
-  z-index: 4;
-}
-  z-index: 3;
-}
-  z-index: 2;
-}
-.carousel.carousel16 .carousel-slide:nth-child(2) { transform: rotate(-3deg) scale(1.05); z-index: 3; }
-.carousel.carousel16 .carousel-slide:nth-child(3) { transform: rotate(2deg) scale(1.08); z-index: 4; }
-.carousel.carousel16 .carousel-slide:nth-child(4) { transform: rotate(-2deg) scale(1.06); z-index: 3; }
-.carousel.carousel16 .carousel-slide:nth-child(5) { transform: rotate(5deg) scale(1.05); z-index: 2; }
-.carousel.carousel16 .carousel-slide:nth-child(6) { transform: rotate(-4deg) scale(1.03); z-index: 1; }
-
-/* Hide slide content for minimal look */
-.carousel.carousel16 .carousel-slide .carousel-slide-content {
-  display: none;
-}
-
-/* Responsive adjustments for mobile/tablet */
-@media (width <= 900px) {
-  .carousel.carousel16 .carousel-slide {
-    min-width: 90px;
-    max-width: 130px;
-    height: 66px;
     width: 23vw;
     border-radius: 7px;
     margin-left: -8px;
@@ -257,5 +227,128 @@
 
   .carousel.carousel16 .carousel-slide .carousel-slide-image picture > img {
     border-radius: 7px;
+  }
+}
+
+
+.carousel.carousel21 {
+  perspective: 1200px;
+  background: #fcfcf7;
+  padding: 48px 0 56px;
+  position: relative;
+  overflow: visible;
+}
+
+/* More playful layer effect: frames with different angles, spacing, and lighter borders/shadows */
+.carousel.carousel21 .carousel-slides-container {
+  position: relative;
+  width: 94vw;
+  max-width: 990px;
+  margin: 0 auto;
+  min-height: 520px;
+  z-index: 1;
+}
+
+/* Three layered pseudo-frames with varied rotation/position for realism */
+.carousel.carousel21 .carousel-slides::before,
+.carousel.carousel21 .carousel-slides::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 54px 56px 52px 34px;
+  border: 1px solid #353535;
+  border-radius: 19px;
+  background: #fff;
+  z-index: 1;
+  box-shadow: 0 10px 32px 0 rgb(0 0 0 / 6%);
+  pointer-events: none;
+}
+
+.carousel.carousel21 .carousel-slides::before {
+  transform: rotate(13deg) scale(0.97);
+  inset: 90px 72px 72px 68px;
+  border-radius: 15px;
+  box-shadow: 0 16px 38px 0 rgb(0 0 0 / 8%);
+}
+
+.carousel.carousel21 .carousel-slides::after {
+  transform: rotate(-8deg) scale(0.95);
+  inset: 8px 32px 36px 0;
+  border-radius: 22px;
+  box-shadow: 0 7px 26px 0 rgb(0 0 0 / 6%);
+}
+
+/* Extra frame for more organic stack */
+.carousel.carousel21 .carousel-slides-container::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 164px 180px 110px 80px;
+  border: 1.2px solid #222;
+  border-radius: 14px;
+  background: #fff;
+  z-index: 0;
+  box-shadow: 0 8px 28px 0 rgb(0 0 0 / 7%);
+  transform: rotate(-18deg) scale(0.93);
+  pointer-events: none;
+}
+
+/* Main image: border, softer shadow, less margin for immersion, subtle rotation */
+.carousel.carousel21 .carousel-slide {
+  position: relative;
+  z-index: 4;
+  background: #fff;
+  border: 1.2px solid #282828;
+  border-radius: 22px;
+  box-shadow: 0 10px 44px 0 rgb(0 0 0 / 13%);
+  overflow: hidden;
+  min-height: 480px;
+  margin: 0 16px;
+  transform: rotate(-3deg) scale(1.01);
+  max-width: 96%;
+}
+
+/* The image itself: rounded corners, no border, full coverage */
+.carousel.carousel21 .carousel-slide .carousel-slide-image picture,
+.carousel.carousel21 .carousel-slide .carousel-slide-image img {
+  border-radius: 16px;
+  border: none;
+  box-shadow: none;
+}
+
+/* Hide the caption overlay */
+.carousel.carousel21 .carousel-slide .carousel-slide-content {
+  display: none;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (width <= 700px) {
+  .carousel.carousel21 .carousel-slides-container {
+    min-height: 180px;
+    width: 98vw;
+    max-width: 99vw;
+    padding: 0 1vw;
+  }
+
+  .carousel.carousel21 .carousel-slide {
+    min-height: 120px;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    border-radius: 11px;
+  }
+
+  .carousel.carousel21 .carousel-slides::before,
+  .carousel.carousel21 .carousel-slides::after {
+    border-radius: 11px;
+    inset: 12px 8px 8px;
+  }
+
+  .carousel.carousel21 .carousel-slides::before {
+    inset: 26px 16px 12px 18px;
+  }
+
+  .carousel.carousel21 .carousel-slides-container::after {
+    inset: 56px 44px 45px 24px;
+    border-radius: 8px;
   }
 }
