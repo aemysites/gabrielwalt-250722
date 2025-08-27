@@ -631,8 +631,6 @@
   box-sizing: border-box;
   background: transparent;
 }
-
-/* Improved grid: visually dominant first card, compact second, equal bottom cards */
 .cards.cards23 > ul {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
@@ -642,8 +640,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* All cards stack image above text by default */
 .cards.cards23 > ul > li {
   display: flex;
   flex-direction: column;
@@ -655,15 +651,11 @@
   margin: 0;
   min-width: 0;
 }
-
-/* Top left: visually dominant, larger card */
 .cards.cards23 > ul > li:nth-child(1) {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   min-height: 440px;
 }
-
-/* Top right: text-only, centered, compact */
 .cards.cards23 > ul > li:nth-child(2) {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
@@ -684,28 +676,20 @@
   padding: 56px 36px;
   box-sizing: border-box;
 }
-
-/* Bottom left: image card, balanced */
 .cards.cards23 > ul > li:nth-child(3) {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   min-height: 320px;
 }
-
-/* Bottom right: image card, balanced */
 .cards.cards23 > ul > li:nth-child(4) {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   min-height: 320px;
 }
-
-/* Ensure bottom cards always show images */
 .cards.cards23 > ul > li:nth-child(3) .cards-card-image,
 .cards.cards23 > ul > li:nth-child(4) .cards-card-image {
   display: block;
 }
-
-/* Image styling: fill top, aspect ratio, rounded corners */
 .cards.cards23 .cards-card-image {
   width: 100%;
   line-height: 0;
@@ -721,8 +705,6 @@
   display: block;
   border-radius: 24px 24px 0 0;
 }
-
-/* Card body: tight vertical stack for image cards, spacious for text card */
 .cards.cards23 .cards-card-body {
   padding: 24px 32px 20px 32px;
   background: #fff;
@@ -737,8 +719,6 @@
 .cards.cards23 > ul > li:nth-child(2) .cards-card-body {
   padding: 56px 36px;
 }
-
-/* Card titles: uppercase, bold, dark, spaced */
 .cards.cards23 .cards-card-body h3 {
   font-family: 'Montserrat', 'Futura', 'Arial', sans-serif;
   font-size: 24px;
@@ -757,8 +737,6 @@
   margin: 0;
   line-height: 1.6;
 }
-
-/* Responsive: stack cards on smaller screens, maintain proportions */
 @media (max-width: 900px) {
   .cards.cards23 {
     max-width: 100%;
@@ -791,4 +769,180 @@
   .cards.cards23 .cards-card-body {
     padding: 14px 6px;
   }
+}
+
+
+.cards.cards24 {
+  --cards-card-width: 320px;
+  --cards-gap: 2.6rem;
+  --cards-card-radius: 2rem;
+  --cards-card-shadow: 0 8px 32px rgba(0,0,0,0.10);
+  --cards-inner-padding: 1.5rem 1.25rem 2rem 1.25rem;
+  --cards-tag-bg: #e5e5e5;
+  --cards-tag-color: #222;
+  --cards-tag-date-bg: #f5f5f5;
+  --cards-tag-date-color: #555;
+}
+
+/* Grid layout for cards */
+.cards.cards24 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, var(--cards-card-width)));
+  gap: var(--cards-gap);
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Card container */
+.cards.cards24 > ul > li {
+  background: #fff;
+  border-radius: var(--cards-card-radius);
+  box-shadow: var(--cards-card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+  transition: box-shadow 0.2s;
+}
+
+/* Card image section */
+.cards.cards24 .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: var(--cards-card-radius) var(--cards-card-radius) 0 0;
+  background: #f8f8f8;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.cards.cards24 .cards-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+/* Card body: vertical stacking */
+.cards.cards24 .cards-card-body {
+  padding: var(--cards-inner-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 0.34rem;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center; /* Center the content horizontally */
+}
+
+/* Tag row: side by side, centered horizontally */
+.cards.cards24 .cards-card-body > p:first-of-type,
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  font-size: 0.91rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: 1em;
+  background: var(--cards-tag-bg);
+  color: var(--cards-tag-color);
+  padding: 0.16em 0.82em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  line-height: 1.22;
+  font-family: var(--body-font-family, "Instrument Sans", "sans-serif");
+}
+
+/* Reduce spacing between tags */
+.cards.cards24 .cards-card-body > p:first-of-type {
+  margin-right: 0.18em;
+}
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  background: var(--cards-tag-date-bg);
+  color: var(--cards-tag-date-color);
+  font-weight: 400;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Make tag row flex and center it horizontally using a flex container hack */
+.cards.cards24 .cards-card-body > p:first-of-type,
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  float: none;
+}
+.cards.cards24 .cards-card-body {
+  position: relative;
+}
+.cards.cards24 .cards-card-body > p:first-of-type {
+  display: inline-flex;
+}
+.cards.cards24 .cards-card-body > p:first-of-type + p {
+  display: inline-flex;
+}
+.cards.cards24 .cards-card-body > p:first-of-type,
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  position: relative;
+}
+.cards.cards24 .cards-card-body > p:first-of-type,
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  vertical-align: middle;
+}
+.cards.cards24 .cards-card-body > p:first-of-type,
+.cards.cards24 .cards-card-body > p:nth-of-type(2) {
+  /* Center tags by wrapping them inline-block and using text-align center */
+}
+.cards.cards24 .cards-card-body {
+  text-align: center;
+}
+
+/* Headline styling: left aligned, compact margin */
+.cards.cards24 .cards-card-body h3 {
+  margin: 0.38rem 0 0 0;
+  padding: 0;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 1.35rem;
+  color: #222;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.18;
+  word-break: break-word;
+  text-align: left;
+  align-self: stretch;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .cards.cards24 > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+  .cards.cards24 > ul > li {
+    min-width: 0;
+    max-width: 380px;
+  }
+}
+
+@media (max-width: 800px) {
+  .cards.cards24 > ul {
+    grid-template-columns: 1fr;
+    gap: 1.3rem;
+  }
+  .cards.cards24 > ul > li {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+/* Optional: hover effect for cards */
+.cards.cards24 > ul > li:hover {
+  box-shadow: 0 14px 40px rgba(0,0,0,0.15);
+  transition: box-shadow 0.2s;
 }
