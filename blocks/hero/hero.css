@@ -734,7 +734,6 @@
   overflow: hidden;
 }
 
-/* Make the image fill the block as the background */
 .hero.hero28 > div:first-child {
   position: absolute;
   inset: 0;
@@ -753,7 +752,6 @@
   display: block;
 }
 
-/* Overlay for text readability and image darkening */
 .hero.hero28 > div:first-child::after {
   position: absolute;
   inset: 0;
@@ -768,7 +766,6 @@
   content: "";
 }
 
-/* Center the text block perfectly over the image */
 .hero.hero28 > div:last-child {
   position: relative;
   z-index: 3;
@@ -782,7 +779,6 @@
   margin: 0;
 }
 
-/* Heading styles for best match to the image */
 .hero.hero28 h1 {
   color: #FFF;
   font-family: Syncopate, 'Syncopate Fallback', Arial, sans-serif;
@@ -799,7 +795,6 @@
   padding: 0;
 }
 
-/* Responsive height and heading scaling */
 @media (width <= 900px) {
   .hero.hero28 {
     min-height: 340px;
@@ -809,5 +804,151 @@
   .hero.hero28 h1 {
     font-size: clamp(1.4rem, 10vw, 2.8rem);
     max-width: 94vw;
+  }
+}
+
+
+.hero.hero35 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  padding: 72px 40px 64px;
+  min-height: 240px;
+  border-bottom: 1px solid #202020;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* First child: empty spacer column */
+.hero.hero35 > div:first-child {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+/* Second child: content column, horizontal layout for text block and button */
+.hero.hero35 > div:last-child {
+  flex: 2 1 0%;
+  min-width: 0;
+  display: flex;
+  align-items: center; /* vertical centering for text+button */
+  justify-content: flex-start;
+  height: 100%;
+}
+
+/* Layout correction: treat heading and subheading as a vertical stack (text block) and button as a separate flex item */
+.hero.hero35 > div:last-child > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 80px;
+}
+
+/* Use "display: inline-flex" on the heading to make it and its adjacent paragraph behave as a column */
+.hero.hero35 > div:last-child > div > h2 {
+  display: inline-flex;
+  flex-direction: column;
+  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #202020;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  margin-bottom: 0;
+  margin-top: 0;
+  white-space: normal;
+  max-width: 480px;
+}
+
+/* Move the subheading up so it sits under the heading and not as a separate column */
+.hero.hero35 > div:last-child > div > h2 + p:not(.button-container) {
+  margin-top: 14px;
+  margin-bottom: 0;
+  display: block;
+  font-family: 'Instrument Sans', 'Instrument Sans Fallback', sans-serif;
+  font-size: 1rem;
+  color: #757575;
+  max-width: 360px;
+  white-space: normal;
+}
+
+/* Heading styles */
+
+/* Button container: right side, centered vertically with text block */
+.hero.hero35 > div:last-child > div > .button-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 0;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+/* Button styles: wide, pill, outlined, subtle yellow shadow */
+.hero.hero35 .button-container .button {
+  min-width: 320px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-family: 'Instrument Sans', 'Instrument Sans Fallback', sans-serif;
+  text-align: center;
+  color: #202020;
+  background: #fff;
+  border: 1px solid #202020;
+  border-radius: 20px;
+  box-shadow: 0 2px 0 0 #d7d778;
+  text-decoration: none;
+  margin: 0;
+  font-weight: 500;
+  transition: box-shadow 0.2s;
+}
+
+/* Button hover effect */
+.hero.hero35 .button-container .button:hover,
+.hero.hero35 .button-container .button:focus {
+  box-shadow: 0 4px 0 0 #d7d778;
+  background: #fff;
+  color: #202020;
+}
+
+/* Remove any blue background from base styles */
+.hero.hero35 .button-container .button,
+.hero.hero35 .button-container .button.secondary {
+  background: #fff;
+  color: #202020;
+  border: 1px solid #202020;
+}
+
+/* Responsive stacking for smaller screens */
+@media (width <= 900px) {
+  .hero.hero35 {
+    flex-direction: column;
+    padding: 40px 16px 32px;
+    min-height: 0;
+  }
+
+  .hero.hero35 > div:first-child {
+    display: none;
+  }
+
+  .hero.hero35 > div:last-child {
+    flex: 1 1 0%;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hero.hero35 > div:last-child > div {
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .hero.hero35 > div:last-child > div > .button-container {
+    margin-left: 0;
+    margin-top: 16px;
   }
 }
