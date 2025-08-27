@@ -440,28 +440,8 @@
 }
 
 .columns.columns9 > div > div:last-child > h2:nth-of-type(1) {
-.columns.columns9 > div > div:last-child > ul:nth-of-type(1) {
-.columns.columns9 > div > div:last-child > h2:nth-of-type(2) {
-.columns.columns9 > div > div:last-child > ul:nth-of-type(2) {
-.columns.columns9 > div > div:last-child > h2:nth-of-type(3) {
-.columns.columns9 > div > div:last-child > ul:nth-of-type(3) {
   grid-column: 3;
   grid-row: 2;
-}
-
-  grid-row: 1;
-}
-
-  grid-row: 2;
-}
-
-  grid-row: 1;
-}
-
-  grid-row: 2;
-}
-
-  grid-row: 1;
 }
 .columns.columns9 > div > div:last-child > ul:nth-of-type(1) { grid-column: 1; grid-row: 2; }
 .columns.columns9 > div > div:last-child > h2:nth-of-type(2) { grid-column: 2; grid-row: 1; }
@@ -483,7 +463,19 @@
     grid-template-columns: 1fr;
     gap: 10px;
   }
-
+.columns.columns9 > div > div:last-child > ul:nth-of-type(1) {
+.columns.columns9 > div > div:last-child > h2:nth-of-type(2) {
+.columns.columns9 > div > div:last-child > ul:nth-of-type(2) {
+.columns.columns9 > div > div:last-child > h2:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 1;
+}
+  grid-row: 2;
+}
+  grid-row: 1;
+}
+  grid-row: 2;
+}
   .columns.columns9 > div > div:first-child {
     margin-right: 0;
     margin-bottom: 12px;
@@ -501,15 +493,12 @@
   gap: 0;
 }
 
-/* --- TOP ROW --- */
 .columns.columns11 > div:first-child {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 64px;
   margin-bottom: 48px;
-
-  /* keep bottom margin for visual balance between headline and images */
 }
 
 @media (width <= 900px) {
@@ -520,7 +509,6 @@
   }
 }
 
-/* Headline/label column (LEFT) */
 .columns.columns11 > div:first-child > div:first-child {
   flex: 1 1 0;
   display: flex;
@@ -547,23 +535,22 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0;
+.columns.columns11 > div:first-child > div:first-child > h1 {
+  font-family: var(--heading-font-family);
+  font-size: 4.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
   word-break: break-word;
 }
-
-@media (width <= 900px) {
-  .columns.columns11 > div:first-child > div:first-child > h1 {
-    font-size: 2.5rem;
-  }
-}
-
-/* Description/meta/button column (RIGHT) */
-.columns.columns11 > div:first-child > div:last-child {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-width: 0;
-  margin-top: 90px; /* This visually aligns the description with the first line of the headline */
+  margin-top: 90px;
   gap: 0;
 }
 
@@ -579,12 +566,10 @@
   }
 }
 
-/* Remove portrait image from right column */
 .columns.columns11 > div:first-child > div:last-child > p > picture {
   display: none;
 }
 
-/* --- Description --- */
 .columns.columns11 > div:first-child > div:last-child > p:first-child {
   color: #333;
   font-size: 1.04rem;
@@ -594,7 +579,6 @@
   font-family: var(--body-font-family);
 }
 
-/* --- Meta info as FLEX ROW --- */
 .columns.columns11 > div:first-child > div:last-child .columns11-meta-row,
 .columns.columns11 > div:first-child > div:last-child {
   display: flex;
@@ -611,7 +595,6 @@
   font-family: var(--body-font-family);
 }
 
-/* Target the meta info paragraphs (author, date, dot, duration) and group them horizontally */
 .columns.columns11 > div:first-child > div:last-child > p:nth-child(2),
 .columns.columns11 > div:first-child > div:last-child > p:nth-child(3),
 .columns.columns11 > div:first-child > div:last-child > p:nth-child(4),
@@ -630,7 +613,6 @@
   margin-right: 0;
 }
 
-/* --- Button tight below meta info --- */
 .columns.columns11 .button-container {
   margin-top: 8px;
   text-align: left;
@@ -658,7 +640,6 @@
   color: #222;
 }
 
-/* --- BOTTOM ROW: Side-by-side images --- */
 .columns.columns11 > div:last-child {
   gap: 32px;
   margin-bottom: 0;
@@ -683,7 +664,6 @@
   justify-content: center;
 }
 
-/* Image styling for both bottom images */
 .columns.columns11 .columns-img-col picture img {
   width: 100%;
   height: auto;
@@ -694,8 +674,117 @@
   display: block;
 }
 
-/* Remove extra space below flex containers */
 .columns.columns11 > div,
 .columns.columns11 > div > div {
   margin-bottom: 0;
 }
+
+
+.columns.columns14 {
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Flex row for two columns */
+.columns.columns14 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 7vw; /* slightly increased gap for the airy look in the reference */
+  align-items: flex-start;
+  width: 100%;
+  padding: 0;
+}
+
+/* Responsive: stack columns on small screens */
+@media (width <= 899px) {
+  .columns.columns14 > div {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+/* Both columns fill available space */
+.columns.columns14 > div > div {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Headline styling for left column */
+.columns.columns14 h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.08;
+  color: #000;
+  margin: 0 0 0.3em;
+  text-align: left;
+
+  /* Prevent headline from being vertically centered in its column: */
+  align-self: flex-start;
+}
+
+/* Right column: all content forced left-aligned */
+.columns.columns14 > div > div:last-child {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+/* Paragraphs in right column: slightly tighter and less spacing before button */
+.columns.columns14 > div > div:last-child p {
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #000;
+  margin: 0 0 0.8em;
+  text-align: left;
+  max-width: 390px;
+}
+
+/* Remove extra margin from button container (last p) */
+.columns.columns14 > div > div:last-child p.button-container {
+  margin-bottom: 0;
+  margin-top: 6px;
+}
+
+/* Button container: left-aligned and not full width */
+.columns.columns14 .button-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: auto;
+}
+
+/* Button: pill, thin black border, black text, no fill */
+.columns.columns14 .button {
+  background: transparent;
+  color: #000;
+  border: 1px solid #000;
+  border-radius: 999px;
+  padding: 7px 28px;
+  font-size: 14px;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
+  margin: 0;
+  box-shadow: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+/* Button hover: subtle color effect, underline */
+.columns.columns14 .button:hover,
+.columns.columns14 .button:focus {
+  border-color: #3b63fb;
+  color: #3b63fb;
+  background: transparent;
+  text-decoration: underline;
+}
+
+/* Remove any extra vertical margin from the block itself */
