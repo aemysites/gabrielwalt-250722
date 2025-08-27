@@ -1297,8 +1297,6 @@
   background: #fff;
   padding: 0;
 }
-
-/* Use grid for strict column containment to prevent overlap */
 .columns.columns30 > div {
   display: grid;
   grid-template-columns: minmax(370px, 1fr) minmax(340px, 1fr);
@@ -1309,22 +1307,16 @@
   padding: 72px 0 72px 24px;
   box-sizing: border-box;
 }
-
-/* Left column: stack name, pills, heading vertically */
 .columns.columns30 > div > div:nth-child(1),
 .columns.columns30 > div > div:nth-child(2) {
   width: 100%;
 }
-
-/* Name styling: tight margin below */
 .columns.columns30 > div > div:nth-child(1) p {
   font-size: var(--body-font-size-s);
   color: #7D7D7D;
   margin: 0 0 20px 0;
   padding: 0;
 }
-
-/* Pills styling and vertical stack */
 .columns.columns30 > div > div:nth-child(2) {
   display: flex;
   flex-direction: column;
@@ -1334,8 +1326,6 @@
   width: 100%;
   max-width: 370px;
 }
-
-/* Pills themselves */
 .columns.columns30 > div > div:nth-child(2) p {
   display: inline-block;
   background: #F0F0F0;
@@ -1350,8 +1340,6 @@
   line-height: 1.1;
   box-sizing: border-box;
 }
-
-/* Heading: large, blocky, properly contained */
 .columns.columns30 > div > div:nth-child(2) h2 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xxl);
@@ -1366,11 +1354,8 @@
   white-space: normal;
   word-break: break-word;
   overflow-wrap: break-word;
-  /* Prevent heading from overflowing column */
   overflow: hidden;
 }
-
-/* Paragraph column: top-aligned, tight to heading, never overlapping */
 .columns.columns30 > div > div:nth-child(3) {
   display: flex;
   flex-direction: column;
@@ -1381,8 +1366,6 @@
   margin-top: 0;
   padding-top: 0;
 }
-
-/* Paragraph text styling */
 .columns.columns30 > div > div:nth-child(3) p {
   font-size: var(--body-font-size-s);
   color: #383838;
@@ -1391,8 +1374,6 @@
   margin: 0 0 17px 0;
   padding: 0;
 }
-
-/* Responsive: stack vertically, adjust sizing/gaps */
 @media (max-width: 899px) {
   .columns.columns30 > div {
     display: flex;
@@ -1421,8 +1402,126 @@
     font-size: var(--body-font-size-xs);
   }
 }
-
-/* Ensure block background is white */
 .columns.columns30 {
   background: #fff;
+}
+
+
+.columns.columns31 {
+  background: #f8f9f7;
+  padding: 0;
+}
+
+/* Top-level columns flexbox row layout */
+.columns.columns31 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 28px; /* visually balanced horizontal spacing */
+  min-height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 16px; /* match left/right edge padding from the original */
+}
+
+/* Text columns: share available space equally, prevent squishing */
+.columns.columns31 > div > div:nth-child(1),
+.columns.columns31 > div > div:nth-child(2) {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Button column: only as wide as needed, flush right with a little margin */
+.columns.columns31 > div > div:nth-child(3) {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin-right: 8px; /* space between button and edge */
+}
+
+/* Paragraph styling: remove truncation, allow full text display on desktop */
+.columns.columns31 > div > div > p {
+  font-size: 12px;
+  color: #222;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.5;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+  padding: 0;
+}
+
+/* Button container: correctly aligns button at the end */
+.columns.columns31 .button-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+/* Button appearance: thin, oval, outlined, yellow accent */
+.columns.columns31 .button-container .button {
+  background: #f8f9f7;
+  color: #222;
+  border: 1px solid #222;
+  border-radius: 20px;
+  font-size: 12px;
+  line-height: 26px;
+  font-weight: 400;
+  padding: 4px 22px;
+  margin: 0;
+  position: relative;
+  box-shadow: none;
+  text-align: center;
+  text-decoration: none;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: visible;
+  vertical-align: top;
+}
+
+/* Button yellow underline accent */
+.columns.columns31 .button-container .button::after {
+  display: block;
+  width: 80%;
+  height: 1.5px;
+  background: #ffffb3;
+  border-radius: 1px;
+  position: absolute;
+  left: 10%;
+  bottom: 4px;
+  pointer-events: none;
+}
+
+/* Responsive: stack vertically on small screens, and allow text wrapping */
+@media (max-width: 700px) {
+  .columns.columns31 > div {
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 8px;
+  }
+  .columns.columns31 > div > div {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .columns.columns31 > div > div:nth-child(3),
+  .columns.columns31 .button-container {
+    justify-content: flex-start;
+    margin-right: 0;
+  }
+  .columns.columns31 .button-container .button {
+    margin-top: 8px;
+  }
+  .columns.columns31 > div > div > p {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+  }
 }
