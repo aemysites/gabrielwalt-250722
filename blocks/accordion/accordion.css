@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,127 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion13 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove default details/summary styling and interactive marker */
+.accordion.accordion13 details,
+.accordion.accordion13 details summary {
+  border: none;
+  margin: 0;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.accordion.accordion13 details summary::-webkit-details-marker,
+.accordion.accordion13 details summary::after {
+  display: none;
+}
+
+.accordion.accordion13 details summary {
+  cursor: default;
+  outline: none;
+  user-select: text;
+  width: 100%;
+  background: transparent;
+}
+
+/* Use flex for the row layout for better alignment and side-by-side columns */
+.accordion.accordion13 .accordion-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 19px 0 17px;
+  border-bottom: 1px solid #bababa;
+  margin: 0;
+  background: transparent;
+  min-height: 40px;
+}
+
+.accordion.accordion13 .accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Left column: question */
+.accordion.accordion13 .accordion-item-label {
+  flex: 0 1 47%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-right: 12px;
+  box-sizing: border-box;
+  min-width: 180px;
+}
+
+.accordion.accordion13 .accordion-item-label p {
+  font-family: Syncopate, 'Syncopate Fallback', Arial, sans-serif;
+  font-size: 20px;
+  color: #757575;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  margin: 0;
+  line-height: 1.1;
+  white-space: normal;
+}
+
+/* Right column: answer */
+.accordion.accordion13 .accordion-item-body {
+  flex: 0 1 53%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  min-width: 120px;
+}
+
+.accordion.accordion13 .accordion-item-body p {
+  font-family: var(--body-font-family);
+  font-size: 13px;
+  color: #222;
+  line-height: 1.4;
+  margin: 0;
+  white-space: normal;
+}
+
+/* Make sure answers are always visible (for open details) */
+.accordion.accordion13 details[open] .accordion-item-body,
+.accordion.accordion13 details .accordion-item-body {
+  display: flex;
+}
+
+/* Remove extra padding from details body/summary */
+.accordion.accordion13 details .accordion-item-body,
+.accordion.accordion13 details summary {
+  padding: 0;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 700px) {
+  .accordion.accordion13 .accordion-item {
+    flex-direction: column;
+    padding: 14px 0;
+    min-height: unset;
+  }
+
+  .accordion.accordion13 .accordion-item-label,
+  .accordion.accordion13 .accordion-item-body {
+    flex-basis: auto;
+    min-width: unset;
+    width: 100%;
+    padding: 0;
+  }
+
+  .accordion.accordion13 .accordion-item-label {
+    margin-bottom: 8px;
+    padding-right: 0;
+  }
 }
