@@ -558,7 +558,6 @@
   padding: 0;
 }
 
-/* Background image fills entire hero area */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
@@ -577,7 +576,6 @@
   display: block;
 }
 
-/* Vertically and horizontally center overlay content block */
 .hero.hero20 > div:last-child {
   position: relative;
   z-index: 2;
@@ -591,7 +589,6 @@
   pointer-events: auto;
 }
 
-/* Extra padding to improve vertical centering and open up top/bottom whitespace */
 .hero.hero20 > div:last-child > div {
   display: flex;
   flex-direction: column;
@@ -601,10 +598,9 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 3.5em 0 2.5em; /* More space above the headline, a little below buttons */
+  padding: 3.5em 0 2.5em;
 }
 
-/* Headline: reduce size, add bottom margin for more separation */
 .hero.hero20 h1 {
   font-family: Syncopate, 'Syncopate Fallback', sans-serif;
   font-size: clamp(2rem, 6vw, 4.7rem);
@@ -620,7 +616,6 @@
   max-width: 96vw;
 }
 
-/* Paragraph: more margin above and below, more overlay for contrast */
 .hero.hero20 > div:last-child > div > p:not(.button-container) {
   font-size: 1.15rem;
   color: #fff;
@@ -637,7 +632,6 @@
   display: inline-block;
 }
 
-/* Button stacking and spacing: add margin between buttons and below last */
 .hero.hero20 .button-container {
   display: flex;
   flex-direction: column;
@@ -653,7 +647,6 @@
   margin-bottom: 2.2em;
 }
 
-/* Button style: pill outline, spacing, hover */
 .hero.hero20 .button {
   box-sizing: border-box;
   display: inline-block;
@@ -680,7 +673,6 @@
   border-color: #fff;
 }
 
-/* Responsive: adjust headline/container/padding for small screens */
 @media (width <= 900px) {
   .hero.hero20 {
     height: auto;
@@ -722,9 +714,100 @@
   }
 }
 
-/* Boost text contrast for readability */
 .hero.hero20 h1,
 .hero.hero20 > div:last-child > div > p:not(.button-container),
 .hero.hero20 .button {
   text-shadow: 0 4px 32px rgb(0 0 0 / 36%);
+}
+
+
+.hero.hero28 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 630px;
+  height: 70vh;
+  max-height: 960px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Make the image fill the block as the background */
+.hero.hero28 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: block;
+}
+
+.hero.hero28 > div:first-child picture,
+.hero.hero28 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay for text readability and image darkening */
+.hero.hero28 > div:first-child::after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgb(0 0 0 / 24%) 0%,
+    rgb(0 0 0 / 30%) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+  content: "";
+}
+
+/* Center the text block perfectly over the image */
+.hero.hero28 > div:last-child {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+/* Heading styles for best match to the image */
+.hero.hero28 h1 {
+  color: #FFF;
+  font-family: Syncopate, 'Syncopate Fallback', Arial, sans-serif;
+  font-size: clamp(2.8rem, 7vw, 4.6rem);
+  font-weight: 300;
+  text-align: center;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  margin: 0;
+  text-shadow: 0 4px 32px rgb(0 0 0 / 40%);
+  max-width: 68vw;
+  background: none;
+  word-wrap: break-word;
+  padding: 0;
+}
+
+/* Responsive height and heading scaling */
+@media (width <= 900px) {
+  .hero.hero28 {
+    min-height: 340px;
+    height: 46vh;
+  }
+
+  .hero.hero28 h1 {
+    font-size: clamp(1.4rem, 10vw, 2.8rem);
+    max-width: 94vw;
+  }
 }
