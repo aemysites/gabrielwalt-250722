@@ -31,3 +31,136 @@
     order: unset;
   }
 }
+
+
+.columns.columns1 {
+  background: #F7F7F2;
+  padding-top: 4.5rem;
+  padding-bottom: 3.5rem;
+
+  /* Remove vertical centering to favor top alignment */
+  display: block;
+  min-height: unset;
+}
+
+/* Use flexbox for side-by-side columns, with tighter gap and compact width */
+.columns.columns1 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 900px) {
+  .columns.columns1 {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .columns.columns1 > div {
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 95vw;
+  }
+}
+
+.columns.columns1 .columns-img-col {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex: 0 0 400px;
+}
+
+/* Image: slightly smaller for better balance, maintain square, soft shadow */
+.columns.columns1 .columns-img-col img,
+.columns.columns1 .columns-img-col picture {
+  border-radius: 24px;
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  box-shadow: 0 6px 32px rgb(0 0 0 / 10%);
+  background: #fff;
+  display: block;
+  vertical-align: top;
+}
+
+@media (width <= 1200px) {
+  .columns.columns1 .columns-img-col img,
+  .columns.columns1 .columns-img-col picture {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+/* Text column: wider for less heading wrap, left-aligned */
+.columns.columns1 .columns-img-col + div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 410px;
+  max-width: 680px;
+  gap: 1.05rem;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Heading: less bottom margin to visually group lines */
+.columns.columns1 h1 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: 1px;
+  color: #191919;
+  margin-bottom: 0.7rem;
+  margin-top: 0;
+}
+
+/* Subtext: slightly smaller, muted, very little space below */
+.columns.columns1 .columns-img-col + div p:not(.button-container) {
+  font-size: 1rem;
+  color: #7d7d7d;
+  margin-bottom: 0.2rem;
+  margin-top: 0;
+  letter-spacing: 0.02em;
+  font-weight: 400;
+  max-width: 420px;
+}
+
+/* Buttons container: left-aligned, tight to subtext */
+.columns.columns1 .columns-img-col + div .button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Outlined button style, override base style */
+.columns.columns1 .columns-img-col + div .button-container .button {
+  background: #fff;
+  color: #191919;
+  border: 2px solid #191919;
+  border-radius: 2.4em;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  box-sizing: border-box;
+  margin-right: 0;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+.columns.columns1 .columns-img-col + div .button-container .button:hover,
+.columns.columns1 .columns-img-col + div .button-container .button:focus {
+  background: #191919;
+  color: #fff;
+  border-color: #191919;
+}
