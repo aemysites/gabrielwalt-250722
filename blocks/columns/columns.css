@@ -307,7 +307,6 @@
   font-family: var(--body-font-family);
 }
 
-/* Main columns row */
 .columns.columns9 > div {
   display: flex;
   flex-direction: row;
@@ -318,7 +317,6 @@
   min-height: 80px;
 }
 
-/* LEFT COLUMN: branding/socials */
 .columns.columns9 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -326,21 +324,19 @@
   min-width: 200px;
   max-width: 220px;
   flex-shrink: 0;
-  margin-right: 4px; /* very tight gap to nav columns */
+  margin-right: 4px;
   margin-top: 0;
   padding-top: 0;
 }
 
-/* Logo + title row */
 .columns.columns9 > div > div:first-child > p:first-child {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 0 2px; /* minimal gap below title */
+  margin: 0 0 2px;
   padding: 0;
 }
 
-/* "Fashion Blog" branding font sizing */
 .columns.columns9 > div > div:first-child .button {
   all: unset;
   display: block;
@@ -356,7 +352,6 @@
   cursor: pointer;
 }
 
-/* Social icons row: horizontal, no text-only links */
 .columns.columns9 > div > div:first-child > ul {
   display: flex;
   flex-direction: row;
@@ -372,12 +367,10 @@
   padding: 0;
 }
 
-/* Hide text-only links (show only icons) */
 .columns.columns9 > div > div:first-child > ul > li > a:not(:has(picture)) {
   display: none;
 }
 
-/* Social icon images: force to white, uniform size */
 .columns.columns9 > div > div:first-child > ul > li > a picture img {
   filter: brightness(0) invert(1);
   width: 15px;
@@ -386,7 +379,6 @@
   vertical-align: middle;
 }
 
-/* RIGHT COLUMN: nav menus */
 .columns.columns9 > div > div:last-child {
   display: grid;
   grid-template-columns: repeat(3, minmax(108px, 1fr));
@@ -396,7 +388,6 @@
   align-self: flex-start;
 }
 
-/* Remove unwanted margin above/below nav h2/ul */
 .columns.columns9 > div > div:last-child > h2,
 .columns.columns9 > div > div:last-child > ul {
   margin-top: 0;
@@ -404,7 +395,6 @@
   padding: 0;
 }
 
-/* Small all-caps headings */
 .columns.columns9 > div > div:last-child > h2 {
   color: #666;
   text-transform: uppercase;
@@ -416,14 +406,12 @@
   line-height: 1.3;
 }
 
-/* Remove extra margin above/below nav ul */
 .columns.columns9 > div > div:last-child > ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Nav links: white, no underline, tight vertical */
 .columns.columns9 > div > div:last-child > ul > li {
   margin: 0 0 5px;
   padding: 0;
@@ -451,7 +439,6 @@
   text-decoration: underline;
 }
 
-/* Pair h2 and ul into grid columns */
 .columns.columns9 > div > div:last-child > h2:nth-of-type(1) {
 .columns.columns9 > div > div:last-child > ul:nth-of-type(1) {
 .columns.columns9 > div > div:last-child > h2:nth-of-type(2) {
@@ -461,14 +448,19 @@
   grid-column: 3;
   grid-row: 2;
 }
+
   grid-row: 1;
 }
+
   grid-row: 2;
 }
+
   grid-row: 1;
 }
+
   grid-row: 2;
 }
+
   grid-row: 1;
 }
 .columns.columns9 > div > div:last-child > ul:nth-of-type(1) { grid-column: 1; grid-row: 2; }
@@ -477,7 +469,6 @@
 .columns.columns9 > div > div:last-child > h2:nth-of-type(3) { grid-column: 3; grid-row: 1; }
 .columns.columns9 > div > div:last-child > ul:nth-of-type(3) { grid-column: 3; grid-row: 2; }
 
-/* Responsive: stack columns below 900px */
 @media (width <= 900px) {
   .columns.columns9 {
     padding: 10px 0 4px;
@@ -497,4 +488,214 @@
     margin-right: 0;
     margin-bottom: 12px;
   }
+}
+
+
+.columns.columns11 {
+  background: #fff;
+  padding: 64px 7vw 48px;
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* --- TOP ROW --- */
+.columns.columns11 > div:first-child {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 64px;
+  margin-bottom: 48px;
+
+  /* keep bottom margin for visual balance between headline and images */
+}
+
+@media (width <= 900px) {
+  .columns.columns11 > div:first-child {
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Headline/label column (LEFT) */
+.columns.columns11 > div:first-child > div:first-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  gap: 18px;
+}
+
+.columns.columns11 > div:first-child > div:first-child > p {
+  color: #A9A9A9;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  letter-spacing: 0.12em;
+  margin: 0 0 8px;
+}
+
+.columns.columns11 > div:first-child > div:first-child > h1 {
+  font-family: var(--heading-font-family);
+  font-size: 4.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  word-break: break-word;
+}
+
+@media (width <= 900px) {
+  .columns.columns11 > div:first-child > div:first-child > h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Description/meta/button column (RIGHT) */
+.columns.columns11 > div:first-child > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-width: 0;
+  margin-top: 90px; /* This visually aligns the description with the first line of the headline */
+  gap: 0;
+}
+
+@media (width <= 1200px) {
+  .columns.columns11 > div:first-child > div:last-child {
+    margin-top: 70px;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns11 > div:first-child > div:last-child {
+    margin-top: 0;
+  }
+}
+
+/* Remove portrait image from right column */
+.columns.columns11 > div:first-child > div:last-child > p > picture {
+  display: none;
+}
+
+/* --- Description --- */
+.columns.columns11 > div:first-child > div:last-child > p:first-child {
+  color: #333;
+  font-size: 1.04rem;
+  line-height: 1.6;
+  margin: 0 0 14px;
+  max-width: 520px;
+  font-family: var(--body-font-family);
+}
+
+/* --- Meta info as FLEX ROW --- */
+.columns.columns11 > div:first-child > div:last-child .columns11-meta-row,
+.columns.columns11 > div:first-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns.columns11 > div:first-child > div:last-child .columns11-meta-row {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 12px;
+  font-size: 0.99rem;
+  color: #575757;
+  font-family: var(--body-font-family);
+}
+
+/* Target the meta info paragraphs (author, date, dot, duration) and group them horizontally */
+.columns.columns11 > div:first-child > div:last-child > p:nth-child(2),
+.columns.columns11 > div:first-child > div:last-child > p:nth-child(3),
+.columns.columns11 > div:first-child > div:last-child > p:nth-child(4),
+.columns.columns11 > div:first-child > div:last-child > p:nth-child(5),
+.columns.columns11 > div:first-child > div:last-child > p:nth-child(6) {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  font-size: 0.99rem;
+  color: #575757;
+  padding: 0;
+  line-height: 1.25;
+  vertical-align: middle;
+}
+
+.columns.columns11 > div:first-child > div:last-child > p:nth-child(6) {
+  margin-right: 0;
+}
+
+/* --- Button tight below meta info --- */
+.columns.columns11 .button-container {
+  margin-top: 8px;
+  text-align: left;
+}
+
+.columns.columns11 .button {
+  border: 1.5px solid #000;
+  background: #fff;
+  color: #000;
+  border-radius: 999px;
+  box-shadow: none;
+  font-size: 1rem;
+  font-family: var(--body-font-family);
+  font-weight: 500;
+  padding: 10px 32px;
+  margin-top: 0;
+  margin-bottom: 0;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.columns.columns11 .button:hover,
+.columns.columns11 .button:focus {
+  background: #f5f5f5;
+  border-color: #222;
+  color: #222;
+}
+
+/* --- BOTTOM ROW: Side-by-side images --- */
+.columns.columns11 > div:last-child {
+  gap: 32px;
+  margin-bottom: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+@media (width <= 900px) {
+  .columns.columns11 > div:last-child {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+.columns.columns11 > div:last-child > .columns-img-col {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+}
+
+/* Image styling for both bottom images */
+.columns.columns11 .columns-img-col picture img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 2px 8px rgb(30 30 30 / 8%);
+  display: block;
+}
+
+/* Remove extra space below flex containers */
+.columns.columns11 > div,
+.columns.columns11 > div > div {
+  margin-bottom: 0;
 }
