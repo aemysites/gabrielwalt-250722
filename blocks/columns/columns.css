@@ -277,12 +277,10 @@
   padding: 0;
 }
 
-/* Hide all image columns to match the text-only block */
 .columns.columns4 .columns-img-col {
   display: none;
 }
 
-/* Style direct text elements for the banner look */
 .columns.columns4 p,
 .columns.columns4 span,
 .columns.columns4 h2,
@@ -297,4 +295,206 @@
   padding: 0;
   font-weight: 400;
   letter-spacing: normal;
+}
+
+
+.columns.columns9 {
+  background: #000;
+  color: #fff;
+  padding: 0;
+  position: relative;
+  border-bottom: 1px solid #fff;
+  font-family: var(--body-font-family);
+}
+
+/* Main columns row */
+.columns.columns9 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  min-height: 80px;
+}
+
+/* LEFT COLUMN: branding/socials */
+.columns.columns9 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 200px;
+  max-width: 220px;
+  flex-shrink: 0;
+  margin-right: 4px; /* very tight gap to nav columns */
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Logo + title row */
+.columns.columns9 > div > div:first-child > p:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 2px; /* minimal gap below title */
+  padding: 0;
+}
+
+/* "Fashion Blog" branding font sizing */
+.columns.columns9 > div > div:first-child .button {
+  all: unset;
+  display: block;
+  font-family: var(--body-font-family);
+  font-size: 1.38rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Social icons row: horizontal, no text-only links */
+.columns.columns9 > div > div:first-child > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.columns.columns9 > div > div:first-child > ul > li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide text-only links (show only icons) */
+.columns.columns9 > div > div:first-child > ul > li > a:not(:has(picture)) {
+  display: none;
+}
+
+/* Social icon images: force to white, uniform size */
+.columns.columns9 > div > div:first-child > ul > li > a picture img {
+  filter: brightness(0) invert(1);
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* RIGHT COLUMN: nav menus */
+.columns.columns9 > div > div:last-child {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(108px, 1fr));
+  gap: 6px;
+  width: 100%;
+  min-width: 0;
+  align-self: flex-start;
+}
+
+/* Remove unwanted margin above/below nav h2/ul */
+.columns.columns9 > div > div:last-child > h2,
+.columns.columns9 > div > div:last-child > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+/* Small all-caps headings */
+.columns.columns9 > div > div:last-child > h2 {
+  color: #666;
+  text-transform: uppercase;
+  font-family: var(--body-font-family);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  margin-bottom: 13px;
+  line-height: 1.3;
+}
+
+/* Remove extra margin above/below nav ul */
+.columns.columns9 > div > div:last-child > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Nav links: white, no underline, tight vertical */
+.columns.columns9 > div > div:last-child > ul > li {
+  margin: 0 0 5px;
+  padding: 0;
+}
+
+.columns.columns9 > div > div:last-child > ul > li:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns9 > div > div:last-child > ul > li > a {
+  color: #fff;
+  font-size: 0.98rem;
+  font-weight: 400;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+  display: inline-block;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.columns.columns9 > div > div:last-child > ul > li > a:hover,
+.columns.columns9 > div > div:last-child > ul > li > a:focus {
+  color: #aaa;
+  text-decoration: underline;
+}
+
+/* Pair h2 and ul into grid columns */
+.columns.columns9 > div > div:last-child > h2:nth-of-type(1) {
+.columns.columns9 > div > div:last-child > ul:nth-of-type(1) {
+.columns.columns9 > div > div:last-child > h2:nth-of-type(2) {
+.columns.columns9 > div > div:last-child > ul:nth-of-type(2) {
+.columns.columns9 > div > div:last-child > h2:nth-of-type(3) {
+.columns.columns9 > div > div:last-child > ul:nth-of-type(3) {
+  grid-column: 3;
+  grid-row: 2;
+}
+  grid-row: 1;
+}
+  grid-row: 2;
+}
+  grid-row: 1;
+}
+  grid-row: 2;
+}
+  grid-row: 1;
+}
+.columns.columns9 > div > div:last-child > ul:nth-of-type(1) { grid-column: 1; grid-row: 2; }
+.columns.columns9 > div > div:last-child > h2:nth-of-type(2) { grid-column: 2; grid-row: 1; }
+.columns.columns9 > div > div:last-child > ul:nth-of-type(2) { grid-column: 2; grid-row: 2; }
+.columns.columns9 > div > div:last-child > h2:nth-of-type(3) { grid-column: 3; grid-row: 1; }
+.columns.columns9 > div > div:last-child > ul:nth-of-type(3) { grid-column: 3; grid-row: 2; }
+
+/* Responsive: stack columns below 900px */
+@media (width <= 900px) {
+  .columns.columns9 {
+    padding: 10px 0 4px;
+  }
+
+  .columns.columns9 > div {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .columns.columns9 > div > div:last-child {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .columns.columns9 > div > div:first-child {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
 }
