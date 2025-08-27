@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -687,34 +686,26 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-
-/* Flex row for two columns */
 .columns.columns14 > div {
   display: flex;
   flex-direction: row;
-  gap: 7vw; /* slightly increased gap for the airy look in the reference */
+  gap: 7vw;
   align-items: flex-start;
   width: 100%;
   padding: 0;
 }
-
-/* Responsive: stack columns on small screens */
 @media (width <= 899px) {
   .columns.columns14 > div {
     flex-direction: column;
     gap: 32px;
   }
 }
-
-/* Both columns fill available space */
 .columns.columns14 > div > div {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-
-/* Headline styling for left column */
 .columns.columns14 h2 {
   font-family: var(--heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -724,19 +715,13 @@
   color: #000;
   margin: 0 0 0.3em;
   text-align: left;
-
-  /* Prevent headline from being vertically centered in its column: */
   align-self: flex-start;
 }
-
-/* Right column: all content forced left-aligned */
 .columns.columns14 > div > div:last-child {
   align-items: flex-start;
   justify-content: flex-start;
   text-align: left;
 }
-
-/* Paragraphs in right column: slightly tighter and less spacing before button */
 .columns.columns14 > div > div:last-child p {
   font-family: var(--body-font-family);
   font-size: 14px;
@@ -746,22 +731,16 @@
   text-align: left;
   max-width: 390px;
 }
-
-/* Remove extra margin from button container (last p) */
 .columns.columns14 > div > div:last-child p.button-container {
   margin-bottom: 0;
   margin-top: 6px;
 }
-
-/* Button container: left-aligned and not full width */
 .columns.columns14 .button-container {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   width: auto;
 }
-
-/* Button: pill, thin black border, black text, no fill */
 .columns.columns14 .button {
   background: transparent;
   color: #000;
@@ -777,8 +756,6 @@
   box-shadow: none;
   transition: border-color 0.2s, color 0.2s;
 }
-
-/* Button hover: subtle color effect, underline */
 .columns.columns14 .button:hover,
 .columns.columns14 .button:focus {
   border-color: #3b63fb;
@@ -787,4 +764,115 @@
   text-decoration: underline;
 }
 
-/* Remove any extra vertical margin from the block itself */
+
+.columns.columns15 {
+  background: #f6f6f3;
+  padding: 64px 0;
+}
+
+/* Use grid for main layout: two columns, two rows.
+   Align items center so heading & image are truly paired vertically.
+*/
+.columns.columns15 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0 48px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center; /* <-- THIS centers items in each grid row */
+}
+
+/* Responsive: stack all on small screens */
+@media (max-width: 900px) {
+  .columns.columns15 > div {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 16px;
+    align-items: stretch;
+  }
+}
+
+/* Heading: first row, first column — ensure vertical centering */
+.columns.columns15 h1 {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  align-self: center;
+  font-family: 'Syncopate', 'Syncopate Fallback', 'sans-serif';
+  font-size: 72px;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin: 0 0 32px 0;
+}
+
+/* Image: first row, second column — ensure vertical centering */
+.columns.columns15 .columns-img-col {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  flex: 1 1 0;
+  margin: 0;
+  align-self: center;
+}
+
+.columns.columns15 .columns-img-col picture,
+.columns.columns15 .columns-img-col img {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 4px 32px rgba(34,34,34,0.08), 0 1.5px 8px rgba(34,34,34,0.06);
+  width: 420px;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .columns.columns15 .columns-img-col picture,
+  .columns.columns15 .columns-img-col img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 18px;
+  }
+}
+
+/* Supporting text: second row, first column */
+.columns.columns15 > div > div:first-child > p:not(.button-container) {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  font-size: 16px;
+  color: #5a5a5a;
+  font-family: "Instrument Sans", "Instrument Sans Fallback", "sans-serif";
+  font-weight: 400;
+  margin: 0 0 32px 0;
+}
+
+/* Button container: second row, first column */
+.columns.columns15 .button-container {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  margin: 0;
+}
+
+/* Button style override */
+.columns.columns15 .button-container .button {
+  background: #fff;
+  color: #222;
+  border: 2px solid #222;
+  border-radius: 32px;
+  font-size: 16px;
+  font-family: "Instrument Sans", "Instrument Sans Fallback", "sans-serif";
+  font-weight: 500;
+  box-shadow: none;
+  padding: 12px 32px;
+  margin-right: 0;
+  margin-bottom: 0;
+  transition: background 0.2s, color 0.2s;
+  display: inline-block;
+  line-height: 1.25;
+}
