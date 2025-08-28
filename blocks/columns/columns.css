@@ -130,71 +130,12 @@
 }
 
 
-.columns.columns38 > div {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 32px;
-  background: #fff;
-  padding: 0;
-}
-
-.columns.columns38 .columns-img-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.columns.columns38 .columns-img-col:nth-child(1),
-.columns.columns38 .columns-img-col:nth-child(3) {
-  width: 224px;
-  flex: 0 0 224px;
-}
-
-.columns.columns38 .columns-img-col:nth-child(2) {
-  width: 312px;
-  flex: 0 0 312px;
-}
-
-.columns.columns38 .columns-img-col img {
-  border-radius: 24px;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  box-shadow: none;
-  margin: 0;
-}
-
-@media (width <= 900px) {
-  .columns.columns38 > div {
-    flex-direction: column;
-    gap: 24px;
-    padding: 0;
-  }
-
-  .columns.columns38 .columns-img-col {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-    flex: 0 0 auto;
-  }
-}
-
-
 .columns.columns1 {
   background: #F6F6F2;
   padding: 0;
 }
 
 .columns.columns1 > div {
-.columns.columns38 > div {
-    flex-direction: column;
-    gap: 24px;
-    padding: 0;
-  }
-
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
@@ -2029,7 +1970,6 @@
   box-sizing: border-box;
 }
 
-/* Top-level flex row, strictly top-aligned */
 .columns.columns36 > .columns {
   display: flex;
   flex-direction: row;
@@ -2049,7 +1989,6 @@
   }
 }
 
-/* Text column: a bit wider for more balanced proportions */
 .columns.columns36 > .columns > div:first-child {
   flex: 0 1 37%;
   max-width: 412px;
@@ -2072,7 +2011,6 @@
   }
 }
 
-/* Headline: tight vertical space */
 .columns.columns36 h1 {
   font-family: var(--heading-font-family);
   font-size: 4.45rem;
@@ -2092,7 +2030,6 @@
   }
 }
 
-/* Paragraph: slightly wider to reduce vertical wrapping */
 .columns.columns36 > .columns > div:first-child p:not(.button-container) {
   font-size: 1.09rem;
   color: #555;
@@ -2109,7 +2046,6 @@
   }
 }
 
-/* Button container: tighter vertical spacing */
 .columns.columns36 .button-container {
   display: flex;
   gap: 14px;
@@ -2118,7 +2054,6 @@
   margin-bottom: 0;
 }
 
-/* Outlined button style */
 .columns.columns36 .button-container .button {
   border-radius: 36px;
   padding: 12px 28px;
@@ -2141,16 +2076,14 @@
   border-color: #232323;
 }
 
-/* Images column: slightly more overlap and more width */
 .columns.columns36 .columns-img-col {
   flex: 1 1 0;
   display: flex;
   align-items: flex-start;
-  margin-left: -32px; /* Slightly increase overlap */
+  margin-left: -32px;
   padding-top: 0;
 }
 
-/* Images row: tight gap, top-aligned */
 .columns.columns36 .columns-img-col > p {
   display: flex;
   flex-direction: row;
@@ -2160,7 +2093,6 @@
   padding: 0;
 }
 
-/* Image aspect: a bit wider, keep same height */
 .columns.columns36 .columns-img-col picture {
   display: flex;
   align-items: flex-start;
@@ -2200,5 +2132,66 @@
     max-width: 120px;
     height: 180px;
     border-radius: 14px;
+  }
+}
+
+
+.columns.columns38 > div > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: transparent;
+}
+
+.columns.columns38 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns38 .columns-img-col:nth-child(1),
+.columns.columns38 .columns-img-col:nth-child(3) {
+  flex: 0 0 180px;
+  max-width: 180px;
+}
+
+.columns.columns38 .columns-img-col:nth-child(2) {
+  flex: 0 0 340px;
+  max-width: 340px;
+}
+
+.columns.columns38 .columns-img-col img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 24px;
+  object-fit: cover;
+  background: #fff;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* Responsive: stack vertically and allow max width for images */
+@media (width <= 900px) {
+  .columns.columns38 > div > div {
+    flex-direction: column;
+    gap: 24px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .columns.columns38 .columns-img-col,
+  .columns.columns38 .columns-img-col:nth-child(2) {
+    flex: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
   }
 }
