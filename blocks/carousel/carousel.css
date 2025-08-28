@@ -153,122 +153,6 @@
 }
 
 
-.carousel.carousel21 {
-  perspective: 1200px;
-  background: #fcfcf7;
-  padding: 48px 0 56px;
-  position: relative;
-  overflow: visible;
-}
-
-.carousel.carousel21 .carousel-slides-container {
-  position: relative;
-  width: 94vw;
-  max-width: 990px;
-  margin: 0 auto;
-  min-height: 520px;
-  z-index: 1;
-}
-
-.carousel.carousel21 .carousel-slides::before,
-.carousel.carousel21 .carousel-slides::after {
-  content: "";
-  display: block;
-  position: absolute;
-  inset: 54px 56px 52px 34px;
-  border: 1px solid #353535;
-  border-radius: 19px;
-  background: #fff;
-  z-index: 1;
-  box-shadow: 0 10px 32px 0 rgb(0 0 0 / 6%);
-  pointer-events: none;
-}
-
-.carousel.carousel21 .carousel-slides::before {
-  transform: rotate(13deg) scale(0.97);
-  inset: 90px 72px 72px 68px;
-  border-radius: 15px;
-  box-shadow: 0 16px 38px 0 rgb(0 0 0 / 8%);
-}
-
-.carousel.carousel21 .carousel-slides::after {
-  transform: rotate(-8deg) scale(0.95);
-  inset: 8px 32px 36px 0;
-  border-radius: 22px;
-  box-shadow: 0 7px 26px 0 rgb(0 0 0 / 6%);
-}
-
-.carousel.carousel21 .carousel-slides-container::after {
-  content: "";
-  display: block;
-  position: absolute;
-  inset: 164px 180px 110px 80px;
-  border: 1.2px solid #222;
-  border-radius: 14px;
-  background: #fff;
-  z-index: 0;
-  box-shadow: 0 8px 28px 0 rgb(0 0 0 / 7%);
-  transform: rotate(-18deg) scale(0.93);
-  pointer-events: none;
-}
-
-.carousel.carousel21 .carousel-slide {
-  position: relative;
-  z-index: 4;
-  background: #fff;
-  border: 1.2px solid #282828;
-  border-radius: 22px;
-  box-shadow: 0 10px 44px 0 rgb(0 0 0 / 13%);
-  overflow: hidden;
-  min-height: 480px;
-  margin: 0 16px;
-  transform: rotate(-3deg) scale(1.01);
-  max-width: 96%;
-}
-
-.carousel.carousel21 .carousel-slide .carousel-slide-image picture,
-.carousel.carousel21 .carousel-slide .carousel-slide-image img {
-  border-radius: 16px;
-  border: none;
-  box-shadow: none;
-}
-
-.carousel.carousel21 .carousel-slide .carousel-slide-content {
-  display: none;
-}
-
-@media (width <= 700px) {
-  .carousel.carousel21 .carousel-slides-container {
-    min-height: 180px;
-    width: 98vw;
-    max-width: 99vw;
-    padding: 0 1vw;
-  }
-
-  .carousel.carousel21 .carousel-slide {
-    min-height: 120px;
-    margin-left: 2vw;
-    margin-right: 2vw;
-    border-radius: 11px;
-  }
-
-  .carousel.carousel21 .carousel-slides::before,
-  .carousel.carousel21 .carousel-slides::after {
-    border-radius: 11px;
-    inset: 12px 8px 8px;
-  }
-
-  .carousel.carousel21 .carousel-slides::before {
-    inset: 26px 16px 12px 18px;
-  }
-
-  .carousel.carousel21 .carousel-slides-container::after {
-    inset: 56px 44px 45px 24px;
-    border-radius: 8px;
-  }
-}
-
-
 .carousel.carousel16 .carousel-slides {
   display: flex;
   flex-direction: row;
@@ -281,7 +165,6 @@
   min-height: 180px;
 }
 
-/* Slides should only size to their image */
 .carousel.carousel16 .carousel-slide {
   background: none;
   box-shadow: none;
@@ -299,7 +182,6 @@
   transition: none;
 }
 
-/* Remove any default min-height or placeholder sizing from slide-image */
 .carousel.carousel16 .carousel-slide .carousel-slide-image {
   width: 100%;
   height: 150px;
@@ -309,7 +191,6 @@
   justify-content: center;
 }
 
-/* Apply tilt directly to images and make sure all images are visible and full-size */
 .carousel.carousel16 .carousel-slide:nth-child(1) .carousel-slide-image picture img {
   transform: rotate(-8deg) scale(1.03);
 }
@@ -334,7 +215,6 @@
   transform: rotate(5deg) scale(1.03);
 }
 
-/* Ensure images are always visible and fill slide area */
 .carousel.carousel16 .carousel-slide .carousel-slide-image picture {
   width: 100%;
   height: 100%;
@@ -353,11 +233,66 @@
   transition: transform 0.3s;
 }
 
-/* Hide navigation and indicators */
 .carousel.carousel16 .carousel-navigation-buttons {
   display: none;
 }
 
 .carousel.carousel16 .carousel-slide-indicators {
+  display: none;
+}
+
+
+.carousel.carousel21 .carousel-slides-container {
+  position: relative;
+  background: transparent;
+}
+
+/* Simulate layered polaroid cards using pseudo-elements */
+.carousel.carousel21 .carousel-slides-container::before,
+.carousel.carousel21 .carousel-slides-container::after {
+  position: absolute;
+  display: block;
+  z-index: 0;
+  border-radius: 18px;
+  border: 2px solid #222;
+  background: #fff;
+  box-shadow: 0 8px 28px 0 rgb(0 0 0 / 13%);
+  pointer-events: none;
+  content: "";
+}
+
+.carousel.carousel21 .carousel-slides-container::before {
+  width: 88%;
+  height: 84%;
+  top: 6%;
+  left: 2%;
+  transform: rotate(-7deg);
+  opacity: 1;
+}
+
+.carousel.carousel21 .carousel-slides-container::after {
+  width: 93%;
+  height: 90%;
+  top: 10%;
+  left: 5%;
+  transform: rotate(9deg);
+  opacity: 0.95;
+}
+
+/* Make the main slide pop above the pseudo-card layers */
+.carousel.carousel21 .carousel-slide {
+  position: relative;
+  z-index: 2;
+  border: 2.5px solid #222;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 44px 0 rgb(0 0 0 / 15%);
+  margin: 0 3vw;
+  overflow: hidden;
+  transform: rotate(-3deg) scale(1.01);
+}
+
+/* Remove text overlay styling for a cleaner card look */
+.carousel.carousel21 .carousel-slide .carousel-slide-content {
   display: none;
 }
