@@ -1860,41 +1860,17 @@
               "differences": [
                 {
                   "change_type": "equal",
-                  "text": "Tennis whites, city nights Alex serves up style on the court "
+                  "text": "Tennis whites, city nights Alex serves up style on the court"
                 },
                 {
                   "change_type": "deletion",
-                  "text": "Beach days, bold ways Taylor rocks neon at sunset Party looks that pop Morgan lights up the dance floor Street style, all smiles Jordan keeps it cool downtown Chill vibes, fresh kicks Riley\u2019s sneaker game is strong "
-                },
-                {
-                  "change_type": "equal",
-                  "text": "Layer up, stand out Casey mixes prints for fall "
-                },
-                {
-                  "change_type": "deletion",
-                  "text": "Denim dreams Skylar\u2019s go-to for every day Sporty chic, always unique Peyton\u2019s look is all about comfort Retro remix Drew brings back the classics Color splash Quinn\u2019s outfit is pure fun "
-                },
-                {
-                  "change_type": "equal",
-                  "text": "Night out, lights on Harper\u2019s sequins steal the show "
-                },
-                {
-                  "change_type": "deletion",
-                  "text": "Easy layers, big energy Jamie\u2019s look is effortless cool Fresh brands, fearless moves Avery\u2019s style is all action Weekend wanderer Reese explores in style Bold basics Dakota keeps it simple, sharp "
-                },
-                {
-                  "change_type": "equal",
-                  "text": "Poolside cool Emerson\u2019s shades are on point"
-                },
-                {
-                  "change_type": "deletion",
-                  "text": " Game, set, match Finley\u2019s tennis look wins Glow up after dark Sage\u2019s party fit shines bright Fresh faces, fresh fits Rowan\u2019s look is all smiles Everyday icons Blake\u2019s style is always trending"
+                  "text": " Beach days, bold ways Taylor rocks neon at sunset Party looks that pop Morgan lights up the dance floor Street style, all smiles Jordan keeps it cool downtown Chill vibes, fresh kicks Riley\u2019s sneaker game is strong Layer up, stand out Casey mixes prints for fall Denim dreams Skylar\u2019s go-to for every day Sporty chic, always unique Peyton\u2019s look is all about comfort Retro remix Drew brings back the classics Color splash Quinn\u2019s outfit is pure fun Night out, lights on Harper\u2019s sequins steal the show Easy layers, big energy Jamie\u2019s look is effortless cool Fresh brands, fearless moves Avery\u2019s style is all action Weekend wanderer Reese explores in style Bold basics Dakota keeps it simple, sharp Poolside cool Emerson\u2019s shades are on point Game, set, match Finley\u2019s tennis look wins Glow up after dark Sage\u2019s party fit shines bright Fresh faces, fresh fits Rowan\u2019s look is all smiles Everyday icons Blake\u2019s style is always trending"
                 }
               ],
-              "dissimilarity_score": 0.59
+              "dissimilarity_score": 0.7
             }
           ],
-          "similarity_score": 0.41000000000000003
+          "similarity_score": 0.30000000000000004
         }
       ]
     },
@@ -2017,23 +1993,7 @@
               "differences": [
                 {
                   "change_type": "equal",
-                  "text": "Style that speaks volumes"
-                },
-                {
-                  "change_type": "insertion",
-                  "text": " Taylor Brooks Fashion Enthusiast"
-                },
-                {
-                  "change_type": "equal",
-                  "text": " \u201cI love how every trend here feels fresh, fun, and totally wearable. From tennis courts to late-night parties, these looks always keep me inspired and ready to try something new"
-                },
-                {
-                  "change_type": "deletion",
-                  "text": ".\u201d Taylor Brooks Fashion Enthusiast"
-                },
-                {
-                  "change_type": "insertion",
-                  "text": ".\u201d"
+                  "text": "Style that speaks volumes \u201cI love how every trend here feels fresh, fun, and totally wearable. From tennis courts to late-night parties, these looks always keep me inspired and ready to try something new.\u201d Taylor Brooks Fashion Enthusiast"
                 }
               ],
               "dissimilarity_score": 0.0
@@ -2668,39 +2628,23 @@
         },
         {
           "change_type": "equal",
-          "text": "Night out, lights on Harper\u2019s sequins steal the show "
+          "text": "Night out, lights on Harper\u2019s sequins steal the show"
         },
         {
           "change_type": "deletion",
-          "text": "Easy layers, big energy Jamie\u2019s look is effortless cool Fresh brands, fearless moves Avery\u2019s style is all action Weekend wanderer Reese explores in style Bold basics Dakota keeps it simple, sharp "
+          "text": " Easy layers, big energy Jamie\u2019s look is effortless cool Fresh brands, fearless moves Avery\u2019s style is all action Weekend wanderer Reese explores in style Bold basics Dakota keeps it simple, sharp"
         },
         {
           "change_type": "equal",
-          "text": "Poolside cool Emerson\u2019s shades are on point "
+          "text": " Poolside cool Emerson\u2019s shades are on point"
         },
         {
           "change_type": "deletion",
-          "text": "Game, set, match Finley\u2019s tennis look wins Glow up after dark Sage\u2019s party fit shines bright Fresh faces, fresh fits Rowan\u2019s look is all smiles Everyday icons Blake\u2019s style is always trending "
+          "text": " Game, set, match Finley\u2019s tennis look wins Glow up after dark Sage\u2019s party fit shines bright Fresh faces, fresh fits Rowan\u2019s look is all smiles Everyday icons Blake\u2019s style is always trending"
         },
         {
           "change_type": "equal",
-          "text": "Style in every snapshot Fresh looks, bold moves, real moments. Tennis court cool Game, set, match\u2014serve up sporty style with every swing. Effortless, energetic, and always on trend. Beach day vibes Sun, sand, and statement shades. Catch the latest swimwear and carefree energy in every shot. Night out energy Lights, music, and unforgettable outfits. Party looks that turn heads and keep the fun going all night. Style that speaks volumes"
-        },
-        {
-          "change_type": "insertion",
-          "text": " Taylor Brooks Fashion Enthusiast"
-        },
-        {
-          "change_type": "equal",
-          "text": " \u201cI love how every trend here feels fresh, fun, and totally wearable. From tennis courts to late-night parties, these looks always keep me inspired and ready to try something new.\u201d "
-        },
-        {
-          "change_type": "deletion",
-          "text": "Taylor Brooks Fashion Enthusiast "
-        },
-        {
-          "change_type": "equal",
-          "text": "Trends that turn heads Fresh looks, bold moves, good vibes. Join in Fashion Blog Facebook Instagram X LinkedIn YouTube Trends Style Looks Events Brands Tips Inspire Stories People Culture Vibes Fun Explore Travel Beach Night Sport Chill"
+          "text": " Style in every snapshot Fresh looks, bold moves, real moments. Tennis court cool Game, set, match\u2014serve up sporty style with every swing. Effortless, energetic, and always on trend. Beach day vibes Sun, sand, and statement shades. Catch the latest swimwear and carefree energy in every shot. Night out energy Lights, music, and unforgettable outfits. Party looks that turn heads and keep the fun going all night. Style that speaks volumes \u201cI love how every trend here feels fresh, fun, and totally wearable. From tennis courts to late-night parties, these looks always keep me inspired and ready to try something new.\u201d Taylor Brooks Fashion Enthusiast Trends that turn heads Fresh looks, bold moves, good vibes. Join in Fashion Blog Facebook Instagram X LinkedIn YouTube Trends Style Looks Events Brands Tips Inspire Stories People Culture Vibes Fun Explore Travel Beach Night Sport Chill"
         }
       ],
       "similarity_score": 0.9378114985837813
