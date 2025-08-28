@@ -33,114 +33,6 @@
 }
 
 
-.columns.columns3 > div {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0;
-  gap: 0;
-}
-
-.columns.columns3 > div > div:first-child {
-  flex: 1 1 0%;
-  max-width: 340px;
-  padding-left: 0;
-  padding-right: 0;
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.columns.columns3 h2 {
-  font-family: var(--heading-font-family);
-  font-size: var(--heading-font-size-xl);
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  margin-top: 0;
-  margin-bottom: 0.01em;
-  color: #131313;
-  line-height: 1.07;
-}
-
-.columns.columns3 > div > div:first-child p {
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
-  color: #222;
-  margin-top: 0.08em;
-  margin-bottom: 0;
-  line-height: 1.4;
-  max-width: 340px;
-}
-
-.columns.columns3 > div > div:last-child {
-  flex: 0 0 320px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 36px;
-  margin-left: 48px;
-}
-
-.columns.columns3 > div > div:last-child p {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-  margin: 0;
-}
-
-.columns.columns3 > div > div:last-child p a {
-  display: block;
-  width: 220px;
-  margin: 0 auto;
-  padding: 13px 0;
-  border: 1.5px solid #111;
-  border-radius: 999px;
-  background: #fff;
-  color: #111;
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
-  transition: box-shadow 0.2s, border-color 0.2s;
-}
-
-.columns.columns3 > div > div:last-child p a:first-child {
-  box-shadow: 0 0 0 2px #ffe900;
-  border-color: #111;
-}
-
-@media (width <= 900px) {
-  .columns.columns3 > div {
-    flex-direction: column;
-    padding: 0;
-  }
-
-  .columns.columns3 > div > div:first-child {
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-top: 10px;
-  }
-
-  .columns.columns3 > div > div:last-child {
-    align-items: flex-start;
-    width: 100%;
-    margin-top: 18px;
-    margin-left: 0;
-  }
-
-  .columns.columns3 > div > div:last-child p a {
-    width: 100%;
-  }
-}
-
-
 .columns.columns4 {
   background-color: #f6f7f4;
   padding: 48px 0;
@@ -1719,8 +1611,6 @@
   background: #F6F6F2;
   padding: 0;
 }
-
-/* Main row: flex, vertical centering, slightly reduced vertical padding */
 .columns.columns1 > div {
   display: flex;
   flex-direction: row;
@@ -1734,8 +1624,6 @@
   box-sizing: border-box;
   padding: 20px 0;
 }
-
-/* Vertically center text column content relative to image using 100% height and centering */
 .columns.columns1 .columns-img-col + div {
   display: flex;
   flex-direction: column;
@@ -1749,8 +1637,6 @@
   padding: 0;
   height: 100%;
 }
-
-/* Image column: slightly larger for correct balance */
 .columns.columns1 .columns-img-col {
   display: flex;
   align-items: center;
@@ -1800,8 +1686,6 @@
     height: auto;
   }
 }
-
-/* Headline: max-width for tight wrapping, visual impact, slightly smaller font */
 .columns.columns1 h1 {
   font-family: 'Syncopate', 'Syncopate Fallback', sans-serif;
   font-size: 4.1rem;
@@ -1823,8 +1707,6 @@
     max-width: 97vw;
   }
 }
-
-/* Subtext: lighter color, very compact spacing */
 .columns.columns1 .columns-img-col + div p:not(.button-container) {
   font-size: 1rem;
   color: #6B6B6B;
@@ -1841,8 +1723,6 @@
     margin-bottom: 0.12rem;
   }
 }
-
-/* Button row: left align, compact spacing */
 .columns.columns1 .columns-img-col + div .button-container {
   display: flex;
   flex-direction: row;
@@ -1852,8 +1732,6 @@
   margin: 0;
   padding: 0;
 }
-
-/* Button: more compact and outlined style */
 .columns.columns1 .columns-img-col + div .button-container .button {
   background: #fff;
   color: #171717;
@@ -1876,4 +1754,143 @@
   background: #171717;
   color: #fff;
   border-color: #171717;
+}
+
+
+.columns.columns3 {
+  background: #fff;
+  padding: 60px 0;
+}
+
+.columns.columns3 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* changed from center for better vertical control */
+  justify-content: space-between;
+  gap: 10vw; /* slightly more compact than before */
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 260px;
+  position: relative;
+}
+
+/* Left column: text block */
+.columns.columns3 > div > div:first-child {
+  max-width: 600px;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 3vw;
+  box-sizing: border-box;
+}
+
+.columns.columns3 > div > div:first-child h2 {
+  font-family: var(--heading-font-family);
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #000;
+  margin: 0 0 22px 0;
+  line-height: 1.08;
+}
+
+.columns.columns3 > div > div:first-child p {
+  font-family: var(--body-font-family);
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0 0 0 0;
+  line-height: 1.5;
+  max-width: 540px;
+}
+
+@media (max-width: 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    min-height: unset;
+  }
+
+  .columns.columns3 > div > div:first-child {
+    max-width: 100%;
+    padding-left: 0;
+  }
+  .columns.columns3 > div > div:first-child p {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}
+
+/* Right column: buttons block - use auto margin for vertical centering */
+.columns.columns3 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 260px;
+  width: 260px;
+  min-width: 0;
+  padding-right: 3vw;
+  box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@media (max-width: 900px) {
+  .columns.columns3 > div > div:last-child {
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+/* Buttons stack vertically and center */
+.columns.columns3 > div > div:last-child p {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns3 > div > div:last-child p a {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 0;
+  border: 1.5px solid #111;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  outline: none;
+  line-height: 1.2;
+}
+
+.columns.columns3 > div > div:last-child p a:first-child {
+  border-top: 2px solid #eaea00; /* yellow accent only on top */
+  border-right: 1.5px solid #111;
+  border-left: 1.5px solid #111;
+  border-bottom: 1.5px solid #111;
+}
+
+@media (max-width: 900px) {
+  .columns.columns3 > div > div:last-child p a {
+    width: 100%;
+    font-size: 1rem;
+    padding: 12px 0;
+  }
 }
