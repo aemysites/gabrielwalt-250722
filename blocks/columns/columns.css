@@ -130,172 +130,6 @@
 }
 
 
-.columns.columns18 {
-  margin: 0 auto;
-  padding: 20px 32px 14px;
-  background: #fff;
-  border-radius: 24px;
-  box-sizing: border-box;
-  max-width: 1200px;
-}
-
-.columns.columns18 > div {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 48px;
-  width: 100%;
-}
-
-.columns.columns18 > div > div:first-child {
-  flex-basis: 34%;
-  max-width: 36%;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
-
-.columns.columns18 > div > .columns-img-col {
-  flex-basis: 66%;
-  max-width: 66%;
-  min-width: 0;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-end;
-}
-
-.columns.columns18 .columns-img-col img {
-  width: 100%;
-  height: auto;
-  border-radius: 32px;
-  display: block;
-  object-fit: cover;
-  box-shadow: none;
-}
-
-@media (width <= 900px) {
-  .columns.columns18 {
-    padding: 10px 2vw;
-    border-radius: 16px;
-  }
-
-  .columns.columns18 > div {
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  .columns.columns18 > div > div:first-child,
-  .columns.columns18 > div > .columns-img-col {
-    max-width: 100%;
-    flex-basis: 100%;
-  }
-
-  .columns.columns18 .columns-img-col img {
-    border-radius: 16px;
-  }
-}
-
-.columns.columns18 h2 {
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  color: #5e5e5e;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-top: 0;
-  margin-bottom: 8px;
-}
-
-.columns.columns18 h3 {
-  font-size: 38px;
-  font-family: var(--heading-font-family);
-  letter-spacing: 0.5px;
-  color: #232323;
-  font-weight: 400;
-  line-height: 1.06;
-  margin-top: 0;
-  margin-bottom: 14px;
-}
-
-.columns.columns18 p {
-  font-size: 16px;
-  color: #5e5e5e;
-  margin-bottom: 14px;
-  margin-top: 0;
-}
-
-.columns.columns18 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 2px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.columns.columns18 ul li {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin: 0;
-}
-
-.columns.columns18 ul picture,
-.columns.columns18 ul img {
-  display: inline-block;
-  vertical-align: middle;
-  border-radius: 50%;
-  background: #f3f3f3;
-  padding: 6px;
-  width: 36px;
-  height: 36px;
-  margin-right: 0;
-  box-sizing: content-box;
-  object-fit: contain;
-}
-
-.columns.columns18 h4 {
-  font-size: 10px;
-  letter-spacing: 0.15px;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #7d7d7d;
-  margin: 10px 0 2px;
-  line-height: 1.1;
-}
-
-.columns.columns18 h4 + ul {
-  margin-bottom: 4px;
-}
-
-.columns.columns18 ul + h4 {
-  margin-top: 10px;
-}
-
-.columns.columns18 ul + ul {
-  margin-top: 0;
-}
-
-.columns.columns18 ul a {
-  color: var(--link-color);
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 400;
-  word-break: break-all;
-}
-
-.columns.columns18 ul a:hover {
-  color: var(--link-hover-color);
-  text-decoration: underline;
-}
-
-.columns.columns18 > div > div:first-child > *:first-child {
-  margin-top: 0;
-}
-
-
 .columns.columns26 {
   background: #f8f9f6;
   padding: 0;
@@ -2042,3 +1876,190 @@
     border-radius: 24px;
   }
 }
+
+
+.columns.columns18 {
+  background: #fff;
+  border-radius: 24px;
+  box-sizing: border-box;
+  max-width: 1200px;
+
+  /* More breathing room left/right, visually centered */
+  padding: 40px;
+  margin: 0 auto;
+}
+
+/* Use grid for main two-column layout, slightly wider left column */
+.columns.columns18 > div {
+  display: grid;
+  grid-template-columns: minmax(0, 48%) minmax(0, 52%);
+  gap: 34px;
+  align-items: start;
+  width: 100%;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Responsive: stack columns, reduce gap and side padding */
+@media (width <= 900px) {
+  .columns.columns18 {
+    padding: 18px 8px;
+    border-radius: 13px;
+  }
+
+  .columns.columns18 > div {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .columns.columns18 .columns-img-col img {
+    border-radius: 9px;
+  }
+}
+
+/* Left column: allow more room for headline */
+.columns.columns18 > div > div:first-child {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-right: 16px;
+}
+
+@media (width <= 900px) {
+  .columns.columns18 > div > div:first-child {
+    padding-right: 0;
+  }
+}
+
+/* Headings and paragraph: improved vertical rhythm */
+.columns.columns18 h2 {
+  font-size: 1rem;
+  color: #828282;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  margin: 0 0 6px;
+  font-family: var(--heading-font-family);
+}
+
+.columns.columns18 h3 {
+  font-size: 2.4rem;
+  font-family: var(--heading-font-family), Montserrat, Arial, sans-serif;
+  font-weight: 400;
+  color: #222;
+  letter-spacing: 0.09em;
+  margin: 0 0 18px;
+  line-height: 1.06;
+}
+
+.columns.columns18 p {
+  font-size: 1.08rem;
+  color: #828282;
+  margin: 0 0 30px;
+  font-family: var(--body-font-family);
+}
+
+/* Contact blocks: looser vertical gap for scanability */
+.columns.columns18 h4 {
+  font-size: 0.97rem;
+  color: #828282;
+  text-transform: uppercase;
+  margin: 12px 0 2px;
+  letter-spacing: 0.07em;
+  font-weight: 500;
+  font-family: var(--heading-font-family);
+  line-height: 1.18;
+}
+
+.columns.columns18 h4 + ul {
+  margin-bottom: 10px;
+}
+
+.columns.columns18 ul + h4 {
+  margin-top: 12px;
+}
+
+.columns.columns18 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Contact item rows: roomier, icons a little bigger and aligned */
+.columns.columns18 ul li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 0;
+  font-size: 1.11rem;
+  color: #222;
+  font-family: var(--body-font-family);
+}
+
+/* Icons: bigger circle, subtle background */
+.columns.columns18 ul picture,
+.columns.columns18 ul img {
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 50%;
+  background: #F4F4F4;
+  padding: 2px;
+  width: 24px;
+  height: 24px;
+  margin-right: 0;
+  box-sizing: border-box;
+  object-fit: contain;
+}
+
+/* Contact values (email/phone/address) */
+.columns.columns18 ul a,
+.columns.columns18 ul li {
+  font-size: 1.08rem;
+  color: #222;
+  font-weight: 400;
+  font-family: var(--body-font-family);
+}
+
+/* Email link color */
+.columns.columns18 ul a {
+  color: #3b63fb;
+  text-decoration: none;
+}
+
+.columns.columns18 ul a:hover {
+  color: #1d3ecf;
+  text-decoration: underline;
+}
+
+/* Image column: horizontally centered, top-aligned vertically */
+.columns.columns18 > div > .columns-img-col {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* Image: rounder corners, max width, softer shadow */
+.columns.columns18 .columns-img-col img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 2%);
+  display: block;
+  object-fit: cover;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .columns.columns18 .columns-img-col img {
+    border-radius: 9px;
+  }
+}
+
+/* Remove excess vertical alignment/padding */
