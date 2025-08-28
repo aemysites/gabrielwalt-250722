@@ -1,47 +1,33 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Compose header row
+  // Table header, matches the example exactly
   const headerRow = ['Carousel (carousel21)'];
 
-  // Find the innermost card body containing content
-  // Defensive: drill down based on the known structure
-  let cardBody = element;
-  let firstDiv = element.querySelector(':scope > div');
-  if (firstDiv) {
-    let cardDiv = firstDiv.querySelector(':scope > div.card.card-on-secondary');
-    if (cardDiv) {
-      let cardBodyDiv = cardDiv.querySelector(':scope > div.card-body');
-      if (cardBodyDiv) {
-        cardBody = cardBodyDiv;
-      }
+  // Only one slide structure is present. Find .card-body inside the block
+  const cardBody = element.querySelector('.card-body');
+  let slideRows = [];
+  if (cardBody) {
+    // Find image: must be in first cell
+    const img = cardBody.querySelector('img');
+    // Find heading: optional, can go in second cell
+    const h4 = cardBody.querySelector('.h4-heading');
+    // Compose the content cell
+    let contentCell = '';
+    if (h4 && h4.textContent && h4.textContent.trim()) {
+      // Use an h2 for proper semantic meaning, referencing original element's text
+      const heading = document.createElement('h2');
+      heading.textContent = h4.textContent.trim();
+      contentCell = heading;
+    }
+    // For a valid slide, need at least an image
+    if (img) {
+      slideRows.push([img, contentCell]);
     }
   }
 
-  // Get image (mandatory for carousel slide)
-  const img = cardBody.querySelector('img');
-  // Get title (optional)
-  const headingDiv = cardBody.querySelector('.h4-heading');
-
-  // Build text cell, if there is heading text
-  let textCell = '';
-  if (headingDiv && headingDiv.textContent.trim()) {
-    const heading = document.createElement('h4');
-    heading.textContent = headingDiv.textContent.trim();
-    textCell = heading;
-  }
-
-  // Rows: header, then one slide row
-  const rows = [];
-  // Always 2 columns: image, text
-  const slideRow = [img, textCell];
-  rows.push(slideRow);
-
-  // Build table array
-  const tableArray = [headerRow, ...rows];
-
-  // Create block table
-  const block = WebImporter.DOMUtils.createTable(tableArray, document);
-
-  // Replace original
+  // Compose the table: header row, then one row per slide
+  const tableRows = [headerRow, ...slideRows];
+  const block = WebImporter.DOMUtils.createTable(tableRows, document);
+  // Replace the original element
   element.replaceWith(block);
 }

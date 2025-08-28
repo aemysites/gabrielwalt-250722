@@ -1,50 +1,39 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header as specified
+  // Block table header
   const headerRow = ['Hero (hero28)'];
 
-  // Row 2: background image
-  // Find the main img element (background)
-  let img = element.querySelector('img');
-  const imgRow = [img ? img : ''];
+  // ---- Extract background image (row 2) ----
+  // Look for the first <img> inside this block. If not found, row will be empty.
+  const img = element.querySelector('img');
+  const imgCell = img ? img : '';
 
-  // Row 3: content (title, subheading, CTA)
-  let contentElements = [];
-  // Find the area containing heading/content
-  // The second grid cell (usually text area)
-  const gridCells = element.querySelectorAll(':scope > .w-layout-grid > div');
-  let textCell = null;
-  if (gridCells.length > 1) {
-    textCell = gridCells[1];
+  // ---- Extract content (row 3) ----
+  // Find the content column: usually the second cell in grid-layout
+  let contentCell = document.createElement('div');
+  const gridDivs = element.querySelectorAll(':scope > .w-layout-grid > div');
+  if (gridDivs.length > 1) {
+    const contentContainer = gridDivs[1];
+    // Copy all children of the top content container into the content cell
+    Array.from(contentContainer.children).forEach(child => {
+      contentCell.appendChild(child);
+    });
+    // If there is nothing, set to empty string
+    if (!contentCell.hasChildNodes()) contentCell = '';
+  } else {
+    // fallback: capture all h1/h2/h3/etc. in case layout changes
+    const headings = element.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    headings.forEach(h => contentCell.appendChild(h));
+    if (!contentCell.hasChildNodes()) contentCell = '';
   }
-  if (textCell) {
-    // Get all child elements in the `.utility-margin-bottom-6rem`
-    const contentBlock = textCell.querySelector('.utility-margin-bottom-6rem');
-    if (contentBlock) {
-      // Add heading (h1)
-      const h1 = contentBlock.querySelector('h1');
-      if (h1) contentElements.push(h1);
-      // Add other heading levels if present
-      const h2s = contentBlock.querySelectorAll('h2, h3, h4');
-      h2s.forEach(h => contentElements.push(h));
-      // Add paragraphs if present
-      const ps = contentBlock.querySelectorAll('p');
-      ps.forEach(p => contentElements.push(p));
-      // Add button group if it has children
-      const buttonGroup = contentBlock.querySelector('.button-group');
-      if (buttonGroup && buttonGroup.children.length > 0) {
-        contentElements.push(buttonGroup);
-      }
-    }
-  }
-  // If nothing was found, place a blank string
-  const contentRow = [contentElements.length ? contentElements : ''];
 
-  // Compose and replace
-  const table = WebImporter.DOMUtils.createTable([
+  // ---- Build the block table ----
+  const rows = [
     headerRow,
-    imgRow,
-    contentRow
-  ], document);
+    [imgCell],
+    [contentCell]
+  ];
+
+  const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

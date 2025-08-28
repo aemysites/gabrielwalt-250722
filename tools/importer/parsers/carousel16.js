@@ -1,32 +1,28 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Block name header row exactly as in example
+  // Header row as specified in the example
   const headerRow = ['Carousel (carousel16)'];
 
-  // Find the grid container in the section
-  const grid = element.querySelector('.grid-layout');
-  if (!grid) return; // Edge case: no grid found, do nothing
+  // Locate the slide container (the grid of images)
+  let grid = element.querySelector('.w-layout-grid');
+  if (!grid) grid = element;
 
-  // Each grid child div is a slide
-  const slides = Array.from(grid.children);
+  // Extract slide image elements only, each slide is a DIV with an IMG inside
+  const slideDivs = Array.from(grid.children).filter(child => child.tagName === 'DIV');
 
-  // Extract each slide: only image present, no text
-  const rows = slides.map(slide => {
-    // Find the first <img> inside the slide
-    const img = slide.querySelector('img');
-    // Edge case: skip slide if no image
-    if (!img) return null;
-    // First cell: image element (referenced)
-    // Second cell: empty string (no text content in this source)
+  // Each row: image in first cell, second cell empty (since no text in source HTML)
+  const rows = slideDivs.map(div => {
+    const img = div.querySelector('img');
+    if (!img) return null; // Defensive: skip if no image
     return [img, ''];
-  }).filter(Boolean);
+  }).filter(Boolean); // Remove any nulls
 
-  // Table: header row + one row per slide
+  // Compose the cells array for the block table
   const cells = [headerRow, ...rows];
 
-  // Create block table
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Create the block table with the images and correct header
+  const table = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Replace the original element with the block
-  element.replaceWith(block);
+  // Replace the entire block element with the block table
+  element.replaceWith(table);
 }

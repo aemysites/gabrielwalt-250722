@@ -1,22 +1,20 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the grid containing the columns
-  const grid = element.querySelector('.grid-layout');
-  let columnsRow = [];
-  if (grid) {
-    // Get columns as direct children of the grid
-    columnsRow = Array.from(grid.children);
-  } else {
-    // fallback: use direct children of main element
-    columnsRow = Array.from(element.children);
-  }
-  // The header row must be a single column, regardless of column count
+  // Find the grid layout container
+  const grid = element.querySelector('.w-layout-grid');
+  if (!grid) return;
+
+  // Get immediate children of the grid (these are the columns)
+  const cols = Array.from(grid.children);
+  if (cols.length === 0) return;
+
+  // Header: exactly one cell, as required
   const headerRow = ['Columns (columns14)'];
-  // Build table
-  const table = WebImporter.DOMUtils.createTable([
-    headerRow,
-    columnsRow
-  ], document);
-  // Replace the original element with the table
+
+  // Content: each column's content as a cell in the second row
+  const cells = [headerRow, cols];
+
+  // Create table with exact header row structure
+  const table = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(table);
 }

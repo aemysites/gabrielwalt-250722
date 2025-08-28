@@ -1,45 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the grid layout that contains the columns
+  // The block header: single column, matching the example
+  const headerRow = ['Columns (columns30)'];
+
+  // Locate the main grid containing column content
   const grid = element.querySelector('.grid-layout');
   if (!grid) return;
-  // Get the immediate children of the grid
-  const gridChildren = Array.from(grid.children);
-  // Defensive: Only proceed if we have at least 4 children (otherwise, data is missing)
-  if (gridChildren.length < 4) return;
+  const columnDivs = Array.from(grid.children);
 
-  // 1st column: name (Taylor Brooks)
-  const col1 = gridChildren[0];
-  // 2nd column: tags (vertical flex with .tag divs)
-  const col2 = gridChildren[1];
-  // 3rd column: heading (h2)
-  const col3 = gridChildren[2];
-  // 4th column: rich text (paragraph content)
-  const col4 = gridChildren[3];
+  // The example markdown shows three columns in the first content row:
+  //  1. Left: Text block with title, list and button (in the example)
+  //  2. Middle: Image
+  //  3. Right: Image and text/button
+  // For our HTML, distribute the content to best match the semantic intention:
+  //  1. Left: Name, tags
+  //  2. Middle: Heading
+  //  3. Right: Rich text
 
-  // Structure: 3 columns in the example screenshot:
-  // Left: Name
-  // Center: Tags + Heading
-  // Right: Paragraphs
+  // Compose left cell (name & tags)
+  const leftCell = document.createElement('div');
+  if (columnDivs[0]) leftCell.appendChild(columnDivs[0]);
+  if (columnDivs[1]) leftCell.appendChild(columnDivs[1]);
 
-  // To combine tags and heading into one cell, create a wrapper div and reference existing elements
-  const centerCell = document.createElement('div');
-  centerCell.appendChild(col2); // tags
-  centerCell.appendChild(col3); // heading
+  // Compose middle cell (heading)
+  const middleCell = document.createElement('div');
+  if (columnDivs[2]) middleCell.appendChild(columnDivs[2]);
 
-  // The right cell is the paragraphs
-  const rightCell = col4;
+  // Compose right cell (rich text)
+  const rightCell = document.createElement('div');
+  if (columnDivs[3]) rightCell.appendChild(columnDivs[3]);
 
-  // The left cell is the name
-  const leftCell = col1;
-
-  // Compose the table rows
-  const cells = [
-    ['Columns (columns30)'],
-    [leftCell, centerCell, rightCell]
+  // Compose the table structure: single header column, single row of three columns
+  const tableCells = [
+    headerRow,
+    [leftCell, middleCell, rightCell],
   ];
 
-  // Create the table and replace the element
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Create table
+  const block = WebImporter.DOMUtils.createTable(tableCells, document);
+  element.replaceWith(block);
 }

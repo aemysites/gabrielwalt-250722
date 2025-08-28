@@ -1,39 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row with exact block name
+  // Prepare the header row
   const headerRow = ['Hero (hero12)'];
 
-  // Find background image: first absolutely positioned .cover-image in the left grid cell
-  let bgImage = null;
-  const gridCols = element.querySelectorAll(':scope > .w-layout-grid > div');
-  if (gridCols.length > 0) {
-    // Look for an img.cover-image inside the first col
-    bgImage = gridCols[0].querySelector('img.cover-image');
-  }
-
-  // Foreground content: second grid cell (text content, image, cta)
-  let contentCell = null;
-  if (gridCols.length > 1) {
-    // This col has the .container > .card > .card-body > .grid-layout
-    const cardGrid = gridCols[1].querySelector('.card-body .grid-layout');
-    if (cardGrid) {
-      // Per instructions: reference all direct children of cardGrid in a single cell
-      contentCell = Array.from(cardGrid.children);
-    } else {
-      // Fallback: reference the whole .container cell
-      contentCell = [gridCols[1]];
+  // --- Row 2: Background image ---
+  // Look for the main background image (should be the full-width "cover-image", but not the square 1x1 image inside the card)
+  let bgImg = null;
+  // Find all img.cover-image elements in the section
+  const allImages = element.querySelectorAll('img.cover-image');
+  for (const img of allImages) {
+    // The background image will NOT be inside a .card
+    if (!img.closest('.card')) {
+      bgImg = img;
+      break;
     }
-  } else {
-    // Fallback: if content missing, use null
-    contentCell = [''];
+  }
+  // if not found, fallback to first image in the section (defensive)
+  if (!bgImg && allImages.length) {
+    bgImg = allImages[0];
   }
 
-  // Structure matches: header, background image (row 2), foreground content (row 3)
+  // --- Row 3: Content: headline, subheading, cta ---
+  // Find the .card-body block which contains content (headline, list, cta)
+  const cardBody = element.querySelector('.card-body');
+
+  // Build the table rows
+  // Always exactly 3 rows: header, image, content
   const rows = [
     headerRow,
-    [bgImage ? bgImage : ''],
-    [contentCell]
+    [bgImg ? bgImg : ''],
+    [cardBody ? cardBody : '']
   ];
+
+  // Create and insert the table
   const table = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(table);
 }

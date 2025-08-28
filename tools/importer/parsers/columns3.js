@@ -1,23 +1,37 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the grid containing columns
-  const grid = element.querySelector('.w-layout-grid');
+  // Find the grid layout (the columns container)
+  const grid = element.querySelector('.w-layout-grid.grid-layout');
   if (!grid) return;
+
+  // Get immediate children of the grid (these are the columns)
   const columns = Array.from(grid.children);
-  if (!columns.length) return;
 
-  // Create the table using createTable
-  const table = WebImporter.DOMUtils.createTable([
-    ['Columns (columns3)'], // header row, single cell
-    columns, // content row: one cell per column
-  ], document);
+  // Block name as header row, matching example exactly
+  const headerRow = ['Columns (columns3)'];
 
-  // Set the header cell to span all columns
-  const th = table.querySelector('th');
-  if (th && columns.length > 1) {
-    th.setAttribute('colspan', columns.length);
-  }
+  // Create the row for columns. Each column cell contains ALL content from the source column.
+  // Reference source elements directly (not cloning)
+  const contentRow = columns.map((col) => {
+    // If a column is empty, represent as an empty div
+    if (!col.childNodes.length) {
+      const emptyDiv = document.createElement('div');
+      return emptyDiv;
+    }
+    // Wrap all nodes from the column in a div for semantic grouping
+    const wrapper = document.createElement('div');
+    while (col.firstChild) {
+      wrapper.appendChild(col.firstChild);
+    }
+    return wrapper;
+  });
 
-  // Replace the original element
-  element.replaceWith(table);
+  // Build table array
+  const tableRows = [headerRow, contentRow];
+
+  // Create block table
+  const blockTable = WebImporter.DOMUtils.createTable(tableRows, document);
+
+  // Replace the original section element with the block table
+  element.replaceWith(blockTable);
 }

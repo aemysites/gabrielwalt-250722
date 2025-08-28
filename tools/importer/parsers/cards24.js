@@ -1,45 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header as per block name
+  // Table header - matches example
   const headerRow = ['Cards (cards24)'];
+  const rows = [headerRow];
 
-  // Find all direct card links
-  const cards = Array.from(element.querySelectorAll(':scope > a'));
+  // Get all direct card links (each card is an <a>)
+  const cards = element.querySelectorAll(':scope > a.utility-link-content-block');
+  cards.forEach(card => {
+    // --- First cell: Image ---
+    // Image is inside first <div> in card (contains aspect ratio classes)
+    const imageDiv = card.querySelector(':scope > div');
+    // Use entire imageDiv for correct semantic aspect, not just img
+    const firstCell = imageDiv;
 
-  const rows = cards.map(card => {
-    // 1st cell: image (first img inside first child div)
-    let imgCell = null;
-    const imgDiv = card.querySelector(':scope > div:nth-child(1)');
-    if (imgDiv) {
-      const img = imgDiv.querySelector('img');
-      if (img) imgCell = img;
+    // --- Second cell: Text content ---
+    // Compose tag(s), date, heading -- all required for semantic meaning
+    const textContent = [];
+    // Tag and date container
+    const infoRow = card.querySelector('.flex-horizontal');
+    if (infoRow) {
+      // Tag
+      const tag = infoRow.querySelector('.tag');
+      if (tag) textContent.push(tag);
+      // Date
+      const date = infoRow.querySelector('.paragraph-sm');
+      if (date) textContent.push(date);
     }
+    // Heading
+    const heading = card.querySelector('.h4-heading');
+    if (heading) textContent.push(heading);
+    // No description or CTA in this source, so nothing missed
 
-    // 2nd cell: text content
-    const textCellContent = [];
-    // Tag & date row (optional)
-    const metaDiv = card.querySelector(':scope > div:nth-child(2)');
-    if (metaDiv) {
-      // Compose a single line for tag and date (keep as inline semantics)
-      const tag = metaDiv.querySelector('.tag');
-      const date = metaDiv.querySelector('.paragraph-sm');
-      if (tag || date) {
-        const meta = document.createElement('div');
-        if (tag) meta.appendChild(tag);
-        if (date) meta.appendChild(date);
-        textCellContent.push(meta);
-      }
+    // Edge case: if no image or no heading, skip row (should not occur with this HTML)
+    if (firstCell && textContent.length) {
+      rows.push([firstCell, textContent]);
     }
-    // Title (h3)
-    const title = card.querySelector('h3');
-    if (title) textCellContent.push(title);
-
-    // 2nd cell may contain meta div and h3.
-    rows: return [imgCell, textCellContent];
   });
 
-  // Compose final table (header row, then each card row)
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  // Final table creation
+  const block = WebImporter.DOMUtils.createTable(rows, document);
+  // Replace original element with new block table
   element.replaceWith(block);
 }

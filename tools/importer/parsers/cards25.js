@@ -1,46 +1,40 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Prepare header row
+  // Header row matching EXACT example (no hardcoding except block name)
   const headerRow = ['Cards (cards25)'];
-
-  // Get all direct card containers (divs under grid)
-  const cardDivs = Array.from(element.querySelectorAll(':scope > div'));
-
-  const rows = [headerRow];
-
-  cardDivs.forEach(card => {
-    // Image: first <img> in the card div (should always be present per spec)
+  // Each card is a direct child div that contains an image
+  const cards = Array.from(element.querySelectorAll(':scope > div'));
+  const rows = [];
+  cards.forEach(card => {
+    // Get image: always present and mandatory, usually first img in card
     const img = card.querySelector('img');
-
-    // Text content: look for .utility-padding-all-2rem or .utility-position-relative for text box
-    // If not found, check for heading/para anywhere inside
-    let textCellElems = [];
-    let contentBox = card.querySelector('.utility-padding-all-2rem') || card.querySelector('.utility-position-relative');
-    if (contentBox) {
-      // Prefer heading (h3) and paragraph (p)
-      const h3 = contentBox.querySelector('h3');
-      const p = contentBox.querySelector('p');
-      if (h3) textCellElems.push(h3);
-      if (p) textCellElems.push(p);
+    if (!img) return; // Skip rows without image
+    // Get text: find h3 (title) and p (description), both optional
+    let textCell = null;
+    let h3 = card.querySelector('h3');
+    let p = card.querySelector('p');
+    // If both h3 and p, combine in order into a fragment
+    if (h3 && p) {
+      const frag = document.createDocumentFragment();
+      frag.appendChild(h3);
+      frag.appendChild(p);
+      textCell = frag;
+    } else if (h3) {
+      textCell = h3;
+    } else if (p) {
+      textCell = p;
+    } else {
+      // If no h3/p, try to find text content in immediate child divs
+      // Sometimes text is present but structure is odd, fallback to div
+      const divs = Array.from(card.querySelectorAll(':scope > div'));
+      // Pick the first div with text content, if any
+      const fallbackDiv = divs.find(div => div.textContent.trim().length > 0);
+      textCell = fallbackDiv || '';
     }
-    // If not found, try direct h3/p under card
-    if (textCellElems.length === 0) {
-      const h3 = card.querySelector('h3');
-      const p = card.querySelector('p');
-      if (h3) textCellElems.push(h3);
-      if (p) textCellElems.push(p);
-    }
-    // If still not found, leave cell empty
-    let textCell = '';
-    if (textCellElems.length === 1) textCell = textCellElems[0];
-    else if (textCellElems.length > 1) textCell = textCellElems;
-
-    // Only push a row if there is an <img> (per block definition)
-    if (img) {
-      rows.push([img, textCell]);
-    }
+    rows.push([img, textCell]);
   });
-  // Create and replace with block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
+  // Compose final table: block header + card rows
+  const cells = [headerRow, ...rows];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(block);
 }

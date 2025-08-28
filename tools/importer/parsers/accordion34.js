@@ -1,53 +1,41 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row for Accordion block (must exactly match example)
+  // Block header row: MUST match the example exactly
   const headerRow = ['Accordion (accordion34)'];
-  const rows = [headerRow];
 
-  // Get all accordion items: immediate children divs with accordion class
-  const accordionItems = Array.from(element.querySelectorAll(':scope > div.accordion'));
-
+  // Prepare all rows for the block table
+  const rows = [];
+  // Each direct child div is an accordion item
+  const accordionItems = element.querySelectorAll(':scope > div');
   accordionItems.forEach((item) => {
-    // Title: .w-dropdown-toggle > .paragraph-lg (fallback to .w-dropdown-toggle)
-    let titleElement = item.querySelector('.w-dropdown-toggle .paragraph-lg');
-    if (!titleElement) {
-      // fallback: use .w-dropdown-toggle itself if .paragraph-lg missing
-      titleElement = item.querySelector('.w-dropdown-toggle');
+    // Title cell: .w-dropdown-toggle > .paragraph-lg, fallback to .w-dropdown-toggle
+    const toggle = item.querySelector('.w-dropdown-toggle');
+    let titleCell = null;
+    if (toggle) {
+      const possibleTitle = toggle.querySelector('.paragraph-lg');
+      // If the title element exists, use it, else use the whole toggle
+      titleCell = possibleTitle || toggle;
     }
-    // Defensive: if titleElement still not found, fallback to an empty div
-    if (!titleElement) {
-      titleElement = document.createElement('div');
-    }
-    // Content: .accordion-content (nav) - we want the inner .utility-padding... or .rich-text content
-    let contentNav = item.querySelector('.accordion-content');
-    let contentCell;
+
+    // Content cell: .accordion-content nav > .utility-padding-all-1rem > .rich-text, fallback to .accordion-content
+    let contentCell = null;
+    const contentNav = item.querySelector('.accordion-content');
     if (contentNav) {
-      // Find the main content container inside nav
-      // Usually the first .utility-padding... under nav
-      let padDiv = contentNav.querySelector('.utility-padding-all-1rem');
-      if (padDiv) {
-        // If it has .rich-text, use that, else use padDiv itself
-        let richText = padDiv.querySelector('.rich-text');
-        if (richText) {
-          contentCell = richText;
-        } else {
-          contentCell = padDiv;
-        }
+      // Find the first .rich-text inside .utility-padding-all-1rem inside nav
+      const pad = contentNav.querySelector('.utility-padding-all-1rem');
+      if (pad) {
+        const rich = pad.querySelector('.rich-text');
+        contentCell = rich || pad;
       } else {
-        // fallback: use the nav itself
+        // fallback to nav itself
         contentCell = contentNav;
       }
-    } else {
-      // fallback: empty div
-      contentCell = document.createElement('div');
     }
-    // Add row to rows
-    rows.push([titleElement, contentCell]);
+    rows.push([titleCell, contentCell]);
   });
 
-  // Create the block table
-  const block = WebImporter.DOMUtils.createTable(rows, document);
-
-  // Replace the original element with the block table
-  element.replaceWith(block);
+  // Compose the full block table
+  const cells = [headerRow, ...rows];
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

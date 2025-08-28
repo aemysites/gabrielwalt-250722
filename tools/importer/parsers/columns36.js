@@ -1,30 +1,42 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  const grid = element.querySelector('.grid-layout');
-  if (!grid) return;
-  const columns = Array.from(grid.children);
-  let leftContent = [];
-  if (columns[0]) {
-    const heading = columns[0].querySelector('h1');
-    if (heading) leftContent.push(heading);
-    const subheading = columns[0].querySelector('p');
-    if (subheading) leftContent.push(subheading);
-    const buttonGroup = columns[0].querySelector('.button-group');
-    if (buttonGroup) leftContent.push(buttonGroup);
+  // Table header as in example
+  const headerRow = ['Columns (columns36)'];
+
+  // Find the outer grid (holds the two main columns)
+  const container = element.querySelector('.container');
+  const outerGrid = container && container.querySelector('.grid-layout');
+  if (!outerGrid) return;
+
+  // Find the two main columns
+  const columns = Array.from(outerGrid.children);
+  if (columns.length < 2) return;
+
+  // LEFT COLUMN: content (h1, p, button group)
+  const leftCol = columns[0];
+  const leftParts = [];
+  const h1 = leftCol.querySelector('h1');
+  if (h1) leftParts.push(h1);
+  const p = leftCol.querySelector('p');
+  if (p) leftParts.push(p);
+  const buttonGroup = leftCol.querySelector('.button-group');
+  if (buttonGroup) leftParts.push(buttonGroup);
+
+  // RIGHT COLUMN: all images
+  const rightCol = columns[1];
+  // The images are inside a grid inside the rightCol
+  let images = [];
+  const innerGrid = rightCol.querySelector('.grid-layout');
+  if (innerGrid) {
+    images = Array.from(innerGrid.querySelectorAll('img'));
+  } else {
+    images = Array.from(rightCol.querySelectorAll('img'));
   }
-  let rightContent = [];
-  if (columns[1]) {
-    const innerGrid = columns[1].querySelector('.grid-layout');
-    if (innerGrid) {
-      const imgs = Array.from(innerGrid.querySelectorAll('img'));
-      if (imgs.length) rightContent = imgs;
-    }
-  }
-  // Header row must match number of columns in content row
-  const cells = [
-    ['Columns (columns36)', ''], // two cells in header row
-    [leftContent, rightContent]
-  ];
+
+  // Compose table row: as many columns as needed (here, two)
+  const contentRow = [leftParts, images];
+
+  const cells = [headerRow, contentRow];
   const block = WebImporter.DOMUtils.createTable(cells, document);
   element.replaceWith(block);
 }

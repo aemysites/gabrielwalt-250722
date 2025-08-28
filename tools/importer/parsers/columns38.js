@@ -1,22 +1,20 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header as per block name
+  // Header row for the block
   const headerRow = ['Columns (columns38)'];
 
   // Get all immediate child divs (columns)
   const columnDivs = Array.from(element.querySelectorAll(':scope > div'));
 
-  // Reference the original column divs for each cell,
-  // Not just a child image or sub-element, to preserve all content
-  const row = columnDivs;
+  // For each column, place the entire column div in the table cell to preserve all content
+  const cells = columnDivs;
 
-  // Assemble the cells
-  const cells = [
+  // Create the table with the header and column row
+  const table = WebImporter.DOMUtils.createTable([
     headerRow,
-    row
-  ];
+    cells
+  ], document);
 
-  // Create and replace
-  const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the original element with the new table
   element.replaceWith(table);
 }

@@ -1,49 +1,44 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header: block name exactly as in example
+  // 1. Table header: matches example exactly
   const headerRow = ['Hero (hero20)'];
 
-  // 2. Background images (all <img> from the image grid)
-  // Find the .grid-layout.desktop-3-column grid inside the header for images
-  let imagesContainer = element.querySelector('.grid-layout.desktop-3-column');
-  let imageElements = [];
-  if (imagesContainer) {
-    imageElements = Array.from(imagesContainer.querySelectorAll('img'));
+  // 2. Extract background image grid (second row):
+  // The visual background is a collage of images, contained in .grid-layout.desktop-3-column
+  let backgroundGrid = null;
+  const heroScale = element.querySelector('.ix-hero-scale-3x-to-1x');
+  if (heroScale) {
+    backgroundGrid = heroScale.querySelector('.grid-layout.desktop-3-column');
   }
-  // Always place images as an array in a single cell
-  const backgroundRow = [imageElements];
+  // If not found, fallback to first image (shouldn't happen with provided HTML)
+  if (!backgroundGrid) {
+    const img = element.querySelector('img');
+    backgroundGrid = img || null;
+  }
+  // If still missing, leave cell empty
 
-  // 3. Text content: heading, subheading, CTAs (all in one cell)
-  // Locate container with text and CTAs
-  let contentContainer = element.querySelector('.ix-hero-scale-3x-to-1x-content');
-  // Fallback: find .container.utility-text-on-overlay (for variations)
-  if (!contentContainer) {
-    contentContainer = element.querySelector('.container.utility-text-on-overlay');
+  // 3. Extract content block (third row): Headline, subheading, CTAs
+  // This is inside .ix-hero-scale-3x-to-1x-content > .container
+  let contentBlock = null;
+  const contentSection = element.querySelector('.ix-hero-scale-3x-to-1x-content');
+  if (contentSection) {
+    const container = contentSection.querySelector('.container');
+    if (container) contentBlock = container;
   }
-  let contentCellItems = [];
-  if (contentContainer) {
-    // Heading
-    const heading = contentContainer.querySelector('h1');
-    if (heading) contentCellItems.push(heading);
-    // Subheading (paragraph)
-    const subheading = contentContainer.querySelector('p');
-    if (subheading) contentCellItems.push(subheading);
-    // CTAs (all <a> links in button group)
-    const buttonGroup = contentContainer.querySelector('.button-group');
-    if (buttonGroup) {
-      const ctas = Array.from(buttonGroup.querySelectorAll('a'));
-      if (ctas.length) contentCellItems.push(...ctas);
-    }
+  // If not found, fallback to first heading
+  if (!contentBlock) {
+    const heading = element.querySelector('h1, h2, h3, h4, h5, h6');
+    contentBlock = heading || null;
   }
-  // Defensive: if nothing found, add an empty paragraph
-  if (contentCellItems.length === 0) {
-    const emptyParagraph = document.createElement('p');
-    contentCellItems.push(emptyParagraph);
-  }
-  const contentRow = [contentCellItems];
 
-  // 4. Build block table
-  const cells = [headerRow, backgroundRow, contentRow];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(block);
+  // 4. Compose table: 1 col x 3 rows (header, background, content)
+  const cells = [
+    headerRow,
+    [backgroundGrid],
+    [contentBlock],
+  ];
+
+  // 5. Create table and replace original element
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(table);
 }

@@ -1,36 +1,28 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header row as per instructions and example
+  // Table header exactly matches the example
   const headerRow = ['Accordion (accordion13)'];
+  // Prepare rows for each accordion item
   const rows = [];
-
-  // Each direct child with class 'divider' is an accordion item
-  const dividers = Array.from(element.querySelectorAll(':scope > .divider'));
+  // The relevant accordion items are inside immediate child .divider elements
+  const dividers = element.querySelectorAll(':scope > .divider');
   dividers.forEach(divider => {
-    // Each .divider contains a .grid-layout div
+    // Each divider contains a .grid-layout with two children: title and content
     const grid = divider.querySelector('.grid-layout');
     if (grid) {
-      // Collect all direct children of .grid-layout (should be two: title and content)
-      const children = Array.from(grid.children);
-      let titleEl = null;
-      let contentEl = null;
-      // Find by class
-      children.forEach(child => {
-        if (child.classList.contains('h4-heading')) {
-          titleEl = child;
-        } else if (child.classList.contains('rich-text')) {
-          contentEl = child;
-        }
-      });
-      // Only add row if both present (defensive)
-      if (titleEl && contentEl) {
-        rows.push([titleEl, contentEl]);
+      // Get all immediate children of the grid
+      const gridChildren = grid.querySelectorAll(':scope > div');
+      if (gridChildren.length >= 2) {
+        const titleElem = gridChildren[0];
+        const contentElem = gridChildren[1];
+        // Add a row to the table, referencing existing elements
+        rows.push([titleElem, contentElem]);
       }
     }
   });
-  
-  // Compose the table data: header row + accordion rows
+  // Compose block table: header row, then each accordion item row
   const cells = [headerRow, ...rows];
   const table = WebImporter.DOMUtils.createTable(cells, document);
+  // Replace the original element with the new table
   element.replaceWith(table);
 }

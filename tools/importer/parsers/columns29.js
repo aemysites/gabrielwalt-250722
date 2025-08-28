@@ -1,20 +1,27 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Get all immediate child divs (representing columns)
+  // 1. Find all column divs (immediate children)
   const columns = Array.from(element.querySelectorAll(':scope > div'));
-  // For each column, extract its main content (usually a single child)
-  const cells = columns.map(col => {
-    if (col.children.length === 1) {
-      return col.firstElementChild;
-    }
-    return col;
+
+  // 2. For each column, extract the img (or use entire content)
+  const rowCells = columns.map(col => {
+    const img = col.querySelector('img');
+    return img ? img : col;
   });
-  // Header row should have N columns: first cell is header, rest empty
-  const headerRow = ['Columns (columns29)', ...Array(cells.length - 1).fill('')];
-  const tableRows = [
-    headerRow,
-    cells
+
+  // 3. Compose cells: header row is a single cell array, second row is the columns array
+  const cells = [
+    ['Columns (columns29)'], // header row: single cell, matching example
+    rowCells                // content row: one cell per column
   ];
-  const table = WebImporter.DOMUtils.createTable(tableRows, document);
+
+  // 4. Create the table and set colspan on the header cell
+  const table = WebImporter.DOMUtils.createTable(cells, document);
+  const headerRow = table.querySelector('tr:first-child');
+  if (headerRow && headerRow.children.length === 1) {
+    headerRow.children[0].setAttribute('colspan', rowCells.length);
+  }
+
+  // 5. Replace the original element
   element.replaceWith(table);
 }
