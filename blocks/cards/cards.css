@@ -93,185 +93,6 @@
 }
 
 
-.cards.cards33 {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-.cards.cards33 ul {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px 14px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cards.cards33 ul > li {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  background: #FAFAFA;
-  border-radius: 22px;
-  box-shadow: 0 3px 20px 0 rgb(0 0 0 / 4.5%);
-  padding: 0;
-  overflow: hidden;
-  min-height: 190px;
-}
-
-.cards.cards33 ul > li:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.cards.cards33 .cards-card-image {
-  flex: 0 0 56%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 2px 0 2px 8px;
-  min-width: 0;
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.cards.cards33 ul > li:nth-child(even) .cards-card-image {
-  padding: 2px 8px 2px 0;
-}
-
-.cards.cards33 .cards-card-image img {
-  display: block;
-  width: 98%;
-  max-width: 420px;
-  min-width: 160px;
-  height: auto;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-top: 0;
-}
-
-.cards.cards33 .cards-card-body {
-  flex: 1 1 44%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 2px 6px 2px 14px;
-  min-width: 0;
-  box-sizing: border-box;
-}
-
-.cards.cards33 ul > li:nth-child(even) .cards-card-body {
-  padding: 2px 14px 2px 6px;
-}
-
-.cards.cards33 .cards-card-body p:first-child,
-.cards.cards33 .cards-card-body p:nth-child(2) {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.cards.cards33 .cards-card-body p:first-child {
-  background: #EFEFEF;
-  color: #7F7F7F;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: uppercase;
-  border-radius: 14px;
-  padding: 2px 12px;
-  letter-spacing: 0.03em;
-  margin-right: 10px;
-}
-
-.cards.cards33 .cards-card-body p:nth-child(2) {
-  color: #7F7F7F;
-  font-size: 12px;
-  margin-left: 0;
-}
-
-.cards.cards33 .cards-card-body h3 {
-  margin: 12px 0 8px;
-  color: #222;
-  font-size: 27px;
-  font-weight: 700;
-  font-family: var(--heading-font-family);
-  line-height: 1.07;
-}
-
-.cards.cards33 .cards-card-body p {
-  font-size: 16px;
-  color: #363636;
-  line-height: 1.5;
-  margin-bottom: 8px;
-  margin-top: 0;
-}
-
-.cards.cards33 .cards-card-body p:last-child {
-  color: #7F7F7F;
-  font-size: 15px;
-  font-weight: 500;
-  margin-top: auto;
-  margin-bottom: 0;
-  cursor: pointer;
-  text-decoration: underline;
-  width: fit-content;
-  transition: color 0.2s;
-}
-
-.cards.cards33 .cards-card-body p:last-child:hover {
-  color: #222;
-}
-
-@media (width <= 900px) {
-  .cards.cards33 {
-    max-width: 100%;
-    padding: 0 4px;
-  }
-
-  .cards.cards33 ul {
-    grid-template-columns: 1fr;
-    gap: 8px 0;
-  }
-
-  .cards.cards33 ul > li,
-  .cards.cards33 ul > li:nth-child(even) {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0;
-  }
-
-  .cards.cards33 .cards-card-image,
-  .cards.cards33 ul > li:nth-child(even) .cards-card-image {
-    padding: 2px 2px 0;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .cards.cards33 .cards-card-image img {
-    width: 100%;
-    max-width: 100%;
-    height: 160px;
-    aspect-ratio: 16/9;
-    border-radius: 14px;
-  }
-
-  .cards.cards33 .cards-card-body,
-  .cards.cards33 ul > li:nth-child(even) .cards-card-body {
-    padding: 8px;
-  }
-}
-
-@media (width >= 1200px) {
-  .cards.cards33 ul {
-    gap: 16px 24px;
-  }
-}
-
-
 .cards.cards37 {
   max-width: 1080px;
   padding: 48px 0 0;
@@ -1352,7 +1173,7 @@
   letter-spacing: 0.08em;
   line-height: 1.08;
   text-align: left;
-  word-break: normal; /* Replaced deprecated value "break-word" with "normal" */
+  word-break: normal;
   overflow-wrap: anywhere;
 }
 
@@ -1364,12 +1185,11 @@
   justify-content: center;
 }
 
-/* Even tighter editorial grid layout for perfect edge alignment */
 .cards.cards25 > ul {
   display: grid;
   grid-template-columns: 1fr 1.67fr 1fr;
   grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 0.85fr);
-  gap: 4px 8px; /* minimal gap for clustered look */
+  gap: 4px 8px;
   width: 980px;
   max-width: 98vw;
   margin: 0;
@@ -1378,7 +1198,6 @@
   grid-auto-flow: dense;
 }
 
-/* Card 1: Top left */
 .cards.cards25 > ul > li:nth-child(1) {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -1386,7 +1205,6 @@
   place-self: stretch stretch;
 }
 
-/* Card 2: Tall center, aligns with top and bottom of left column */
 .cards.cards25 > ul > li:nth-child(2) {
   grid-column: 2 / 3;
   grid-row: 1 / 3;
@@ -1394,7 +1212,6 @@
   place-self: stretch stretch;
 }
 
-/* Card 3: Left middle, aligns perfectly with bottom of center card */
 .cards.cards25 > ul > li:nth-child(3) {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
@@ -1402,7 +1219,6 @@
   place-self: end stretch;
 }
 
-/* Card 4: Wide bottom card aligns flush with bottom row of other columns */
 .cards.cards25 > ul > li:nth-child(4) {
   grid-column: 1 / 3;
   grid-row: 3 / 4;
@@ -1410,7 +1226,6 @@
   place-self: end stretch;
 }
 
-/* Card 5: Top right */
 .cards.cards25 > ul > li:nth-child(5) {
   grid-column: 3 / 4;
   grid-row: 1 / 2;
@@ -1418,7 +1233,6 @@
   place-self: stretch stretch;
 }
 
-/* Card 6: Middle right, aligns with bottom of tall center card */
 .cards.cards25 > ul > li:nth-child(6) {
   grid-column: 3 / 4;
   grid-row: 2 / 3;
@@ -1426,7 +1240,6 @@
   place-self: end stretch;
 }
 
-/* Card container */
 .cards.cards25 > ul > li {
   position: relative;
   border-radius: 22px;
@@ -1442,7 +1255,6 @@
   z-index: 1;
 }
 
-/* Ensure card image fills the card and is always visible */
 .cards.cards25 .cards-card-image {
   position: absolute;
   inset: 0;
@@ -1461,7 +1273,6 @@
   border-radius: 22px;
 }
 
-/* Overlay text at top-left with compact width and generous padding */
 .cards.cards25 .cards-card-body {
   position: absolute;
   top: 16px;
@@ -1500,13 +1311,11 @@
   font-family: var(--body-font-family), sans-serif;
 }
 
-/* Remove default margin/padding from direct children */
 .cards.cards25 > ul > li > * {
   margin: 0;
   padding: 0;
 }
 
-/* Responsive editorial stacking */
 @media (width <= 950px) {
   .cards.cards25 > ul {
     grid-template-columns: 1fr;
@@ -1554,5 +1363,189 @@
 
   .cards.cards25 .cards-card-body p {
     font-size: 0.81rem;
+  }
+}
+
+
+.cards.cards33 {
+  padding: 0 18px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+}
+
+.cards.cards33 ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.3rem 2.2rem; /* Slightly increased vertical gap for more air */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards.cards33 ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background: #fbfbfb;
+  border-radius: 15px;
+  box-shadow: 0 3px 18px rgb(0 0 0 / 4%);
+  min-height: 176px;
+  padding: 0;
+}
+
+.cards.cards33 .cards-card-image {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex: 0 0 auto;
+  padding: 0 0 0 1.15rem; /* Only left padding; no top padding for perfect alignment */
+  margin-top: 0;
+}
+
+.cards.cards33 .cards-card-image img {
+  display: block;
+  width: 168px;
+  height: 168px;
+  min-width: 168px;
+  min-height: 168px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 13px;
+  margin: 0;
+  box-shadow: none;
+}
+
+.cards.cards33 .cards-card-body {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.33em; /* Tighter vertical spacing between text elements */
+  padding: 0.65rem 1.5rem 1.15rem 1.15rem; /* More right/bottom padding for breathing room */
+  min-width: 0;
+  background: transparent;
+  margin-top: 0;
+}
+
+.cards.cards33 .cards-card-body p:first-child,
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  display: inline-block;
+  margin: 0 0.17em 0 0;
+  padding: 0;
+  vertical-align: middle;
+  line-height: 1.25;
+}
+
+.cards.cards33 .cards-card-body p:first-child {
+  background: #ececec;
+  color: #b0b0b0;
+  font-size: 0.71rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 0.6em;
+  padding: 0.10em 0.48em 0.09em;
+  letter-spacing: 0.045em;
+  margin-right: 0.32em;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(2) {
+  color: #bcbcbc;
+  font-size: 0.71rem;
+  margin-right: 0;
+  overflow-wrap: break-word;
+}
+
+.cards.cards33 .cards-card-body h3 {
+  font-family: 'Montserrat Alternates', Quicksand, Syncopate, 'Syncopate Fallback', sans-serif;
+  font-size: 1.63rem;
+  font-weight: 700;
+  color: #232323;
+  margin: 0.2em 0 0.13em;
+  letter-spacing: 0.034em;
+  line-height: 1.08;
+  text-transform: none;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.cards.cards33 .cards-card-body p:nth-child(4) {
+  color: #525252;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 0.2em;
+}
+
+.cards.cards33 .cards-card-body p:last-child {
+  color: #232323;
+  font-size: 1.01rem;
+  font-weight: 500;
+  margin-top: 0.13em;
+  text-decoration: underline;
+  cursor: pointer;
+  width: fit-content;
+  transition: color 0.15s;
+}
+
+.cards.cards33 .cards-card-body p:last-child:hover {
+  color: #3b63fb;
+}
+
+@media (width <= 900px) {
+  .cards.cards33 {
+    max-width: 100%;
+    padding: 0 4px;
+  }
+
+  .cards.cards33 ul {
+    grid-template-columns: 1fr;
+    gap: 1.1rem 0;
+  }
+
+  .cards.cards33 ul > li {
+    min-height: 0;
+  }
+
+  .cards.cards33 .cards-card-image {
+    padding: 0 0 0 0.7rem;
+  }
+
+  .cards.cards33 .cards-card-image img {
+    width: 112px;
+    height: 112px;
+    min-width: 112px;
+    min-height: 112px;
+    border-radius: 9px;
+  }
+
+  .cards.cards33 .cards-card-body {
+    padding: 0.48rem 1.1rem 0.7rem 0.9rem;
+  }
+}
+
+@media (width <= 600px) {
+  .cards.cards33 {
+    padding: 0;
+  }
+
+  .cards.cards33 ul {
+    gap: 0.6rem 0;
+  }
+
+  .cards.cards33 .cards-card-image {
+    padding: 0 0 0 0.38rem;
+  }
+
+  .cards.cards33 .cards-card-image img {
+    width: 66px;
+    height: 66px;
+    min-width: 66px;
+    min-height: 66px;
+    border-radius: 6px;
+  }
+
+  .cards.cards33 .cards-card-body {
+    padding: 0.3rem 0.6rem 0.4rem;
   }
 }
