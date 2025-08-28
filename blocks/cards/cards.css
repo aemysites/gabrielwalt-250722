@@ -25,6 +25,12 @@
   margin: 0;
   padding: 0;
   width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 32px;
+  background-image: radial-gradient(circle at 16px 1.05em, #222 12px, transparent 13px);
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
 }
 
 .cards .cards-card-image {
@@ -42,21 +48,23 @@
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 24px;
-  padding-right: 24px;
+  padding-left: 0;
+  padding-right: 0;
   width: 100%;
   box-sizing: border-box;
+  background: #fff;
 }
 
 .cards .cards-card-body p {
-  font-size: 12px;
+  font-size: 13px;
   color: #222;
   margin: 0;
-  line-height: 1.5;
-  font-family: var(--body-font-family, Instrument Sans, sans-serif);
+  line-height: 1.4;
+  font-family: Inter, var(--body-font-family), Arial, sans-serif;
   font-weight: 400;
   text-align: left;
-  word-break: break-all;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 @media (width <= 900px) {
@@ -483,7 +491,11 @@
   grid-row: 4;
   aspect-ratio: 1 / 1;
 }
-.cards.cards25 > ul > li:nth-child(6) { grid-column: 2; grid-row: 4; aspect-ratio: 1 / 1; }
+.cards.cards25 > ul > li:nth-child(6) { 
+  grid-column: 2; 
+  grid-row: 4; 
+  aspect-ratio: 1 / 1; 
+}
 
 .cards.cards25 .cards-card-image {
   position: absolute;
@@ -1444,7 +1456,7 @@
   letter-spacing: 0.08em;
   margin: 0 0 8px;
   line-height: 1.15;
-  overflow-wrap: break-word; /* Replaced deprecated "word-break: break-word" */
+  overflow-wrap: break-word;
 }
 
   color: #777;
@@ -1526,7 +1538,6 @@
   display: none;
 }
 
-/* Responsive adjustments: 2 columns on medium screens, 1 column on small screens */
 @media (width <= 1200px) {
   .cards.cards17 {
     max-width: 98vw;
@@ -1559,5 +1570,58 @@
     grid-template-columns: 1fr;
     grid-template-rows: repeat(6, 1fr);
     gap: 8px;
+  }
+}
+
+/* Main grid: 4 columns, 2 rows at desktop, responsive for smaller screens */
+.cards > .block > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 24px 32px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Cards: align icon area and text horizontally */
+.cards > .block > ul > li {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  min-width: 0;
+}
+
+/* Card body: improved icon shape, consistent baseline alignment, and padding */
+
+/* Card text styles */
+
+/* Responsive: 2 columns at tablet, 1 column at mobile */
+@media (width <= 900px) {
+  .cards {
+    max-width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .cards > .block > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 10px;
+  }
+}
+
+@media (width <= 600px) {
+  .cards {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .cards > .block > ul {
+    grid-template-columns: 1fr;
+    gap: 10px 0;
   }
 }
