@@ -48,181 +48,6 @@
 }
 
 
-.hero.hero20 {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  min-height: 640px;
-  overflow: hidden;
-  box-sizing: border-box;
-  background: transparent;
-  display: block;
-  padding: 0;
-}
-
-.hero.hero20 > div:first-child {
-  position: absolute;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 1;
-  pointer-events: none;
-  display: block;
-}
-
-.hero.hero20 > div:first-child picture,
-.hero.hero20 > div:first-child img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  display: block;
-}
-
-.hero.hero20 > div:last-child {
-  position: relative;
-  z-index: 2;
-  width: 100vw;
-  height: 100vh;
-  min-height: 640px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: auto;
-}
-
-.hero.hero20 > div:last-child > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 3.5em 0 2.5em;
-}
-
-.hero.hero20 h1 {
-  font-family: Syncopate, 'Syncopate Fallback', sans-serif;
-  font-size: clamp(2rem, 6vw, 4.7rem);
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.09;
-  letter-spacing: 0.03em;
-  margin-top: 0;
-  margin-bottom: 1.8rem;
-  text-transform: uppercase;
-  text-align: center;
-  text-shadow: 0 4px 32px rgb(0 0 0 / 32%);
-  max-width: 96vw;
-}
-
-.hero.hero20 > div:last-child > div > p:not(.button-container) {
-  font-size: 1.15rem;
-  color: #fff;
-  font-weight: 400;
-  margin-top: 1.6rem;
-  margin-bottom: 2.5rem;
-  line-height: 1.4;
-  max-width: 720px;
-  text-shadow: 0 2px 18px rgb(0 0 0 / 38%);
-  text-align: center;
-  background: rgb(0 0 0 / 22%);
-  border-radius: 12px;
-  padding: 0.6em 1.2em;
-  display: inline-block;
-}
-
-.hero.hero20 .button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-}
-
-.hero.hero20 .button-container + .button-container {
-  margin-top: 1.3rem;
-}
-
-.hero.hero20 .button-container:last-child {
-  margin-bottom: 2.2em;
-}
-
-.hero.hero20 .button {
-  box-sizing: border-box;
-  display: inline-block;
-  min-width: 170px;
-  border: 2px solid #fff;
-  border-radius: 999px;
-  padding: 0.85em 2.2em;
-  background: transparent;
-  color: #fff;
-  font-size: 1.16rem;
-  font-weight: 600;
-  letter-spacing: 0.055em;
-  text-align: center;
-  text-decoration: none;
-  margin: 0;
-  transition: background 0.2s, color 0.2s, border 0.2s;
-  box-shadow: 0 2px 12px rgb(0 0 0 / 13%);
-}
-
-.hero.hero20 .button:hover,
-.hero.hero20 .button:focus {
-  background: #fff;
-  color: #222;
-  border-color: #fff;
-}
-
-@media (width <= 900px) {
-  .hero.hero20 {
-    height: auto;
-    min-height: 500px;
-  }
-
-  .hero.hero20 > div:last-child {
-    height: auto;
-    min-height: 500px;
-    padding: 0 1rem;
-  }
-
-  .hero.hero20 > div:last-child > div {
-    max-width: 98vw;
-    padding: 2em 0 1.5em;
-  }
-
-  .hero.hero20 h1 {
-    font-size: clamp(1.1rem, 4vw, 2.1rem);
-    max-width: 99vw;
-    margin-bottom: 1.2rem;
-  }
-
-  .hero.hero20 .button {
-    min-width: 110px;
-    padding: 0.55em 1.2em;
-    font-size: 1rem;
-  }
-
-  .hero.hero20 > div:last-child > div > p:not(.button-container) {
-    padding: 0.25em 0.4em;
-    font-size: 0.98rem;
-    margin-bottom: 1.5rem;
-    margin-top: 0.9rem;
-  }
-
-  .hero.hero20 .button-container:last-child {
-    margin-bottom: 1.4em;
-  }
-}
-
-.hero.hero20 h1,
-.hero.hero20 > div:last-child > div > p:not(.button-container),
-.hero.hero20 .button {
-  text-shadow: 0 4px 32px rgb(0 0 0 / 36%);
-}
-
-
 .hero.hero28 {
   position: relative;
   display: flex;
@@ -950,7 +775,6 @@
   gap: 56px;
 }
 
-/* Feature image column - ensure it's visible, large, left-aligned, and vertically centered */
 .hero.hero12 > div:first-child {
   display: flex;
   flex: 0 0 240px;
@@ -986,7 +810,6 @@
   display: block;
 }
 
-/* Main content column - left-aligned, tightly grouped */
 .hero.hero12 > div:last-child {
   flex: 1 1 0%;
   display: flex;
@@ -1014,7 +837,6 @@
   box-sizing: border-box;
 }
 
-/* Heading styling */
 .hero.hero12 h2 {
   font-family: var(--heading-font-family);
   font-size: 3.5rem;
@@ -1026,10 +848,9 @@
   text-shadow: 0 2px 12px rgb(30 30 30 / 19%);
   max-width: 540px;
   letter-spacing: 0.04em;
-  overflow-wrap: break-word; /* Replaced deprecated 'word-break: break-word' with 'overflow-wrap: break-word' */
+  overflow-wrap: break-word;
 }
 
-/* List items: left-aligned, less vertical spacing, clear divider lines */
 .hero.hero12 > div:last-child > div > p {
   display: flex;
   align-items: center;
@@ -1057,7 +878,6 @@
   border-bottom: 1px solid rgb(200 200 200 / 14%);
 }
 
-/* Button container, flush left under list, with tight spacing */
 .hero.hero12 .button-container {
   margin: 14px 0 0;
   padding: 0;
@@ -1068,7 +888,6 @@
   background: none;
 }
 
-/* Button: large pill, visually grouped */
 .hero-container > .hero-wrapper > .block.hero.hero12 .button {
   background: rgb(238 238 238 / 97%);
   color: #191919;
@@ -1091,7 +910,6 @@
   color: #111;
 }
 
-/* Responsive: stack vertically, image above content, grouping preserved */
 @media (width <= 900px) {
   .hero.hero12 {
     flex-direction: column;
@@ -1135,4 +953,190 @@
     justify-content: center;
     margin-top: 10px;
   }
+}
+
+
+.hero-container > .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+/* Collage background using grid for multiple images */
+.hero.hero20 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+.hero.hero20 > div:first-child > div {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 100vw;
+  height: 100vh;
+  gap: 2px;
+}
+
+@media (width <= 900px) {
+  .hero.hero20 > div:first-child > div {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+  }
+}
+
+.hero.hero20 > div:first-child p {
+  margin: 0;
+  height: 100%;
+}
+
+.hero.hero20 > div:first-child picture,
+.hero.hero20 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay content: vertical and horizontal center using flex for better stacking and grouping */
+.hero.hero20 > div:last-child {
+  position: relative;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  padding: 0;
+}
+
+/* Overlay block: compact vertical grouping and true vertical center */
+.hero.hero20 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.4em;
+}
+
+@media (width <= 900px) {
+  .hero.hero20 > div:last-child {
+    height: auto;
+    min-height: 500px;
+    padding: 1.5em 1rem;
+  }
+
+  .hero.hero20 > div:last-child > div {
+    max-width: 98vw;
+    gap: 1.1em;
+  }
+}
+
+/* Heading: large, but better fit, with more line height for clarity */
+.hero.hero20 h1 {
+  font-family: Montserrat, Syncopate, 'Arial Rounded MT Bold', Arial, sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4.6rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.13;
+  letter-spacing: 0.085em;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 4px 32px rgb(0 0 0 / 32%);
+  max-width: 97vw;
+  padding: 0;
+}
+
+@media (width <= 900px) {
+  .hero.hero20 h1 {
+    font-size: clamp(1.1rem, 5vw, 2.5rem);
+    max-width: 99vw;
+  }
+}
+
+/* Subheading: compact and visually grouped with heading and buttons */
+.hero.hero20 > div:last-child > div > p:not(:has(a)) {
+  font-size: 1.08rem;
+  color: #EAEAEA;
+  background: rgb(0 0 0 / 44%);
+  border-radius: 12px;
+  padding: 0.65em 1em;
+  line-height: 1.32;
+  max-width: 680px;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 33%);
+  margin: 0 auto;
+  display: inline-block;
+}
+
+@media (width <= 900px) {
+  .hero.hero20 > div:last-child > div > p:not(:has(a)) {
+    padding: 0.45em 0.7em;
+    font-size: 0.95rem;
+    border-radius: 9px;
+    max-width: 97vw;
+  }
+}
+
+/* Buttons row: horizontally centered, spaced, grouped just below subheading */
+.hero.hero20 > div:last-child > div > p:has(a) {
+  display: flex;
+  flex-direction: row;
+  gap: 1.6em;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+@media (width <= 900px) {
+  .hero.hero20 > div:last-child > div > p:has(a) {
+    flex-direction: column;
+    gap: 0.7em;
+  }
+}
+
+/* Button: outlined, pill, visually prominent */
+.hero.hero20 > div:last-child > div > p:has(a) a {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 122px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.04rem;
+  letter-spacing: 0.045em;
+  text-align: center;
+  text-decoration: none;
+  padding: 0.78em 1.65em;
+  line-height: 1.18;
+  margin: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+@media (width <= 900px) {
+  .hero.hero20 > div:last-child > div > p:has(a) a {
+    min-width: 100px;
+    padding: 0.58em 1.2em;
+    font-size: 0.93rem;
+  }
+}
+
+.hero.hero20 > div:last-child > div > p:has(a) a:hover,
+.hero.hero20 > div:last-child > div > p:has(a) a:focus {
+  background: #fff;
+  color: #222;
+  border-color: #fff;
 }
