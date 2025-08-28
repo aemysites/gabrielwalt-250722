@@ -153,84 +153,6 @@
 }
 
 
-.carousel.carousel16 .carousel-navigation-buttons {
-  display: none;
-}
-
-.carousel.carousel16 .carousel-slide-indicators {
-  display: none;
-}
-
-.carousel.carousel16 .carousel-slides {
-  gap: 0;
-  justify-content: center;
-  align-items: flex-end;
-  padding: 48px 0;
-  overflow: auto visible;
-}
-
-.carousel.carousel16 .carousel-slide {
-  flex: 0 0 auto;
-  min-width: 190px;
-  max-width: 260px;
-  width: 13vw;
-  height: 145px;
-  margin: 0;
-  border-radius: 14px;
-  overflow: visible;
-  background: none;
-  box-shadow: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: -16px;
-  position: relative;
-  z-index: 1;
-  transition: transform 0.3s;
-}
-
-.carousel.carousel16 .carousel-slide:first-child {
-  margin-left: 0;
-}
-
-.carousel.carousel16 .carousel-slide .carousel-slide-image picture {
-  position: relative;
-  inset: unset;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.carousel.carousel16 .carousel-slide .carousel-slide-image picture > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 14px;
-  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 4%);
-  background: none;
-  display: block;
-}
-
-.carousel.carousel16 .carousel-slide:nth-child(1) {
-.carousel.carousel16 .carousel-slide:nth-child(2) {
-.carousel.carousel16 .carousel-slide:nth-child(3) {
-  z-index: 3;
-}
-    width: 23vw;
-    border-radius: 7px;
-    margin-left: -8px;
-  }
-
-  .carousel.carousel16 .carousel-slides {
-    padding: 24px 0;
-  }
-
-  .carousel.carousel16 .carousel-slide .carousel-slide-image picture > img {
-    border-radius: 7px;
-  }
-}
-
-
 .carousel.carousel21 {
   perspective: 1200px;
   background: #fcfcf7;
@@ -239,7 +161,6 @@
   overflow: visible;
 }
 
-/* More playful layer effect: frames with different angles, spacing, and lighter borders/shadows */
 .carousel.carousel21 .carousel-slides-container {
   position: relative;
   width: 94vw;
@@ -249,7 +170,6 @@
   z-index: 1;
 }
 
-/* Three layered pseudo-frames with varied rotation/position for realism */
 .carousel.carousel21 .carousel-slides::before,
 .carousel.carousel21 .carousel-slides::after {
   content: "";
@@ -278,7 +198,6 @@
   box-shadow: 0 7px 26px 0 rgb(0 0 0 / 6%);
 }
 
-/* Extra frame for more organic stack */
 .carousel.carousel21 .carousel-slides-container::after {
   content: "";
   display: block;
@@ -293,7 +212,6 @@
   pointer-events: none;
 }
 
-/* Main image: border, softer shadow, less margin for immersion, subtle rotation */
 .carousel.carousel21 .carousel-slide {
   position: relative;
   z-index: 4;
@@ -308,7 +226,6 @@
   max-width: 96%;
 }
 
-/* The image itself: rounded corners, no border, full coverage */
 .carousel.carousel21 .carousel-slide .carousel-slide-image picture,
 .carousel.carousel21 .carousel-slide .carousel-slide-image img {
   border-radius: 16px;
@@ -316,12 +233,10 @@
   box-shadow: none;
 }
 
-/* Hide the caption overlay */
 .carousel.carousel21 .carousel-slide .carousel-slide-content {
   display: none;
 }
 
-/* Responsive tweaks for smaller screens */
 @media (width <= 700px) {
   .carousel.carousel21 .carousel-slides-container {
     min-height: 180px;
@@ -351,4 +266,98 @@
     inset: 56px 44px 45px 24px;
     border-radius: 8px;
   }
+}
+
+
+.carousel.carousel16 .carousel-slides {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 36px;
+  padding: 60px 0;
+  overflow: auto visible;
+  width: 100%;
+  min-height: 180px;
+}
+
+/* Slides should only size to their image */
+.carousel.carousel16 .carousel-slide {
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  min-width: 200px;
+  max-width: 240px;
+  width: 15vw;
+  height: auto;
+  margin: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: none;
+}
+
+/* Remove any default min-height or placeholder sizing from slide-image */
+.carousel.carousel16 .carousel-slide .carousel-slide-image {
+  width: 100%;
+  height: 150px;
+  min-height: unset;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* Apply tilt directly to images and make sure all images are visible and full-size */
+.carousel.carousel16 .carousel-slide:nth-child(1) .carousel-slide-image picture img {
+  transform: rotate(-8deg) scale(1.03);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(2) .carousel-slide-image picture img {
+  transform: rotate(7deg) scale(1.03);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(3) .carousel-slide-image picture img {
+  transform: rotate(-6deg) scale(1.03);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(4) .carousel-slide-image picture img {
+  transform: rotate(7deg) scale(1.03);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(5) .carousel-slide-image picture img {
+  transform: rotate(-6deg) scale(1.03);
+}
+
+.carousel.carousel16 .carousel-slide:nth-child(6) .carousel-slide-image picture img {
+  transform: rotate(5deg) scale(1.03);
+}
+
+/* Ensure images are always visible and fill slide area */
+.carousel.carousel16 .carousel-slide .carousel-slide-image picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.carousel.carousel16 .carousel-slide .carousel-slide-image picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px 0 rgb(0 0 0 / 11%);
+  background: #fff;
+  display: block;
+  transition: transform 0.3s;
+}
+
+/* Hide navigation and indicators */
+.carousel.carousel16 .carousel-navigation-buttons {
+  display: none;
+}
+
+.carousel.carousel16 .carousel-slide-indicators {
+  display: none;
 }
