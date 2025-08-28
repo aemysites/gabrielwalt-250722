@@ -1,49 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Build header row
+  // Header row for the block
   const headerRow = ['Hero (hero5)'];
 
-  // Find outer grid
-  const outerGrid = element.querySelector('.grid-layout');
+  // Find the main image (background/hero image)
+  const img = element.querySelector('img');
+  // If the image is missing, handle gracefully
+  const imageCell = img ? [img] : [''];
 
-  // Find image (background/decorative)
-  let img = null;
-  if (outerGrid) {
-    img = outerGrid.querySelector('img');
-  } else {
-    img = element.querySelector('img');
+  // Find the inner content block (text, heading, buttons)
+  let contentDiv = null;
+  // The relevant content is inside the grid '.container', then first child div
+  const innerGrid = element.querySelector('.container');
+  if (innerGrid) {
+    // Find the direct child div (the one with heading, text, buttons)
+    // Could also have different classnames, so use direct child
+    const firstDiv = innerGrid.querySelector(':scope > div');
+    if (firstDiv) contentDiv = firstDiv;
   }
+  // If content is missing, handle gracefully
+  const contentCell = contentDiv ? [contentDiv] : [''];
 
-  // Find the text block containing heading, paragraph, CTA
-  let textBlock = null;
-  if (outerGrid) {
-    // The text block is usually the first div inside the nested grid
-    const nestedGrids = outerGrid.querySelectorAll(':scope > div');
-    for (const child of nestedGrids) {
-      if (child.querySelector('h1, h2, h3, .h2-heading')) {
-        textBlock = child;
-        break;
-      }
-    }
-  } else {
-    // Fallback: first div with heading
-    const divs = element.querySelectorAll('div');
-    for (const div of divs) {
-      if (div.querySelector('h1, h2, h3, .h2-heading')) {
-        textBlock = div;
-        break;
-      }
-    }
-  }
+  // Create the table structure per block guidelines
+  const cells = [
+    headerRow,
+    imageCell,
+    contentCell,
+  ];
 
-  // 2nd row: image, only if present
-  const imageRow = [img].filter(Boolean);
-  // 3rd row: text block, only if present
-  const textRow = [textBlock].filter(Boolean);
-
-  // Compose table
-  const cells = [headerRow, imageRow, textRow];
+  // Create the block table
   const block = WebImporter.DOMUtils.createTable(cells, document);
 
+  // Replace the original element with the block table
   element.replaceWith(block);
 }

@@ -1,22 +1,21 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Table header row, per example and instructions
+  // Table header matches example
   const headerRow = ['Cards (cards17)'];
 
-  // Get all immediate children: each card image wrapper
-  const cardDivs = Array.from(element.querySelectorAll(':scope > div'));
+  // Each card: div.utility-aspect-1x1 (each contains an img)
+  const cardDivs = Array.from(element.querySelectorAll(':scope > .utility-aspect-1x1'));
 
-  // For each card: extract the image, put in first cell, leave second cell empty (no text found)
-  const rows = cardDivs.map(cardDiv => {
-    const img = cardDiv.querySelector('img');
-    // Defensive: if there's no image, leave cell empty
-    return [img ? img : '', ''];
+  // Build rows: each row has image, and empty cell for text (since only images, no text in provided HTML)
+  const rows = cardDivs.map(div => {
+    const img = div.querySelector('img');
+    // Reference the existing image element directly
+    return [img, ''];
   });
 
-  // Build table rows: header then each card row
+  // Compose the table
   const cells = [headerRow, ...rows];
-  // Create the block table
   const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace original element
+  // Replace the old element
   element.replaceWith(block);
 }

@@ -1,26 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
   // Find the grid layout containing the columns
-  const container = element.querySelector('.container');
-  if (!container) return;
-  const grid = container.querySelector('.grid-layout');
+  const grid = element.querySelector('.grid-layout');
   if (!grid) return;
+  // Get direct children of the grid layout (columns)
+  const gridChildren = Array.from(grid.children);
 
-  // Get immediate children of the grid (should be image and content columns)
-  const columns = Array.from(grid.children).filter(child => child.nodeType === 1);
-  if (columns.length === 0) return;
+  // Expect 2 columns: left (img), right (content)
+  const imgCol = gridChildren.find((child) => child.tagName === 'IMG');
+  const contentCol = gridChildren.find((child) => child !== imgCol);
 
-  // Header row per table guidelines
+  // Prepare the header row (must match example exactly)
   const headerRow = ['Columns (columns1)'];
-  // Second row: one cell per column, each containing the referenced existing element
-  const contentRow = columns;
-  
-  // Compose the table
-  const table = WebImporter.DOMUtils.createTable([
-    headerRow,
-    contentRow
-  ], document);
 
-  // Replace original element with the generated table
-  element.replaceWith(table);
+  // Prepare the second row: [leftCol, rightCol]
+  // Left Column: image as-is (reference existing element)
+  // Right Column: group heading, subheading, and button group in an array
+  let rightColContent = [];
+  if (contentCol) {
+    const heading = contentCol.querySelector('h1');
+    if (heading) rightColContent.push(heading);
+    const subheading = contentCol.querySelector('p');
+    if (subheading) rightColContent.push(subheading);
+    const buttonGroup = contentCol.querySelector('.button-group');
+    if (buttonGroup) rightColContent.push(buttonGroup);
+  }
+
+  // Assemble table cells
+  const cells = [
+    headerRow,
+    [imgCol, rightColContent]
+  ];
+
+  // Create table block and replace original element
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

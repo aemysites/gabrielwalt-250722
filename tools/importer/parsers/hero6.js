@@ -1,47 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header, exactly as example
+  // Header row exactly as required
   const headerRow = ['Hero (hero6)'];
 
-  // 2. Background image: find the FIRST img in the block
-  let backgroundImg = element.querySelector('img');
-  let imageCell = backgroundImg ? backgroundImg : '';
-
-  // 3. Content cell: Collect heading, subheading, and CTA group from the .card
-  let contentCell;
-  let card = element.querySelector('.card');
-  if (card) {
-    const fragments = [];
-    // Heading: prefer h1, then h2/h3 if missing
-    let heading = card.querySelector('h1, h2, h3');
-    if (heading) fragments.push(heading);
-    // Subheading: first p in card
-    let subheading = card.querySelector('p');
-    if (subheading) fragments.push(subheading);
-    // CTA buttons: .button-group
-    let buttonGroup = card.querySelector('.button-group');
-    if (buttonGroup) fragments.push(buttonGroup);
-    contentCell = fragments;
-  } else {
-    // If no card, try to get heading/p/buttons from direct children of element
-    const fragments = [];
-    let heading = element.querySelector('h1, h2, h3');
-    if (heading) fragments.push(heading);
-    let subheading = element.querySelector('p');
-    if (subheading) fragments.push(subheading);
-    let buttons = element.querySelector('.button-group');
-    if (buttons) fragments.push(buttons);
-    contentCell = fragments.length ? fragments : '';
+  // Get background image (row 2)
+  // The image is inside the first child div of .grid-layout
+  let bgImg = '';
+  const gridLayout = element.querySelector('.grid-layout');
+  if (gridLayout) {
+    const gridChildren = gridLayout.querySelectorAll(':scope > div');
+    if (gridChildren[0]) {
+      // Look for an <img> inside the first grid child
+      const img = gridChildren[0].querySelector('img');
+      if (img) bgImg = img;
+    }
   }
+  const bgImgRow = [bgImg];
 
-  // 4. Build table structure: 1 column, 3 rows
-  const cells = [
-    headerRow,
-    [imageCell],
-    [contentCell],
-  ];
+  // Get content: heading, subheading, CTA (row 3)
+  let contentCell = '';
+  // The text content is inside a .card in the second grid child
+  if (gridLayout && gridLayout.querySelectorAll(':scope > div')[1]) {
+    const grid2 = gridLayout.querySelectorAll(':scope > div')[1];
+    // The card is nested within another grid inside this div
+    const innerGrid = grid2.querySelector('.grid-layout.desktop-1-column');
+    if (innerGrid) {
+      const card = innerGrid.querySelector('.card');
+      if (card) contentCell = card;
+    }
+  }
+  const contentRow = [contentCell];
 
-  // 5. Create table and replace element
-  const table = WebImporter.DOMUtils.createTable(cells, document);
-  element.replaceWith(table);
+  // Compose and replace
+  const cells = [headerRow, bgImgRow, contentRow];
+  const block = WebImporter.DOMUtils.createTable(cells, document);
+  element.replaceWith(block);
 }

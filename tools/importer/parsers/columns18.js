@@ -1,43 +1,51 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Find the grid container
+  // Find the main grid with columns
   const grid = element.querySelector('.grid-layout');
   if (!grid) return;
+  // Get only direct children (should be two: left content block, right image block)
+  const gridChildren = Array.from(grid.children);
 
-  // Get grid children
-  const children = Array.from(grid.children);
+  // LEFT COLUMN: Content block
+  // Should contain a div with headings/text and a ul with contact methods
+  // We'll identify the div that has heading and paragraph
+  let leftContentDiv = null;
+  let contactsUl = null;
 
-  let leftContent = document.createElement('div');
-  let rightContent = null;
-
-  // Gather left column: text and contacts; right column: image
-  children.forEach(child => {
-    if (child.tagName === 'DIV' || child.tagName === 'UL') {
-      leftContent.appendChild(child);
-    } else if (child.tagName === 'IMG') {
-      rightContent = child;
+  for (const child of gridChildren) {
+    if (child.tagName === 'DIV' && child.querySelector('h2') && child.querySelector('h3')) {
+      leftContentDiv = child;
     }
-  });
-
-  // If leftContent is empty, fallback
-  if (!leftContent.hasChildNodes()) {
-    children.forEach(child => {
-      if (child !== rightContent) {
-        leftContent.appendChild(child);
-      }
-    });
+    if (child.tagName === 'UL') {
+      contactsUl = child;
+    }
   }
 
-  // Fix: header row must be a single cell, exactly as in the example
+  // Compose left column: combine the info div and the contacts list in order
+  const leftCol = document.createElement('div');
+  if (leftContentDiv) leftCol.appendChild(leftContentDiv);
+  if (contactsUl) leftCol.appendChild(contactsUl);
+
+  // RIGHT COLUMN: The image (should be last child of grid)
+  let rightCol = null;
+  for (const child of gridChildren) {
+    if (child.tagName === 'IMG') {
+      rightCol = child;
+      break;
+    }
+  }
+  // Edge case: If no image found, leave column empty
+
+  // Build the table as per block guidelines
+  // Header (must match EXACTLY):
   const headerRow = ['Columns (columns18)'];
+  // Second row: two columns, left and right
+  const contentRow = [leftCol, rightCol || ''];
 
-  // Content row: two columns
-  const contentRow = [leftContent, rightContent];
-
-  // Compose table
+  // Construct table
   const cells = [headerRow, contentRow];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+  const blockTable = WebImporter.DOMUtils.createTable(cells, document);
 
-  // Replace element
-  element.replaceWith(block);
+  // Replace the original element
+  element.replaceWith(blockTable);
 }

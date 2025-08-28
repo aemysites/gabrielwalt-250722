@@ -1,51 +1,36 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // 1. Table header row: exactly as required
+  // Table header row: must match example
   const headerRow = ['Hero (hero35)'];
-  // 2. Background image row (none in this HTML)
-  const bgRow = [''];
-  // 3. Content row (title, subheading, cta)
-  // Find the grid that contains all content
-  const grid = element.querySelector('.grid-layout');
-  let headingSection = null;
-  let button = null;
-  if (grid) {
-    // Identify the child with the heading and subheading
-    const children = grid.querySelectorAll(':scope > div, :scope > a');
-    for (const child of children) {
-      if (!headingSection && child.querySelector('h2, h1')) {
-        headingSection = child;
-      }
-      if (!button && child.matches('a.button, a.w-button')) {
-        button = child;
-      }
-    }
-  }
-  // Assemble all content, in order, in a wrapper
-  const contentElems = [];
-  if (headingSection) contentElems.push(headingSection);
-  if (button) contentElems.push(button);
-  let contentCell;
-  if (contentElems.length === 1) {
-    contentCell = contentElems[0];
-  } else if (contentElems.length > 1) {
-    const wrapper = document.createElement('div');
-    contentElems.forEach((el) => wrapper.appendChild(el));
-    contentCell = wrapper;
-  } else {
-    // fallback: empty cell
-    contentCell = '';
-  }
 
-  // Compose the table cells as per the example (1 column, 3 rows)
-  const cells = [
-    headerRow,
-    bgRow,
-    [contentCell]
-  ];
+  // Second row: Background image (none in this HTML, cell should be empty)
+  const backgroundRow = [''];
 
-  // Create the table with the utility function
+  // Third row: Content (title, subheading, CTA)
+  // Locate inner content structure
+  let headline, subheading, cta;
+  const gridLayout = element.querySelector('.grid-layout');
+  if (gridLayout) {
+    // Get top-level children of grid
+    const children = Array.from(gridLayout.children);
+    children.forEach((child) => {
+      if (child.tagName === 'DIV') {
+        // Usually contains headline and subheading
+        if (!headline) headline = child.querySelector('h2');
+        if (!subheading) subheading = child.querySelector('p');
+      } else if (child.tagName === 'A') {
+        // CTA button/link
+        if (!cta) cta = child;
+      }
+    });
+  }
+  const contentElements = [];
+  if (headline) contentElements.push(headline);
+  if (subheading) contentElements.push(subheading);
+  if (cta) contentElements.push(cta);
+
+  // Always build the correct number of rows/columns
+  const cells = [headerRow, backgroundRow, [contentElements]];
   const block = WebImporter.DOMUtils.createTable(cells, document);
-  // Replace the original element
   element.replaceWith(block);
 }

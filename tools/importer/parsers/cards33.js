@@ -1,34 +1,38 @@
 /* global WebImporter */
 export default function parse(element, { document }) {
-  // Header exactly as in the example
+  // Define table header
   const headerRow = ['Cards (cards33)'];
+  const rows = [headerRow];
 
-  // Get all direct <a> elements (cards)
+  // Each card is an <a> element directly under the main div
   const cards = Array.from(element.querySelectorAll(':scope > a'));
-  const rows = cards.map(card => {
-    // First cell: image element
-    const img = card.querySelector('img');
 
-    // Second cell: text content (keep headings, description, tags, read-time, CTA)
-    // We'll reference the content container inside the card (the first nested div after the img)
-    let textContainer = null;
-    const possibleContainers = card.querySelectorAll('div');
-    for (const div of possibleContainers) {
-      if (div.querySelector('h3, .h4-heading')) {
-        textContainer = div;
+  cards.forEach(card => {
+    // Card content is inside the first child div of the anchor
+    const cardContentGrid = card.firstElementChild;
+    if (!cardContentGrid) return;
+
+    // Image: always the first child of that grid
+    const img = cardContentGrid.querySelector('img');
+
+    // Text content is the first div after the img (direct sibling)
+    let textDiv = null;
+    const children = Array.from(cardContentGrid.children);
+    for (let i = 0; i < children.length; i++) {
+      if (children[i].tagName !== 'IMG') {
+        textDiv = children[i];
         break;
       }
     }
-    // Fallback: if not found, use the first div after img
-    if (!textContainer) {
-      const imgIndex = Array.from(card.children).indexOf(img);
-      textContainer = card.children[imgIndex+1] || card;
-    }
 
-    // Reference the existing textContainer only (do not clone)
-    return [img, textContainer];
+    // Defensive: If either image or text is missing, skip this card
+    if (!img || !textDiv) return;
+
+    // Place image in first cell, text content div in second cell
+    rows.push([img, textDiv]);
   });
-  const cells = [headerRow, ...rows];
-  const block = WebImporter.DOMUtils.createTable(cells, document);
+
+  // Create block table and replace original element
+  const block = WebImporter.DOMUtils.createTable(rows, document);
   element.replaceWith(block);
 }
