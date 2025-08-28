@@ -61,122 +61,6 @@
 }
 
 
-.accordion.accordion13 {
-  background: #fff;
-  padding: 0;
-  margin: 0;
-}
-
-.accordion.accordion13 details,
-.accordion.accordion13 details summary {
-  border: none;
-  margin: 0;
-  background: none;
-  padding: 0;
-  box-shadow: none;
-}
-
-.accordion.accordion13 details summary::-webkit-details-marker,
-.accordion.accordion13 details summary::after {
-  display: none;
-}
-
-.accordion.accordion13 details summary {
-  cursor: default;
-  outline: none;
-  user-select: text;
-  width: 100%;
-  background: transparent;
-}
-
-.accordion.accordion13 .accordion-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 19px 0 17px;
-  border-bottom: 1px solid #bababa;
-  margin: 0;
-  background: transparent;
-  min-height: 40px;
-}
-
-.accordion.accordion13 .accordion-item:last-child {
-  border-bottom: none;
-}
-
-.accordion.accordion13 .accordion-item-label {
-  flex: 0 1 47%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-right: 12px;
-  box-sizing: border-box;
-  min-width: 180px;
-}
-
-.accordion.accordion13 .accordion-item-label p {
-  font-family: Syncopate, 'Syncopate Fallback', Arial, sans-serif;
-  font-size: 20px;
-  color: #757575;
-  font-weight: 400;
-  letter-spacing: 1px;
-  text-transform: lowercase;
-  margin: 0;
-  line-height: 1.1;
-  white-space: normal;
-}
-
-.accordion.accordion13 .accordion-item-body {
-  flex: 0 1 53%;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin: 0;
-  padding: 0;
-  min-width: 120px;
-}
-
-.accordion.accordion13 .accordion-item-body p {
-  font-family: var(--body-font-family);
-  font-size: 13px;
-  color: #222;
-  line-height: 1.4;
-  margin: 0;
-  white-space: normal;
-}
-
-.accordion.accordion13 details[open] .accordion-item-body,
-.accordion.accordion13 details .accordion-item-body {
-  display: flex;
-}
-
-.accordion.accordion13 details .accordion-item-body,
-.accordion.accordion13 details summary {
-  padding: 0;
-}
-
-@media (width <= 700px) {
-  .accordion.accordion13 .accordion-item {
-    flex-direction: column;
-    padding: 14px 0;
-    min-height: unset;
-  }
-
-  .accordion.accordion13 .accordion-item-label,
-  .accordion.accordion13 .accordion-item-body {
-    flex-basis: auto;
-    min-width: unset;
-    width: 100%;
-    padding: 0;
-  }
-
-  .accordion.accordion13 .accordion-item-label {
-    margin-bottom: 8px;
-    padding-right: 0;
-  }
-}
-
-
 .accordion.accordion34 {
   background: #f6f6f2;
   padding: 0;
@@ -184,7 +68,6 @@
   box-sizing: border-box;
 }
 
-/* Accordion item styling */
 .accordion.accordion34 .accordion-item {
   border: none;
   margin: 0;
@@ -192,13 +75,11 @@
   box-sizing: border-box;
 }
 
-/* Divider: ultra subtle between items */
 .accordion.accordion34 .accordion-item + .accordion-item {
   border-top: 1px solid #f5f5f0;
   margin-top: 0;
 }
 
-/* Summary/question row: minimal left/right padding, more relaxed vertical spacing, true vertical center */
 .accordion.accordion34 .accordion-item-label {
   display: flex;
   flex-direction: row;
@@ -215,7 +96,6 @@
   font-family: var(--body-font-family);
 }
 
-/* Question text: left aligned, ellipsis for long text, compact line height */
 .accordion.accordion34 .accordion-item-label p {
   margin: 0;
   color: #222;
@@ -232,13 +112,11 @@
   align-self: center;
 }
 
-/* Remove default marker for all browsers */
 .accordion.accordion34 .accordion-item-label::-webkit-details-marker,
 .accordion.accordion34 .accordion-item-label::marker {
   display: none;
 }
 
-/* Chevron/caret: slightly larger, perfectly vertical centered, flush right */
 .accordion.accordion34 .accordion-item-label::after {
   display: flex;
   align-items: center;
@@ -250,12 +128,10 @@
   background-size: 14px 14px;
 }
 
-/* Rotate chevron when details are open */
 .accordion.accordion34 .accordion-item[open] .accordion-item-label::after {
   transform: rotate(180deg);
 }
 
-/* Accordion body: match left/right padding, compact spacing */
 .accordion.accordion34 .accordion-item-body {
   padding: 0 4px 10px;
   color: #222;
@@ -264,17 +140,136 @@
   line-height: 1.25;
 }
 
-/* Remove summary focus/hover backgrounds */
 .accordion.accordion34 .accordion-item-label:focus,
 .accordion.accordion34 .accordion-item-label:hover {
   background: none;
 }
 
-/* Responsive: ensure good width and no horizontal scroll */
 @media (width <= 600px) {
   .accordion.accordion34 .accordion-item-label,
   .accordion.accordion34 .accordion-item-body {
     padding-left: 2px;
     padding-right: 2px;
+  }
+}
+
+
+/* Remove default browser arrow marker from summary as much as possible */
+.accordion.accordion13 details > summary::-webkit-details-marker,
+.accordion.accordion13 details > summary::marker {
+  display: none;
+  font-size: 0;
+  color: transparent;
+  width: 0;
+}
+
+/* Make summary non-interactive */
+.accordion.accordion13 details > summary {
+  cursor: default;
+  user-select: text;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Remove border, margin, and background from details */
+.accordion.accordion13 details {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+}
+
+/* Each FAQ row: flex layout for side-by-side columns with divider line */
+.accordion.accordion13 .accordion-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  border-bottom: 1px solid #d5d5d5;
+  padding: 0.6em 0 0.45em;
+  margin: 0;
+  background: transparent;
+  min-height: 40px;
+  width: 100%;
+}
+
+/* Remove last divider */
+.accordion.accordion13 .accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Left column: question styling */
+.accordion.accordion13 .accordion-item-label {
+  flex: 0 0 40%;
+  max-width: 40%;
+  display: flex;
+  align-items: center;
+  padding-right: 2em;
+  box-sizing: border-box;
+}
+
+/* Question text styles */
+.accordion.accordion13 .accordion-item-label p {
+  font-family: Orbitron, Exo, Arial, sans-serif;
+  font-size: 20px;
+  color: #555;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Right column: answer styling */
+.accordion.accordion13 .accordion-item-body {
+  flex: 0 0 60%;
+  max-width: 60%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Answer text styles */
+.accordion.accordion13 .accordion-item-body p {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #232323;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Always show the answer regardless of details open state (best effort for supporting browsers) */
+.accordion.accordion13 details .accordion-item-body {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 700px) {
+  .accordion.accordion13 .accordion-item {
+    flex-direction: column;
+    padding: 14px 0;
+    min-height: unset;
+  }
+
+  .accordion.accordion13 .accordion-item-label,
+  .accordion.accordion13 .accordion-item-body {
+    flex-basis: auto;
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .accordion.accordion13 .accordion-item-label {
+    margin-bottom: 8px;
   }
 }
