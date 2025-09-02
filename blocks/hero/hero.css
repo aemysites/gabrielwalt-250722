@@ -885,3 +885,142 @@
     max-width: 98vw;
   }
 }
+
+
+.hero.hero35 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 220px;
+  background: var(--background-color);
+  border-bottom: 2px solid #000;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.hero.hero35 > div:first-child {
+  /* Acts as a left spacer to push main content rightward */
+  flex: 0 0 6vw;
+  min-width: 48px;
+  max-width: 180px;
+}
+
+.hero.hero35 > div:last-child {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 0;
+  padding: 36px 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* split the last-child's first inner div (text column) and .button-container (button column) as side-by-side columns */
+.hero.hero35 > div:last-child > div {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.hero.hero35 > div:last-child .button-container {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 300px;
+  max-width: 450px;
+  width: 100%;
+  align-self: stretch;
+  margin-right: 0;
+}
+
+.hero.hero35 h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text-color);
+  margin: 0 0 12px;
+  line-height: 1.07;
+  text-align: left;
+  max-width: 600px;
+}
+
+.hero.hero35 p:not(.button-container) {
+  color: #656565;
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 400;
+  text-align: left;
+  max-width: 500px;
+}
+
+.hero-container > .hero-wrapper > .block.hero.hero35 .button {
+  display: inline-block;
+  min-width: 260px;
+  max-width: 430px;
+  width: 100%;
+  padding: 0.6em 0;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text-color);
+  background: #fff;
+  border: 1.5px solid #111;
+  border-bottom: 2.5px solid #e9e16f;
+  border-radius: 999px;
+  text-align: center;
+  box-shadow: none;
+  margin: 0;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+/* Add a horizontal gap between text and button columns */
+.hero.hero35 > div:last-child > div,
+.hero.hero35 > div:last-child .button-container {
+  margin-right: 40px;
+}
+
+@media (width <= 900px) {
+  .hero.hero35 {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .hero.hero35 > div:first-child {
+    display: none;
+  }
+
+  .hero.hero35 > div:last-child {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 4vw;
+    align-items: flex-start;
+  }
+
+  .hero.hero35 > div:last-child > div,
+  .hero.hero35 > div:last-child .button-container {
+    margin-right: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  .hero.hero35 .button-container {
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .hero-container > .hero-wrapper > .block.hero.hero35 .button {
+    min-width: 0;
+    font-size: 0.98rem;
+    width: 100%;
+    max-width: 100%;
+  }
+}
