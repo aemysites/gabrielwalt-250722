@@ -310,7 +310,6 @@
   display: block;
 }
 
-/* Arrange the direct child as a flex column for vertical centering and spacing */
 .columns.columns4 > div {
   display: flex;
   flex-direction: column;
@@ -325,12 +324,10 @@
   background: transparent;
 }
 
-/* Hide all image columns and their children */
 .columns.columns4 .columns-img-col {
   display: none;
 }
 
-/* Style any visible content (e.g. text nodes) except image columns */
 .columns.columns4 > div > *:not(.columns-img-col) {
   color: #222;
   font-size: var(--body-font-size-s);
@@ -345,7 +342,6 @@
   padding-right: 0;
 }
 
-/* Responsive adjustment for vertical spacing and horizontal padding */
 @media (width <= 899px) {
   .columns.columns4 > div {
     padding-top: 24px;
@@ -357,5 +353,67 @@
     padding-left: 16px;
     padding-right: 16px;
     max-width: 100%;
+  }
+}
+
+
+.columns.columns7 > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0 auto;
+}
+
+.columns.columns7 .columns-img-col {
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  position: relative;
+  flex: 0 0 220px;
+  box-sizing: border-box;
+}
+
+.columns.columns7 .columns-img-col picture {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.columns.columns7 .columns-img-col img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Responsive: stack columns vertically on small screens */
+@media (width <= 700px) {
+  .columns.columns7 > div {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .columns.columns7 .columns-img-col {
+    width: 100%;
+    max-width: 330px;
+    height: 220px;
+    margin: 0 auto;
   }
 }
