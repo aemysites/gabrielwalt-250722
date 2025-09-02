@@ -2,7 +2,6 @@
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +57,106 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion34 {
+  background: #F7F7F3;
+  width: 100%;
+  padding: 0;
+}
+
+/* Accordion item: only bottom divider, no margin */
+.accordion.accordion34 > details {
+  border: none;
+  margin: 0;
+  background: #F7F7F3;
+  border-bottom: 1px solid #E1E1DC;
+  box-sizing: border-box;
+}
+
+.accordion.accordion34 > details:last-child {
+  border-bottom: none;
+}
+
+/* Summary row: tight vertical padding, generous left for text, arrow fully flush right */
+.accordion.accordion34 > details > summary {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+  padding: 8px 0 8px 28px; /* 28px left for text, 0px right for arrow flushness */
+  cursor: pointer;
+  background: #F7F7F3;
+  color: #3C3C3B;
+  font-size: 15px;
+  line-height: 1.18;
+  border: none;
+  outline: none;
+  transition: background-color 0.2s;
+  list-style: none;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* p fills space, no margin, ensures gap before arrow */
+.accordion.accordion34 > details > summary > p {
+  margin: 0;
+  color: #3C3C3B;
+  font-size: 15px;
+  flex: 1 1 auto;
+  align-self: center;
+  line-height: inherit;
+  padding-right: 12px; /* space between text and arrow */
+}
+
+/* Custom chevron: smaller, flush right, perfectly centered */
+.accordion.accordion34 > details > summary::after {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border: solid #3C3C3B;
+  border-width: 0 1.5px 1.5px 0;
+  margin-left: 0;
+  vertical-align: middle;
+  position: absolute;
+  right: 12px; /* flush with the edge; tweak for pixel-perfect flushness */
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  transition: transform 0.2s;
+  box-sizing: border-box;
+}
+
+/* Chevron rotates when open */
+.accordion.accordion34 > details[open] > summary::after {
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+/* Body: match left/right padding for text alignment, reduce vertical space */
+.accordion.accordion34 > details > .accordion-item-body {
+  padding: 0 28px 8px;
+  background: #F7F7F3;
+  color: #3C3C3B;
+  font-size: 15px;
+}
+
+/* Remove hover/active background effect */
+.accordion.accordion34 > details > summary:focus,
+.accordion.accordion34 > details > summary:hover,
+.accordion.accordion34 > details[open] > summary {
+  background: #F7F7F3;
+}
+
+/* Responsive: reduce horizontal padding on small screens */
+@media (width <= 600px) {
+  .accordion.accordion34 > details > summary,
+  .accordion.accordion34 > details > .accordion-item-body {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .accordion.accordion34 > details > summary::after {
+    right: 8px;
+  }
 }
