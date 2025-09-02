@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .table.block {
   width: 100%;
   overflow-x: auto;
@@ -50,18 +51,118 @@
   margin-top: 0.25em;
 }
 
-/* no header variant */
 .table.block.no-header table tbody tr {
   border-top: 1px solid;
 }
 
-/* striped variant */
 .table.block.striped tbody tr:nth-child(odd) {
   background-color: var(--overlay-background-color);
 }
 
-/* bordered variant */
-.table.block.bordered table th,
-.table.block.bordered table td {
-  border: 1px solid;
+
+.table.bordered.tablebordered13 {
+  background: #fff;
+  padding: 0;
+  margin: 0;
+}
+
+/* Table - fixed layout for consistent column widths */
+.table.bordered.tablebordered13 table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: none;
+  table-layout: fixed;
+}
+
+/* Consistent, thin row separators */
+.table.bordered.tablebordered13 thead tr,
+.table.bordered.tablebordered13 tbody tr {
+  border-top: none;
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.table.bordered.tablebordered13 tr:last-child {
+  border-bottom: none;
+}
+
+/* Remove borders from all cells and align content to top */
+.table.bordered.tablebordered13 th,
+.table.bordered.tablebordered13 td {
+  border: none;
+  background: #fff;
+  box-sizing: border-box;
+  margin: 0;
+  vertical-align: top;
+  text-align: left;
+
+  /* Symmetrical, slightly increased left padding for visual match */
+  padding: 12px 22px 12px 28px;
+  overflow-wrap: break-word;
+}
+
+/* Set column widths */
+.table.bordered.tablebordered13 th,
+.table.bordered.tablebordered13 td:first-child {
+  width: 45%;
+  min-width: 120px;
+  max-width: 380px;
+  color: #595959;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.table.bordered.tablebordered13 th + th,
+.table.bordered.tablebordered13 td + td {
+  width: 55%;
+  min-width: 180px;
+  color: #232323;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 1.4;
+}
+
+/* Responsive stacking for mobile */
+@media (width <= 600px) {
+  .table.bordered.tablebordered13 table,
+  .table.bordered.tablebordered13 thead,
+  .table.bordered.tablebordered13 tbody,
+  .table.bordered.tablebordered13 tr {
+    display: block;
+    width: 100%;
+  }
+
+  .table.bordered.tablebordered13 tr {
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 8px;
+  }
+
+  .table.bordered.tablebordered13 th,
+  .table.bordered.tablebordered13 td {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+/* Typography: left column (question/title) */
+
+/* Typography: right column (answer/text) */
+
+/* Remove striped backgrounds if present */
+.table.bordered.tablebordered13.striped tbody tr {
+  background: #fff;
+}
+
+/* Remove paragraph margins for tight alignment in cells */
+.table.bordered.tablebordered13 th p,
+.table.bordered.tablebordered13 td p {
+  margin: 0;
 }
