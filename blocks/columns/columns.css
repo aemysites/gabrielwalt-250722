@@ -401,7 +401,6 @@
   padding: 0;
 }
 
-/* Responsive: stack columns vertically on small screens */
 @media (width <= 700px) {
   .columns.columns7 > div {
     flex-direction: column;
@@ -416,4 +415,168 @@
     height: 220px;
     margin: 0 auto;
   }
+}
+
+
+.columns.columns9 {
+  background: #000;
+  border-bottom: 1px solid #fff;
+  padding: 28px 0 30px;
+  color: #fff;
+}
+
+/* Four columns side by side, top-aligned */
+.columns.columns9 > div {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 66px;
+}
+
+@media (width <= 1000px) {
+  .columns.columns9 > div {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns9 > div {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Column structure: top-align, left-align all */
+.columns.columns9 > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+/* First column: logo + blog name in a row, social icons row below */
+.columns.columns9 > div > div:first-child {
+  min-width: 240px;
+  align-items: flex-start;
+  padding-right: 10px;
+}
+
+/* Logo and blog name: side by side left (row) */
+.columns.columns9 > div > div:first-child > p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 0 22px;
+  padding: 0;
+}
+
+/* Blog name as white bold uppercase, left-aligned */
+.columns.columns9 > div > div:first-child .button {
+  background: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0 0 0 13px;
+  margin: 0;
+  min-width: unset;
+  cursor: default;
+  pointer-events: none;
+  text-align: left;
+}
+
+/* Logo image sizing, left-aligned */
+.columns.columns9 > div > div:first-child > p picture img {
+  width: 33px;
+  height: 33px;
+  display: block;
+}
+
+/* Social icons: horizontal row, left-aligned, spaced below logo+name row */
+.columns.columns9 > div > div:first-child ul {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.columns.columns9 > div > div:first-child ul li {
+  margin: 0;
+}
+
+/* Show only icon images (hide link text) for socials */
+.columns.columns9 > div > div:first-child ul li a:not(:has(picture)) {
+  display: none;
+}
+
+.columns.columns9 > div > div:first-child ul li a picture img {
+  filter: brightness(0) invert(1);
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Nav columns: left/top aligned content */
+.columns.columns9 > div > div:not(:first-child) {
+  align-items: flex-start;
+  min-width: 170px;
+}
+
+/* Headings: small, uppercase, letter-spaced, gray, margin below */
+.columns.columns9 > div > div > h2 {
+  color: #5c5c5c;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 0 0 22px;
+  padding: 0;
+  line-height: 1.5;
+}
+
+/* Remove bullets, space links */
+.columns.columns9 ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.columns.columns9 > div > div > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.columns.columns9 > div > div > ul > li {
+  margin-bottom: 12px;
+}
+
+.columns.columns9 > div > div > ul > li:last-child {
+  margin-bottom: 0;
+}
+
+/* Links: white, no underline, readable spacing */
+.columns.columns9 > div > div > ul > li > a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0;
+  line-height: 1.8;
+}
+
+.columns.columns9 > div > div > ul > li > a:hover {
+  color: #cecece;
+  text-decoration: underline;
 }
