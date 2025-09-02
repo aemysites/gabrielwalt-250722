@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -39,7 +40,6 @@
   display: block;
 }
 
-/* Improved alignment, gap, and width for closer visual match */
 .columns.columns1 > div {
   display: flex;
   flex-direction: row;
@@ -53,7 +53,6 @@
   box-sizing: border-box;
 }
 
-/* Responsive stacking for smaller screens */
 @media (width <= 900px) {
   .columns.columns1 > div {
     flex-direction: column;
@@ -71,7 +70,6 @@
   flex: 0 0 auto;
 }
 
-/* Keep image aspect ratio, round corners */
 .columns.columns1 .columns-img-col img {
   width: 380px;
   height: 475px;
@@ -90,7 +88,6 @@
   }
 }
 
-/* Right column: vertical centering and more open width */
 .columns.columns1 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -99,11 +96,9 @@
   gap: 20px;
   min-width: 340px;
   max-width: 680px;
-  height: 475px; /* aligns content with image height for optical centering */
+  height: 475px;
   box-sizing: border-box;
   margin: 0;
-
-  /* Optional: for fine vertical centering */
   position: relative;
   top: 10px;
 }
@@ -140,7 +135,6 @@
   line-height: 1.5;
 }
 
-/* Button container: more space below paragraph, left-aligned */
 .columns.columns1 .button-container {
   display: flex;
   gap: 16px;
@@ -173,4 +167,134 @@
   color: #fff;
   border-color: #191919;
   text-decoration: none;
+}
+
+
+.columns.columns3 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 56px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 0 24px;
+  box-sizing: border-box;
+}
+
+.columns.columns3 > div > div:first-child {
+  flex: 1 1 0;
+  max-width: 390px;
+  min-width: 0;
+}
+
+.columns.columns3 > div > div:first-child > h2 {
+  margin-bottom: 16px;
+  color: #000;
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  max-width: 390px;
+  overflow-wrap: break-word;
+}
+
+.columns.columns3 > div > div:first-child > p {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #222;
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 390px;
+}
+
+.columns.columns3 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+}
+
+.columns.columns3 > div > div:last-child p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.columns.columns3 > div > div:last-child a {
+  display: block;
+  width: 220px;
+  min-width: 150px;
+  max-width: 260px;
+  padding: 10px 0;
+  border: 1.5px solid #000;
+  border-radius: 32px;
+  background: #fff;
+  color: #000;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: none;
+  margin: 0;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.columns.columns3 > div > div:last-child a:first-child {
+  box-shadow: 0 0 0 2px #f5f56b;
+}
+
+.columns.columns3 > div > div:last-child a:hover,
+.columns.columns3 > div > div:last-child a:focus {
+  border-color: #222;
+  text-decoration: none;
+}
+
+@media (width <= 1100px) {
+  .columns.columns3 > div {
+    gap: 30px;
+  }
+
+  .columns.columns3 > div > div:first-child {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 10px 0;
+  }
+
+  .columns.columns3 > div > div:last-child {
+    align-items: flex-start;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .columns.columns3 > div > div:last-child a {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .columns.columns3 > div > div:first-child > h2,
+  .columns.columns3 > div > div:first-child > p {
+    max-width: 100%;
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns3 > div {
+    padding: 6px 0;
+    gap: 10px;
+  }
+
+  .columns.columns3 > div > div:last-child a {
+    font-size: 0.95rem;
+    padding: 6px 0;
+  }
 }
