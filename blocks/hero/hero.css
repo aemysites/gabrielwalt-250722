@@ -548,7 +548,6 @@
   background: transparent;
 }
 
-/* Collage grid as a layered background: ensure all images show as grid cells */
 .hero.hero20 > div:first-child {
   position: absolute;
   inset: 0;
@@ -562,13 +561,11 @@
   pointer-events: none;
 }
 
-/* Direct children of grid: flatten structure so all <picture> become grid items */
 .hero.hero20 > div:first-child > div,
 .hero.hero20 > div:first-child > div > p {
   display: contents;
 }
 
-/* Make each <picture> occupy a grid cell */
 .hero.hero20 > div:first-child picture {
   display: block;
   width: 100%;
@@ -585,7 +582,6 @@
   display: block;
 }
 
-/* Semi-transparent overlay for readability */
 .hero.hero20 > div:first-child::after {
   display: block;
   position: absolute;
@@ -595,7 +591,6 @@
   pointer-events: none;
 }
 
-/* Centered text/button stack above collage */
 .hero.hero20 > div:last-child {
   position: relative;
   z-index: 3;
@@ -620,7 +615,6 @@
   padding: 0 24px;
 }
 
-/* Headline style */
 .hero.hero20 h1 {
   color: #fff;
   font-size: clamp(2rem, 7vw, 5.5rem);
@@ -633,7 +627,6 @@
   max-width: 100%;
 }
 
-/* Subheading style */
 .hero.hero20 > div:last-child p:not(:last-child) {
   color: #fff;
   font-size: 1.25rem;
@@ -644,7 +637,6 @@
   max-width: 800px;
 }
 
-/* Button row */
 .hero.hero20 > div:last-child p:last-child {
   display: flex;
   flex-direction: row;
@@ -653,7 +645,6 @@
   margin: 24px 0 0;
 }
 
-/* Button-like links */
 .hero.hero20 > div:last-child p:last-child a {
   display: inline-block;
   padding: 0.75em 2.5em;
@@ -673,7 +664,6 @@
   color: #111;
 }
 
-/* Responsive: stack content and adjust collage for mobile */
 @media (width <= 900px) {
   .hero.hero20 {
     min-height: unset;
@@ -695,5 +685,131 @@
 
   .hero.hero20 h1 {
     font-size: clamp(1.3rem, 6vw, 2.5rem);
+  }
+}
+
+
+.hero.hero21 {
+  position: relative;
+  width: 100vw;
+  min-height: 730px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  overflow: visible;
+  padding: 0;
+}
+
+/* --- Main image block --- */
+.hero.hero21 > div:first-child {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%) rotate(5.5deg);
+  z-index: 1;
+  width: 84vw;
+  max-width: 1150px;
+  min-width: 350px;
+  height: 76vh;
+  max-height: 780px;
+  min-height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2.5px solid #232323;
+  border-radius: 21px;
+  box-shadow: 0 28px 64px 0 rgb(30 30 30 / 17%);
+  background: #fff;
+  overflow: hidden;
+}
+
+/* Ensure inner container and image fill the parent */
+.hero.hero21 > div:first-child > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero.hero21 > div:first-child picture,
+.hero.hero21 > div:first-child img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 21px;
+}
+
+/* --- Overlay text block --- */
+.hero.hero21 > div:nth-child(2) {
+  position: absolute;
+  left: 50%;
+  top: 68%;
+  transform: translateX(-50%) rotate(-4.5deg);
+  z-index: 2;
+  width: 38vw;
+  max-width: 440px;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero.hero21 > div:nth-child(2) > div {
+  width: 100%;
+  background: rgb(255 255 255 / 96%);
+  border: 2px solid #232323;
+  border-radius: 13px;
+  box-shadow: 0 8px 32px 0 rgb(30 30 30 / 13%);
+  padding: 20px 30px 14px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero.hero21 > div:nth-child(2) p {
+  margin: 0;
+  color: #232323;
+  font-size: 1.12rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.085em;
+  text-align: left;
+  line-height: 1.35;
+}
+
+/* --- Responsive adjustments for mobile --- */
+@media (width <= 900px) {
+  .hero.hero21 {
+    min-height: 360px;
+    width: 100vw;
+    display: block;
+    padding: 0;
+  }
+
+  .hero.hero21 > div:first-child,
+  .hero.hero21 > div:nth-child(2) {
+    position: static;
+    left: unset;
+    top: unset;
+    transform: none;
+    width: 98vw;
+    max-width: none;
+    min-width: 0;
+    height: auto;
+    margin: 0 auto 14px;
+    border-radius: 9px;
+    box-shadow: none;
+  }
+
+  .hero.hero21 > div:first-child > div,
+  .hero.hero21 > div:nth-child(2) > div {
+    border-radius: 9px;
+    box-shadow: none;
+    padding: 12px 4vw;
+  }
+
+  .hero.hero21 > div:nth-child(2) > div {
+    padding: 10px 3vw;
   }
 }
