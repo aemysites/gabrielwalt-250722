@@ -56,3 +56,185 @@
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
 }
+
+
+.tabs.tabs22 {
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 24px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
+}
+
+/* Tab Bar */
+.tabs.tabs22 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 28px;
+  width: 100%;
+  background: none;
+  border: none;
+  margin-bottom: 22px;
+  margin-top: 0;
+  padding: 0;
+}
+
+/* Tabs Styling */
+.tabs.tabs22 .tabs-tab {
+  background: none;
+  border: none;
+  color: #e2e2e2;
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 0 8px 10px 8px;
+  position: relative;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  transition: color 0.2s;
+  line-height: 1.2;
+  min-width: 96px;
+  text-align: center;
+  outline: none;
+}
+
+.tabs.tabs22 .tabs-tab[aria-selected="true"] {
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2.5px solid #fff;
+}
+
+.tabs.tabs22 .tabs-tab[aria-selected="true"]:not(:focus) {
+  background: none;
+}
+
+.tabs.tabs22 .tabs-tab p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* Panels */
+.tabs.tabs22 .tabs-panel {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-top: 0;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  display: none;
+}
+
+.tabs.tabs22 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Panel Inner Stack: headline + image vertical */
+.tabs.tabs22 .tabs-panel > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 34px;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* Headline */
+.tabs.tabs22 .tabs-panel h3 {
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 400;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.05;
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+
+/* Make image and its container visible and spaced */
+.tabs.tabs22 .tabs-panel p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+/* Remove any unwanted overflow or collapse from p and parents */
+.tabs.tabs22 .tabs-panel[aria-hidden="false"] > div,
+.tabs.tabs22 .tabs-panel[aria-hidden="false"] p {
+  overflow: visible;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Image & Picture Styling */
+.tabs.tabs22 .tabs-panel picture,
+.tabs.tabs22 .tabs-panel img {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  border-radius: 24px;
+  box-shadow: none;
+  margin: 0;
+  object-fit: cover;
+  height: auto;
+  min-height: 1px;
+  min-width: 1px;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Responsive: tighten gap, scale headline, round corners less on mobile */
+@media (max-width: 900px) {
+  .tabs.tabs22 .tabs-list {
+    gap: 14px;
+  }
+  .tabs.tabs22 .tabs-panel,
+  .tabs.tabs22 .tabs-panel > div,
+  .tabs.tabs22 .tabs-panel img,
+  .tabs.tabs22 .tabs-panel picture {
+    max-width: 100vw;
+  }
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 1.5rem;
+  }
+  .tabs.tabs22 .tabs-panel > div {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tabs.tabs22 {
+    padding-top: 8px;
+    padding-bottom: 16px;
+  }
+  .tabs.tabs22 .tabs-list {
+    gap: 6px;
+  }
+  .tabs.tabs22 .tabs-panel h3 {
+    font-size: 1.1rem;
+  }
+  .tabs.tabs22 .tabs-panel img,
+  .tabs.tabs22 .tabs-panel picture {
+    border-radius: 10px;
+  }
+  .tabs.tabs22 .tabs-panel > div {
+    gap: 8px;
+  }
+}
