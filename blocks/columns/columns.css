@@ -298,3 +298,64 @@
     padding: 6px 0;
   }
 }
+
+
+.columns.columns4 {
+  background: #f7f8f5;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  min-height: 80px;
+  display: block;
+}
+
+/* Arrange the direct child as a flex column for vertical centering and spacing */
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin: 0;
+  background: transparent;
+}
+
+/* Hide all image columns and their children */
+.columns.columns4 .columns-img-col {
+  display: none;
+}
+
+/* Style any visible content (e.g. text nodes) except image columns */
+.columns.columns4 > div > *:not(.columns-img-col) {
+  color: #222;
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  line-height: 1.3;
+  max-width: 900px;
+  width: 100%;
+  align-self: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Responsive adjustment for vertical spacing and horizontal padding */
+@media (width <= 899px) {
+  .columns.columns4 > div {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    min-height: 60px;
+  }
+
+  .columns.columns4 > div > *:not(.columns-img-col) {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+  }
+}
