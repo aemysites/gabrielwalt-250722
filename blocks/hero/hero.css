@@ -356,7 +356,6 @@
   padding: 0;
 }
 
-/* Unified overlay: single block with image and content side by side */
 .hero.hero12 > div {
   display: grid;
   flex-direction: row;
@@ -375,9 +374,6 @@
   grid-template-columns: auto 1fr;
 }
 
-/* Use CSS grid for tight column control and vertical alignment */
-
-/* Remove extra box/border/shadow from image */
 .hero.hero12 > div > div:first-child {
   display: flex;
   align-items: center;
@@ -406,7 +402,6 @@
   gap: 0;
 }
 
-/* Heading tweaks for vertical balance */
 .hero.hero12 h2 {
   font-size: 3.1rem;
   font-weight: 700;
@@ -419,7 +414,6 @@
   text-shadow: 0 1px 14px rgb(0 0 0 / 7%);
 }
 
-/* List item/paragraph styling */
 .hero.hero12 > div > div:last-child > p {
   color: #232323;
   font-size: 1.18rem;
@@ -431,7 +425,6 @@
   align-items: center;
 }
 
-/* Subtle divider refinement */
 .hero.hero12 > div > div:last-child > p:not(.button-container, :first-of-type) {
   border-top: 1px solid rgb(35 35 35 / 15%);
   margin-top: 24px;
@@ -453,7 +446,6 @@
   display: block;
 }
 
-/* Button container and style tweaks */
 .hero.hero12 .button-container {
   margin-top: 26px;
 }
@@ -540,7 +532,168 @@
   }
 }
 
-/* Remove z-index from .hero .picture if present in earlier CSS */
 .hero.hero12 .picture {
   z-index: unset;
+}
+
+
+.hero.hero20 {
+  position: relative;
+  min-height: 80vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Collage grid as a layered background: ensure all images show as grid cells */
+.hero.hero20 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 8px;
+  pointer-events: none;
+}
+
+/* Direct children of grid: flatten structure so all <picture> become grid items */
+.hero.hero20 > div:first-child > div,
+.hero.hero20 > div:first-child > div > p {
+  display: contents;
+}
+
+/* Make each <picture> occupy a grid cell */
+.hero.hero20 > div:first-child picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-row: span 1;
+  grid-column: span 1;
+}
+
+.hero.hero20 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Semi-transparent overlay for readability */
+.hero.hero20 > div:first-child::after {
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 40%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Centered text/button stack above collage */
+.hero.hero20 > div:last-child {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.hero.hero20 > div:last-child > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Headline style */
+.hero.hero20 h1 {
+  color: #fff;
+  font-size: clamp(2rem, 7vw, 5.5rem);
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.07;
+  text-transform: uppercase;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Subheading style */
+.hero.hero20 > div:last-child p:not(:last-child) {
+  color: #fff;
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.5;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* Button row */
+.hero.hero20 > div:last-child p:last-child {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  justify-content: center;
+  margin: 24px 0 0;
+}
+
+/* Button-like links */
+.hero.hero20 > div:last-child p:last-child a {
+  display: inline-block;
+  padding: 0.75em 2.5em;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  border-radius: 32px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hero.hero20 > div:last-child p:last-child a:hover,
+.hero.hero20 > div:last-child p:last-child a:focus {
+  background: #fff;
+  color: #111;
+}
+
+/* Responsive: stack content and adjust collage for mobile */
+@media (width <= 900px) {
+  .hero.hero20 {
+    min-height: unset;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .hero.hero20 > div:first-child {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .hero.hero20 > div:last-child {
+    min-height: unset;
+    height: auto;
+    padding: 32px 0 40px;
+  }
+
+  .hero.hero20 h1 {
+    font-size: clamp(1.3rem, 6vw, 2.5rem);
+  }
 }
