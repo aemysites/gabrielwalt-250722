@@ -1,7 +1,7 @@
 
 @font-face {
-  font-family: "Instrument Sans";      
-  src: url('../fonts/instrument-sans-400-normal.woff2') format('woff2');
+  font-family: Syncopate;      
+  src: url('../fonts/syncopate-400-normal.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,8 +9,8 @@
 }
 
 @font-face {
-  font-family: Syncopate;      
-  src: url('../fonts/syncopate-400-normal.woff2') format('woff2');
+  font-family: "Instrument Sans";      
+  src: url('../fonts/instrument-sans-400-normal.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

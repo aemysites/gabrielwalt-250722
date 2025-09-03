@@ -34,17 +34,6 @@
 
 /* fallback fonts */
 @font-face {
-  font-family:"Instrument Sans Fallback";
-  font-style:normal;
-  font-weight:400;
-  src:local("Arial");
-  ascent-override:93.97%;
-  descent-override:24.22%;
-  line-gap-override:0.00%;
-  size-adjust:103.22%;
-}
-
-@font-face {
   font-family:"Syncopate Fallback";
   font-style:normal;
   font-weight:400;
@@ -53,6 +42,17 @@
   descent-override:12.31%;
   line-gap-override:4.33%;
   size-adjust:169.04%;
+}
+
+@font-face {
+  font-family:"Instrument Sans Fallback";
+  font-style:normal;
+  font-weight:400;
+  src:local("Arial");
+  ascent-override:93.97%;
+  descent-override:24.22%;
+  line-gap-override:0.00%;
+  size-adjust:103.22%;
 }
 
 @media (width>=900px) {
