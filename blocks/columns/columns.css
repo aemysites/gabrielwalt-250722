@@ -1522,31 +1522,118 @@
 
 
 .columns.columns26 {
-  background: #fafbf8;
+  background: #f7f8f5;
   padding: 0;
 }
 
-/* Main grid: two columns, two rows (top: headline+quote, bottom: avatar+logo) */
+/* Main grid layout for desktop */
 .columns.columns26 > div {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-columns: 1.08fr 1fr;
+  grid-template-rows: auto 1fr;
   gap: 0 60px;
+  row-gap: 70px;
   padding: 48px 60px;
-  align-items: start; /* align rows to top, not bottom */
+  align-items: start;
+  box-sizing: border-box;
+  min-height: 480px;
+  position: relative;
 }
 
-/* Left column as grid-area; ensure headline and avatar stack tightly */
+/* Divider below headline/quote row */
+.columns.columns26 > div::after {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #e3e3e3;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  margin-top: 2.2rem;
+  margin-bottom: 0;
+}
+
+/* --- Headline and quote (top row) --- */
+.columns.columns26 > div > div:first-child,
+.columns.columns26 > div > div:last-child {
+  grid-row: 1;
+}
+
 .columns.columns26 > div > div:first-child {
+  grid-column: 1;
+  grid-row: 2;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  min-width: 0;
+  align-items: flex-start;
+  justify-content: flex-end;
   height: 100%;
-  grid-row: 1 / span 2;
+  min-height: 150px;
 }
 
-/* Headline styling (top of left column) */
+.columns.columns26 > div > div:last-child {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  height: 100%;
+  min-height: 150px;
+}
+
+/* --- Bottom row: Avatar group (left) and Logo block (right) anchored to bottom --- */
+
+/* Avatar/name/role styling */
+.columns.columns26 > div > div:first-child > p:nth-child(2) {
+  margin-bottom: 10px;
+}
+
+.columns.columns26 > div > div:first-child > p:nth-child(2) picture img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.columns.columns26 > div > div:first-child > p:nth-child(3) {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 2px;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.columns.columns26 > div > div:first-child > p:nth-child(4) {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+/* --- Right column: stack quote and logo vertically, push logo to bottom --- */
+.columns.columns26 > div > div:last-child > p:first-child {
+  align-self: flex-start;
+  margin-top: 0;
+  margin-bottom: auto;
+  font-size: 1rem;
+  color: #222;
+  line-height: 1.5;
+  font-weight: 400;
+  max-width: 480px;
+}
+
+.columns.columns26 > div > div:last-child > p:last-child {
+  margin: 0;
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* Headline styling */
 .columns.columns26 > div > div:first-child > p:first-child {
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -1554,112 +1641,50 @@
   color: #222;
   letter-spacing: 0.02em;
   line-height: 1.1;
-  margin: 0 0 24px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #e5e5e5;
+  margin: 0 0 0.5rem;
   max-width: 460px;
-  flex-shrink: 0;
+  border: none;
+  padding: 0;
 }
 
-/* Avatar block tight under divider/headline, no excess margin */
-.columns.columns26 > div > div:first-child > p:nth-child(2),
-.columns.columns26 > div > div:first-child > p:nth-child(3),
-.columns.columns26 > div > div:first-child > p:nth-child(4) {
-  margin: 0;
-}
-
-.columns.columns26 > div > div:first-child > p:nth-child(2) {
-  margin-top: 20px;
-}
-
-.columns.columns26 > div > div:first-child > p:nth-child(3) {
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #222;
-  line-height: 1.2;
-}
-
-.columns.columns26 > div > div:first-child > p:nth-child(4) {
-  margin-top: 4px;
-  font-size: 1rem;
-  font-weight: 400;
-  color: #444;
-  line-height: 1.2;
-}
-
-/* Avatar image styling */
-.columns.columns26 > div > div:first-child > p:nth-child(2) picture img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  vertical-align: middle;
-  display: inline-block;
-  margin-bottom: 0;
-}
-
-/* Name styling */
-
-/* Role styling */
-
-/* Right column as grid-area; quote and logo stacked, logo baseline-aligned with avatar block */
-.columns.columns26 > div > div:last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  min-width: 0;
-  height: 100%;
-  grid-row: 1 / span 2;
-}
-
-/* Quote styling */
-.columns.columns26 > div > div:last-child > p:first-child {
-  font-size: 1rem;
-  color: #222;
-  line-height: 1.5;
-  margin: 0 0 24px;
-  font-weight: 400;
-  max-width: 480px;
-  flex-shrink: 0;
-  align-self: flex-start;
-}
-
-/* Logo row: baseline-aligned with avatar block */
-.columns.columns26 > div > div:last-child > p:last-child {
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  margin: 0;
-  margin-top: auto;
-  min-height: 48px;
-}
-
-/* Logo image */
+/* Logo image styling */
 .columns.columns26 > div > div:last-child > p:last-child picture img {
-  height: 28px;
+  height: 27px;
   width: auto;
   vertical-align: middle;
-  display: inline-block;
+  display: block;
 }
 
-/* Responsive: stack vertically at <900px */
+/* Responsive: stack vertically and adjust spacing for mobile */
 @media (width <= 900px) {
   .columns.columns26 > div {
     display: flex;
     flex-direction: column;
     padding: 32px 16px;
     gap: 40px 0;
+    min-height: unset;
+  }
+
+  .columns.columns26 > div::after {
+    margin-top: 1.5rem;
   }
 
   .columns.columns26 > div > div:first-child,
   .columns.columns26 > div > div:last-child {
+    width: 100%;
+    min-width: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     height: auto;
+    min-height: unset;
   }
 
   .columns.columns26 > div > div:last-child > p:last-child {
-    justify-content: flex-start;
     align-items: flex-start;
+    justify-content: flex-start;
     margin-top: 24px;
   }
 }
