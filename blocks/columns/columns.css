@@ -425,7 +425,6 @@
   color: #fff;
 }
 
-/* Four columns side by side, top-aligned */
 .columns.columns9 > div {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr 1fr;
@@ -449,7 +448,6 @@
   }
 }
 
-/* Column structure: top-align, left-align all */
 .columns.columns9 > div > div {
   display: flex;
   flex-direction: column;
@@ -458,14 +456,12 @@
   min-width: 0;
 }
 
-/* First column: logo + blog name in a row, social icons row below */
 .columns.columns9 > div > div:first-child {
   min-width: 240px;
   align-items: flex-start;
   padding-right: 10px;
 }
 
-/* Logo and blog name: side by side left (row) */
 .columns.columns9 > div > div:first-child > p {
   display: flex;
   flex-direction: row;
@@ -474,7 +470,6 @@
   padding: 0;
 }
 
-/* Blog name as white bold uppercase, left-aligned */
 .columns.columns9 > div > div:first-child .button {
   background: none;
   color: #fff;
@@ -493,14 +488,12 @@
   text-align: left;
 }
 
-/* Logo image sizing, left-aligned */
 .columns.columns9 > div > div:first-child > p picture img {
   width: 33px;
   height: 33px;
   display: block;
 }
 
-/* Social icons: horizontal row, left-aligned, spaced below logo+name row */
 .columns.columns9 > div > div:first-child ul {
   display: flex;
   flex-direction: row;
@@ -515,7 +508,6 @@
   margin: 0;
 }
 
-/* Show only icon images (hide link text) for socials */
 .columns.columns9 > div > div:first-child ul li a:not(:has(picture)) {
   display: none;
 }
@@ -527,13 +519,11 @@
   display: block;
 }
 
-/* Nav columns: left/top aligned content */
 .columns.columns9 > div > div:not(:first-child) {
   align-items: flex-start;
   min-width: 170px;
 }
 
-/* Headings: small, uppercase, letter-spaced, gray, margin below */
 .columns.columns9 > div > div > h2 {
   color: #5c5c5c;
   font-size: 12px;
@@ -545,7 +535,6 @@
   line-height: 1.5;
 }
 
-/* Remove bullets, space links */
 .columns.columns9 ul {
   list-style: none;
   padding-left: 0;
@@ -565,7 +554,6 @@
   margin-bottom: 0;
 }
 
-/* Links: white, no underline, readable spacing */
 .columns.columns9 > div > div > ul > li > a {
   color: #fff;
   font-size: 14px;
@@ -579,4 +567,119 @@
 .columns.columns9 > div > div > ul > li > a:hover {
   color: #cecece;
   text-decoration: underline;
+}
+
+
+.columns.columns14,
+.columns.columns14 > div {
+  background: #fff;
+  color: #000;
+  box-sizing: border-box;
+}
+
+/* Main columns wrapper: flex row on desktop, stacked on mobile */
+.columns.columns14 > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  padding: 0;
+}
+
+@media (width >= 900px) {
+  .columns.columns14 > div {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3.2rem;
+  }
+}
+
+/* Left column: Headline */
+.columns.columns14 > div > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.columns.columns14 > div > div:first-child h2 {
+  font-size: 3.35rem;
+  font-weight: 300;
+  letter-spacing: 0;
+  color: #000;
+  margin: 0 0 0.2rem;
+  line-height: 1.14;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+/* Right column: vertical stack, top-aligned */
+.columns.columns14 > div > div:last-child {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.65rem;
+}
+
+/* Right column: paragraph styling */
+.columns.columns14 > div > div:last-child > p:not(.button-container) {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #000;
+  margin: 0;
+  line-height: 1.4;
+  text-align: left;
+  overflow-wrap: break-word;
+}
+
+/* Button container: horizontal center on desktop, left on mobile */
+.columns.columns14 > div > div:last-child .button-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Button override: white background, black border, black text */
+.columns.columns14 .button {
+  background: #fff;
+  border: 1px solid #000;
+  color: #000;
+  border-radius: 2rem;
+  padding: 0.5em 2.1em;
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  min-width: 110px;
+  max-width: 100%;
+  display: inline-block;
+}
+
+.columns.columns14 .button:hover,
+.columns.columns14 .button:focus {
+  border-color: #222;
+  background: #f8f8f8;
+}
+
+@media (width <= 899px) {
+  .columns.columns14 > div {
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  .columns.columns14 > div > div:last-child .button-container {
+    justify-content: flex-start;
+  }
 }
