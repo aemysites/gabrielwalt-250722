@@ -1063,67 +1063,6 @@
 }
 
 
-.columns.columns29 {
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-.columns.columns29 > div {
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-  align-items: stretch;
-}
-
-@media (width >= 900px) {
-  .columns.columns29 .columns-img-col {
-    flex: 1 1 0;
-    min-width: 0;
-    display: flex;
-    align-items: stretch;
-    border-radius: 24px;
-    overflow: hidden;
-    aspect-ratio: 3 / 2;
-    height: auto;
-  }
-
-  .columns.columns29 .columns-img-col picture,
-  .columns.columns29 .columns-img-col img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 24px;
-    display: block;
-  }
-}
-
-@media (width <= 899px) {
-  .columns.columns29 {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .columns.columns29 > div {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .columns.columns29 .columns-img-col {
-    aspect-ratio: unset;
-    height: auto;
-  }
-
-  .columns.columns29 .columns-img-col picture,
-  .columns.columns29 .columns-img-col img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 24px;
-    display: block;
-  }
-}
-
-
 .columns.columns30 > div {
   display: grid;
   grid-template-columns: minmax(180px, 260px) 1fr;
@@ -1526,7 +1465,6 @@
   padding: 0;
 }
 
-/* Main grid layout for desktop */
 .columns.columns26 > div {
   display: grid;
   grid-template-columns: 1.08fr 1fr;
@@ -1540,7 +1478,6 @@
   position: relative;
 }
 
-/* Divider below headline/quote row */
 .columns.columns26 > div::after {
   display: block;
   width: 100%;
@@ -1552,7 +1489,6 @@
   margin-bottom: 0;
 }
 
-/* --- Headline and quote (top row) --- */
 .columns.columns26 > div > div:first-child,
 .columns.columns26 > div > div:last-child {
   grid-row: 1;
@@ -1580,9 +1516,6 @@
   min-height: 150px;
 }
 
-/* --- Bottom row: Avatar group (left) and Logo block (right) anchored to bottom --- */
-
-/* Avatar/name/role styling */
 .columns.columns26 > div > div:first-child > p:nth-child(2) {
   margin-bottom: 10px;
 }
@@ -1613,7 +1546,6 @@
   line-height: 1.2;
 }
 
-/* --- Right column: stack quote and logo vertically, push logo to bottom --- */
 .columns.columns26 > div > div:last-child > p:first-child {
   align-self: flex-start;
   margin-top: 0;
@@ -1633,7 +1565,6 @@
   justify-content: flex-end;
 }
 
-/* Headline styling */
 .columns.columns26 > div > div:first-child > p:first-child {
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -1647,7 +1578,6 @@
   padding: 0;
 }
 
-/* Logo image styling */
 .columns.columns26 > div > div:last-child > p:last-child picture img {
   height: 27px;
   width: auto;
@@ -1655,7 +1585,6 @@
   display: block;
 }
 
-/* Responsive: stack vertically and adjust spacing for mobile */
 @media (width <= 900px) {
   .columns.columns26 > div {
     display: flex;
@@ -1686,5 +1615,57 @@
     align-items: flex-start;
     justify-content: flex-start;
     margin-top: 24px;
+  }
+}
+
+
+.columns.columns29 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.columns.columns29 > div {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+  align-items: stretch;
+  width: 100%;
+  aspect-ratio: 3 / 1; /* Wider and lower, closely matches the original block */
+  min-height: 0;
+}
+
+.columns.columns29 .columns-img-col {
+  flex: 1 1 0;
+  display: flex;
+  align-items: stretch;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 100%;
+}
+
+.columns.columns29 .columns-img-col picture,
+.columns.columns29 .columns-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+}
+
+/* Responsive: stack images vertically and adjust gap on small screens */
+@media (width <= 900px) {
+  .columns.columns29 > div {
+    flex-direction: column;
+    gap: 16px;
+    aspect-ratio: unset;
+  }
+
+  .columns.columns29 .columns-img-col {
+    height: auto;
+  }
+
+  .columns.columns29 .columns-img-col picture,
+  .columns.columns29 .columns-img-col img {
+    height: auto;
   }
 }
