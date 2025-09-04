@@ -47,105 +47,6 @@
   }
 }
 
-.hero.hero5 {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-  min-height: 100vh;
-  width: 100vw;
-  background: var(--background-color);
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.hero.hero5 > div:first-child {
-  flex: 1 1 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-end;
-  min-width: 0;
-  min-height: 0;
-  padding: 0;
-  margin: 0;
-  background: var(--background-color);
-}
-
-.hero.hero5 picture {
-  position: static;
-  inset: unset;
-  z-index: unset;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.hero.hero5 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  margin: 0;
-  padding: 0;
-  max-width: unset;
-  max-height: unset;
-}
-
-.hero.hero5 > div:last-child {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background-color);
-  padding: 0;
-  margin: 0;
-  min-width: 0;
-  min-height: 0;
-}
-
-.hero.hero5 > div:last-child > div {
-  width: 100%;
-  max-width: 420px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 0;
-}
-
-.hero.hero5 h2 {
-  font-size: var(--heading-font-size-xl);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: var(--text-color);
-  margin: 0 0 2.3rem;
-  line-height: 1.02;
-  text-align: center;
-  width: 100%;
-  overflow-wrap: break-word;
-}
-
-.hero.hero5 p:not(.button-container) {
-  font-size: var(--body-font-size-s);
-  color: var(--dark-color);
-  margin: 0 0 2.3rem;
-  line-height: 1.6;
-  text-align: center;
-  width: 100%;
-  max-width: 100%;
-}
-
-.hero.hero5 .button-container {
-  display: flex;
-  gap: 1.2em;
-  margin: 0 0 0.5rem;
-  padding: 0;
-  width: 100%;
-  justify-content: center;
-}
-
 .hero-container > .hero-wrapper > .block.hero .button,
 .hero.hero5 .button-container .button {
   background: var(--background-color);
@@ -167,32 +68,6 @@
 .hero.hero5 .button-container .button:focus {
   background: var(--text-color);
   color: var(--background-color);
-}
-
-@media (width <= 900px) {
-  .hero.hero5 {
-    flex-direction: column;
-    min-height: 0;
-    width: 100%;
-  }
-
-  .hero.hero5 > div:first-child,
-  .hero.hero5 > div:last-child {
-    flex-basis: auto;
-    min-height: 300px;
-    padding: 0;
-  }
-
-  .hero.hero5 > div:last-child > div {
-    padding: 2rem 1rem 0;
-    align-items: center;
-    justify-content: flex-start;
-  }
-
-  .hero.hero5 h2,
-  .hero.hero5 p:not(.button-container) {
-    text-align: center;
-  }
 }
 
 
@@ -1063,7 +938,6 @@
   background: linear-gradient(90deg, rgb(0 0 0 / 14%) 28%, rgb(0 0 0 / 1%) 90%);
 }
 
-/* Vertically center the content block */
 .hero.hero39 > div:last-child {
   position: relative;
   z-index: 2;
@@ -1079,7 +953,6 @@
   margin: 0;
 }
 
-/* Content block width for improved readability */
 .hero.hero39 > div:last-child > div {
   max-width: 350px;
   width: 100%;
@@ -1088,7 +961,6 @@
   gap: 1.3rem;
 }
 
-/* Headline styling */
 .hero.hero39 h1 {
   color: #fff;
   font-weight: 700;
@@ -1165,5 +1037,168 @@
 
   .hero.hero39 > div:last-child > div {
     max-width: 98vw;
+  }
+}
+
+
+.hero.hero5 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+/* Text Column */
+.hero.hero5 > div:last-child {
+  flex: 1;
+  order: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 0;
+  min-height: 0;
+  background: var(--background-color);
+
+  /* Adds generous left padding, but less than before for better alignment */
+  padding: 8vh 2vw 0 7vw;
+}
+
+.hero.hero5 > div:last-child > div {
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Headline */
+.hero.hero5 h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-color);
+  margin: 0 0 1.25rem;
+  line-height: 1.08;
+  text-align: left;
+  max-width: 420px;
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Paragraph */
+.hero.hero5 p:not(.button-container) {
+  font-size: var(--body-font-size-s);
+  color: var(--dark-color);
+  margin: 0 0 2rem;
+  line-height: 1.5;
+  text-align: left;
+  max-width: 420px;
+  width: 100%;
+}
+
+/* Button Container */
+.hero.hero5 .button-container {
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+/* Button Style */
+.hero.hero5 .button {
+  background: var(--background-color);
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  border-radius: 999px;
+  padding: 0.75em 2em;
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+  transition: background 0.3s, color 0.3s, border-color 0.3s;
+  box-shadow: none;
+  min-width: 0;
+}
+
+/* Image Column */
+.hero.hero5 > div:first-child {
+  flex: 1;
+  order: 2;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  background: var(--background-color);
+}
+
+.hero.hero5 picture {
+  position: static;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero.hero5 img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive adjustments */
+@media (width <= 900px) {
+  .hero.hero5 {
+    flex-direction: column;
+    min-height: 0;
+    width: 100%;
+  }
+
+  .hero.hero5 > div:first-child {
+    order: 2;
+    width: 100%;
+    min-height: 300px;
+    padding: 0;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .hero.hero5 > div:last-child {
+    order: 1;
+    width: 100%;
+    padding: 3vh 1rem 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hero.hero5 > div:last-child > div {
+    padding: 0;
+    max-width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .hero.hero5 h2,
+  .hero.hero5 p:not(.button-container) {
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .hero.hero5 .button-container {
+    justify-content: flex-start;
+  }
+
+  .hero.hero5 img {
+    height: 40vh;
+    max-height: 400px;
   }
 }
