@@ -61,102 +61,116 @@
 
 
 .accordion.accordion34 {
-  background: #F7F7F3;
+  background: #F8F9F4;
   width: 100%;
   padding: 0;
+  box-sizing: border-box;
 }
 
-/* Accordion item: only bottom divider, no margin */
+/* Each details block: vertical stack, full width */
 .accordion.accordion34 > details {
-  border: none;
   margin: 0;
-  background: #F7F7F3;
-  border-bottom: 1px solid #E1E1DC;
+  border: none;
+  background: #F8F9F4;
+  border-bottom: 1px solid #E0E0DB;
   box-sizing: border-box;
+  display: block;
+  width: 100%;
 }
 
 .accordion.accordion34 > details:last-child {
   border-bottom: none;
 }
 
-/* Summary row: tight vertical padding, generous left for text, arrow fully flush right */
+/* Summary: side-by-side flex, minimal left gap */
 .accordion.accordion34 > details > summary {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: 36px;
-  padding: 8px 0 8px 28px; /* 28px left for text, 0px right for arrow flushness */
+  min-height: 32px;
+  padding: 8px 10px 7px 0; /* top, right, bottom, left; nearly flush left */
   cursor: pointer;
-  background: #F7F7F3;
-  color: #3C3C3B;
+  background: #F8F9F4;
+  color: #222;
   font-size: 15px;
-  line-height: 1.18;
-  border: none;
+  font-weight: 400;
   outline: none;
-  transition: background-color 0.2s;
   list-style: none;
+  user-select: none;
+  border: none;
   box-sizing: border-box;
   position: relative;
+  transition: background 0.2s, color 0.2s;
+  opacity: 1;
 }
 
-/* p fills space, no margin, ensures gap before arrow */
+/* Hover and focus for summary */
+.accordion.accordion34 > details > summary:hover,
+.accordion.accordion34 > details > summary:focus {
+  background: #F3F4EE;
+}
+
+/* Main label: fills row, removes default p spacing */
 .accordion.accordion34 > details > summary > p {
   margin: 0;
-  color: #3C3C3B;
-  font-size: 15px;
+  color: inherit;
   flex: 1 1 auto;
   align-self: center;
-  line-height: inherit;
-  padding-right: 12px; /* space between text and arrow */
+  font-size: inherit;
+  padding-right: 8px;
 }
 
-/* Custom chevron: smaller, flush right, perfectly centered */
+/* Hide default marker for custom arrow */
+.accordion.accordion34 > details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron: slightly larger, thinner, exactly at edge */
 .accordion.accordion34 > details > summary::after {
   display: inline-block;
   width: 9px;
   height: 9px;
-  border: solid #3C3C3B;
-  border-width: 0 1.5px 1.5px 0;
-  margin-left: 0;
-  vertical-align: middle;
+  border: solid #222;
+  border-width: 0 1px 1px 0;
   position: absolute;
-  right: 12px; /* flush with the edge; tweak for pixel-perfect flushness */
+  right: 0;
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
-  transition: transform 0.2s;
+  transition: transform 0.3s;
   box-sizing: border-box;
+  pointer-events: none;
+  background: none;
 }
 
-/* Chevron rotates when open */
+/* Chevron on open */
 .accordion.accordion34 > details[open] > summary::after {
   transform: translateY(-50%) rotate(-135deg);
 }
 
-/* Body: match left/right padding for text alignment, reduce vertical space */
+/* Accordion body: visible, no animation by default */
 .accordion.accordion34 > details > .accordion-item-body {
-  padding: 0 28px 8px;
-  background: #F7F7F3;
-  color: #3C3C3B;
+  display: block;
+  padding: 0 10px 8px 0;
+  color: #222;
   font-size: 15px;
+  background: #F8F9F4;
+  border: none;
+  box-sizing: border-box;
+  opacity: 1;
+  max-height: none;
+  transition: none;
 }
 
-/* Remove hover/active background effect */
-.accordion.accordion34 > details > summary:focus,
-.accordion.accordion34 > details > summary:hover,
-.accordion.accordion34 > details[open] > summary {
-  background: #F7F7F3;
-}
-
-/* Responsive: reduce horizontal padding on small screens */
+/* Responsive: even less padding on mobile */
 @media (width <= 600px) {
   .accordion.accordion34 > details > summary,
   .accordion.accordion34 > details > .accordion-item-body {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 0;
+    padding-right: 2px;
   }
 
   .accordion.accordion34 > details > summary::after {
-    right: 8px;
+    right: 0;
   }
 }
