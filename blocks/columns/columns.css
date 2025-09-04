@@ -34,142 +34,6 @@
 }
 
 
-.columns.columns1 {
-  background: #FAFAF6;
-  padding: 112px 0;
-  display: block;
-}
-
-.columns.columns1 > div {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 44px;
-  max-width: 1240px;
-  margin: 0 auto;
-  padding: 0 32px;
-  min-height: 700px;
-  box-sizing: border-box;
-}
-
-@media (width <= 900px) {
-  .columns.columns1 > div {
-    flex-direction: column;
-    gap: 40px;
-    padding: 0 16px;
-    min-height: unset;
-  }
-}
-
-.columns.columns1 .columns-img-col {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  flex: 0 0 auto;
-}
-
-.columns.columns1 .columns-img-col img {
-  width: 380px;
-  height: 475px;
-  object-fit: cover;
-  border-radius: 24px;
-  max-width: 100%;
-  display: block;
-  background: #e9e9e4;
-}
-
-@media (width <= 600px) {
-  .columns.columns1 .columns-img-col img {
-    width: 100%;
-    height: auto;
-    border-radius: 18px;
-  }
-}
-
-.columns.columns1 > div > div:last-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 20px;
-  min-width: 340px;
-  max-width: 680px;
-  height: 475px;
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  top: 10px;
-}
-
-@media (width <= 900px) {
-  .columns.columns1 > div > div:last-child {
-    height: auto;
-    max-width: 100%;
-    min-width: 0;
-    top: 0;
-  }
-}
-
-.columns.columns1 h1 {
-  font-size: 3.5rem;
-  font-weight: 600;
-  color: #191919;
-  letter-spacing: 0.02em;
-  line-height: 1.05;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-@media (width <= 900px) {
-  .columns.columns1 h1 {
-    font-size: 2.15rem;
-  }
-}
-
-.columns.columns1 p {
-  font-size: 1.07rem;
-  color: #444;
-  margin: 0 0 0.5em;
-  line-height: 1.5;
-}
-
-.columns.columns1 .button-container {
-  display: flex;
-  gap: 16px;
-  margin-top: 40px;
-  margin-bottom: 0;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  width: 100%;
-  padding: 0;
-}
-
-.columns.columns1 .button-container .button {
-  background: #fff;
-  color: #191919;
-  border: 2px solid #191919;
-  border-radius: 28px;
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: 500;
-  margin: 0;
-  box-shadow: none;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
-  min-width: 0;
-  text-align: center;
-}
-
-.columns.columns1 .button-container .button:hover,
-.columns.columns1 .button-container .button:focus {
-  background: #191919;
-  color: #fff;
-  border-color: #191919;
-  text-decoration: none;
-}
-
-
 .columns.columns4 {
   background: #f7f8f5;
   width: 100%;
@@ -1580,7 +1444,7 @@
   letter-spacing: 0.05em;
   line-height: 1.08;
   color: #000;
-  word-break: break-word;
+  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
@@ -1649,4 +1513,160 @@
 .columns.columns3 > div > div:last-child a:focus {
   border-color: #222;
   text-decoration: none;
+}
+
+
+.columns.columns1 {
+  background: #f8f8f4;
+  padding: 0;
+}
+
+/* Main columns grid: slightly reduced gap & max-width for a closer grouping */
+.columns.columns1 > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 74px;
+  align-items: center;
+  max-width: 1060px;
+  margin: 0 auto;
+  min-height: 700px;
+  padding: 112px 0;
+  box-sizing: border-box;
+}
+
+/* Image column: precise vertical/horizontal centering */
+.columns.columns1 .columns-img-col {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+/* Large image, aspect ratio preserved, slightly less radius for elegance */
+.columns.columns1 .columns-img-col img {
+  width: 576px;
+  height: 638.219px;
+  object-fit: cover;
+  border-radius: 16px;
+  max-width: 100%;
+  display: block;
+}
+
+/* Right column: vertically center and tightly group content */
+.columns.columns1 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 6px; /* Tighter grouping for headline, paragraph, button */
+  min-width: 340px;
+  max-width: 680px;
+  height: 100%;
+  margin: 0;
+  position: static;
+}
+
+/* Headline: dramatic, stacked, no extra margin */
+.columns.columns1 h1,
+.columns.columns1 #fresh-fits-bold-moves-all-you {
+  font-size: 90.4px;
+  line-height: 1.05;
+  font-weight: 700;
+  color: #181818;
+  letter-spacing: 0.01em;
+  margin: 0;
+  display: block;
+  white-space: pre-line;
+  text-align: left;
+}
+
+/* Paragraph: lighter color, minimal spacing */
+.columns.columns1 p:not(.button-container) {
+  color: #393939;
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 90%;
+}
+
+/* Button group: directly under paragraph */
+.columns.columns1 .button-container {
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+/* Button styling override */
+.columns.columns1 .button-container .button {
+  background: transparent;
+  color: #181818;
+  border: 2px solid #181818;
+  border-radius: 24px;
+  padding: 16px 32px;
+  font-size: 20px;
+  font-weight: 600;
+  box-shadow: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  min-width: 0;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.columns.columns1 .button-container .button:hover,
+.columns.columns1 .button-container .button:focus {
+  background: #181818;
+  color: #f8f8f4;
+  border-color: #181818;
+  text-decoration: none;
+}
+
+/* Responsive: stack and scale down gaps, sizes */
+@media (width <= 1100px) {
+  .columns.columns1 > div {
+    grid-template-columns: 1fr;
+    row-gap: 44px;
+    padding: 64px 0;
+    min-height: unset;
+    max-width: 98vw;
+  }
+
+  .columns.columns1 .columns-img-col {
+    justify-content: center;
+  }
+
+  .columns.columns1 .columns-img-col img {
+    width: 100%;
+    height: auto;
+    max-width: 420px;
+    border-radius: 12px;
+    margin: 0 auto;
+  }
+
+  .columns.columns1 h1,
+  .columns.columns1 #fresh-fits-bold-moves-all-you {
+    font-size: 56px;
+  }
+
+  .columns.columns1 > div > div:last-child {
+    gap: 5px;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+}
+
+@media (width <= 700px) {
+  .columns.columns1 > div {
+    padding: 24px 0;
+  }
+
+  .columns.columns1 h1,
+  .columns.columns1 #fresh-fits-bold-moves-all-you {
+    font-size: 32px;
+  }
 }
