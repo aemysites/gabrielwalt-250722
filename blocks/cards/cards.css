@@ -1165,83 +1165,170 @@
 }
 
 
-.cards.cardsnoimages19 ul {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px 24px; /* slightly more vertical spacing for balance */
-  margin: 0;
+.cards.cardsnoimages19 {
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 0;
-  list-style: none;
+  box-sizing: border-box;
 }
 
+/* Main cards grid */
+.cards.cardsnoimages19 > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(0, auto);
+  gap: 34px 50px; /* vertical gap: 34px, horizontal gap: 50px */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack to 2 columns, then 1 */
 @media (width <= 900px) {
-  .cards.cardsnoimages19 ul {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px 12px;
+  .cards.cardsnoimages19 > ul {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 18px;
   }
 }
 
 @media (width <= 600px) {
-  .cards.cardsnoimages19 ul {
+  .cards.cardsnoimages19 > ul {
     grid-template-columns: 1fr;
-    gap: 4px 0;
+    gap: 14px 0;
   }
 }
 
-.cards.cardsnoimages19 ul > li {
-  box-sizing: border-box;
-  border: none; /* REMOVE unwanted borders */
-  background: none;
-  box-shadow: none;
-  min-width: 0;
+/* Each card item */
+.cards.cardsnoimages19 > ul > li {
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
+  padding: 0;
   margin: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
   max-width: 100%;
+  min-width: 0;
 }
 
+/* Card body: horizontal flex for icon + text */
 .cards.cardsnoimages19 .cards-card-body {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 12px; /* slightly more space between icon and text for clarity */
+  gap: 13px;
+  width: 100%;
+  min-width: 0;
   margin: 0;
   padding: 0;
-  min-width: 0;
-  width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
+/* Remove default p spacing for tight alignment */
 .cards.cardsnoimages19 .cards-card-body > p {
   margin: 0;
   padding: 0;
 }
 
+/* Icon wrapper */
 .cards.cardsnoimages19 .cards-card-body > p:first-child {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
-  min-width: 18px;
-  height: 18px;
+  min-width: 24px;
+  min-height: 24px;
+  width: 24px;
+  height: 24px;
   margin: 0;
   padding: 0;
 }
 
-.cards.cardsnoimages19 .cards-card-body > p:first-child img,
-.cards.cardsnoimages19 .cards-card-body > p:first-child picture {
-  width: 18px;
-  height: 18px;
+.cards.cardsnoimages19 .cards-card-body > p:first-child picture,
+.cards.cardsnoimages19 .cards-card-body > p:first-child img {
   display: block;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 }
 
+/* Text styling */
 .cards.cardsnoimages19 .cards-card-body > p:last-child {
   color: #222;
-  font-size: 12px;
+  font-size: 13px;
+  line-height: 1.4;
   font-weight: 400;
-  line-height: 1.3;
   text-align: left;
   min-width: 0;
+  max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
+}
+
+/* Newsletter form styles */
+.cards.cardsnoimages19 .newsletter-signup,
+.cards.cardsnoimages19 form.newsletter-signup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 13px;
+  margin-top: 18px;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.cards.cardsnoimages19 .newsletter-signup input[type="email"],
+.cards.cardsnoimages19 .newsletter-signup input[type="text"] {
+  padding: 8px 14px;
+  border: 1.5px solid #bbb;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #222;
+  background: #fff;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+  transition: border-color 0.2s;
+}
+
+.cards.cardsnoimages19 .newsletter-signup input[type="email"]:focus,
+.cards.cardsnoimages19 .newsletter-signup input[type="text"]:focus {
+  border-color: #222;
+}
+
+.cards.cardsnoimages19 .newsletter-signup button,
+.cards.cardsnoimages19 .newsletter-signup input[type="submit"] {
+  padding: 8px 24px;
+  border: 2px solid #222;
+  background: transparent;
+  color: #222;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  outline: none;
+  min-width: 100px;
+  margin: 0;
+}
+
+.cards.cardsnoimages19 .newsletter-signup button:hover,
+.cards.cardsnoimages19 .newsletter-signup input[type="submit"]:hover,
+.cards.cardsnoimages19 .newsletter-signup button:focus,
+.cards.cardsnoimages19 .newsletter-signup input[type="submit"]:focus {
+  background: #f5f5f5;
+  border-color: #222;
+  color: #000;
+}
+
+@media (width <= 600px) {
+  .cards.cardsnoimages19 .newsletter-signup,
+  .cards.cardsnoimages19 form.newsletter-signup {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 9px;
+  }
 }
