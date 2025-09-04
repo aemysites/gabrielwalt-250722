@@ -34,63 +34,6 @@
 }
 
 
-.columns.columns4 {
-  background: #f7f8f5;
-  width: 100%;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  min-height: 80px;
-  display: block;
-}
-
-.columns.columns4 > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  box-sizing: border-box;
-  min-height: 80px;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  margin: 0;
-  background: transparent;
-}
-
-.columns.columns4 .columns-img-col {
-  display: none;
-}
-
-.columns.columns4 > div > *:not(.columns-img-col) {
-  color: #222;
-  font-size: var(--body-font-size-s);
-  font-weight: 400;
-  text-align: center;
-  margin: 0;
-  line-height: 1.3;
-  max-width: 900px;
-  width: 100%;
-  align-self: center;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-@media (width <= 899px) {
-  .columns.columns4 > div {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    min-height: 60px;
-  }
-
-  .columns.columns4 > div > *:not(.columns-img-col) {
-    padding-left: 16px;
-    padding-right: 16px;
-    max-width: 100%;
-  }
-}
-
-
 .columns.columns7 > div {
   display: flex;
   flex-direction: row;
@@ -1558,7 +1501,6 @@
   padding: 0;
 }
 
-/* Block: flex row, top-aligned, tight vertical and horizontal spacing */
 .columns.columns3 > div {
   display: flex;
   flex-direction: row;
@@ -1571,7 +1513,6 @@
   padding: 28px 8vw 12px;
 }
 
-/* Responsive stacking */
 @media (width <= 900px) {
   .columns.columns3 > div {
     flex-direction: column;
@@ -1581,7 +1522,6 @@
   }
 }
 
-/* Left column: narrow for triple headline wrap, with margin only to right */
 .columns.columns3 > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -1597,7 +1537,6 @@
   }
 }
 
-/* Headline: smaller max-width for three lines, minimal bottom margin */
 .columns.columns3 > div > div:first-child h2 {
   font-size: 2.2rem;
   font-weight: 700;
@@ -1611,7 +1550,6 @@
   padding: 0;
 }
 
-/* Subheading: allow full natural wrapping, tight spacing */
 .columns.columns3 > div > div:first-child p {
   font-size: 1rem;
   color: #555;
@@ -1624,7 +1562,6 @@
   max-width: 100%;
 }
 
-/* Right column: vertically stacked buttons, centered horizontally */
 .columns.columns3 > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -1633,7 +1570,7 @@
   max-width: 260px;
   width: 100%;
   min-width: 0;
-  margin-top: 8px; /* visually aligns with headline better */
+  margin-top: 8px;
 }
 
 @media (width <= 900px) {
@@ -1645,7 +1582,6 @@
   }
 }
 
-/* Stack buttons with tight vertical gap */
 .columns.columns3 > div > div:last-child p {
   display: flex;
   flex-direction: column;
@@ -1661,7 +1597,6 @@
   }
 }
 
-/* Button styles: pill shape, outlined, consistent width */
 .columns.columns3 > div > div:last-child a {
   display: block;
   width: 220px;
@@ -1685,7 +1620,6 @@
   }
 }
 
-/* Top button: yellow accent border ONLY on top edge */
 .columns.columns3 > div > div:last-child a:first-child {
   border-top: 2px solid #F5F57A;
   border-right: 1px solid #222;
@@ -1693,10 +1627,66 @@
   border-left: 1px solid #222;
 }
 
-/* Button hover effect for clarity */
 .columns.columns3 > div > div:last-child a:hover,
 .columns.columns3 > div > div:last-child a:focus {
   background: #F5F57A10;
   border-color: #222;
   text-decoration: none;
+}
+
+
+.columns.columns4 {
+  background: #F6F7F4;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  min-height: 120px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.columns.columns4 > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 120px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin: 0;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.columns.columns4 .columns-img-col {
+  display: none;
+}
+
+.columns.columns4 > div > *:not(.columns-img-col) {
+  color: #212121;
+  font-size: var(--body-font-size-s);
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  line-height: 1.3;
+  max-width: 900px;
+  width: 100%;
+  align-self: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (width <= 899px) {
+  .columns.columns4 > div {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    min-height: 60px;
+  }
+
+  .columns.columns4 > div > *:not(.columns-img-col) {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-width: 100%;
+  }
 }
