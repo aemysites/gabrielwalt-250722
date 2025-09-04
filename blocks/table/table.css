@@ -64,9 +64,9 @@
   background: #fff;
   padding: 0;
   margin: 0;
+  margin-left: 32px;
 }
 
-/* Table - fixed layout for consistent column widths */
 .table.bordered.tablebordered13 table {
   width: 100%;
   border-collapse: collapse;
@@ -75,94 +75,93 @@
   table-layout: fixed;
 }
 
-/* Consistent, thin row separators */
-.table.bordered.tablebordered13 thead tr,
-.table.bordered.tablebordered13 tbody tr {
-  border-top: none;
-  border-bottom: 1px solid #d7d7d7;
+.table.bordered.tablebordered13 tr {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Top-align content for tighter rows */
+  border-bottom: 1px solid #c5c5c5;
 }
 
+/* Remove border from last row */
 .table.bordered.tablebordered13 tr:last-child {
   border-bottom: none;
 }
 
-/* Remove borders from all cells and align content to top */
+/* Left column (question/heading) */
 .table.bordered.tablebordered13 th,
-.table.bordered.tablebordered13 td {
-  border: none;
+.table.bordered.tablebordered13 td:first-child {
+  flex: 0 1 30%;
+  max-width: 30%;
+  min-width: 120px;
+  color: #6c6c6c;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.15;
+  text-transform: lowercase;
   background: #fff;
   box-sizing: border-box;
   margin: 0;
-  vertical-align: top;
   text-align: left;
-
-  /* Symmetrical, slightly increased left padding for visual match */
-  padding: 12px 22px 12px 28px;
+  padding: 10px 16px 10px 18px; /* More compact padding for tighter rows */
   overflow-wrap: break-word;
+  word-wrap: break-word; /* Added for compatibility */
+  display: flex;
+  align-items: flex-start;
 }
 
-/* Set column widths */
-.table.bordered.tablebordered13 th,
-.table.bordered.tablebordered13 td:first-child {
-  width: 45%;
-  min-width: 120px;
-  max-width: 380px;
-  color: #595959;
-  font-size: 18px;
+/* Uppercase only the first heading */
+.table.bordered.tablebordered13 th:first-child p {
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  font-weight: 400;
-  line-height: 1.15;
 }
 
-.table.bordered.tablebordered13 th + th,
-.table.bordered.tablebordered13 td + td {
-  width: 55%;
+/* Right column (answer/paragraph) */
+.table.bordered.tablebordered13 th:last-child,
+.table.bordered.tablebordered13 td:last-child {
+  flex: 0 1 70%;
+  max-width: 70%;
   min-width: 180px;
-  color: #232323;
-  font-size: 13px;
+  color: #2d2d2d;
+  font-size: 12px;
   font-weight: 400;
-  text-transform: none;
   line-height: 1.4;
+  padding: 10px 18px 10px 12px; /* More compact padding */
+  background: #fff;
+  box-sizing: border-box;
+  margin: 0;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word; /* Added for compatibility */
+  display: flex;
+  align-items: flex-start;
 }
 
-/* Responsive stacking for mobile */
+/* Remove default p margin in table cells */
+.table.bordered.tablebordered13 th p,
+.table.bordered.tablebordered13 td p {
+  margin: 0;
+}
+
+/* Responsive: stack question/answer vertically on small screens */
 @media (width <= 600px) {
-  .table.bordered.tablebordered13 table,
-  .table.bordered.tablebordered13 thead,
-  .table.bordered.tablebordered13 tbody,
-  .table.bordered.tablebordered13 tr {
-    display: block;
-    width: 100%;
+  .table.bordered.tablebordered13 {
+    margin-left: 0;
   }
 
   .table.bordered.tablebordered13 tr {
-    border-bottom: 1px solid #d7d7d7;
+    flex-direction: column;
+    border-bottom: 1px solid #c5c5c5;
     margin-bottom: 8px;
   }
 
   .table.bordered.tablebordered13 th,
   .table.bordered.tablebordered13 td {
-    display: block;
-    width: 100%;
+    flex: none;
     max-width: 100%;
-    min-width: 0;
+    width: 100%;
     padding-left: 18px;
     padding-right: 18px;
+    display: block;
+    align-items: flex-start;
   }
-}
-
-/* Typography: left column (question/title) */
-
-/* Typography: right column (answer/text) */
-
-/* Remove striped backgrounds if present */
-.table.bordered.tablebordered13.striped tbody tr {
-  background: #fff;
-}
-
-/* Remove paragraph margins for tight alignment in cells */
-.table.bordered.tablebordered13 th p,
-.table.bordered.tablebordered13 td p {
-  margin: 0;
 }
