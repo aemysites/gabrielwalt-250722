@@ -70,93 +70,6 @@
   color: var(--background-color);
 }
 
-
-.hero.hero6 {
-  position: relative;
-  width: 100vw;
-  min-height: 70vh;
-  border-radius: 28px;
-  overflow: hidden;
-  background: transparent;
-  display: block;
-}
-
-.hero.hero6 > div:first-child {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.hero.hero6 > div:first-child picture,
-.hero.hero6 > div:first-child img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero.hero6 > div:last-child {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: flex-start;
-  min-height: 100%;
-  padding: 0;
-}
-
-.hero.hero6 > div:last-child > div {
-  background: rgb(28 28 28 / 25%);
-  border: 2px solid #fff;
-  border-radius: 28px;
-  backdrop-filter: blur(13px);
-  box-shadow: 0 8px 40px rgb(28 28 28 / 10%);
-  padding: 1.1rem 1.3rem 0.9rem;
-  max-width: 370px;
-  min-width: 270px;
-  margin: 7.5vh 0 1.5vh 1.6vw;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-  align-items: flex-start;
-  justify-content: flex-start;
-  height: fit-content;
-}
-
-.hero.hero6 h1 {
-  color: #fff;
-  font-size: clamp(2.4rem, 4.6vw, 4rem);
-  font-weight: 400;
-  line-height: 1.05;
-  margin: 0 0 0.3rem;
-  text-align: left;
-  letter-spacing: 0.01em;
-  max-width: 96%;
-}
-
-.hero.hero6 p {
-  color: rgb(255 255 255 / 78%);
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.44;
-  margin: 0 0 0.37rem;
-  text-align: left;
-  max-width: 98%;
-}
-
-.hero.hero6 .button-container {
-  display: flex;
-  flex-direction: row;
-  gap: 0.7rem;
-  margin-top: 0.07rem;
-  padding: 0;
-  width: auto;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .hero-container > .hero-wrapper > .block.hero .button,
 .hero.hero6 .button-container .button {
   border: 2px solid #fff;
@@ -180,34 +93,6 @@
   background: #fff;
   color: #202020;
   border-color: #fff;
-}
-
-@media (width <= 900px) {
-  .hero.hero6 {
-    border-radius: 0;
-    min-height: 60vh;
-  }
-
-  .hero.hero6 > div:last-child > div {
-    margin: 2vh auto 3vh;
-    padding: 0.54rem 0.27rem 0.45rem;
-    max-width: 97vw;
-    min-width: 0;
-    border-radius: 14px;
-    gap: 0.4rem;
-  }
-
-  .hero.hero6 h1 {
-    font-size: clamp(1.13rem, 6vw, 1.94rem);
-    margin-bottom: 0.26rem;
-    max-width: 99%;
-  }
-
-  .hero.hero6 .button-container {
-    flex-direction: column;
-    gap: 0.31rem;
-    margin-top: 0.29rem;
-  }
 }
 
 .hero-container > .hero-wrapper {
@@ -1052,7 +937,6 @@
   background: var(--background-color);
 }
 
-/* Text Column */
 .hero.hero5 > div:last-child {
   flex: 1;
   order: 1;
@@ -1062,8 +946,6 @@
   min-width: 0;
   min-height: 0;
   background: var(--background-color);
-
-  /* Adds generous left padding, but less than before for better alignment */
   padding: 8vh 2vw 0 7vw;
 }
 
@@ -1076,7 +958,6 @@
   justify-content: flex-start;
 }
 
-/* Headline */
 .hero.hero5 h2 {
   font-size: var(--heading-font-size-xl);
   font-weight: 600;
@@ -1090,7 +971,6 @@
   overflow-wrap: break-word;
 }
 
-/* Paragraph */
 .hero.hero5 p:not(.button-container) {
   font-size: var(--body-font-size-s);
   color: var(--dark-color);
@@ -1101,7 +981,6 @@
   width: 100%;
 }
 
-/* Button Container */
 .hero.hero5 .button-container {
   display: flex;
   gap: 1rem;
@@ -1111,7 +990,6 @@
   justify-content: flex-start;
 }
 
-/* Button Style */
 .hero.hero5 .button {
   background: var(--background-color);
   border: 2px solid var(--text-color);
@@ -1127,7 +1005,6 @@
   min-width: 0;
 }
 
-/* Image Column */
 .hero.hero5 > div:first-child {
   flex: 1;
   order: 2;
@@ -1155,7 +1032,6 @@
   display: block;
 }
 
-/* Responsive adjustments */
 @media (width <= 900px) {
   .hero.hero5 {
     flex-direction: column;
@@ -1200,5 +1076,210 @@
   .hero.hero5 img {
     height: 40vh;
     max-height: 400px;
+  }
+}
+
+/* Use flex for perfect vertical centering of the overlay card */
+.hero.hero6 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100vw;
+  min-height: 100vh;
+  background: transparent;
+  border-radius: 18px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Background image fills the block */
+.hero.hero6 > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+}
+
+.hero.hero6 > div:first-child picture,
+.hero.hero6 > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  filter: brightness(0.92) contrast(0.97);
+}
+
+/* Foreground content: card is perfectly vertically centered with no explicit vertical margin */
+.hero.hero6 > div:last-child {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+/* Overlay card: wider, lighter border, subtle background,
+   more balanced margin left for correct horizontal float & layering,
+   increased gap for more "airy" vertical rhythm, no vertical margin */
+.hero.hero6 > div:last-child > div {
+  background: rgb(44 44 44 / 39%);
+  backdrop-filter: blur(56px);
+  backdrop-filter: blur(56px);
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 11px;
+  box-shadow: 0 8px 32px 0 rgb(0 0 0 / 10%);
+  width: 560px;
+  max-width: 98vw;
+  padding: 60px 64px 40px;
+  margin-left: 3vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 46px;
+  height: auto;
+  min-height: unset;
+  align-self: center;
+}
+
+/* Headline: larger line height, more bottom margin for airiness, no overflow */
+.hero.hero6 h1 {
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 400;
+  letter-spacing: -0.46px;
+  color: #fff;
+  line-height: 1.11;
+  margin: 0 0 38px;
+  max-width: 100%;
+  text-align: left;
+  height: auto;
+}
+
+/* Subtext: slightly lighter and smaller */
+.hero.hero6 p {
+  color: rgb(255 255 255 / 81%);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  max-width: 97%;
+  text-align: left;
+}
+
+/* Button group: horizontal, more space, compact button */
+.hero.hero6 .button-container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 28px;
+  margin-top: 0;
+  width: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero.hero6 .button-container .button {
+  padding: 13px 28px;
+  border-radius: 12px;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin: 0;
+  min-width: 0;
+  text-align: center;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* Two button visual: first filled, second outlined */
+.hero.hero6 .button-container .button:first-child {
+  background: #fff;
+  color: #222;
+  border: 2px solid #fff;
+}
+
+.hero.hero6 .button-container .button:last-child {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+}
+
+.hero.hero6 .button-container .button:first-child:hover,
+.hero.hero6 .button-container .button:first-child:focus {
+  background: #232323;
+  color: #fff;
+  border-color: #232323;
+}
+
+.hero.hero6 .button-container .button:last-child:hover,
+.hero.hero6 .button-container .button:last-child:focus {
+  background: #fff;
+  color: #232323;
+  border-color: #fff;
+}
+
+/* Responsive tweaks: card shrinks, keeps left float and vertical centering, lines don't crowd */
+@media (width <= 1100px) {
+  .hero.hero6 > div:last-child > div {
+    width: 90vw;
+    max-width: 98vw;
+    padding: 28px 8vw 14px;
+    margin-left: 1vw;
+    border-radius: 8px;
+    gap: 24px;
+  }
+
+  .hero.hero6 h1 {
+    font-size: 44px;
+    margin-bottom: 14px;
+    letter-spacing: -0.21px;
+  }
+
+  .hero.hero6 p {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (width <= 700px) {
+  .hero.hero6 {
+    min-height: 420px;
+    border-radius: 0;
+  }
+
+  .hero.hero6 > div:last-child > div {
+    width: 99vw;
+    max-width: 99vw;
+    padding: 10px 2vw 4px;
+    margin-left: 0;
+    border-radius: 4px;
+    gap: 10px;
+  }
+
+  .hero.hero6 h1 {
+    font-size: 21px;
+    margin-bottom: 4px;
+    letter-spacing: -0.04px;
+  }
+
+  .hero.hero6 p {
+    font-size: 11px;
+    margin-bottom: 3px;
+  }
+
+  .hero.hero6 .button-container .button {
+    padding: 8px 9px;
+    font-size: 0.92rem;
+    border-radius: 5px;
   }
 }
