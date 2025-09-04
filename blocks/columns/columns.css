@@ -1642,46 +1642,79 @@
 
 
 .columns.columns29 {
-  background: #fff;
-  padding: 0;
+  max-width: 1200px;
   margin: 0 auto;
+  padding: 80px 0;
+  background: transparent;
   box-sizing: border-box;
 }
 
+/* Flex row layout for side-by-side columns */
 .columns.columns29 > div {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-  gap: 8px;
   width: 100%;
-  max-width: unset;
-  margin: 0 auto;
+  gap: 24px;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Responsive: stack columns vertically on small screens */
+/* Responsive: stack columns vertically on smaller screens */
 @media (width <= 900px) {
+  .columns.columns29 {
+    padding: 48px 0;
+  }
+
   .columns.columns29 > div {
     flex-direction: column;
-    gap: 8px;
+    gap: 24px;
     max-width: 500px;
+    margin: 0 auto;
   }
 }
 
-.columns.columns29 .columns-img-col {
-  flex: 1 1 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  border-radius: 24px;
-  overflow: hidden;
-  min-width: 0;
-  min-height: 0;
-  aspect-ratio: 7 / 6;
-  background: transparent;
-  height: 100%;
+@media (width <= 600px) {
+  .columns.columns29 {
+    padding: 32px 0;
+  }
 }
 
+/* Make image columns fill more vertical space; close to square on desktop */
+.columns.columns29 .columns-img-col {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  align-items: stretch;
+  border-radius: 24px;
+  overflow: hidden;
+  background: transparent;
+  height: min(38vw, 540px);
+  max-height: 600px;
+}
+
+@media (width <= 1200px) {
+  .columns.columns29 .columns-img-col {
+    height: min(46vw, 500px);
+    max-height: none;
+  }
+}
+
+@media (width <= 900px) {
+  .columns.columns29 .columns-img-col {
+    height: min(70vw, 360px);
+  }
+}
+
+@media (width <= 600px) {
+  .columns.columns29 .columns-img-col {
+    height: min(90vw, 300px);
+  }
+}
+
+/* Ensure images fully cover and fit columns */
 .columns.columns29 .columns-img-col picture,
 .columns.columns29 .columns-img-col img {
   width: 100%;
@@ -1691,28 +1724,33 @@
   display: block;
 }
 
-/* Centered, elegant headings inside columns block */
+/* Headings: prominent, centered, lighter */
 .columns.columns29 h1,
 .columns.columns29 h2,
 .columns.columns29 h3,
 .columns.columns29 h4,
 .columns.columns29 h5,
 .columns.columns29 h6 {
-  text-align: center;
+  font-size: 56px;
   font-weight: 300;
-  margin-top: 48px;
-  margin-bottom: 16px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 32px;
   letter-spacing: 0.01em;
-  color: var(--text-color);
+  line-height: 1.1;
+  color: var(--text-color, #222);
 }
 
-/* Centered subtitle and paragraph styling */
-.columns.columns29 p,
-.columns.columns29 .subtitle {
-  text-align: center;
-  font-weight: 400;
-  margin-bottom: 36px;
-  color: var(--dark-color);
+@media (width <= 900px) {
+  .columns.columns29 h1,
+  .columns.columns29 h2,
+  .columns.columns29 h3,
+  .columns.columns29 h4,
+  .columns.columns29 h5,
+  .columns.columns29 h6 {
+    font-size: 40px;
+    margin-bottom: 24px;
+  }
 }
 
 @media (width <= 600px) {
@@ -1722,12 +1760,24 @@
   .columns.columns29 h4,
   .columns.columns29 h5,
   .columns.columns29 h6 {
-    margin-top: 24px;
-    margin-bottom: 10px;
+    font-size: 28px;
+    margin-bottom: 18px;
   }
+}
 
+/* Paragraph and subtitle styling for hero section */
+.columns.columns29 p,
+.columns.columns29 .subtitle {
+  text-align: center;
+  font-weight: 400;
+  font-size: 22px;
+  margin-bottom: 36px;
+  color: var(--dark-color, #444);
+}
+
+@media (width <= 900px) {
   .columns.columns29 p,
   .columns.columns29 .subtitle {
-    margin-bottom: 20px;
+    font-size: 18px;
   }
 }
