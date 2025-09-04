@@ -1443,147 +1443,6 @@
 }
 
 
-.columns.columns3 {
-  background: var(--background-color);
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-.columns.columns3 > div {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 32px;
-  min-height: 220px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 28px 8vw 12px;
-}
-
-@media (width <= 900px) {
-  .columns.columns3 > div {
-    flex-direction: column;
-    gap: 24px;
-    padding: 20px 4vw 12px;
-    min-height: unset;
-  }
-}
-
-.columns.columns3 > div > div:first-child {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  max-width: 320px;
-  margin-right: auto;
-  min-width: 0;
-}
-
-@media (width <= 900px) {
-  .columns.columns3 > div > div:first-child {
-    max-width: 100%;
-  }
-}
-
-.columns.columns3 > div > div:first-child h2 {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #222;
-  letter-spacing: 0.05em;
-  line-height: 1.08;
-  margin-bottom: 0.7em;
-  max-width: 320px;
-  white-space: normal;
-  overflow-wrap: break-word;
-  padding: 0;
-}
-
-.columns.columns3 > div > div:first-child p {
-  font-size: 1rem;
-  color: #555;
-  margin: 0;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: unset;
-  line-height: 1.4;
-  padding: 0;
-  max-width: 100%;
-}
-
-.columns.columns3 > div > div:last-child {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  max-width: 260px;
-  width: 100%;
-  min-width: 0;
-  margin-top: 8px;
-}
-
-@media (width <= 900px) {
-  .columns.columns3 > div > div:last-child {
-    max-width: none;
-    width: 100%;
-    align-items: flex-start;
-    margin-top: 0;
-  }
-}
-
-.columns.columns3 > div > div:last-child p {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-@media (width <= 900px) {
-  .columns.columns3 > div > div:last-child p {
-    align-items: stretch;
-  }
-}
-
-.columns.columns3 > div > div:last-child a {
-  display: block;
-  width: 220px;
-  padding: 0.75em 0;
-  border: 1px solid #222;
-  border-radius: 32px;
-  background: #fff;
-  color: #222;
-  font-size: 1rem;
-  font-weight: 500;
-  text-align: center;
-  box-sizing: border-box;
-  transition: border-color 0.2s;
-  margin: 0;
-}
-
-@media (width <= 900px) {
-  .columns.columns3 > div > div:last-child a {
-    width: 100%;
-    max-width: 340px;
-  }
-}
-
-.columns.columns3 > div > div:last-child a:first-child {
-  border-top: 2px solid #F5F57A;
-  border-right: 1px solid #222;
-  border-bottom: 1px solid #222;
-  border-left: 1px solid #222;
-}
-
-.columns.columns3 > div > div:last-child a:hover,
-.columns.columns3 > div > div:last-child a:focus {
-  background: #F5F57A10;
-  border-color: #222;
-  text-decoration: none;
-}
-
-
 .columns.columns4 {
   background: #F6F7F4;
   width: 100%;
@@ -1642,7 +1501,6 @@
 
 
 .columns.columns29 {
-  /* More compact vertical spacing for a closer match to the reference layout */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1683,7 +1541,6 @@
   display: block;
 }
 
-/* Responsive: stack images on mobile */
 @media (width <= 900px) {
   .columns.columns29 {
     padding: 16px 8px;
@@ -1693,5 +1550,138 @@
     flex-direction: column;
     gap: 16px;
     max-width: 500px;
+  }
+}
+
+
+.columns.columns3 {
+  padding: 48px 10vw;
+  box-sizing: border-box;
+  background: var(--background-color);
+}
+
+/* Main layout: two columns side by side, content centered */
+.columns.columns3 > div {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* <--- Center both columns vertically relative to each other */
+  justify-content: center;
+  gap: 7vw;
+  width: 100%;
+  min-height: 320px;
+  position: relative;
+}
+
+/* Left column: center horizontally, allow content to determine height */
+.columns.columns3 > div > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  min-height: unset; /* Remove fixed height to allow vertical centering */
+}
+
+/* More breathing room below heading */
+.columns.columns3 > div > div:first-child h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  font-weight: 400;
+  color: var(--text-color);
+  letter-spacing: 0.03em;
+  line-height: 1.08;
+  margin-bottom: 2.2rem;
+  margin-top: 0;
+}
+
+/* Paragraph styling */
+.columns.columns3 > div > div:first-child p {
+  text-align: center;
+  color: #444;
+  font-size: 1.05rem;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 420px;
+  padding: 0;
+}
+
+/* Right column: perfectly center button stack vertically next to text column */
+.columns.columns3 > div > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* <--- Center button stack vertically */
+  gap: 20px;
+  width: 100%;
+  max-width: 260px;
+  margin: 0;
+  padding: 0;
+  min-height: unset; /* Remove fixed height to allow vertical centering */
+}
+
+/* Buttons: styled links */
+.columns.columns3 > div > div:last-child a {
+  display: block;
+  width: 200px;
+  min-width: 180px;
+  padding: 0.85em 0;
+  background: #fff;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  border: 1.5px solid #000;
+  border-radius: 999px;
+  box-shadow: none;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* First button: yellow bottom border accent */
+.columns.columns3 > div > div:last-child a:first-child {
+  border-bottom: 2px solid #EAE94B;
+  border-top: 1.5px solid #000;
+  border-left: 1.5px solid #000;
+  border-right: 1.5px solid #000;
+}
+
+/* Button hover/focus effect */
+.columns.columns3 > div > div:last-child a:hover,
+.columns.columns3 > div > div:last-child a:focus {
+  background: #F5F57A20;
+  border-color: #000;
+  color: var(--text-color);
+}
+
+/* Responsive: stack vertically and center columns */
+@media (width <= 900px) {
+  .columns.columns3 > div {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 24px 4vw;
+    min-height: unset;
+  }
+
+  .columns.columns3 > div > div:first-child,
+  .columns.columns3 > div > div:last-child {
+    max-width: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    min-height: unset;
+  }
+
+  .columns.columns3 > div > div:last-child a {
+    width: 100%;
+    max-width: 320px;
   }
 }
