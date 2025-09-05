@@ -486,8 +486,5 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     visibility: visible;
   }
   
-  /* Hide button container in nav sections on desktop */
-  .nav-sections .button-container {
-    display: none;
-  }
+  /* Don't hide button containers that have been moved to nav-tools */
 }
