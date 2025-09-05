@@ -1323,3 +1323,32 @@
   cursor: pointer;
   padding: 0;
   background: transparent;
+  margin-top: auto;
+}
+
+.cards.cards33 .cards-card-body p:last-child:hover {
+  color: #0d47a1;
+  text-decoration: none;
+}
+
+/* Mobile: stack image above text, adjust gap and max-width */
+@media (width <= 900px) {
+  .cards.cards33 > ul > li {
+    flex-direction: column;
+    min-height: unset;
+  }
+
+  .cards.cards33 .cards-card-image {
+    max-width: 100%;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+  }
+
+  .cards.cards33 .cards-card-body {
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: 100%;
+    height: auto;
+  }
+}
