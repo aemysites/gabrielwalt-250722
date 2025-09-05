@@ -95,158 +95,6 @@
 }
 
 
-.columns.columns9 {
-  background: #000;
-  border-bottom: 1px solid #fff;
-  padding: 28px 0 30px;
-  color: #fff;
-}
-
-.columns.columns9 > div {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  align-items: start;
-  max-width: 1200px;
-  margin: 0 auto;
-  gap: 66px;
-}
-
-@media (width <= 1000px) {
-  .columns.columns9 > div {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-}
-
-@media (width <= 600px) {
-  .columns.columns9 > div {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-}
-
-.columns.columns9 > div > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.columns.columns9 > div > div:first-child {
-  min-width: 240px;
-  align-items: flex-start;
-  padding-right: 10px;
-}
-
-.columns.columns9 > div > div:first-child > p {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 0 0 22px;
-  padding: 0;
-}
-
-.columns.columns9 > div > div:first-child .button {
-  background: none;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.09em;
-  border: none;
-  box-shadow: none;
-  border-radius: 0;
-  padding: 0 0 0 13px;
-  margin: 0;
-  min-width: unset;
-  cursor: default;
-  pointer-events: none;
-  text-align: left;
-}
-
-.columns.columns9 > div > div:first-child > p picture img {
-  width: 33px;
-  height: 33px;
-  display: block;
-}
-
-.columns.columns9 > div > div:first-child ul {
-  display: flex;
-  flex-direction: row;
-  gap: 24px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 24px;
-}
-
-.columns.columns9 > div > div:first-child ul li {
-  margin: 0;
-}
-
-.columns.columns9 > div > div:first-child ul li a:not(:has(picture)) {
-  display: none;
-}
-
-.columns.columns9 > div > div:first-child ul li a picture img {
-  filter: brightness(0) invert(1);
-  width: 24px;
-  height: 24px;
-  display: block;
-}
-
-.columns.columns9 > div > div:not(:first-child) {
-  align-items: flex-start;
-  min-width: 170px;
-}
-
-.columns.columns9 > div > div > h2 {
-  color: #5c5c5c;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  margin: 0 0 22px;
-  padding: 0;
-  line-height: 1.5;
-}
-
-.columns.columns9 ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.columns.columns9 > div > div > ul {
-  margin: 0;
-  padding: 0;
-}
-
-.columns.columns9 > div > div > ul > li {
-  margin-bottom: 12px;
-}
-
-.columns.columns9 > div > div > ul > li:last-child {
-  margin-bottom: 0;
-}
-
-.columns.columns9 > div > div > ul > li > a {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  text-decoration: none;
-  transition: color 0.2s;
-  padding: 0;
-  line-height: 1.8;
-}
-
-.columns.columns9 > div > div > ul > li > a:hover {
-  color: #cecece;
-  text-decoration: underline;
-}
-
-
 .columns.columns14,
 .columns.columns14 > div {
   background: #fff;
@@ -1588,17 +1436,14 @@
   }
 }
 
-
-/* Restore white background so content is visible */
 .columns.columns3.block.columns-2-cols {
   background: var(--background-color);
 }
 
-/* Main flex layout for columns: direct child of block */
 .columns.columns3.block.columns-2-cols > div {
   display: flex;
   flex-direction: row;
-  align-items: center; /* vertical centering across columns */
+  align-items: center;
   justify-content: space-between;
   gap: 104px;
   width: 100%;
@@ -1607,7 +1452,6 @@
   min-height: 220px;
 }
 
-/* Responsive: stack vertically on mobile */
 @media (width <= 900px) {
   .columns.columns3.block.columns-2-cols > div {
     flex-direction: column;
@@ -1617,7 +1461,6 @@
   }
 }
 
-/* Left column: headline & description */
 .columns.columns3.block.columns-2-cols > div > div:first-child {
   display: flex;
   flex-direction: column;
@@ -1648,7 +1491,6 @@
   max-width: 420px;
 }
 
-/* Right column: vertical stack for CTAs */
 .columns.columns3.block.columns-2-cols > div > div:last-child {
   display: flex;
   flex-direction: column;
@@ -1659,7 +1501,6 @@
   margin-top: 0;
 }
 
-/* Stack CTA links in a column */
 .columns.columns3.block.columns-2-cols > div > div:last-child p {
   display: flex;
   flex-direction: column;
@@ -1669,7 +1510,6 @@
   padding: 0;
 }
 
-/* CTA buttons: pill shape, correct sizing, color and border */
 .columns.columns3.block.columns-2-cols > div > div:last-child a {
   display: flex;
   align-items: center;
@@ -1692,12 +1532,10 @@
   overflow: hidden;
 }
 
-/* Neon yellow highlight only on bottom border of first CTA */
 .columns.columns3.block.columns-2-cols > div > div:last-child a:first-child {
   border-bottom: 2px solid #F7FF00;
 }
 
-/* CTA hover/focus effect */
 .columns.columns3.block.columns-2-cols > div > div:last-child a:hover,
 .columns.columns3.block.columns-2-cols > div > div:last-child a:focus {
   background: #333;
@@ -1706,10 +1544,177 @@
   box-shadow: 0 2px 8px rgb(51 51 51 / 12%);
 }
 
-/* Responsive: CTA full width on mobile */
 @media (width <= 900px) {
   .columns.columns3.block.columns-2-cols > div > div:last-child a {
     width: 100%;
     max-width: 340px;
   }
+}
+
+
+.columns.columns9 {
+  background: #000;
+  color: #fff;
+  padding: 40px 0 30px;
+  margin: 0;
+  border: none;
+}
+
+/* Make columns fill height for bottom alignment possible */
+.columns.columns9 > div {
+  display: grid;
+  grid-template-columns: minmax(220px,1fr) 1fr 1fr 1fr;
+  gap: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: stretch;
+  height: 100%;
+}
+
+/* Each column: stack vertically, always top-aligned except first which stretches */
+.columns.columns9 > div > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  align-items: flex-start;
+  padding: 0;
+  height: 100%;
+  align-self: stretch;
+}
+
+/* First column: logo/brand at top, socials at bottom */
+.columns.columns9 > div > div:first-child {
+  min-width: 200px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 100%;
+  align-self: stretch;
+}
+
+/* Brand row: horizontal (logo + text), flush with top of block */
+.columns.columns9 > div > div:first-child > p {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  min-height: 32px;
+}
+
+/* Logo visible and sized */
+.columns.columns9 > div > div:first-child > p > a > picture,
+.columns.columns9 > div > div:first-child > p > picture {
+  display: inline-block;
+  margin-right: 13px;
+}
+
+.columns.columns9 > div > div:first-child > p > a > picture img,
+.columns.columns9 > div > div:first-child > p > picture img {
+  display: block;
+  width: 33px;
+  height: 33px;
+  vertical-align: middle;
+}
+
+/* Brand "button" link style: match h2 */
+.columns.columns9 > div > div:first-child .button {
+  background: none;
+  color: #ededed;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  min-width: unset;
+  text-align: left;
+  cursor: default;
+  pointer-events: none;
+  line-height: 1.5;
+  display: inline-block;
+}
+
+/* Section headings: bright, tight, uppercase, top-aligned */
+.columns.columns9 > div > div > h2 {
+  color: #ededed;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 18px;
+  padding: 0;
+  line-height: 1.5;
+  align-self: flex-start;
+}
+
+/* Section link lists */
+.columns.columns9 > div > div > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* List items: spacing between */
+.columns.columns9 > div > div > ul > li {
+  margin-bottom: 12px;
+}
+
+.columns.columns9 > div > div > ul > li:last-child {
+  margin-bottom: 0;
+}
+
+.columns.columns9 > div > div > ul > li > a {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  line-height: 1.8;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.columns.columns9 > div > div > ul > li > a:hover {
+  color: #cecece;
+  text-decoration: underline;
+}
+
+/* Social icon row: NO margin-top, always at bottom via space-between */
+.columns.columns9 > div > div:first-child ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  align-items: center;
+  width: 100%;
+}
+
+/* Only show icon links, hide text-only */
+.columns.columns9 > div > div:first-child ul li a:not(:has(picture)) {
+  display: none;
+}
+
+.columns.columns9 > div > div:first-child ul li a picture img {
+  filter: brightness(0) invert(1);
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.columns.columns9 > div > div:first-child ul li {
+  margin: 0;
+}
+
+/* Remove unwanted margins for tight layout */
+.columns.columns9 ul,
+.columns.columns9 p,
+.columns.columns9 h2 {
+  margin-top: 0;
 }
