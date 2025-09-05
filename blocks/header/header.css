@@ -287,31 +287,35 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 }
 
 /* Subscribe Button - Matching Original Design */
-.nav-tools .button {
-  background: #fff;
-  color: var(--nav-text);
-  border: 2px solid var(--nav-text);
+.nav-tools .button,
+.nav-tools a.button {
+  background: #000;
+  color: #fff;
+  border: none;
   border-radius: 50px;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  padding: 0.6em 2.2em;
-  min-width: 120px;
-  min-height: var(--min-touch);
-  box-shadow: 0 3px 0 0 var(--button-accent);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  padding: 10px 24px;
+  min-width: auto;
+  min-height: auto;
+  box-shadow: none;
+  transition: all 0.2s ease;
   cursor: pointer;
   white-space: nowrap;
   text-align: center;
   position: relative;
+  display: inline-block;
+  text-decoration: none;
 }
 
-.nav-tools .button:hover {
-  background: var(--nav-text);
+.nav-tools .button:hover,
+.nav-tools a.button:hover {
+  background: #333;
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 0 var(--button-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .nav-tools .button:active {
