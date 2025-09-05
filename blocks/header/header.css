@@ -12,8 +12,8 @@
   --nav-text: var(--text-color, #131313);
   --nav-text-light: var(--text-color-light, #505050);
   --nav-hover: var(--link-hover-color, #3b63fb);
-  --dropdown-bg: #fff;
-  --dropdown-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --dropdown-bg: var(--white, #fff);
+  --dropdown-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.08));
   --min-touch: 44px;
 }
 
@@ -288,11 +288,11 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Subscribe Button - Matching Original Design */
 .nav-tools .button,
 .nav-tools a.button {
-  background: #000;
-  color: #fff;
+  background: var(--dark-color);
+  color: var(--background-color);
   border: none;
   border-radius: 50px;
-  font-size: 13px;
+  font-size: var(--body-font-size-s);
   font-weight: 400;
   letter-spacing: 0.01em;
   text-transform: none;
@@ -311,10 +311,10 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
 .nav-tools .button:hover,
 .nav-tools a.button:hover {
-  background: #333;
-  color: #fff;
+  background: var(--text-color);  /* Slightly lighter than pure black */
+  color: var(--background-color);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--dropdown-shadow);
 }
 
 .nav-tools .button:active {

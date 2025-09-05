@@ -1,6 +1,6 @@
 footer {
   font-size: var(--body-font-size-xs);
-  background: rgb(0 0 0) none repeat scroll 0% 0% / auto padding-box border-box;
+  background: var(--dark-color);
 }
 
 footer .footer>div {
