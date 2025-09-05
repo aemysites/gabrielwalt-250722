@@ -1,3 +1,4 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
@@ -61,83 +62,120 @@
 
 
 .accordion.accordion34 {
-  background: none;
+  background: transparent;
   border: none;
-  border-radius: 0;
   box-shadow: none;
   margin: 0;
   padding: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
+/* Remove extra top margin above the block container for flush alignment */
+
+/* Details: subtle divider, no extra spacing */
 .accordion.accordion34 > details {
   border: none;
-  border-bottom: 1px solid #e9e9e4;
-  background: none;
+  border-bottom: 1px solid #D1D1C7;
+  background: transparent;
   margin: 0;
   box-sizing: border-box;
-}
-.accordion.accordion34 > details:last-child {
-  border-bottom: 1px solid #e9e9e4;
+  width: 100%;
 }
 
+.accordion.accordion34 > details:last-child {
+  border-bottom: none;
+}
+
+/* Summary row: flex row layout, relaxed but compact height, precise centering */
 .accordion.accordion34 > details > summary {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  min-height: 44px;
-  padding: 12px 24px;
-  background: none;
-  border: none;
+  width: 100%;
   cursor: pointer;
-  color: #363636;
-  font-size: 16px;
-  font-weight: 400;
-  user-select: none;
+  background: transparent;
+  border: none;
   outline: none;
   box-sizing: border-box;
-  transition: background 0.2s;
+  padding: 16px 20px;
+  min-height: 0;
+  margin: 0;
+  user-select: none;
   position: relative;
-  gap: 0;
+  transition: background 0.2s;
 }
 
-.accordion.accordion34 > details > summary::-webkit-details-marker {
+/* Remove marker for all browsers */
+.accordion.accordion34 > details > summary::-webkit-details-marker,
+.accordion.accordion34 > details > summary::marker {
   display: none;
 }
 
+/* Label text: bold, left-aligned, smaller, single line */
 .accordion.accordion34 > details > summary > p {
   margin: 0;
-  color: #363636;
-  font-size: 16px;
-  font-weight: 400;
+  padding: 0;
   flex: 1 1 auto;
   align-self: center;
-  line-height: 1.5;
+  color: #33332D;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
+/* Chevron: smaller, thinner, perfectly centered, right-aligned */
 .accordion.accordion34 > details > summary::after {
-  box-sizing: border-box;
   display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-style: solid;
-  border-width: 0 3px 3px 0;
-  border-color: #363636;
-  transform: rotate(45deg) translateY(0px);
-  margin-left: 4px;
-  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  border: solid #33332D;
+  border-width: 0 2px 2px 0;
+  margin-left: 8px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
   transition: transform 0.2s cubic-bezier(.4,0,.2,1);
+  pointer-events: none;
+  background: transparent;
+  content: "";
 }
 
 .accordion.accordion34 > details[open] > summary::after {
-  transform: rotate(-135deg) translateY(0px);
+  transform: translateY(-50%) rotate(-135deg);
 }
 
+/* Accordion body: matches summary's side padding, lighter text, size */
 .accordion.accordion34 > details > .accordion-item-body {
-  background: none;
-  color: #363636;
-  font-size: 16px;
-  padding: 0 24px 12px 24px;
+  padding: 0 20px 16px;
+  background: transparent;
+  color: #33332D;
+  font-size: 14px;
   border: none;
   box-sizing: border-box;
+  margin: 0;
+}
+
+/* Remove inter-item gap */
+.accordion.accordion34 > details + details {
+  margin-top: 0;
+}
+
+/* Responsive: reduce side padding for small screens */
+@media (width <= 600px) {
+  .accordion.accordion34 > details > summary,
+  .accordion.accordion34 > details > .accordion-item-body {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .accordion.accordion34 > details > summary::after {
+    right: 12px;
+  }
 }
