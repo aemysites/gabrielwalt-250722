@@ -15,7 +15,8 @@
    FONT IMPORTS
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
+/* Use local fonts that are already in the project */
+@import url('./fonts.css');
 
 /* ============================================
    RESET & BASE STYLES
