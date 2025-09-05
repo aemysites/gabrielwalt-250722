@@ -7,19 +7,20 @@ header .nav-wrapper {
   background: rgb(247 248 245) none repeat scroll 0% 0% / auto padding-box border-box;
 }
 
-/* --- merged header nav --- */
-header nav { display: flex; max-width: 1264px;
-  width: 100%;
-  height: 75px;
+header nav {
+  display: flex;
+  max-width: 1264px;
   align-items: center;
   justify-content: space-between;
+  height: 75px;
   margin: 0 auto;
   padding: 0 32px;
-  background: #f7f8f5;
+  background: #f8f8f8;
   box-sizing: border-box;
   font-family: "Instrument Sans", Arial, sans-serif;
   border: none;
   box-shadow: none;
+  position: relative;
 }
 
 header nav[aria-expanded="true"] {
@@ -38,6 +39,13 @@ header nav[aria-expanded="true"] {
     margin-left: auto;
     margin-right: auto;
     min-height: 75px;
+    align-items: center;
+    background: #f8f8f8;
+    height: 75px;
+    font-family: "Instrument Sans", Arial, sans-serif;
+    border: none;
+    box-shadow: none;
+    position: relative;
   }
 
   header nav[aria-expanded="true"] {
@@ -257,7 +265,7 @@ header nav .nav-sections ul>li>ul>li {
     white-space: initial;
   }
 
-header nav .nav-sections .default-content-wrapper>ul>li>ul::before {
+  header nav .nav-sections .default-content-wrapper>ul>li>ul::before {
     content: "";
     position: absolute;
     top: -8px;
@@ -566,16 +574,6 @@ header nav .nav-tools {
   }
 }
 
-/* ===== EDS Header Final Optimized CSS ===== */
-
-/* EDS Foundation */
-
-/* Wrapper and core layout */
-
-/* Brand logo left, spacing */
-
-/* Navigation center, spaced, touch targets */
-
 header nav .nav-sections .default-content-wrapper {
   display: flex;
   align-items: center;
@@ -620,7 +618,6 @@ header nav .nav-sections ul > li > strong > a:focus {
   text-decoration: none;
 }
 
-/* Dropdown caret */
 header nav .nav-sections ul > li.nav-drop::after {
   content: "";
   display: inline-block;
@@ -643,12 +640,10 @@ header nav .nav-sections ul > li:not(.nav-drop)::after {
   display: none;
 }
 
-/* Remove any unwanted icons near links */
 header nav .nav-sections ul > li > a picture img[width="16"][height="16"] {
   display: none;
 }
 
-/* Dropdown styling */
 header nav .nav-sections ul > li.nav-drop > ul {
   display: none;
   position: absolute;
@@ -697,14 +692,10 @@ header nav .nav-sections ul > li.nav-drop > ul > li > a:focus {
   background: none;
 }
 
-/* Tool section (subscribe button right): match original design */
-
-/* Hide subscribe-in-nav-sections, show only in nav-tools */
 header nav .nav-sections .button-container {
   display: none;
 }
 
-/* Subscribe button: white, black border, pill, yellow shadow, correct font/size */
 header nav .nav-tools .button,
 header nav .nav-tools a.button {
   background: #fff;
@@ -736,9 +727,6 @@ header nav .nav-tools a.button:focus {
   border-color: #3b63fb;
 }
 
-/* Remove any unwanted image in nav-tools */
-
-/* Touch targets & accessibility */
 header nav .nav-sections ul > li,
 header nav .nav-sections ul > li > a,
 header nav .nav-tools .button,
@@ -753,7 +741,118 @@ header nav .nav-tools a.button:focus {
   outline-offset: 2px;
 }
 
-/* Responsive mobile: hamburger, stacked nav, button stays right */
+@media (width <= 899px) {
+  .header-wrapper .nav-wrapper {
+    min-height: 56px;
+    padding: 0;
+  }
+
+  header nav {
+    min-height: 56px;
+    padding: 0 16px;
+    max-width: 100vw;
+  }
+
+  header nav .nav-hamburger {
+    display: flex;
+    visibility: visible;
+    margin-right: 12px;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    height: 44px;
+  }
+
+  header nav .nav-hamburger button {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  header nav .nav-hamburger-icon {
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: #131313;
+    position: relative;
+    box-shadow: 0 6px 0 0 #131313, 0 12px 0 0 #131313;
+  }
+
+  header nav .nav-brand {
+    min-width: 40px;
+    margin-right: 12px;
+    padding: 0;
+    height: 44px;
+    align-items: center;
+  }
+
+  header nav .nav-sections {
+    display: none;
+    visibility: hidden;
+  }
+
+  header nav[aria-expanded="true"] .nav-sections {
+    display: block;
+    visibility: visible;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100vw;
+    background: #f7f8f5;
+    box-shadow: 0 2px 8px rgb(80 80 80 / 7%);
+    z-index: 10;
+    padding: 16px 0 0;
+  }
+
+  header nav[aria-expanded="true"] .nav-sections ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 0 0 12px;
+  }
+
+  header nav[aria-expanded="true"] .nav-sections ul > li {
+    min-height: 44px;
+    padding: 0 24px;
+    justify-content: flex-start;
+    height: 44px;
+    width: 100%;
+  }
+
+header nav[aria-expanded="true"] .nav-sections ul>li>a,
+  header nav[aria-expanded="true"] .nav-sections ul>li>strong>a {
+    min-height: 44px;
+    height: 44px;
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 17px;
+  }
+
+header nav .nav-tools {
+  min-width: 44px;
+  margin-left: 0;
+  align-items: center;
+  height: 44px;
+}
+
+  header nav .nav-tools .button,
+  header nav .nav-tools a.button {
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 15px;
+    padding: 0.5em 1.2em;
+    border-radius: 2em;
+    margin-right: 0;
+  }
+}
+
 @media (width <= 899px) {
   .header-wrapper .nav-wrapper {
     min-height: 56px;
@@ -865,3 +964,4 @@ header nav .nav-tools a.button:focus {
     margin-right: 0;
   }
 }
+
