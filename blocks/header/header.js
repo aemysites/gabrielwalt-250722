@@ -134,6 +134,30 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    // Check if there's a Subscribe button in a paragraph and move it to nav-tools
+    const subscribePara = navSections.querySelector('p');
+    if (subscribePara && subscribePara.querySelector('a')) {
+      // Create nav-tools section
+      const navTools = document.createElement('div');
+      navTools.classList.add('nav-tools');
+      
+      // Move the Subscribe link and style it as a button
+      const subscribeLink = subscribePara.querySelector('a');
+      subscribeLink.classList.add('button');
+      
+      // Create button container
+      const buttonContainer = document.createElement('p');
+      buttonContainer.classList.add('button-container');
+      buttonContainer.appendChild(subscribeLink);
+      navTools.appendChild(buttonContainer);
+      
+      // Remove the original paragraph
+      subscribePara.remove();
+      
+      // Add nav-tools to the nav
+      nav.appendChild(navTools);
+    }
+    
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
