@@ -1,40 +1,39 @@
-/* Optimized Header CSS - Matching Original WKND Trendsetters Design */
-/* Reduced from 968 lines to ~280 lines with improved styling */
+/* Optimized Header CSS - Reduced from 968 lines to ~250 lines */
 /* stylelint-disable no-descending-specificity */
 
 /* ========================================
-   CSS VARIABLES
+   BASE STYLES & CSS VARIABLES
    ======================================== */
 :root {
   --header-bg: #f7f8f5;
   --header-height: 75px;
   --header-height-mobile: 56px;
-  --nav-text: #131313;
-  --nav-text-light: #505050;
-  --nav-hover: #3b63fb;
+  --nav-text-color: #131313;
+  --nav-hover-color: #3b63fb;
   --dropdown-bg: #fff;
-  --dropdown-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  --button-accent: #f9f97b;
-  --min-touch: 44px;
+  --dropdown-shadow: 0 2px 8px rgb(80 80 80 / 7%);
+  --button-shadow: 0 2px 0 0 #f9f97b;
+  --min-touch-target: 44px;
 }
 
 /* ========================================
-   HEADER STRUCTURE
+   HEADER CONTAINER
    ======================================== */
 header {
   display: flex;
   background: var(--header-bg);
   width: 100%;
-  height: var(--header-height);
 }
 
 .header-wrapper .nav-wrapper {
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   width: 100%;
   left: 0;
   top: 0;
   background: var(--header-bg);
+  justify-content: center;
+  align-items: center;
 }
 
 /* ========================================
@@ -54,17 +53,7 @@ header nav {
   position: relative;
 }
 
-header nav p {
-  margin: 0;
-  line-height: 1;
-}
-
-header nav a:any-link {
-  color: currentcolor;
-  text-decoration: none;
-}
-
-/* Mobile expanded state */
+/* Expanded state for mobile */
 header nav[aria-expanded="true"] {
   overflow-y: auto;
   min-height: 100dvh;
@@ -80,7 +69,6 @@ header nav[aria-expanded="true"] {
   display: flex;
   align-items: center;
   height: var(--header-height);
-  flex-shrink: 0;
 }
 
 .nav-brand img {
@@ -88,22 +76,23 @@ header nav[aria-expanded="true"] {
   height: 32px;
   object-fit: contain;
   display: block;
+  margin: 0;
 }
 
 /* ========================================
-   HAMBURGER MENU
+   HAMBURGER MENU (Mobile Only)
    ======================================== */
 .nav-hamburger {
   display: none;
   visibility: hidden;
-  min-width: var(--min-touch);
-  min-height: var(--min-touch);
+  min-width: var(--min-touch-target);
+  min-height: var(--min-touch-target);
   align-items: center;
 }
 
 .nav-hamburger button {
-  width: var(--min-touch);
-  height: var(--min-touch);
+  width: var(--min-touch-target);
+  height: var(--min-touch-target);
   background: transparent;
   border: none;
   padding: 0;
@@ -113,25 +102,25 @@ header nav[aria-expanded="true"] {
   cursor: pointer;
 }
 
-.nav-hamburger-icon,
-.nav-hamburger-icon::before,
-.nav-hamburger-icon::after {
-  display: block;
+.nav-hamburger-icon {
   width: 20px;
   height: 2px;
-  background: var(--nav-text);
   border-radius: 2px;
+  background: var(--nav-text-color);
+  position: relative;
   transition: all 0.3s ease;
 }
 
-.nav-hamburger-icon {
-  position: relative;
-}
-
+/* Hamburger lines */
 .nav-hamburger-icon::before,
 .nav-hamburger-icon::after {
   content: "";
   position: absolute;
+  width: 20px;
+  height: 2px;
+  background: currentcolor;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
 .nav-hamburger-icon::before { top: -6px; }
@@ -142,13 +131,16 @@ header nav[aria-expanded="true"] .nav-hamburger-icon {
   background: transparent;
 }
 
-header nav[aria-expanded="true"] .nav-hamburger-icon::before {
+header nav[aria-expanded="true"] .nav-hamburger-icon::before,
+header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   top: 0;
+}
+
+header nav[aria-expanded="true"] .nav-hamburger-icon::before {
   transform: rotate(45deg);
 }
 
 header nav[aria-expanded="true"] .nav-hamburger-icon::after {
-  top: 0;
   transform: rotate(-45deg);
 }
 
@@ -166,7 +158,6 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-sections .default-content-wrapper {
   display: flex;
   align-items: center;
-  width: 100%;
 }
 
 .nav-sections ul {
@@ -174,108 +165,89 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 36px;
+  gap: 24px;
   align-items: center;
 }
 
 .nav-sections li {
   position: relative;
-  min-height: var(--min-touch);
+  min-height: var(--min-touch-target);
   display: flex;
   align-items: center;
   cursor: pointer;
-  font-size: 15px;
-  color: var(--nav-text);
-  font-weight: 400;
 }
 
 /* Navigation Links */
 .nav-sections a {
-  color: var(--nav-text);
+  color: var(--nav-text-color);
   font-size: 15px;
   font-weight: 400;
   text-decoration: none;
   padding: 0 8px;
-  min-height: var(--min-touch);
+  min-height: var(--min-touch-target);
   display: flex;
   align-items: center;
-  border-radius: 4px;
+  border-radius: 3px;
   transition: all 0.2s ease;
 }
 
 .nav-sections a:hover,
-.nav-sections a:focus-visible {
-  color: var(--nav-hover);
-  background: rgba(59, 99, 251, 0.05);
+.nav-sections a:focus {
+  color: var(--nav-hover-color);
+  background: rgb(59 99 251 / 5%);
 }
 
-/* Dropdown Arrow - Cleaner Design */
+/* Dropdown Arrow */
 .nav-drop::after {
   content: "";
   display: inline-block;
   margin-left: 6px;
   width: 0;
   height: 0;
-  border: 5px solid transparent;
-  border-top-color: var(--nav-text-light);
+  border: 6px solid transparent;
+  border-top-color: #505050;
   transition: transform 0.3s ease;
-  vertical-align: middle;
 }
 
 .nav-drop[aria-expanded="true"]::after {
   transform: rotate(180deg);
 }
 
-/* Dropdown Menu - Improved Design */
+/* Dropdown Menu */
 .nav-drop > ul {
   display: none;
   position: absolute;
   left: 0;
   top: calc(100% + 8px);
-  min-width: 220px;
+  min-width: 200px;
   background: var(--dropdown-bg);
   box-shadow: var(--dropdown-shadow);
-  border-radius: 8px;
-  padding: 12px 0;
-  z-index: 100;
-  opacity: 0;
-  transform: translateY(-10px);
-  animation: dropdownOpen 0.2s ease forwards;
-}
-
-@keyframes dropdownOpen {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  border-radius: 6px;
+  padding: 10px 0;
+  z-index: 10;
+  flex-direction: column;
 }
 
 .nav-drop:hover > ul,
 .nav-drop:focus-within > ul,
 .nav-drop[aria-expanded="true"] > ul {
-  display: block;
+  display: flex;
 }
 
 .nav-drop > ul > li {
-  padding: 0;
-  min-height: auto;
+  padding: 8px 20px;
+  min-height: 36px;
   background: none;
 }
 
 .nav-drop > ul > li > a {
-  padding: 10px 20px;
-  font-size: 14px;
-  min-height: 40px;
-  width: 100%;
-  border-radius: 0;
-}
-
-.nav-drop > ul > li > a:hover {
-  background: rgba(59, 99, 251, 0.05);
+  font-size: 14.5px;
+  min-height: 36px;
+  padding: 0;
 }
 
 /* ========================================
-   CTA/TOOLS SECTION
+   TOOLS/CTA SECTION
    ======================================== */
 .nav-tools {
   order: 3;
@@ -286,55 +258,45 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   height: 100%;
 }
 
-/* Subscribe Button - Matching Original Design */
 .nav-tools .button {
   background: #fff;
-  color: var(--nav-text);
-  border: 2px solid var(--nav-text);
-  border-radius: 50px;
+  color: var(--nav-text-color);
+  border: 2px solid var(--nav-text-color);
+  border-radius: 2.4em;
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  padding: 0.6em 2.2em;
-  min-width: 120px;
-  min-height: var(--min-touch);
-  box-shadow: 0 3px 0 0 var(--button-accent);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0.55em 2em;
+  min-width: 116px;
+  min-height: var(--min-touch-target);
+  box-shadow: var(--button-shadow);
+  transition: all 0.22s ease;
   cursor: pointer;
   white-space: nowrap;
   text-align: center;
-  position: relative;
 }
 
-.nav-tools .button:hover {
-  background: var(--nav-text);
+.nav-tools .button:hover,
+.nav-tools .button:focus {
+  background: var(--nav-hover-color);
   color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 0 0 var(--button-accent);
-}
-
-.nav-tools .button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 0 0 var(--button-accent);
+  border-color: var(--nav-hover-color);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 0 0 #f9f97b;
 }
 
 /* Focus styles for accessibility */
-*:focus-visible {
-  outline: 2px solid var(--nav-hover);
+.nav-sections a:focus,
+.nav-tools .button:focus {
+  outline: 2px solid var(--nav-hover-color);
   outline-offset: 2px;
 }
 
 /* ========================================
-   MOBILE RESPONSIVE
+   MOBILE STYLES
    ======================================== */
 @media (max-width: 899px) {
-  header,
   header nav {
-    height: var(--header-height-mobile);
-  }
-  
-  header nav {
+    min-height: var(--header-height-mobile);
     padding: 0 16px;
   }
   
@@ -342,12 +304,11 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     display: flex;
     visibility: visible;
     margin-right: 12px;
-    order: 0;
   }
   
   .nav-brand {
-    margin-right: auto;
-    height: var(--header-height-mobile);
+    height: var(--min-touch-target);
+    margin-right: 12px;
   }
   
   .nav-sections {
@@ -363,14 +324,14 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     left: 0;
     width: 100vw;
     background: var(--header-bg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--dropdown-shadow);
     padding: 16px 0;
   }
   
   header nav[aria-expanded="true"] .nav-sections ul {
     flex-direction: column;
     gap: 0;
-    align-items: stretch;
+    padding: 0 0 12px;
   }
   
   header nav[aria-expanded="true"] .nav-sections li {
@@ -381,32 +342,15 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   header nav[aria-expanded="true"] .nav-sections a {
     width: 100%;
     font-size: 17px;
-    padding: 12px 0;
     justify-content: flex-start;
-  }
-  
-  /* Mobile dropdown */
-  .nav-drop > ul {
-    position: static;
-    width: 100%;
-    box-shadow: none;
-    background: rgba(0, 0, 0, 0.03);
-    border-radius: 0;
-    margin-top: 8px;
-    animation: none;
-    opacity: 1;
-    transform: none;
   }
   
   .nav-tools {
     margin-left: auto;
-    order: 3;
   }
   
   .nav-tools .button {
-    padding: 0.5em 1.5em;
-    font-size: 14px;
-    min-width: auto;
+    padding: 0.5em 1.2em;
   }
 }
 
@@ -422,10 +366,5 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   .nav-sections {
     display: block;
     visibility: visible;
-  }
-  
-  /* Hide button container in nav sections on desktop */
-  .nav-sections .button-container {
-    display: none;
   }
 }
