@@ -62,29 +62,15 @@ from {
     opacity: 0;
     transform: translateY(10px);
   }
-  to { opacity: 1; transform: translateY(0); }
+to   { opacity: 1; transform: translateY(0);}
 }
 
 @keyframes tabs22-fadeIn {
-  from { opacity: 0; transform: translateY(24px);}
+from { opacity: 0; transform: translateY(24px);}
   to   { opacity: 1; transform: translateY(0);}
 }
 
 
-.tabs.tabs22 {
-  background: #000;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Tabs navigation bar */
 .tabs.tabs22 .tabs-list {
   display: flex;
   flex-direction: row;
@@ -92,54 +78,57 @@ from {
   align-items: flex-end;
   gap: 56px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 900px;
   margin-top: 40px;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
   padding: 0;
-  background: none;
   border: none;
-  box-sizing: border-box;
+  background: none;
+  box-shadow: none;
 }
 
-/* Tab buttons */
+/* Tabs should look like centered text, not boxy buttons */
 .tabs.tabs22 .tabs-tab {
   background: none;
   border: none;
   color: #949494;
+  text-transform: uppercase;
   font-size: 1.3rem;
   font-weight: 400;
-  text-transform: uppercase;
   letter-spacing: 0.13em;
-  padding: 0 0 12px 0;
+  padding: 0 0 10px;
   margin: 0;
-  border-bottom: 1.5px solid transparent;
-  border-radius: 0;
+  border-bottom: 2.5px solid transparent;
   min-width: 0;
+  box-shadow: none;
   text-align: center;
   transition: color 0.2s, border-bottom-color 0.2s, opacity 0.2s;
-  box-shadow: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+/* Only the active tab gets a white underline, no background */
 .tabs.tabs22 .tabs-tab[aria-selected="true"] {
   color: #fff;
   border-bottom: 2.5px solid #fff;
   background: none;
+  box-shadow: none;
 }
 
-.tabs.tabs22 .tabs-tab:focus {
-  outline: none;
+/* Alignment and appearance for the block and content */
+.tabs.tabs22 {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  box-shadow: none;
+  background: #000;
+  padding-bottom: 128px;
+  max-width: 1150px;
 }
 
-.tabs.tabs22 .tabs-tab p {
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-/* Show only the active panel */
 .tabs.tabs22 .tabs-panel {
   display: none;
   width: 100%;
@@ -149,6 +138,7 @@ from {
   border: none;
   box-sizing: border-box;
 }
+
 .tabs.tabs22 .tabs-panel[aria-hidden="false"] {
   display: flex;
   flex-direction: column;
@@ -156,17 +146,18 @@ from {
   width: 100%;
   margin: 0;
   padding: 0;
+  background: none;
 }
 
-/* Stack headline and image vertically */
 .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 0;
+  gap: 0;
 }
 
+/* Heading: large, centered, tight to image */
 .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div > h3 {
   color: #fff;
   text-align: center;
@@ -174,17 +165,17 @@ from {
   font-size: 2.8rem;
   font-weight: 400;
   letter-spacing: 0.16em;
-  margin: 0 0 48px 0;
   line-height: 1.08;
-  width: 100vw;
-  max-width: 1160px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0;
   background: none;
   border: none;
   box-shadow: none;
   word-break: break-word;
+  padding: 0;
 }
 
-/* Headline-image gap fix */
 .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div > p {
   margin: 0;
   padding: 0;
@@ -193,78 +184,81 @@ from {
   justify-content: center;
 }
 
-/* Image container and image */
 .tabs.tabs22 .tabs-panel[aria-hidden="false"] picture {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  max-width: 1120px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0;
   box-sizing: border-box;
-  padding: 0 20px;
 }
+
 .tabs.tabs22 .tabs-panel[aria-hidden="false"] img {
   display: block;
   width: 100%;
-  max-width: 100%;
-  border-radius: 20px;
+  height: auto;
+  border-radius: 32px;
   margin: 0 auto;
-  object-fit: cover;
   box-shadow: none;
-  border: none;
-  aspect-ratio: 2.5 / 1;
+  object-fit: cover;
+  background: #000;
 }
 
-/* Responsive adjustments */
-@media (max-width: 900px) {
+@media (width <= 1100px) {
+  .tabs.tabs22 {
+    max-width: 98vw;
+  }
+
+  .tabs.tabs22 .tabs-list,
+  .tabs.tabs22 .tabs-panel[aria-hidden="false"] picture,
+  .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div > h3 {
+    max-width: 98vw;
+  }
+}
+
+@media (width <= 900px) {
   .tabs.tabs22 .tabs-list {
     gap: 22px;
     margin-top: 22px;
-    margin-bottom: 36px;
+    margin-bottom: 28px;
     max-width: 99vw;
   }
+
   .tabs.tabs22 .tabs-tab {
     font-size: 1.02rem;
     padding-bottom: 7px;
   }
-  .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div > h3 {
-    font-size: 1.45rem;
-    margin-bottom: 15px;
-    max-width: 98vw;
-    letter-spacing: 0.13em;
-  }
+
+  .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div > h3,
   .tabs.tabs22 .tabs-panel[aria-hidden="false"] picture {
     max-width: 99vw;
-    padding-left: 5px;
-    padding-right: 5px;
   }
+
   .tabs.tabs22 .tabs-panel[aria-hidden="false"] img {
-    border-radius: 10px;
-    aspect-ratio: 16/9;
+    border-radius: 18px;
   }
 }
-@media (max-width: 600px) {
+
+@media (width <= 600px) {
   .tabs.tabs22 .tabs-list {
     gap: 5px;
     margin-top: 7px;
     margin-bottom: 12px;
   }
+
   .tabs.tabs22 .tabs-tab {
     font-size: 0.91rem;
     padding-bottom: 3px;
   }
-  .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div > h3 {
-    font-size: 1rem;
-    margin-bottom: 7px;
-    max-width: 98vw;
-    letter-spacing: 0.09em;
-  }
+
+  .tabs.tabs22 .tabs-panel[aria-hidden="false"] > div > h3,
   .tabs.tabs22 .tabs-panel[aria-hidden="false"] picture {
     max-width: 99vw;
-    padding-left: 2vw;
-    padding-right: 2vw;
   }
+
   .tabs.tabs22 .tabs-panel[aria-hidden="false"] img {
-    border-radius: 5px;
-    max-width: 99vw;
-    aspect-ratio: unset;
+    border-radius: 9px;
   }
 }
