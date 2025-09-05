@@ -238,6 +238,27 @@ a.button.secondary, button.secondary {
   color: var(--text-color);
 }
 
+/* Hero section button styling */
+main > div:first-of-type p > a {
+  display: inline-block;
+  padding: 0.6em 2em;
+  margin: 0 0.5em;
+  border: 2px solid var(--text-color);
+  border-radius: 50px;
+  background: transparent;
+  color: var(--text-color);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+main > div:first-of-type p > a:hover {
+  background: var(--text-color);
+  color: var(--background-color);
+  text-decoration: none;
+}
+
 main img {
   max-width: 100%;
   width: auto;
