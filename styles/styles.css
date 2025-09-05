@@ -293,10 +293,9 @@ main .section.dark {
   display: none;
 }
 
-.section.section-1 {
-  background: rgb(247 248 245) none repeat scroll 0% 0% / auto padding-box border-box;
-}
+/* .section.section-1 removed - same as body background */
 
 .section.section-2 {
-  background: rgb(0 0 0) none repeat scroll 0% 0% / auto padding-box border-box;
+  background: var(--dark-color);  /* Black section */
+  color: var(--white);
 }

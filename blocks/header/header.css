@@ -229,17 +229,21 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop > ul {
   display: none;
   position: absolute;
-  left: 0;
-  top: calc(100% + 8px);
-  min-width: 220px;
-  background: var(--dropdown-bg);
-  box-shadow: var(--dropdown-shadow);
-  border-radius: 8px;
-  padding: 12px 0;
+  left: -20px;
+  top: calc(100% + 12px);
+  min-width: 580px;
+  background: var(--white);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  padding: 32px;
   z-index: 100;
   opacity: 0;
   transform: translateY(-10px);
   animation: dropdownOpen 0.2s ease forwards;
+  /* Three column layout */
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
 @keyframes dropdownOpen {
@@ -252,25 +256,76 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop:hover > ul,
 .nav-drop:focus-within > ul,
 .nav-drop[aria-expanded="true"] > ul {
-  display: block;
+  display: grid;
 }
 
+/* Main dropdown categories */
 .nav-drop > ul > li {
   padding: 0;
   min-height: auto;
   background: none;
+  margin-bottom: 0;
+  display: block;
 }
 
-.nav-drop > ul > li > a {
-  padding: 10px 20px;
+/* Category titles (Casual, Now Trending, Inspo) */
+.nav-drop > ul > li {
+  color: var(--text-color-light);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Nested sub-items list */
+.nav-drop > ul > li > ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Individual dropdown items */
+.nav-drop > ul > li > ul > li {
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+  min-height: auto;
+  display: block;
+  color: var(--text-color-light);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.nav-drop > ul > li > ul > li:hover {
+  background: rgba(59, 99, 251, 0.05);
+}
+
+/* Links within dropdown items */
+.nav-drop > ul > li > ul > li strong {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.nav-drop > ul > li > ul > li strong a {
+  color: var(--text-color);
+  font-weight: 600;
   font-size: 14px;
-  min-height: 40px;
-  width: 100%;
+  text-decoration: none;
+  padding: 0;
+  min-height: auto;
+  display: inline;
+  background: none;
   border-radius: 0;
 }
 
-.nav-drop > ul > li > a:hover {
-  background: rgba(59, 99, 251, 0.05);
+.nav-drop > ul > li > ul > li strong a:hover {
+  color: var(--nav-hover);
+  background: none;
+  text-decoration: none;
 }
 
 /* ========================================
@@ -289,7 +344,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-tools .button,
 .nav-tools a.button {
   background: var(--dark-color);
-  color: var(--background-color);
+  color: var(--white);
   border: none;
   border-radius: 50px;
   font-size: var(--body-font-size-s);
@@ -312,7 +367,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-tools .button:hover,
 .nav-tools a.button:hover {
   background: var(--text-color);  /* Slightly lighter than pure black */
-  color: var(--background-color);
+  color: var(--white);
   transform: translateY(-1px);
   box-shadow: var(--dropdown-shadow);
 }
