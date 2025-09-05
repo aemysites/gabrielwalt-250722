@@ -6,15 +6,14 @@
    CSS VARIABLES
    ======================================== */
 :root {
-  --header-bg: #f7f8f5;
+  /* Removed header-bg - will inherit from body background */
   --header-height: 75px;
   --header-height-mobile: 56px;
-  --nav-text: #131313;
-  --nav-text-light: #505050;
-  --nav-hover: #3b63fb;
+  --nav-text: var(--text-color, #131313);
+  --nav-text-light: var(--text-color-light, #505050);
+  --nav-hover: var(--link-hover-color, #3b63fb);
   --dropdown-bg: #fff;
   --dropdown-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  --button-accent: #f9f97b;
   --min-touch: 44px;
 }
 
@@ -23,7 +22,7 @@
    ======================================== */
 header {
   display: flex;
-  background: var(--header-bg);
+  /* Removed background - inherits from body */
   width: 100%;
   height: var(--header-height);
 }
@@ -34,7 +33,7 @@ header {
   width: 100%;
   left: 0;
   top: 0;
-  background: var(--header-bg);
+  /* Removed background - inherits from body */
 }
 
 /* ========================================
@@ -48,7 +47,7 @@ header nav {
   max-width: 1264px;
   margin: 0 auto;
   padding: 0 32px;
-  background: var(--header-bg);
+  /* Removed background - inherits from body */
   box-sizing: border-box;
   font-family: var(--body-font-family);
   position: relative;

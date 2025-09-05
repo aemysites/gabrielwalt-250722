@@ -11,10 +11,12 @@
  * governing permissions and limitations under the License.
  */
 :root {
-  --background-color: #fafafa;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
+  /* Simplified color system - unified grays */
+  --background-color: #fafafa;  /* Main background - very light gray */
+  --light-color: #fafafa;        /* Same as background for consistency */
+  --dark-color: #000000;         /* Pure black for dark elements */
+  --text-color: #131313;         /* Near black for text */
+  --text-color-light: #505050;   /* Gray for secondary text */
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
   --body-font-family: "Instrument Sans", "Instrument Sans Fallback", "sans-serif";
@@ -245,9 +247,15 @@ main>.section:first-of-type {
 
 /* section metadata */
 main .section.light, main .section.highlight {
-  background-color: var(--light-color);
+  /* Remove background - same as body now */
+  /* If sections need different backgrounds, use .dark with black or white explicitly */
   margin: 0;
   padding: 40px 0;
+}
+
+main .section.dark {
+  background-color: var(--dark-color);
+  color: #fff;
 }
 
 .section.hidden {
