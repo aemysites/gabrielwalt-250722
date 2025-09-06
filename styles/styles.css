@@ -32,11 +32,13 @@
   /* Button styles - Global outline button with yellow shadow */
   --button-border-color: var(--text-color);
   --button-yellow-shadow: #f7e04b;
-  --button-padding: 12px 28px;  /* Slightly taller for better proportion */
+  --button-padding: 12px 28px;          /* Default size */
+  --button-padding-sm: 7px 24px;        /* Small - for header/compact areas */
+  --button-padding-lg: 16px 32px;       /* Large - for hero/emphasis */
   --button-border-radius: 50px;
   --button-border-width: 2px;
-  --button-shadow-offset: 3px;
-  --button-shadow-offset-hover: 5px;
+  --button-shadow-offset: 2.5px;        /* Refined from 3px for better proportion */
+  --button-shadow-offset-hover: 4px;    /* Refined from 5px */
   --button-shadow-offset-active: 1px;
   
   /* Links */
@@ -45,6 +47,7 @@
   --body-font-family: "Instrument Sans", "Instrument Sans Fallback", "sans-serif";
   --heading-font-family: "Syncopate", "Syncopate Fallback", "sans-serif";
   --body-font-size-m: 22.56px;
+  --body-font-size-nav: 17px;       /* Navigation font size - matches original WKND */
   --body-font-size-s: 16px;
   --body-font-size-xs: 11.36px;
   --heading-font-size-xxl: 90.4px;
@@ -283,6 +286,17 @@ a.button.secondary, button.secondary {
 a.button.outline-shadow, button.outline-shadow,
 .button-outline-shadow {
   /* Inherits default styles */
+}
+
+/* Button size variants - maintain consistent styling with different sizing */
+a.button.button-sm, button.button-sm {
+  padding: var(--button-padding-sm);
+  font-size: 15px;  /* Slightly smaller for compact areas */
+}
+
+a.button.button-lg, button.button-lg {
+  padding: var(--button-padding-lg);
+  font-size: 18px;  /* Slightly larger for emphasis */
 }
 
 /* Links in content that look like buttons should have button class added via JS */

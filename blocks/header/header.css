@@ -199,7 +199,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Navigation Links - Match original exactly */
 .nav-sections a {
   color: var(--nav-text);
-  font-size: 17px;  /* Match original size */
+  font-size: var(--body-font-size-nav);  /* Use design system navigation size */
   font-weight: 400;  /* Normal weight like original */
   font-family: var(--body-font-family);
   text-decoration: none;
@@ -424,30 +424,32 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   height: 100%;
 }
 
-/* Subscribe Button - Black outline with yellow shadow */
+/* Subscribe Button - Uses design system button-sm variant */
 .nav-tools .button,
 .nav-tools a.button {
-  padding: 7px 24px !important;  /* Even more refined padding */
-  font-size: 15px !important;  /* Match nav font size */
-  font-weight: 400 !important;  /* Regular weight */
-  font-family: var(--body-font-family) !important;
-  min-width: auto;
-  min-height: auto;
-  white-space: nowrap;
-  display: inline-block;
-  background: transparent !important;
-  color: var(--text-color) !important;
-  border: 2px solid var(--text-color) !important;  /* Thinner border */
-  border-radius: 30px !important;  /* Less rounded */
-  box-shadow: 2.5px 2.5px 0 #f7e04b !important;  /* Subtler shadow */
+  /* Use button-sm sizing from design system */
+  padding: var(--button-padding-sm);
+  font-size: 15px;
+  font-family: var(--body-font-family);
+  background: transparent;
+  color: var(--button-border-color);
+  border: var(--button-border-width) solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
+  box-shadow: var(--button-shadow-offset) var(--button-shadow-offset) 0 0 var(--button-yellow-shadow);
   transition: all 0.2s ease;
   letter-spacing: 0.1px;
+  margin: 0;  /* Override default button margin for header layout */
+  white-space: nowrap;
+  min-width: auto;
+  min-height: auto;
 }
 
 .nav-tools .button:hover,
 .nav-tools a.button:hover {
-  transform: translate(-1.5px, -1.5px);
-  box-shadow: 4px 4px 0 #f7e04b !important;  /* Proportional hover shadow */
+  background: transparent;
+  color: var(--button-border-color);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--button-shadow-offset-hover) var(--button-shadow-offset-hover) 0 0 var(--button-yellow-shadow);
 }
 
 /* Focus styles for accessibility */
@@ -511,7 +513,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   
   header nav[aria-expanded="true"] .nav-sections a {
     width: 100%;
-    font-size: 17px;
+    font-size: var(--body-font-size-nav);  /* Use design system navigation size */
     padding: 12px 0;
     justify-content: flex-start;
   }
