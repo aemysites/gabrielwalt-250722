@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigation Test</title>
+    <meta name="nav" content="/nav">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        header { border: 1px solid #ccc; padding: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Testing Navigation Loading</h1>
+    <header>
+        <p>Navigation should load here...</p>
+    </header>
+    
+    <script type="module">
+        // Simple test to load navigation fragment
+        async function testNav() {
+            try {
+                console.log('Testing nav load from:', '/nav.plain.html');
+                const resp = await fetch('/nav.plain.html');
+                if (resp.ok) {
+                    const content = await resp.text();
+                    console.log('Nav content loaded:', content.substring(0, 200) + '...');
+                    
+                    // Create a simple version of what the header block does
+                    const header = document.querySelector('header');
+                    const nav = document.createElement('nav');
+                    nav.innerHTML = content;
+                    
+                    // Apply basic classes
+                    const children = nav.children;
+                    if (children[0]) children[0].classList.add('nav-brand');
+                    if (children[1]) children[1].classList.add('nav-sections');
+                    if (children[2]) children[2].classList.add('nav-tools');
+                    
+                    header.innerHTML = '';
+                    header.appendChild(nav);
+                    console.log('Navigation loaded successfully');
+                } else {
+                    console.error('Failed to load nav:', resp.status);
+                }
+            } catch (error) {
+                console.error('Error loading nav:', error);
+            }
+        }
+        
+        // Load navigation on page load
+        testNav();
+    </script>
+</body>
+</html>
