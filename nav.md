@@ -1,30 +1,8 @@
-# Navigation
-
-## Trends
-### Casual
-- [Streetwear](#) - Everyday looks, always fresh.
-- [Sporty](#) - Move easy, look sharp.  
-- [Party](#) - Turn heads after dark.
-
-### Now Trending
-- [Tennis](#) - Serve up cool style.
-- [Beach](#) - Chill fits, sun vibes.
-- [Festival](#) - Dance, play, repeat.
-
-### Inspo  
-- [Style Files](#) - Real looks, real people.
-- [Blog Watch](#) - Fresh brands, hot takes.
-- [How To](#) - Trend tips, made easy.
-
-## About
-[/fashion-trends-of-the-season](/fashion-trends-of-the-season)
-
-## Blog
-[/fashion-insights](/fashion-insights)
-
-## Support
-- [Contact](/faq) - Contact
-- [FAQ](/faq) - FAQ
-
-## Subscribe
-[Subscribe](#)
+| Section | Link | Sub-items |
+|---------|------|-----------|
+| Brand | [WKND](/)|  |
+| Trends | # | Streetwear,/fashion-trends-of-the-season;Sporty,#;Party,#;Tennis,#;Beach,#;Festival,#;Style Files,#;Blog Watch,#;How To,# |
+| About | /fashion-trends-of-the-season |  |
+| Blog | /fashion-insights |  |
+| Support | # | Contact,/faq;FAQ,/faq |
+| Subscribe | # |  |
