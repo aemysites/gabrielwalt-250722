@@ -229,7 +229,6 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   vertical-align: middle;
 }
 
-.nav-drop:hover::after,
 .nav-drop[aria-expanded="true"]::after {
   transform: rotate(180deg);
 }
@@ -264,9 +263,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Show on hover, focus, AND click with animation */
-.nav-drop:hover > ul,
-.nav-drop:focus-within > ul,
+/* Show on click with animation */
 .nav-drop[aria-expanded="true"] > ul {
   display: flex;
   opacity: 1;
