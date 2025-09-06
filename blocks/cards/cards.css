@@ -4,8 +4,15 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  grid-template-columns: 1fr;  /* Mobile-first: single column */
+  gap: var(--spacing-xl);  /* Match original WKND gap (32px) */
+}
+
+/* Desktop: 3 columns like original WKND */
+@media (min-width: 768px) {
+  .cards > ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .cards > ul > li {
