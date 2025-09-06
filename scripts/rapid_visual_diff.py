@@ -33,7 +33,8 @@ class RapidVisualDiff:
         self.regions = {
             "header": {"height": 200, "name": "Header"},
             "full": {"height": 1200, "name": "Full Page"},
-            "hero": {"height": 800, "name": "Hero Section"}
+            "hero": {"height": 800, "name": "Hero Section"},
+            "cards": {"height": 600, "name": "Cards Section", "offset": 800}
         }
     
     async def capture_screenshots(self):
@@ -66,9 +67,10 @@ class RapidVisualDiff:
                 await page.screenshot(path=screenshot_path, full_page=True)
             else:
                 # Capture specific region
+                y_offset = region_config.get("offset", 0)
                 await page.screenshot(
                     path=screenshot_path,
-                    clip={"x": 0, "y": 0, "width": self.viewport_width, "height": region_config["height"]}
+                    clip={"x": 0, "y": y_offset, "width": self.viewport_width, "height": region_config["height"]}
                 )
             
             print(f"✓ Captured {suffix} screenshot: {screenshot_path.name}")
@@ -193,7 +195,7 @@ class RapidVisualDiff:
 
 async def main():
     parser = argparse.ArgumentParser(description="Rapid Visual Diff for Autonomous Development")
-    parser.add_argument("--region", choices=["header", "full", "hero"], default="header",
+    parser.add_argument("--region", choices=["header", "full", "hero", "cards"], default="header",
                        help="Region to compare (default: header)")
     parser.add_argument("--width", type=int, default=1600,
                        help="Viewport width (default: 1600)")

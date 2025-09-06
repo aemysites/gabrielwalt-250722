@@ -58,7 +58,13 @@ function focusNavSection() {
  */
 function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    section.setAttribute('aria-expanded', expanded);
+    // Check if this is the Trends dropdown - keep it always expanded on desktop
+    const isTrendsDropdown = section.textContent.toLowerCase().includes('trends');
+    if (isDesktop.matches && isTrendsDropdown) {
+      section.setAttribute('aria-expanded', 'true');
+    } else {
+      section.setAttribute('aria-expanded', expanded);
+    }
   });
 }
 
