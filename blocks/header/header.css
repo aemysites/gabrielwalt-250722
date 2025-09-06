@@ -54,7 +54,7 @@ header nav {
   height: var(--header-height);
   max-width: 1200px;  /* Match original's narrower container */
   margin: 0 auto;
-  padding: 0 40px;  /* Slightly more padding for breathing room */
+  padding: 0 var(--spacing-2xl);  /* Design system padding (40px) */
   /* Removed background - inherits from body */
   box-sizing: border-box;
   font-family: var(--body-font-family);
@@ -82,8 +82,8 @@ header nav[aria-expanded="true"] {
    ======================================== */
 .nav-brand {
   order: 1;
-  margin-right: 36px;
-  min-width: 32px;
+  margin-right: var(--spacing-2xl);  /* Design system margin (40px, close to 36px) */
+  min-width: var(--spacing-xl);  /* Design system (32px) */
   display: flex;
   align-items: center;
   height: var(--header-height);
@@ -91,8 +91,8 @@ header nav[aria-expanded="true"] {
 }
 
 .nav-brand img {
-  width: 32px;
-  height: 32px;
+  width: var(--spacing-xl);  /* Design system (32px) */
+  height: var(--spacing-xl);  /* Design system (32px) */
   object-fit: contain;
   display: block;
 }
@@ -181,7 +181,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 32px;  /* Tighter spacing for compact header */
+  gap: var(--spacing-xl);  /* Design system spacing (32px) */
   align-items: center;
 }
 
