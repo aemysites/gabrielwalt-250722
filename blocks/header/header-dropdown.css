@@ -28,7 +28,9 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Show on click with animation */
+/* Show on hover, focus, AND click with animation */
+.nav-drop:hover > ul,
+.nav-drop:focus-within > ul,
 .nav-drop[aria-expanded="true"] > ul {
   display: flex;
   opacity: 1;

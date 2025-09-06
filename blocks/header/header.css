@@ -230,6 +230,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   vertical-align: middle;
 }
 
+.nav-drop:hover::after,
 .nav-drop[aria-expanded="true"]::after {
   transform: rotate(180deg);
 }
