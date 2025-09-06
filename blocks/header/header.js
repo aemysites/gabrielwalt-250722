@@ -143,7 +143,7 @@ export default async function decorate(block) {
       
       // Move the Subscribe link and style it as a button
       const subscribeLink = subscribePara.querySelector('a');
-      subscribeLink.classList.add('button');
+      subscribeLink.classList.add('button', 'outline-shadow');
       
       // Create button container
       const buttonContainer = document.createElement('p');

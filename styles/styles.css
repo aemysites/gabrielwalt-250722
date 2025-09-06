@@ -29,6 +29,15 @@
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
   
+  /* Button styles - Global outline button with yellow shadow */
+  --button-border-color: var(--text-color);
+  --button-yellow-shadow: #f7e04b;
+  --button-padding: 10px 28px;
+  --button-border-radius: 50px;
+  --button-border-width: 2px;
+  --button-shadow-offset: 3px;
+  --button-shadow-offset-hover: 5px;
+  
   /* Links */
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
@@ -199,7 +208,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons */
+/* Global button styles - Default filled style */
 a.button:any-link, button {
   box-sizing: border-box;
   display: inline-block;
@@ -232,10 +241,42 @@ button:disabled, button:disabled:hover {
   cursor: unset;
 }
 
+/* Secondary button style */
 a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
   color: var(--text-color);
+}
+
+/* Outline button with yellow shadow - Global style for Subscribe-like buttons */
+a.button.outline-shadow, button.outline-shadow,
+.button-outline-shadow {
+  background: transparent;
+  color: var(--button-border-color);
+  border: var(--button-border-width) solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  box-shadow: var(--button-shadow-offset) var(--button-shadow-offset) 0 0 var(--button-yellow-shadow);
+  transition: all 0.2s ease;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  margin: 0;
+}
+
+a.button.outline-shadow:hover, button.outline-shadow:hover,
+.button-outline-shadow:hover {
+  background: transparent;
+  color: var(--button-border-color);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--button-shadow-offset-hover) var(--button-shadow-offset-hover) 0 0 var(--button-yellow-shadow);
+  text-decoration: none;
+}
+
+a.button.outline-shadow:active, button.outline-shadow:active,
+.button-outline-shadow:active {
+  transform: translate(0, 0);
+  box-shadow: 1px 1px 0 0 var(--button-yellow-shadow);
 }
 
 /* Hero section button styling */
