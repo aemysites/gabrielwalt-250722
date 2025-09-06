@@ -1,0 +1,208 @@
+/* ========================================
+   TRENDS DROPDOWN - Matching Original Site
+   ======================================== */
+
+/* Hide dropdown by default */
+.nav-drop > ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 20px;
+  
+  /* Container styling */
+  width: 1000px;
+  padding: 45px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  
+  /* Reset defaults */
+  list-style: none;
+  z-index: 1000;
+  
+  /* Animation prep */
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Show on click with animation */
+.nav-drop[aria-expanded="true"] > ul {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  gap: 60px;
+}
+
+/* Category columns (first 3) */
+.nav-drop > ul > li:not(:last-child) {
+  flex: 1;
+  padding: 0;
+  margin: 0;
+  background: none;
+  
+  /* Category header text */
+  color: #6c6c6c;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  line-height: 1;
+}
+
+/* Submenu container */
+.nav-drop > ul > li > ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Individual menu items */
+.nav-drop > ul > li > ul > li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  /* Reset text */
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  color: #6c6c6c;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Lime square icon */
+.nav-drop > ul > li > ul > li::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  background: #d4e04b;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+/* Item hover state */
+.nav-drop > ul > li > ul > li:hover {
+  transform: translateX(4px);
+}
+
+.nav-drop > ul > li > ul > li:hover::before {
+  background: #c3d82c;
+}
+
+/* Item content wrapper */
+.nav-drop > ul > li > ul > li > div {
+  flex: 1;
+}
+
+/* Item title/link */
+.nav-drop > ul > li > ul > li strong,
+.nav-drop > ul > li > ul > li a {
+  color: #131313;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.3;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 3px;
+  transition: color 0.2s ease;
+}
+
+.nav-drop > ul > li > ul > li:hover a {
+  color: #000;
+}
+
+/* Item description */
+.nav-drop > ul > li > ul > li em,
+.nav-drop > ul > li > ul > li > div > span {
+  font-style: normal;
+  color: #6c6c6c;
+  font-size: 12px;
+  line-height: 1.4;
+  display: block;
+}
+
+/* Black promo box (4th column) */
+.nav-drop > ul > li:last-child {
+  background: #000;
+  border-radius: 20px;
+  padding: 40px;
+  margin: -45px -45px -45px 0;
+  color: #fff;
+  flex: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 320px;
+}
+
+/* Hide any nested list in promo */
+.nav-drop > ul > li:last-child > ul {
+  display: none;
+}
+
+/* Promo title */
+.nav-drop > ul > li:last-child strong {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+/* Promo description */
+.nav-drop > ul > li:last-child em {
+  display: block;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  margin-bottom: 30px;
+}
+
+/* Promo link */
+.nav-drop > ul > li:last-child a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s ease;
+}
+
+.nav-drop > ul > li:last-child a::after {
+  content: "→";
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.nav-drop > ul > li:last-child a:hover {
+  gap: 12px;
+}
+
+.nav-drop > ul > li:last-child a:hover::after {
+  transform: translateX(2px);
+}

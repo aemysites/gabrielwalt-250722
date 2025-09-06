@@ -2,6 +2,9 @@
 /* Reduced from 968 lines to ~280 lines with improved styling */
 /* stylelint-disable no-descending-specificity */
 
+/* Import dropdown styles */
+@import url('header-dropdown.css');
+
 /* ========================================
    CSS VARIABLES
    ======================================== */
@@ -231,135 +234,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: rotate(180deg);
 }
 
-/* ========================================
-   DROPDOWN MENU - Simplified Clean Version
-   ======================================== */
-
-/* Dropdown container - hidden by default */
-.nav-drop > ul {
-  display: none;
-  position: absolute;
-  left: 0;
-  top: calc(100% + 12px);
-  width: 900px;
-  padding: 40px;
-  background: var(--white);
-  border-radius: var(--dropdown-radius);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-/* Show dropdown when expanded */
-.nav-drop[aria-expanded="true"] > ul {
-  display: flex;
-  gap: 50px;
-}
-
-/* Reset list styles */
-.nav-drop ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Main columns */
-.nav-drop > ul > li {
-  flex: 1;
-  color: #6c6c6c;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  line-height: 1.4;
-}
-
-/* Sub-items container */
-.nav-drop > ul > li > ul {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* Individual items */
-.nav-drop > ul > li > ul > li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding-left: 28px;
-  position: relative;
-  cursor: pointer;
-  text-transform: none;
-  font-weight: normal;
-  letter-spacing: normal;
-  transition: opacity 0.2s;
-}
-
-/* Lime square icon */
-.nav-drop > ul > li > ul > li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  width: 18px;
-  height: 18px;
-  background: #c3d82c;
-  border-radius: 3px;
-}
-
-.nav-drop > ul > li > ul > li:hover {
-  opacity: 0.7;
-}
-
-/* Item text content */
-.nav-drop > ul > li > ul > li {
-  color: #6c6c6c;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-/* Item links */
-.nav-drop > ul > li > ul > li a {
-  color: var(--text-color);
-  font-weight: 500;
-  font-size: 14px;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 2px;
-}
-
-.nav-drop > ul > li > ul > li a:hover {
-  color: var(--nav-hover);
-}
-
-/* Promo section (last column) */
-.nav-drop > ul > li:last-child {
-  background: var(--dark-color);
-  border-radius: 20px;
-  padding: 35px;
-  margin: -40px -40px -40px 0;
-  color: var(--white);
-  flex: 1.2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-transform: uppercase;
-  font-size: 26px;
-  font-weight: 700;
-  line-height: 1.1;
-}
-
-.nav-drop > ul > li:last-child > ul {
-  display: none;
-}
-
-.nav-drop > ul > li:last-child a {
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: none;
-  margin-top: 20px;
-}
+/* Dropdown styles moved to header-dropdown.css */
 
 /* ========================================
    CTA/TOOLS SECTION
