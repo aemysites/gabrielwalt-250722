@@ -181,7 +181,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 36px;
+  gap: 40px;  /* Slightly more space between nav items */
   align-items: center;
 }
 
@@ -292,7 +292,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop:has(> ul > li > ul)[aria-expanded="true"] > ul,
 .nav-drop:has(strong)[aria-expanded="true"] > ul {
   display: flex;
-  gap: 56px;
+  gap: 64px;  /* More space between columns */
   flex-wrap: nowrap;
 }
 
@@ -306,12 +306,12 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Trends category header */
 .nav-drop:has(> ul > li > ul) > ul > li > strong:first-child,
 .nav-drop:has(> ul > li > ul) > ul > li > p:first-child {
-  color: #666;
-  font-size: 11px;
-  font-weight: 600;
+  color: #808080;  /* Lighter gray */
+  font-size: 12px;  /* Slightly larger */
+  font-weight: 500;  /* Medium weight */
   text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin-bottom: 20px;
+  letter-spacing: 1px;  /* Slightly less spacing */
+  margin-bottom: 24px;  /* More space below */
   display: block;
 }
 
@@ -348,10 +348,11 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
 /* Trends submenu links */
 .nav-drop:has(> ul > li > ul) > ul > li > ul > li a {
-  color: #333;
-  font-weight: 500;
-  font-size: 14px;
+  color: #2c2c2c;  /* Slightly softer black */
+  font-weight: 400;  /* Regular weight */
+  font-size: 15px;  /* Slightly larger */
   text-decoration: none;
+  line-height: 1.3;
 }
 
 .nav-drop:has(> ul > li > ul) > ul > li > ul > li a:hover {
