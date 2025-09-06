@@ -159,14 +159,25 @@ export default async function decorate(block) {
     }
     
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        }
-      });
+      if (navSection.querySelector('ul')) {
+        navSection.classList.add('nav-drop');
+        // Add click handler for dropdown toggle
+        navSection.addEventListener('click', (e) => {
+          if (isDesktop.matches) {
+            e.stopPropagation();
+            const expanded = navSection.getAttribute('aria-expanded') === 'true';
+            toggleAllNavSections(navSections);
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!navSection.contains(e.target)) {
+            navSection.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
     });
   }
 
