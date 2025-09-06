@@ -222,13 +222,15 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop::after {
   content: "";
   display: inline-block;
-  margin-left: 6px;
+  margin-left: 8px;  /* More spacing from text */
   width: 0;
   height: 0;
-  border: 5px solid transparent;
-  border-top-color: var(--nav-text-light);
+  border: 4px solid transparent;  /* Smaller arrow */
+  border-top-color: var(--nav-text);  /* Match text color */
   transition: transform 0.3s ease;
   vertical-align: middle;
+  position: relative;
+  top: -1px;  /* Slight upward adjustment */
 }
 
 .nav-drop[aria-expanded="true"]::after {
@@ -279,11 +281,11 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Trends mega menu container */
 .nav-drop:has(> ul > li > ul) > ul,
 .nav-drop:has(strong) > ul {
-  left: -150px;
-  width: 1040px;
-  padding: 48px;
-  border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  left: -200px;  /* Shift more to left */
+  width: 1100px;  /* Slightly wider */
+  padding: 56px;  /* More padding */
+  border-radius: 24px;  /* Slightly rounder */
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);  /* Deeper shadow */
 }
 
 /* Show Trends as flex */
@@ -336,12 +338,12 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop:has(> ul > li > ul) > ul > li:not(:last-child) > ul > li::before {
   content: "";
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 16px;  /* Smaller square */
+  height: 16px;  /* Smaller square */
   background: #c3d82c;  /* Bright lime/chartreuse color */
-  border-radius: 4px;
+  border-radius: 3px;  /* Slightly less rounded */
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;  /* Better vertical alignment */
 }
 
 /* Trends submenu links */
@@ -360,8 +362,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop:has(> ul > li > ul) > ul > li:last-child {
   background: #000;
   border-radius: 16px;
-  padding: 36px;
-  margin: -48px -48px -48px 0;
+  padding: 40px;
+  margin: -56px -56px -56px 0;  /* Match new container padding */
   color: #fff;
   flex: 1.2;
   display: block; /* Override flex column */
@@ -407,9 +409,9 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Subscribe Button - Black outline with yellow shadow */
 .nav-tools .button,
 .nav-tools a.button {
-  padding: 10px 32px !important;  /* Wider, slightly less tall */
-  font-size: 17px !important;  /* Match nav font size */
-  font-weight: 400 !important;  /* Normal weight */
+  padding: 8px 28px !important;  /* Slightly smaller padding */
+  font-size: 16px !important;  /* Slightly smaller font */
+  font-weight: 500 !important;  /* Medium weight */
   font-family: var(--body-font-family) !important;
   min-width: auto;
   min-height: auto;
@@ -417,17 +419,17 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   display: inline-block;
   background: transparent !important;
   color: var(--text-color) !important;
-  border: 3px solid var(--text-color) !important;  /* Thicker border */
-  border-radius: 50px !important;  /* More rounded */
-  box-shadow: 4px 4px 0 #f7e04b !important;  /* Slightly larger shadow */
+  border: 2.5px solid var(--text-color) !important;  /* Refined border width */
+  border-radius: 40px !important;  /* Refined radius */
+  box-shadow: 3px 3px 0 #f7e04b !important;  /* Refined shadow */
   transition: all 0.2s ease;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
 }
 
 .nav-tools .button:hover,
 .nav-tools a.button:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 #f7e04b !important;
+  box-shadow: 5px 5px 0 #f7e04b !important;  /* Match refined shadow scale */
 }
 
 /* Focus styles for accessibility */
