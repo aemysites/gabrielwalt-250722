@@ -275,7 +275,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
    ======================================== */
 
 /* Trends mega menu container */
-.nav-drop:has(> ul > li > ul) > ul {
+.nav-drop:has(> ul > li > ul) > ul,
+.nav-drop:has(strong) > ul {
   left: -150px;
   width: 1040px;
   padding: 48px;
@@ -284,9 +285,11 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 }
 
 /* Show Trends as flex */
-.nav-drop:has(> ul > li > ul)[aria-expanded="true"] > ul {
+.nav-drop:has(> ul > li > ul)[aria-expanded="true"] > ul,
+.nav-drop:has(strong)[aria-expanded="true"] > ul {
   display: flex;
   gap: 56px;
+  flex-wrap: nowrap;
 }
 
 /* Trends category columns */
@@ -327,13 +330,13 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   letter-spacing: normal;
 }
 
-/* Green square icon for Trends (not for last column) */
+/* Lime/chartreuse square icon for Trends (not for last column) */
 .nav-drop:has(> ul > li > ul) > ul > li:not(:last-child) > ul > li::before {
   content: "";
   display: block;
   width: 20px;
   height: 20px;
-  background: #d4e04b;
+  background: #c3d82c;  /* Bright lime/chartreuse color */
   border-radius: 4px;
   flex-shrink: 0;
   margin-top: 2px;
@@ -399,17 +402,27 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   height: 100%;
 }
 
-/* Subscribe Button - Uses global outline-shadow style with nav-specific adjustments */
+/* Subscribe Button - Black outline with yellow shadow */
 .nav-tools .button,
 .nav-tools a.button {
-  /* Inherits global .button-outline-shadow styles from styles.css */
-  /* Just override padding to be slightly taller */
   padding: 12px 28px !important;
   font-size: var(--body-font-size-s);
   min-width: auto;
   min-height: auto;
   white-space: nowrap;
   display: inline-block;
+  background: transparent !important;
+  color: var(--text-color) !important;
+  border: 2px solid var(--text-color) !important;
+  border-radius: 24px !important;
+  box-shadow: 3px 3px 0 #f7e04b !important;
+  transition: all 0.2s ease;
+}
+
+.nav-tools .button:hover,
+.nav-tools a.button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 #f7e04b !important;
 }
 
 /* Focus styles for accessibility */
