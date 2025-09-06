@@ -280,6 +280,21 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   margin-bottom: 16px;
   text-transform: none;
   letter-spacing: normal;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* Green square icon */
+.nav-drop > ul > li > ul > li::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #d4e04b;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .nav-drop > ul > li > ul > li a {
