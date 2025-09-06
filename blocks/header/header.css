@@ -52,9 +52,9 @@ header nav {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
-  max-width: 1264px;  /* 1200px + 64px padding to align with content */
+  max-width: 1200px;  /* Match original's narrower container */
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;  /* Slightly more padding for breathing room */
   /* Removed background - inherits from body */
   box-sizing: border-box;
   font-family: var(--body-font-family);
@@ -181,7 +181,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 40px;  /* Slightly more space between nav items */
+  gap: 32px;  /* Tighter spacing for compact header */
   align-items: center;
 }
 
@@ -281,18 +281,19 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Trends mega menu container */
 .nav-drop:has(> ul > li > ul) > ul,
 .nav-drop:has(strong) > ul {
-  left: -200px;  /* Shift more to left */
-  width: 1100px;  /* Slightly wider */
-  padding: 56px;  /* More padding */
-  border-radius: 24px;  /* Slightly rounder */
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);  /* Deeper shadow */
+  left: 50%;
+  transform: translateX(-50%);  /* Center the dropdown */
+  width: 1040px;  /* Slightly narrower than viewport */
+  padding: 48px;  /* Good padding */
+  border-radius: 20px;  /* Rounded corners */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
 }
 
 /* Show Trends as flex */
 .nav-drop:has(> ul > li > ul)[aria-expanded="true"] > ul,
 .nav-drop:has(strong)[aria-expanded="true"] > ul {
   display: flex;
-  gap: 64px;  /* More space between columns */
+  gap: 48px;  /* Balanced column spacing */
   flex-wrap: nowrap;
 }
 
@@ -363,8 +364,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop:has(> ul > li > ul) > ul > li:last-child {
   background: #000;
   border-radius: 16px;
-  padding: 40px;
-  margin: -56px -56px -56px 0;  /* Match new container padding */
+  padding: 36px;
+  margin: -48px -48px -48px 0;  /* Match container padding */
   color: #fff;
   flex: 1.2;
   display: block; /* Override flex column */
