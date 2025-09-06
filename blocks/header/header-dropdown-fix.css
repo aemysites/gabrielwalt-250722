@@ -1,0 +1,169 @@
+/* SIMPLIFIED DROPDOWN STYLES - Override existing styles */
+
+/* Reset and base dropdown container */
+.nav-drop[aria-expanded="true"] > ul {
+  /* Positioning */
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) 350px !important;
+  gap: 40px !important;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 20px);
+  
+  /* Sizing */
+  width: 1000px;
+  padding: 48px !important;
+  
+  /* Visual */
+  background: #ffffff !important;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1) !important;
+  
+  /* Animation */
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Reset all list styles in dropdown */
+.nav-drop ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Main category columns (first 3) */
+.nav-drop > ul > li:not(:last-child) {
+  /* Reset */
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+  min-height: auto !important;
+  flex: none !important;
+  
+  /* Text for category header */
+  color: #6c6c6c !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  line-height: 1 !important;
+}
+
+/* Submenu items container */
+.nav-drop > ul > li > ul {
+  margin-top: 24px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+/* Individual menu items */
+.nav-drop > ul > li > ul > li {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  
+  /* Reset text */
+  text-transform: none !important;
+  font-weight: normal !important;
+  letter-spacing: normal !important;
+  color: #6c6c6c !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+}
+
+/* Lime green square icon */
+.nav-drop > ul > li > ul > li::before {
+  content: "" !important;
+  display: block !important;
+  width: 20px !important;
+  height: 20px !important;
+  background: #c3d82c !important;
+  border-radius: 3px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Item link styling */
+.nav-drop > ul > li > ul > li a,
+.nav-drop > ul > li > ul > li strong a {
+  color: #131313 !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  text-decoration: none !important;
+  text-transform: none !important;
+  letter-spacing: normal !important;
+}
+
+/* Hover effect */
+.nav-drop > ul > li > ul > li:hover {
+  opacity: 0.7;
+}
+
+/* Black promo box (4th column) */
+.nav-drop > ul > li:last-child {
+  background: #000000 !important;
+  border-radius: 20px !important;
+  padding: 40px !important;
+  margin: -48px -48px -48px 0 !important;
+  color: #ffffff !important;
+  
+  /* Layout */
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  min-height: 280px !important;
+  
+  /* Reset text */
+  text-transform: none !important;
+  font-weight: normal !important;
+  letter-spacing: normal !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+}
+
+/* Promo title styling */
+.nav-drop > ul > li:last-child strong {
+  display: block !important;
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  margin-bottom: 12px !important;
+}
+
+/* Promo description */
+.nav-drop > ul > li:last-child em {
+  display: block !important;
+  font-style: normal !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 14px !important;
+  text-transform: none !important;
+  margin-bottom: 24px !important;
+}
+
+/* Promo link */
+.nav-drop > ul > li:last-child a {
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  width: fit-content !important;
+}
+
+.nav-drop > ul > li:last-child a::after {
+  content: "→" !important;
+  font-size: 18px !important;
+}
+
+/* Hide any nested ul in promo */
+.nav-drop > ul > li:last-child > ul {
+  display: none !important;
+}

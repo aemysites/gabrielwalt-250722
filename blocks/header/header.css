@@ -2,6 +2,9 @@
 /* Reduced from 968 lines to ~280 lines with improved styling */
 /* stylelint-disable no-descending-specificity */
 
+/* Import dropdown fixes */
+@import url('header-dropdown-fix.css');
+
 /* ========================================
    CSS VARIABLES
    ======================================== */
