@@ -32,11 +32,12 @@
   /* Button styles - Global outline button with yellow shadow */
   --button-border-color: var(--text-color);
   --button-yellow-shadow: #f7e04b;
-  --button-padding: 10px 28px;
+  --button-padding: 12px 28px;  /* Slightly taller for better proportion */
   --button-border-radius: 50px;
   --button-border-width: 2px;
   --button-shadow-offset: 3px;
   --button-shadow-offset-hover: 5px;
+  --button-shadow-offset-active: 1px;
   
   /* Links */
   --link-color: #3b63fb;
@@ -208,49 +209,23 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Global button styles - Default filled style */
+/* Global button styles - Default is outline with yellow shadow */
 a.button:any-link, button {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
   margin: var(--spacing-md) 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: var(--spacing-sm) var(--spacing-lg);
   font-family: var(--body-font-family);
   font-style: normal;
-  font-weight: 500;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-a.button:hover, a.button:focus, button:hover, button:focus {
-  background-color: var(--link-hover-color);
-  cursor: pointer;
-}
-
-button:disabled, button:disabled:hover {
-  background-color: var(--light-color);
-  cursor: unset;
-}
-
-/* Secondary button style */
-a.button.secondary, button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
-}
-
-/* Outline button with yellow shadow - Global style for Subscribe-like buttons */
-a.button.outline-shadow, button.outline-shadow,
-.button-outline-shadow {
+  
+  /* Apply outline-shadow style by default */
   background: transparent;
   color: var(--button-border-color);
   border: var(--button-border-width) solid var(--button-border-color);
@@ -261,43 +236,85 @@ a.button.outline-shadow, button.outline-shadow,
   font-weight: 400;
   letter-spacing: 0.01em;
   text-transform: none;
-  margin: 0;
 }
 
-a.button.outline-shadow:hover, button.outline-shadow:hover,
-.button-outline-shadow:hover {
+a.button:hover, a.button:focus, button:hover, button:focus {
   background: transparent;
   color: var(--button-border-color);
   transform: translate(-2px, -2px);
   box-shadow: var(--button-shadow-offset-hover) var(--button-shadow-offset-hover) 0 0 var(--button-yellow-shadow);
   text-decoration: none;
+  cursor: pointer;
 }
 
-a.button.outline-shadow:active, button.outline-shadow:active,
-.button-outline-shadow:active {
+a.button:active, button:active {
   transform: translate(0, 0);
-  box-shadow: 1px 1px 0 0 var(--button-yellow-shadow);
+  box-shadow: var(--button-shadow-offset-active) var(--button-shadow-offset-active) 0 0 var(--button-yellow-shadow);
 }
 
-/* Hero section button styling */
-main > div:first-of-type p > a {
-  display: inline-block;
-  padding: 0.6em 2em;
-  margin: 0 0.5em;
-  border: 2px solid var(--text-color);
-  border-radius: 50px;
-  background: transparent;
-  color: var(--text-color);
-  font-size: var(--body-font-size-s);
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.2s ease;
+button:disabled, button:disabled:hover {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--button-shadow-offset) var(--button-shadow-offset) 0 0 var(--button-yellow-shadow);
 }
 
-main > div:first-of-type p > a:hover {
-  background: var(--text-color);
-  color: var(--background-color);
-  text-decoration: none;
+/* Primary button style (filled) - use when you need a filled button */
+a.button.primary, button.primary {
+  background-color: var(--text-color);
+  color: var(--white);
+  border: var(--button-border-width) solid var(--text-color);
+  box-shadow: none;
+}
+
+a.button.primary:hover, button.primary:hover {
+  background-color: var(--text-color);
+  color: var(--white);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--button-shadow-offset-hover) var(--button-shadow-offset-hover) 0 0 var(--button-yellow-shadow);
+}
+
+/* Secondary button style - alias for default outline style */
+a.button.secondary, button.secondary {
+  /* Inherits default outline-shadow style */
+}
+
+/* Outline-shadow class for explicit use (though it's now the default) */
+a.button.outline-shadow, button.outline-shadow,
+.button-outline-shadow {
+  /* Inherits default styles */
+}
+
+/* Links in content that look like buttons should have button class added via JS */
+
+/* Reset any block-specific button overrides to use global style */
+.hero .button,
+.hero .button-container .button,
+.cards .button,
+.columns .button,
+.carousel .button,
+.tabs .button,
+.modal .button {
+  /* Force inheritance of global button styles */
+  background: transparent !important;
+  color: var(--button-border-color) !important;
+  border: var(--button-border-width) solid var(--button-border-color) !important;
+  border-radius: var(--button-border-radius) !important;
+  padding: var(--button-padding) !important;
+  box-shadow: var(--button-shadow-offset) var(--button-shadow-offset) 0 0 var(--button-yellow-shadow) !important;
+}
+
+.hero .button:hover,
+.hero .button-container .button:hover,
+.cards .button:hover,
+.columns .button:hover,
+.carousel .button:hover,
+.tabs .button:hover,
+.modal .button:hover {
+  background: transparent !important;
+  color: var(--button-border-color) !important;
+  transform: translate(-2px, -2px) !important;
+  box-shadow: var(--button-shadow-offset-hover) var(--button-shadow-offset-hover) 0 0 var(--button-yellow-shadow) !important;
 }
 
 main img {
