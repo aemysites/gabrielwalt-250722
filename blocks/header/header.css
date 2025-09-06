@@ -50,7 +50,7 @@ header nav {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
-  max-width: 1200px;  /* Match main content width */
+  max-width: calc(1200px + 64px);  /* Content width + padding */
   margin: 0 auto;
   padding: 0 32px;
   /* Removed background - inherits from body */
@@ -235,22 +235,18 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop > ul {
   display: none;
   position: absolute;
-  left: 0;
-  top: calc(100% + 20px);
-  width: max-content;
-  min-width: 900px;
-  background: var(--white);
+  left: -20px;
+  top: calc(100% + 15px);
+  width: 950px;
+  background: #fafafa;  /* Very light gray background */
   border: none;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
   border-radius: var(--dropdown-radius, 24px);
-  padding: 48px;
-  padding-right: 0;
+  padding: 40px;
   z-index: 1000;
   opacity: 0;
   transform: translateY(-10px);
   animation: dropdownOpen 0.3s ease forwards;
-  /* Grid layout handled when expanded */
-  display: none;
 }
 
 @keyframes dropdownOpen {
@@ -262,30 +258,28 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
 /* Only show dropdown when explicitly expanded (click) */
 .nav-drop[aria-expanded="true"] > ul {
-  display: grid;
-  grid-template-columns: repeat(3, 200px) 380px;  /* More specific column widths */
-  justify-content: space-between;
+  display: flex;
+  gap: 60px;
 }
 
-/* Main dropdown categories */
+/* Main dropdown columns */
 .nav-drop > ul > li {
   padding: 0;
+  margin: 0;
+  flex: 1;
   min-height: auto;
   background: none;
-  margin-bottom: 0;
-  display: block;
 }
 
-/* Category titles (CASUAL, NOW TRENDING, INSPO) */
-.nav-drop > ul > li > strong:first-child,
-.nav-drop > ul > li:first-child {
+/* Category headers (CASUAL, NOW TRENDING, INSPO) */
+.nav-drop > ul > li > strong:first-child {
+  display: block;
   color: #6c6c6c;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 24px;
-  display: block;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
   line-height: 1;
 }
 
@@ -296,32 +290,34 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* Individual dropdown items with yellow squares */
+/* Individual dropdown items */
 .nav-drop > ul > li > ul > li {
   padding: 0;
-  border-radius: 0;
   transition: opacity 0.2s ease;
   min-height: auto;
   display: flex;
   align-items: flex-start;
-  gap: 14px;
+  gap: 12px;
   cursor: pointer;
   position: relative;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
 }
 
-/* Yellow square icon */
+/* Yellow/lime square icon */
 .nav-drop > ul > li > ul > li::before {
   content: "";
   display: block;
-  width: 24px;
-  height: 24px;
-  background: #d4e04b;  /* More lime/yellow-green like screenshot */
-  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  background: #c3d82c;  /* Lime green from screenshot */
+  border-radius: 3px;
   flex-shrink: 0;
-  margin-top: 0;
+  margin-top: 1px;
 }
 
 .nav-drop > ul > li > ul > li:hover {
@@ -338,31 +334,32 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   margin-bottom: 2px;
 }
 
+.nav-drop > ul > li > ul > li strong,
 .nav-drop > ul > li > ul > li strong a {
   color: var(--text-color);
-  font-weight: 500;
-  font-size: 15px;
+  font-weight: 600;
+  font-size: 14px;
   text-decoration: none;
-  text-transform: none; /* No uppercase for links */
+  text-transform: none;
   padding: 0;
-  min-height: auto;
   display: block;
   background: none;
-  border-radius: 0;
   letter-spacing: -0.01em;
-  line-height: 1.3;
-  margin-bottom: 4px;
+  line-height: 1.2;
+  margin-bottom: 2px;
 }
 
-/* Description text under links */
-.nav-drop > ul > li > ul > li > div > em,
-.nav-drop > ul > li > ul > li > div > span,
-.nav-drop > ul > li > ul > li > div {
+/* Description text */
+.nav-drop > ul > li > ul > li em,
+.nav-drop > ul > li > ul > li span:not(:first-child) {
   font-style: normal;
   color: #6c6c6c;
-  font-size: 13px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.3;
   display: block;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
 }
 
 .nav-drop > ul > li > ul > li strong a:hover {
@@ -371,54 +368,36 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   text-decoration: none;
 }
 
-/* Promo section (4th column - black box) */
-.nav-drop > ul > li:last-child {
+/* Promo section (4th item - black box) */
+.nav-drop > ul > li:nth-child(4) {
   background: var(--dark-color);
   border-radius: 20px;
-  padding: 40px;
+  padding: 35px;
   color: var(--white);
+  flex: 1.5;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin: -48px -48px -48px 0;
-  margin-left: -20px;
-  min-height: 300px;
+  justify-content: center;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  margin: -40px -40px -40px 0;
+  min-width: 300px;
 }
 
-/* Promo section title */
-.nav-drop > ul > li:last-child > strong {
-  color: var(--white);
-  font-size: 32px;
+/* Hide the promo section list if it exists */
+.nav-drop > ul > li:nth-child(4) > ul {
+  display: none;
+}
+
+/* Promo content styling */
+.nav-drop > ul > li:nth-child(4) {
+  font-size: 28px;
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-
-/* Promo section description */
-.nav-drop > ul > li:last-child > em {
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
-  line-height: 1.4;
-  margin-bottom: 24px;
-}
-
-/* Promo section link */
-.nav-drop > ul > li:last-child a {
   color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.nav-drop > ul > li:last-child a::after {
-  content: "→";
-  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
 }
 
 /* ========================================
@@ -462,7 +441,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   }
   
   header nav {
-    padding: 0 16px;
+    padding: 0 24px;  /* Match main content mobile padding */
   }
   
   .nav-hamburger {
