@@ -241,14 +241,14 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop > ul {
   display: none;
   position: absolute;
-  left: -100px;
+  left: -150px;
   top: 100%;
-  margin-top: 10px;
-  width: 900px;
-  padding: 40px;
+  margin-top: 15px;
+  width: 1040px;
+  padding: 48px;
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
   list-style: none;
   z-index: 1000;
 }
@@ -256,7 +256,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Show on click */
 .nav-drop[aria-expanded="true"] > ul {
   display: flex;
-  gap: 40px;
+  gap: 56px;
 }
 
 /* Category columns */
@@ -311,23 +311,36 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* Black promo box (last column) */
 .nav-drop > ul > li:last-child {
   background: #000;
-  border-radius: 12px;
-  padding: 30px;
-  margin: -40px -40px -40px 0;
+  border-radius: 16px;
+  padding: 36px;
+  margin: -48px -48px -48px 0;
   color: #fff;
+  flex: 1.2;
 }
 
 .nav-drop > ul > li:last-child strong {
   display: block;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
+  text-transform: uppercase;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.nav-drop > ul > li:last-child em {
+  display: block;
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
 }
 
 .nav-drop > ul > li:last-child a {
   color: #fff;
   text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* ========================================
