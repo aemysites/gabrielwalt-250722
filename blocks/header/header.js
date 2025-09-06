@@ -140,31 +140,24 @@ export default async function decorate(block) {
       // Create nav-tools section
       const navTools = document.createElement('div');
       navTools.classList.add('nav-tools');
-      
       // Move the Subscribe link and style it as a button
       const subscribeLink = subscribePara.querySelector('a');
       subscribeLink.classList.add('button', 'outline-shadow');
-      
       // Create button container
       const buttonContainer = document.createElement('p');
       buttonContainer.classList.add('button-container');
       buttonContainer.appendChild(subscribeLink);
       navTools.appendChild(buttonContainer);
-      
       // Remove the original paragraph
       subscribePara.remove();
-      
       // Add nav-tools to the nav
       nav.appendChild(navTools);
     }
-    
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
-        
         // Check if this is the Trends dropdown - keep it always expanded to match original
         const isTrendsDropdown = navSection.textContent.toLowerCase().includes('trends');
-        
         if (isDesktop.matches && isTrendsDropdown) {
           // Trends dropdown should always be expanded on desktop
           navSection.setAttribute('aria-expanded', 'true');
@@ -178,7 +171,6 @@ export default async function decorate(block) {
               navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
             }
           });
-          
           // Close dropdown when clicking outside (not for Trends)
           document.addEventListener('click', (e) => {
             if (!navSection.contains(e.target)) {
