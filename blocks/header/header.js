@@ -58,13 +58,8 @@ function focusNavSection() {
  */
 function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    // Check if this is the Trends dropdown - keep it always expanded on desktop
-    const isTrendsDropdown = section.textContent.toLowerCase().includes('trends');
-    if (isDesktop.matches && isTrendsDropdown) {
-      section.setAttribute('aria-expanded', 'true');
-    } else {
-      section.setAttribute('aria-expanded', expanded);
-    }
+    // All dropdowns should be closed by default to match original WKND design
+    section.setAttribute('aria-expanded', expanded);
   });
 }
 
@@ -162,28 +157,39 @@ export default async function decorate(block) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) {
         navSection.classList.add('nav-drop');
-        // Check if this is the Trends dropdown - keep it always expanded to match original
-        const isTrendsDropdown = navSection.textContent.toLowerCase().includes('trends');
-        if (isDesktop.matches && isTrendsDropdown) {
-          // Trends dropdown should always be expanded on desktop
-          navSection.setAttribute('aria-expanded', 'true');
-        } else {
-          // Add click handler for other dropdown toggles
-          navSection.addEventListener('click', (e) => {
-            if (isDesktop.matches) {
-              e.stopPropagation();
-              const expanded = navSection.getAttribute('aria-expanded') === 'true';
-              toggleAllNavSections(navSections);
-              navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-            }
-          });
-          // Close dropdown when clicking outside (not for Trends)
-          document.addEventListener('click', (e) => {
-            if (!navSection.contains(e.target)) {
-              navSection.setAttribute('aria-expanded', 'false');
-            }
-          });
-        }
+        // All dropdowns start closed to match original WKND design
+        navSection.setAttribute('aria-expanded', 'false');
+        
+        // Add hover handlers for dropdown interactions
+        navSection.addEventListener('mouseenter', () => {
+          if (isDesktop.matches) {
+            toggleAllNavSections(navSections, false); // Close all others
+            navSection.setAttribute('aria-expanded', 'true');
+          }
+        });
+        
+        navSection.addEventListener('mouseleave', () => {
+          if (isDesktop.matches) {
+            navSection.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Add click handler for dropdown toggles
+        navSection.addEventListener('click', (e) => {
+          if (isDesktop.matches) {
+            e.stopPropagation();
+            const expanded = navSection.getAttribute('aria-expanded') === 'true';
+            toggleAllNavSections(navSections, false); // Close all
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          }
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!navSection.contains(e.target)) {
+            navSection.setAttribute('aria-expanded', 'false');
+          }
+        });
       }
     });
   }
