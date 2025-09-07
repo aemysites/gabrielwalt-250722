@@ -275,141 +275,62 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 }
 
 /* ========================================
-   TRENDS MEGA MENU (specific styles)
+   SIMPLE DROPDOWN MENUS (matching original)
    ======================================== */
 
-/* Trends mega menu container */
-.nav-drop:has(> ul > li > ul) > ul,
-.nav-drop:has(strong) > ul {
-  left: 50%;
-  transform: translateX(-50%);  /* Center the dropdown */
-  width: 1040px;  /* Slightly narrower than viewport */
-  padding: 48px;  /* Good padding */
-  border-radius: 20px;  /* Rounded corners */
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);  /* Subtle shadow */
+/* All dropdown menus - simple, clean styling */
+.nav-drop[aria-expanded="true"] > ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  min-width: 200px;
+  z-index: 100;
 }
 
-/* Show Trends as flex when expanded */
-.nav-drop:has(> ul > li > ul)[aria-expanded="true"] > ul,
-.nav-drop:has(strong)[aria-expanded="true"] > ul {
-  display: flex;
-  gap: 56px;  /* Generous column spacing like original */
-  flex-wrap: nowrap;
-}
-
-/* Always expanded Trends dropdown positioning */
-.nav-drop:has(> ul > li > ul)[aria-expanded="true"] {
-  position: static;  /* Don't float over content */
-}
-
-.nav-drop:has(> ul > li > ul)[aria-expanded="true"] > ul {
-  position: static;  /* Make it part of the normal layout flow */
-  margin-top: 0;
-  box-shadow: none;  /* Remove shadow for always-visible state */
-  background: transparent;  /* Blend with header background */
-  border-radius: 0;
-  padding: 20px 0;  /* Reduce vertical padding */
-}
-
-/* Trends category columns */
-.nav-drop:has(> ul > li > ul) > ul > li {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Trends category header - Match original exactly */
-.nav-drop:has(> ul > li > ul) > ul > li > strong:first-child,
-.nav-drop:has(> ul > li > ul) > ul > li > p:first-child {
-  color: #666;  /* Medium gray like original */
-  font-size: 11px;  /* Smaller, more refined */
-  font-weight: 600;  /* Semi-bold for headers */
-  text-transform: uppercase;
-  letter-spacing: 1.2px;  /* More letter spacing */
-  margin-bottom: 20px;  /* Balanced spacing */
-  display: block;
-}
-
-/* Trends submenu items container */
-.nav-drop:has(> ul > li > ul) > ul > li > ul {
+/* Dropdown menu items */
+.nav-drop ul li {
   list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-drop ul li a {
+  display: block;
+  padding: 8px 16px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: background-color 0.2s ease;
+}
+
+.nav-drop ul li a:hover {
+  background-color: #f5f5f5;
+}
+
+/* Nested dropdown menus */
+.nav-drop ul ul {
+  position: static;
+  box-shadow: none;
+  border: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
-/* Trends individual menu items */
-.nav-drop:has(> ul > li > ul) > ul > li > ul > li {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  text-transform: none;
-  letter-spacing: normal;
+.nav-drop ul ul li a {
+  padding: 4px 24px;
+  font-size: 13px;
+  color: #666;
 }
 
-/* Lime/chartreuse square icon for Trends (not for last column) */
-.nav-drop:has(> ul > li > ul) > ul > li:not(:last-child) > ul > li::before {
-  content: "";
-  display: block;
-  width: 16px;  /* Smaller square */
-  height: 16px;  /* Smaller square */
-  background: #c3d82c;  /* Bright lime/chartreuse color */
-  border-radius: 3px;  /* Slightly less rounded */
-  flex-shrink: 0;
-  margin-top: 3px;  /* Better vertical alignment */
-}
-
-/* Trends submenu links - Match original styling */
-.nav-drop:has(> ul > li > ul) > ul > li > ul > li a {
-  color: #333;  /* Standard dark gray */
-  font-weight: 500;  /* Medium weight for readability */
-  font-size: 14px;  /* Compact size */
-  text-decoration: none;
-  line-height: 1.4;  /* Better readability */
-  display: block;
-  transition: color 0.2s ease;
-}
-
-.nav-drop:has(> ul > li > ul) > ul > li > ul > li a:hover {
-  color: #000;
-}
-
-/* Trends black promo box (last column) */
-.nav-drop:has(> ul > li > ul) > ul > li:last-child {
-  background: #000;
-  border-radius: 16px;
-  padding: 36px;
-  margin: -48px -48px -48px 0;  /* Match container padding */
-  color: #fff;
-  flex: 1.2;
-  display: block; /* Override flex column */
-}
-
-.nav-drop:has(> ul > li > ul) > ul > li:last-child strong {
-  display: block;
-  font-size: 28px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 12px;
-}
-
-.nav-drop:has(> ul > li > ul) > ul > li:last-child em {
-  display: block;
-  font-style: normal;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
-
-.nav-drop:has(> ul > li > ul) > ul > li:last-child a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+.nav-drop ul ul li a:hover {
+  background-color: #f0f0f0;
+  color: #333;
 }
 
 /* ========================================
