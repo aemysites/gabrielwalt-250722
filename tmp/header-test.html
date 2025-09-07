@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Structure Test</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../blocks/header/header.css">
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background: #f5f5f5;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header {
+            border: 2px dashed #ccc;
+            min-height: 60px;
+            margin-bottom: 20px;
+        }
+        .header-debug {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1>Header Structure Test</h1>
+        <p>This page tests the header block with JavaScript execution to see the actual DOM structure.</p>
+        
+        <div class="header-debug">
+            <strong>Status:</strong> <span id="status">Loading...</span><br>
+            <strong>Fragment loaded:</strong> <span id="fragment-status">Checking...</span><br>
+            <strong>Header sections:</strong> <span id="sections-count">0</span>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Actual Header Output</h2>
+        <header id="test-header">
+            <p>Header will load here via JavaScript...</p>
+        </header>
+    </div>
+
+    <div class="test-section">
+        <h2>DOM Structure</h2>
+        <pre id="dom-output">DOM structure will appear here...</pre>
+    </div>
+
+    <!-- Load EDS scripts -->
+    <script src="../scripts/aem.js" type="module"></script>
+    <script src="../scripts/scripts.js" type="module"></script>
+    
+    <script type="module">
+        import { loadHeader } from '../scripts/aem.js';
+        
+        async function testHeader() {
+            const status = document.getElementById('status');
+            const fragmentStatus = document.getElementById('fragment-status');
+            const sectionsCount = document.getElementById('sections-count');
+            const domOutput = document.getElementById('dom-output');
+            const header = document.getElementById('test-header');
+            
+            try {
+                status.textContent = 'Loading header...';
+                
+                // Test if nav fragment is accessible
+                try {
+                    const navResponse = await fetch('/nav.plain.html');
+                    if (navResponse.ok) {
+                        fragmentStatus.textContent = 'Nav fragment accessible ✓';
+                        const navContent = await navResponse.text();
+                        console.log('Nav fragment content:', navContent.substring(0, 200) + '...');
+                    } else {
+                        fragmentStatus.textContent = 'Nav fragment failed: ' + navResponse.status;
+                    }
+                } catch (e) {
+                    fragmentStatus.textContent = 'Nav fragment error: ' + e.message;
+                }
+                
+                // Load the header using EDS function
+                await loadHeader(header);
+                
+                status.textContent = 'Header loaded ✓';
+                
+                // Count header sections
+                const navSections = header.querySelectorAll('.nav-brand, .nav-sections, .nav-tools');
+                sectionsCount.textContent = navSections.length;
+                
+                // Show DOM structure
+                const headerHTML = header.innerHTML;
+                domOutput.textContent = headerHTML;
+                
+                // Log structure for debugging
+                console.log('Header DOM structure:', header);
+                console.log('Header HTML:', headerHTML);
+                
+            } catch (error) {
+                status.textContent = 'Error: ' + error.message;
+                console.error('Header test error:', error);
+            }
+        }
+        
+        // Run test when page loads
+        window.addEventListener('load', testHeader);
+    </script>
+</body>
+</html>
