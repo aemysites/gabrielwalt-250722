@@ -267,7 +267,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   border-radius: 20px;
   box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
   padding: 32px;
-  width: clamp(800px, 70vw, 1000px);  /* Responsive width */
+  width: clamp(800px, 70vw, 1200px);  /* Match nav container width */
   z-index: 1000;
   gap: 48px;  /* More space between columns */
   align-items: flex-start;
