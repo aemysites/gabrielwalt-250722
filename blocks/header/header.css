@@ -267,8 +267,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   border-radius: 20px;
   box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
   padding: 32px;
-  width: 1200px;  /* Fixed 1200px width to match nav container */
-  max-width: 90vw;  /* Responsive on smaller screens */
+  width: clamp(320px, 90vw, 1200px);  /* Responsive width with 1200px max */
   z-index: 1000;
   gap: 48px;  /* More space between columns */
   align-items: flex-start;
@@ -431,6 +430,79 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   font-size: 14px;
   text-align: left;  /* Ensure left alignment */
   margin-bottom: 8px;  /* Reasonable spacing */
+}
+
+/* ========================================
+   RESPONSIVE MEGA MENU
+   ======================================== */
+
+/* Tablet and smaller: reduce gap and padding */
+@media (width <= 1400px) {
+  .nav-drop[aria-expanded="true"] > ul {
+    gap: 32px;  /* Reduce gap between columns */
+    padding: 24px;  /* Reduce padding */
+  }
+  
+  /* Reduce promotional box size */
+  .nav-drop:has(a[href*="trends"]) > ul > li:last-child {
+    max-width: 240px;
+    margin-left: 0;
+  }
+  
+  /* Smaller promotional title */
+  .nav-drop:has(a[href*="trends"]) > ul > li:last-child strong a {
+    font-size: 24px !important;
+  }
+}
+
+/* Mobile: stack promotional box below columns */
+@media (width <= 900px) {
+  .nav-drop[aria-expanded="true"] > ul {
+    flex-wrap: wrap;  /* Allow wrapping */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* First 3 columns take up top row */
+  .nav-drop:has(a[href*="trends"]) > ul > li:not(:last-child) {
+    flex: 1;
+    min-width: 150px;  /* Minimum width for readability */
+  }
+  
+  /* Promotional box full width on second row */
+  .nav-drop:has(a[href*="trends"]) > ul > li:last-child {
+    flex-basis: 100%;  /* Take full width of next row */
+    max-width: none;
+    margin-left: 0;
+    margin-top: 16px;
+  }
+  
+  /* Smaller fonts for mobile */
+  .nav-drop:has(a[href*="trends"]) > ul > li {
+    font-size: 12px;
+  }
+  
+  .nav-drop:has(a[href*="trends"]) ul ul li a {
+    font-size: 13px;
+  }
+}
+
+/* Very small screens: single column layout */
+@media (width <= 600px) {
+  .nav-drop[aria-expanded="true"] > ul {
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+  }
+  
+  .nav-drop:has(a[href*="trends"]) > ul > li:not(:last-child) {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .nav-drop:has(a[href*="trends"]) > ul > li:last-child strong a {
+    font-size: 20px !important;
+  }
 }
 
 /* ========================================
