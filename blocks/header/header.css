@@ -307,15 +307,15 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
 }
 
-/* Section headers (CASUAL, NOW TRENDING, INSPO) */
-.nav-drop:has(a[href*="trends"]) > ul > li:not(:has(a)) {
-  display: block !important;
+/* Section headers (CASUAL, NOW TRENDING, INSPO) - style the top-level li text */
+.nav-drop:has(a[href*="trends"]) > ul > li {
   font-weight: 700;
   font-size: 12px;
   text-transform: uppercase;
   color: #999;
   margin-bottom: 16px;
   letter-spacing: 1px;
+  line-height: 1.2;
 }
 
 /* Nested lists for section items */
@@ -328,6 +328,16 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-drop:has(a[href*="trends"]) ul ul li {
   margin-bottom: 20px;
   display: block !important;
+}
+
+/* Reset nested list items to normal styling */
+.nav-drop:has(a[href*="trends"]) ul ul li {
+  font-weight: normal;
+  font-size: 14px;
+  text-transform: none;
+  color: inherit;
+  margin-bottom: 20px;
+  letter-spacing: normal;
 }
 
 /* Section item links */
