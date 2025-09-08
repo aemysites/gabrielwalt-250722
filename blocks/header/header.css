@@ -320,11 +320,13 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   line-height: 1.2;
 }
 
-/* Nested lists for section items */
+/* Nested lists for section items - FORCE vertical stacking */
 .nav-drop:has(a[href*="trends"]) ul ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: block !important;  /* Override nav-sections flex */
+  flex-direction: column !important;
 }
 
 /* Items within each column stack vertically */
