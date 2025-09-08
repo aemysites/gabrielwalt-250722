@@ -12,7 +12,7 @@
  */
 :root {
   /* Core color system with CSS variables */
-  --background-color: #ffffff;  /* Clean white to match original site */
+  --background-color: #f7f8f5;  /* Off-white to match original WKND site */
   --light-color: #ffffff;        /* Same as background for consistency */
   --white: #ffffff;              /* Pure white */
   --dark-color: #000000;         /* Pure black for dark elements */
