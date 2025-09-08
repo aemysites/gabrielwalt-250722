@@ -1272,49 +1272,43 @@
 .cards.cards33 .cards-card-body {
   flex: 1 1 55%;
   max-width: 55%;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  justify-content: start;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   min-width: 0;
   height: 100%;
   padding: 0 var(--spacing-md); /* Remove top/bottom padding, keep left/right */
   margin: 0;
   box-sizing: border-box;
-  gap: var(--spacing-md) 0; /* Vertical gap between elements */
+  gap: var(--spacing-md); /* Vertical gap between elements */
 }
 
-/* First row: inline paragraphs - create a single flex container for both */
-.cards.cards33 .cards-card-body p:nth-child(1) {
-  grid-row: 1;
-  grid-column: 1;
-  display: inline-block;
-  margin-right: 8px;
-  margin-bottom: 0;
-}
-
+/* Make first two paragraphs inline within the flex column */
+.cards.cards33 .cards-card-body p:nth-child(1),
 .cards.cards33 .cards-card-body p:nth-child(2) {
-  grid-row: 1;
-  grid-column: 1;
   display: inline-block;
-  margin-left: 0;
+  vertical-align: baseline;
   margin-bottom: 0;
+  margin-top: 0;
+  order: 1; /* Both paragraphs come first */
 }
 
-/* Second row: heading */
+/* Heading comes after the inline paragraphs */
 .cards.cards33 .cards-card-body h3 {
-  grid-row: 2;
+  order: 2;
 }
 
-/* Third row: description */
+/* Description paragraph */
 .cards.cards33 .cards-card-body p:nth-child(4) {
-  grid-row: 3;
+  order: 3;
+  flex-grow: 1; /* Take remaining space */
 }
 
-/* Fourth row: read link */
+/* Read link at bottom */
 .cards.cards33 .cards-card-body p:last-child {
-  grid-row: 4;
-  align-self: end;
+  order: 4;
+  margin-top: auto; /* Push to bottom */
 }
 
 /* Additional styling for first paragraph (pill) */
@@ -1326,7 +1320,7 @@
   font-weight: 600;
   text-transform: uppercase;
   padding: 2px 12px;
-  margin-right: 4px;
+  margin-right: 8px;
   margin-top: 0;
   margin-bottom: 0;
 }
