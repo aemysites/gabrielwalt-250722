@@ -222,23 +222,24 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   background: rgb(59 99 251 / 5%);
 }
 
-/* Dropdown Arrow - Match Original WKND Size */
+/* Dropdown Arrow - V-shape like accordion34 */
 .nav-drop::after {
   content: "";
   display: inline-block;
-  margin-left: 4px;  /* Minimal spacing like original */
-  width: 0;
-  height: 0;
-  border: 2px solid transparent;  /* Much smaller - matches original */
-  border-top-color: var(--nav-text);
+  margin-left: 6px;
+  width: 5px;  /* Small V-shape */
+  height: 5px;
+  border: 1.5px solid var(--nav-text);
+  border-width: 0 1.5px 1.5px 0;  /* Right and bottom borders for V */
+  transform: rotate(45deg);  /* Rotate to make V point down */
   transition: transform 0.3s ease;
   vertical-align: middle;
   position: relative;
-  top: -1px;
+  top: -2px;
 }
 
 .nav-drop[aria-expanded="true"]::after {
-  transform: rotate(180deg);
+  transform: rotate(-135deg);  /* Flip V upward when expanded */
 }
 
 /* ========================================
@@ -254,7 +255,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   display: none;
 }
 
-/* TRENDS MEGA MENU - 3 Column Layout matching original WKND */
+/* TRENDS MEGA MENU - 3 Column Layout with vertical stacking */
 .nav-drop[aria-expanded="true"] > ul {
   display: flex !important;
   position: fixed;
@@ -264,11 +265,10 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
-  padding: 24px;
-  width: 950px;
-  max-width: 90vw;
+  padding: 32px;
+  width: clamp(800px, 70vw, 1000px);  /* Responsive width */
   z-index: 1000;
-  gap: 24px;
+  gap: 48px;  /* More space between columns */
   align-items: flex-start;
   list-style: none;
   margin: 0;
@@ -327,15 +327,16 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
 }
 
-/* Reset nested list items to normal styling */
+/* Items within each column stack vertically */
 .nav-drop:has(a[href*="trends"]) ul ul li {
-  margin-bottom: 20px;
-  display: block !important;
+  margin-bottom: 16px;
+  display: block;
   font-weight: normal;
   font-size: 14px;
   text-transform: none;
   color: inherit;
   letter-spacing: normal;
+  width: 100%;  /* Full width of column */
 }
 
 /* Section item links */
