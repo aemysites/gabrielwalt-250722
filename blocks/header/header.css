@@ -386,8 +386,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   letter-spacing: 1px;
 }
 
-/* Discover link - make it white and visible */
-.nav-drop:has(a[href*="trends"]) > ul > li:last-child ul li a {
+/* Discover link - make it white and visible (target the second link) */
+.nav-drop:has(a[href*="trends"]) > ul > li:last-child ul li:nth-child(2) a {
   color: white !important;
   font-size: 14px;
   font-weight: 700;
