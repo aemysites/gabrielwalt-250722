@@ -2,6 +2,7 @@ import { createOptimizedPicture } from '../../scripts/aem.js';
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 export default function decorate(block) {
+  console.log('Cards block classes:', block.className); // Debug log
   /* change to ul, li */
   const ul = document.createElement('ul');
   [...block.children].forEach((row) => {
@@ -18,6 +19,7 @@ export default function decorate(block) {
       const cardBody = li.querySelector('.cards-card-body');
       if (cardBody) {
         const paragraphs = cardBody.querySelectorAll('p');
+        console.log('Cards33 detected, paragraphs found:', paragraphs.length); // Debug log
         if (paragraphs.length >= 2) {
           // Create wrapper div for first two paragraphs
           const inlineWrapper = document.createElement('div');
@@ -29,6 +31,7 @@ export default function decorate(block) {
           
           // Insert wrapper at the beginning of card body
           cardBody.insertBefore(inlineWrapper, cardBody.firstChild);
+          console.log('Cards33 inline wrapper created'); // Debug log
         }
       }
     }
