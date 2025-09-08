@@ -561,6 +561,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   }
   
   header nav {
+    width: 100%;  /* Full width on mobile instead of fixed 1200px */
+    max-width: none;  /* Remove max-width constraint */
     padding: 0 24px;  /* Match main content mobile padding */
   }
   
