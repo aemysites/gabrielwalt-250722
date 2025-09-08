@@ -594,7 +594,6 @@
   gap: 0 80px;
   align-items: start;
   padding: 0;
-  background: #fff;
 }
 
 .columns.columns30 > div > div:nth-child(1),
@@ -701,7 +700,6 @@
 
 
 .columns.columns31 {
-  background: #f7f8f4;
   padding: 0;
 }
 
@@ -934,7 +932,6 @@
   justify-content: center;
   align-items: stretch;
   gap: 40px;
-  background: #fff;
   width: 100%;
   box-sizing: border-box;
 }
@@ -986,7 +983,6 @@
 
 
 .columns.columns26 {
-  background: #f7f8f5;
   padding: 0;
 }
 
@@ -1145,7 +1141,6 @@
 
 
 .columns.columns1 {
-  background: #f8f8f4;
   padding: 0;
 }
 
@@ -1349,7 +1344,6 @@
 
 
 .columns.columns29 {
-  background: #fff;
   padding: 0;
   margin: 0 auto;
   box-sizing: border-box;
