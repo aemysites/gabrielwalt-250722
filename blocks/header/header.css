@@ -330,19 +330,19 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   flex-direction: column !important;
 }
 
-/* Items within each column stack vertically */
+/* Items within each column stack vertically - better spacing */
 .nav-drop:has(a[href*="trends"]) ul ul li {
-  margin-bottom: 16px;
+  margin-bottom: 24px;  /* More space between different entries */
   display: block;
   font-weight: normal;
   font-size: 14px;
   text-transform: none;
   color: inherit;
   letter-spacing: normal;
-  width: 100%;  /* Full width of column */
+  width: 100%;
 }
 
-/* Section item links */
+/* Section item links - tighter spacing with description */
 .nav-drop:has(a[href*="trends"]) ul ul li a {
   display: block;
   color: #131313;
@@ -350,7 +350,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 4px;
+  margin-bottom: 2px;  /* Closer to description */
   transition: color 0.2s ease;
 }
 
@@ -358,15 +358,16 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   color: #3b63fb;
 }
 
-/* Item descriptions */
+/* Item descriptions - stay close to their titles */
 .nav-drop:has(a[href*="trends"]) ul ul li p {
   font-size: 14px;
   color: #666;
   line-height: 1.4;
   margin: 0;
+  margin-bottom: 0;  /* No extra space after description */
 }
 
-/* Promotional box styling (Fresh fits, bold moves) */
+/* Promotional box styling (Fresh fits, bold moves) - contained */
 .nav-drop:has(a[href*="trends"]) > ul > li:last-child {
   background: #131313;
   border-radius: 12px;
@@ -375,8 +376,9 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   font-size: 16px;
   font-weight: 600;
   text-transform: none;
-  margin-left: 20px;
-  max-width: 300px;
+  margin-left: 0;  /* Remove excessive left margin */
+  max-width: 280px;  /* Slightly smaller to fit better */
+  text-align: left;  /* Left-align all text in black box */
 }
 
 /* Main promotional title - "FRESH FITS, BOLD MOVES" */
@@ -398,10 +400,12 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   text-decoration: underline;
 }
 
-/* Promotional box subtitle styling */
+/* Promotional box subtitle styling - left aligned */
 .nav-drop:has(a[href*="trends"]) > ul > li:last-child ul li {
   color: rgb(255 255 255 / 80%);
   font-size: 14px;
+  text-align: left;  /* Ensure left alignment */
+  margin-bottom: 8px;  /* Reasonable spacing */
 }
 
 /* ========================================
