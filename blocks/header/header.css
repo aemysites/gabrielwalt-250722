@@ -267,7 +267,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   border-radius: 20px;
   box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
   padding: 32px;
-  width: clamp(800px, 70vw, 1200px);  /* Match nav container width */
+  width: clamp(736px, calc(70vw - 64px), 1136px);  /* 1200px - 64px padding = nav width match */
   z-index: 1000;
   gap: 48px;  /* More space between columns */
   align-items: flex-start;
@@ -372,7 +372,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   font-weight: 700;  /* Bold links */
   text-align: left;
   margin-bottom: 1px;  /* Extremely tight coupling with description */
-  /* Removed display, line-height, transition as requested */
+  line-height: 2;  /* Added line-height as requested */
+  /* Removed display, transition as requested */
 }
 
 .nav-drop:has(a[href*="trends"]) ul ul li a:hover {
