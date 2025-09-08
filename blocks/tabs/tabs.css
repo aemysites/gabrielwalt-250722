@@ -103,14 +103,16 @@ from { opacity: 0; transform: translateY(24px);}
   box-shadow: none;
   text-align: center;
   transition: color 0.2s, border-bottom-color 0.2s, opacity 0.2s;
+  transform: none; /* Prevent any transforms */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Hover effect: simple white color */
+/* Hover effect: simple white color, no transform */
 .tabs.tabs22 .tabs-tab:hover {
   color: #fff;
+  transform: none !important; /* Override any inherited transforms */
 }
 
 /* Only the active tab gets a white underline, no background */
