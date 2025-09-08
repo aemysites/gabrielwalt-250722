@@ -278,7 +278,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
    SIMPLE DROPDOWN MENUS (matching original)
    ======================================== */
 
-/* All dropdown menus - simple, clean styling */
+/* All dropdown menus - simple vertical list styling */
 .nav-drop[aria-expanded="true"] > ul {
   position: absolute;
   top: 100%;
@@ -288,49 +288,50 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 8px 0;
-  min-width: 200px;
+  min-width: 220px;
   z-index: 100;
+  display: block !important; /* Override any flex layouts */
 }
 
-/* Dropdown menu items */
+/* Flatten complex nested structure into simple list */
 .nav-drop ul li {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: block !important;
+  width: 100%;
 }
 
-.nav-drop ul li a {
-  display: block;
+/* Hide category headers (Casual, Now Trending, Inspo) */
+.nav-drop ul li:not(:has(a)) {
+  display: none;
+}
+
+/* Flatten all nested links into main dropdown */
+.nav-drop ul ul li {
+  display: block !important;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-drop ul ul li a {
+  display: block !important;
   padding: 8px 16px;
   color: #333;
   text-decoration: none;
   font-size: 14px;
   line-height: 1.4;
   transition: background-color 0.2s ease;
-}
-
-.nav-drop ul li a:hover {
-  background-color: #f5f5f5;
-}
-
-/* Nested dropdown menus */
-.nav-drop ul ul {
-  position: static;
-  box-shadow: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
-.nav-drop ul ul li a {
-  padding: 4px 24px;
-  font-size: 13px;
-  color: #666;
+  white-space: nowrap;
 }
 
 .nav-drop ul ul li a:hover {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #f5f5f5;
+}
+
+/* Override any other nested dropdown styling */
+.nav-drop ul ul li a::after {
+  display: none;
 }
 
 /* ========================================
