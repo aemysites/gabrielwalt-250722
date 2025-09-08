@@ -330,7 +330,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-top: 16px;  /* Space between column title and first entry */
+  margin-top: 24px;  /* More space between column title and first entry */
   display: block !important;
   flex-direction: column !important;
   text-align: left;  /* Left-align all content */
@@ -349,7 +349,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   text-align: left;
   
   /* More space above each entry to separate from previous */
-  margin-top: 20px;  /* Space above each entry */
+  margin-top: 28px;  /* Increased space above each entry for better separation */
   margin-bottom: 0;   /* No extra space below */
 }
 
@@ -366,7 +366,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: 4px;  /* Small space to description */
+  margin-bottom: 2px;  /* Very small space to description - tight coupling */
   text-align: left;
   transition: color 0.2s ease;
 }
@@ -377,7 +377,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
 /* Item descriptions - left-aligned, stay close to titles */
 .nav-drop:has(a[href*="trends"]) ul ul li p {
-  font-size: 12px;
+  font-size: 13px;
   color: #666;
   line-height: 1.3;
   margin: 0;
