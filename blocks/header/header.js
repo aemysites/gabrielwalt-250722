@@ -160,21 +160,7 @@ export default async function decorate(block) {
         // All dropdowns start closed to match original WKND design
         navSection.setAttribute('aria-expanded', 'false');
         
-        // Add hover handlers for dropdown interactions
-        navSection.addEventListener('mouseenter', () => {
-          if (isDesktop.matches) {
-            toggleAllNavSections(navSections, false); // Close all others
-            navSection.setAttribute('aria-expanded', 'true');
-          }
-        });
-        
-        navSection.addEventListener('mouseleave', () => {
-          if (isDesktop.matches) {
-            navSection.setAttribute('aria-expanded', 'false');
-          }
-        });
-        
-        // Add click handler for dropdown toggles
+        // Add click-only interaction to match original WKND site
         navSection.addEventListener('click', (e) => {
           if (isDesktop.matches) {
             e.stopPropagation();

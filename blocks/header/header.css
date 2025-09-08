@@ -278,55 +278,102 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
    SIMPLE DROPDOWN MENUS (matching original)
    ======================================== */
 
-/* All dropdown menus - simple vertical list styling */
+/* MEGA MENU - Recreate Original WKND Trendsetters Layout */
 .nav-drop[aria-expanded="true"] > ul {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 8px 0;
-  min-width: 220px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  width: 1280px; /* Match original mega menu width */
+  max-width: 90vw;
   z-index: 100;
-  display: block !important; /* Override any flex layouts */
+  display: flex !important;
+  gap: 40px;
+  align-items: flex-start;
 }
 
-/* Flatten complex nested structure into simple list */
-.nav-drop ul li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+/* Hide Support mega menu - keep simple */
+.nav-drop:has(a[href*="support"])[aria-expanded="true"] > ul {
+  width: 200px;
+  flex-direction: column;
+  padding: 8px 0;
+  gap: 0;
+}
+
+.nav-drop:has(a[href*="support"]) ul li {
   display: block !important;
-  width: 100%;
 }
 
-/* Hide category headers (Casual, Now Trending, Inspo) */
-.nav-drop ul li:not(:has(a)) {
-  display: none;
-}
-
-/* Flatten all nested links into main dropdown */
-.nav-drop ul ul li {
-  display: block !important;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-drop ul ul li a {
-  display: block !important;
+.nav-drop:has(a[href*="support"]) ul li a {
   padding: 8px 16px;
+  display: block;
   color: #333;
   text-decoration: none;
   font-size: 14px;
-  line-height: 1.4;
   transition: background-color 0.2s ease;
-  white-space: nowrap;
 }
 
-.nav-drop ul ul li a:hover {
+.nav-drop:has(a[href*="support"]) ul li a:hover {
   background-color: #f5f5f5;
+}
+
+/* TRENDS MEGA MENU - 3 Column Layout */
+.nav-drop:has(a[href*="trends"]) ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Section Headers (CASUAL, NOW TRENDING, INSPO) */
+.nav-drop:has(a[href*="trends"]) ul li:not(:has(a)) {
+  display: block !important;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+/* Section Items */
+.nav-drop:has(a[href*="trends"]) ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-drop:has(a[href*="trends"]) ul ul li {
+  margin-bottom: 20px;
+  display: block !important;
+}
+
+.nav-drop:has(a[href*="trends"]) ul ul li a {
+  display: block;
+  color: #131313;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 4px;
+  transition: color 0.2s ease;
+}
+
+.nav-drop:has(a[href*="trends"]) ul ul li a:hover {
+  color: #3b63fb;
+}
+
+/* Item descriptions */
+.nav-drop:has(a[href*="trends"]) ul ul li p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.4;
+  margin: 0;
 }
 
 /* Override any other nested dropdown styling */
