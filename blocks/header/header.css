@@ -241,17 +241,18 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
    DROPDOWN MENUS
    ======================================== */
 
-/* Base dropdown - hidden by default */
+/* ========================================
+   MEGA MENU SYSTEM - Clean Implementation
+   ======================================== */
+
+/* Hide all dropdowns by default */
 .nav-drop > ul {
   display: none;
 }
 
-/* ========================================
-   SIMPLE DROPDOWN MENUS (matching original)
-   ======================================== */
-
-/* MEGA MENU - Recreate Original WKND Trendsetters Layout */
+/* TRENDS MEGA MENU - 3 Column Layout matching original WKND */
 .nav-drop[aria-expanded="true"] > ul {
+  display: flex !important;
   position: absolute;
   top: 100%;
   left: 50%;
@@ -260,50 +261,54 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 32px;
-  width: 1280px; /* Match original mega menu width */
+  width: 1280px;
   max-width: 90vw;
-  z-index: 100;
-  display: flex !important;
+  z-index: 1000;
   gap: 40px;
   align-items: flex-start;
+  list-style: none;
+  margin: 0;
 }
 
-/* Hide Support mega menu - keep simple */
+/* Support dropdown - simple 2-item list */
 .nav-drop:has(a[href*="support"])[aria-expanded="true"] > ul {
-  width: 200px;
+  display: block !important;
   flex-direction: column;
+  width: 200px;
   padding: 8px 0;
   gap: 0;
 }
 
-.nav-drop:has(a[href*="support"]) ul li {
+.nav-drop:has(a[href*="support"]) > ul > li {
   display: block !important;
+  margin: 0;
+  padding: 0;
 }
 
-.nav-drop:has(a[href*="support"]) ul li a {
-  padding: 8px 16px;
+.nav-drop:has(a[href*="support"]) > ul > li > a {
   display: block;
+  padding: 8px 16px;
   color: #333;
   text-decoration: none;
   font-size: 14px;
   transition: background-color 0.2s ease;
 }
 
-.nav-drop:has(a[href*="support"]) ul li a:hover {
+.nav-drop:has(a[href*="support"]) > ul > li > a:hover {
   background-color: #f5f5f5;
 }
 
-/* TRENDS MEGA MENU - 3 Column Layout */
-.nav-drop:has(a[href*="trends"]) ul li {
+/* Trends mega menu columns */
+.nav-drop:has(a[href*="trends"]) > ul > li {
+  flex: 1;
+  min-width: 200px;
   list-style: none;
   margin: 0;
   padding: 0;
-  flex: 1;
-  min-width: 200px;
 }
 
-/* Section Headers (CASUAL, NOW TRENDING, INSPO) */
-.nav-drop:has(a[href*="trends"]) ul li:not(:has(a)) {
+/* Section headers (CASUAL, NOW TRENDING, INSPO) */
+.nav-drop:has(a[href*="trends"]) > ul > li:not(:has(a)) {
   display: block !important;
   font-weight: 700;
   font-size: 12px;
@@ -313,7 +318,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   letter-spacing: 1px;
 }
 
-/* Section Items */
+/* Nested lists for section items */
 .nav-drop:has(a[href*="trends"]) ul ul {
   list-style: none;
   margin: 0;
@@ -325,6 +330,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   display: block !important;
 }
 
+/* Section item links */
 .nav-drop:has(a[href*="trends"]) ul ul li a {
   display: block;
   color: #131313;
@@ -346,11 +352,6 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   color: #666;
   line-height: 1.4;
   margin: 0;
-}
-
-/* Override any other nested dropdown styling */
-.nav-drop ul ul li a::after {
-  display: none;
 }
 
 /* ========================================
