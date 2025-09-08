@@ -258,7 +258,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   left: 50%;
   transform: translateX(-50%);
   background: white;
-  border-radius: 8px;
+  border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   padding: 32px;
   width: 1280px;
@@ -375,9 +375,23 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   max-width: 300px;
 }
 
+/* Main promotional title - "FRESH FITS, BOLD MOVES" */
+.nav-drop:has(a[href*="trends"]) > ul > li:last-child strong a {
+  font-family: 'Syncopate', 'Instrument Sans', sans-serif !important;
+  font-size: 32px !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  color: white !important;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+/* Discover link - make it white and visible */
 .nav-drop:has(a[href*="trends"]) > ul > li:last-child ul ul li a {
-  color: white;
+  color: white !important;
   font-size: 14px;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 .nav-drop:has(a[href*="trends"]) > ul > li:last-child ul ul li p {
