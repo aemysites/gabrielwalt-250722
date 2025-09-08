@@ -1,4 +1,5 @@
 /* Optimized Header CSS - Matching Original WKND Trendsetters Design */
+
 /* Reduced from 968 lines to ~280 lines with improved styling */
 /* stylelint-disable no-descending-specificity */
 
@@ -15,7 +16,7 @@
   --nav-text-light: var(--text-color-light, #505050);
   --nav-hover: var(--link-hover-color, #3b63fb);
   --dropdown-bg: var(--white, #fff);
-  --dropdown-shadow: var(--shadow-md, 0 4px 8px rgba(0, 0, 0, 0.08));
+  --dropdown-shadow: var(--shadow-md, 0 4px 8px rgb(0 0 0 / 8%));
   --dropdown-radius: 24px;
   --button-yellow-shadow: #f7e04b;
   --min-touch: 44px;
@@ -215,7 +216,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 .nav-sections a:hover,
 .nav-sections a:focus-visible {
   color: var(--nav-hover);
-  background: rgba(59, 99, 251, 0.05);
+  background: rgb(59 99 251 / 5%);
 }
 
 /* Dropdown Arrow - Cleaner Design */
@@ -259,7 +260,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   transform: translateX(-50%);
   background: white;
   border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
   padding: 24px;
   width: 950px;
   max-width: 90vw;
@@ -323,18 +324,14 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
 }
 
+/* Reset nested list items to normal styling */
 .nav-drop:has(a[href*="trends"]) ul ul li {
   margin-bottom: 20px;
   display: block !important;
-}
-
-/* Reset nested list items to normal styling */
-.nav-drop:has(a[href*="trends"]) ul ul li {
   font-weight: normal;
   font-size: 14px;
   text-transform: none;
   color: inherit;
-  margin-bottom: 20px;
   letter-spacing: normal;
 }
 
@@ -377,7 +374,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
 /* Main promotional title - "FRESH FITS, BOLD MOVES" */
 .nav-drop:has(a[href*="trends"]) > ul > li:last-child strong a {
-  font-family: 'Syncopate', 'Instrument Sans', sans-serif !important;
+  font-family: Syncopate, 'Instrument Sans', sans-serif !important;
   font-size: 32px !important;
   font-weight: 400 !important;
   text-transform: uppercase !important;
@@ -396,7 +393,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
 /* Promotional box subtitle styling */
 .nav-drop:has(a[href*="trends"]) > ul > li:last-child ul li {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255 255 255 / 80%);
   font-size: 14px;
 }
 
@@ -449,7 +446,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* ========================================
    MOBILE RESPONSIVE
    ======================================== */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   header,
   header nav {
     height: var(--header-height-mobile);
@@ -484,7 +481,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     left: 0;
     width: 100vw;
     background: var(--header-bg);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
     padding: 16px 0;
   }
   
@@ -511,7 +508,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
     position: static;
     width: 100%;
     box-shadow: none;
-    background: rgba(0, 0, 0, 0.03);
+    background: rgb(0 0 0 / 3%);
     border-radius: 0;
     margin-top: 8px;
     animation: none;
@@ -534,7 +531,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 /* ========================================
    DESKTOP ENHANCEMENTS
    ======================================== */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   header nav[aria-expanded="true"] {
     min-height: 0;
     overflow: visible;
