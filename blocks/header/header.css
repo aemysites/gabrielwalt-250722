@@ -387,15 +387,17 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 }
 
 /* Discover link - make it white and visible */
-.nav-drop:has(a[href*="trends"]) > ul > li:last-child ul ul li a {
+.nav-drop:has(a[href*="trends"]) > ul > li:last-child ul li a {
   color: white !important;
   font-size: 14px;
   font-weight: 700;
   text-decoration: underline;
 }
 
-.nav-drop:has(a[href*="trends"]) > ul > li:last-child ul ul li p {
+/* Promotional box subtitle styling */
+.nav-drop:has(a[href*="trends"]) > ul > li:last-child ul li {
   color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
 }
 
 /* ========================================
