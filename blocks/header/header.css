@@ -185,8 +185,9 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: var(--spacing-xl);  /* Design system spacing (32px) */
+  gap: clamp(32px, 4vw, 64px);  /* Responsive spacing */
   align-items: center;
+  justify-content: flex-start;  /* Start from left, give more space */
 }
 
 .nav-sections li {
@@ -408,7 +409,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
    ======================================== */
 .nav-tools {
   order: 3;
-  margin-left: 36px;
+  margin-left: auto;  /* Push button to far right */
   display: flex;
   align-items: center;
   justify-content: flex-end;
