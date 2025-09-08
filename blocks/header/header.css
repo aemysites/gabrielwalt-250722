@@ -317,7 +317,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   
   /* Column header styling */
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14.5px;  /* Larger column titles */
   text-transform: uppercase;
   color: #999;
   letter-spacing: 1px;
@@ -330,7 +330,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-top: 24px;  /* More space between column title and first entry */
+  margin-top: 32px;  /* Even more space between column title and first entry */
   display: block !important;
   flex-direction: column !important;
   text-align: left;  /* Left-align all content */
@@ -348,8 +348,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   width: 100%;
   text-align: left;
   
-  /* More space above each entry to separate from previous */
-  margin-top: 28px;  /* Increased space above each entry for better separation */
+  /* Even more space above each entry for maximum separation */
+  margin-top: 36px;  /* Maximum space above each entry for clear separation */
   margin-bottom: 0;   /* No extra space below */
 }
 
@@ -360,19 +360,24 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
 
 /* Section item links - left-aligned, close to description */
 .nav-drop:has(a[href*="trends"]) ul ul li a {
-  display: block;
+  /* Remove inherited nav-sections styles */
+  padding: 0 !important;  /* Remove left/right padding */
+  border-radius: 0 !important;  /* Remove border radius */
+  min-height: auto !important;  /* Remove min-height */
+  
+  /* Clean mega menu link styling */
   color: #131313;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 2px;  /* Very small space to description - tight coupling */
+  font-size: 14.5px;  /* Same size as column titles */
+  font-weight: 700;  /* Bold links */
   text-align: left;
-  transition: color 0.2s ease;
+  margin-bottom: 1px;  /* Extremely tight coupling with description */
+  /* Removed display, line-height, transition as requested */
 }
 
 .nav-drop:has(a[href*="trends"]) ul ul li a:hover {
-  color: #3b63fb;
+  color: #131313 !important;  /* Keep original color, no blue hover */
+  background: none !important;  /* Remove any background hover */
 }
 
 /* Item descriptions - left-aligned, stay close to titles */
