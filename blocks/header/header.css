@@ -55,7 +55,8 @@ header nav {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
-  max-width: 1280px;  /* Match original container width */
+  width: 1200px;  /* Fixed width like content */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--spacing-2xl);  /* Design system padding (40px) */
 
@@ -185,9 +186,8 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   padding: 0;
   margin: 0;
   display: flex;
-  gap: clamp(32px, 4vw, 64px);  /* Responsive spacing */
+  gap: var(--spacing-xl);  /* Back to normal 32px spacing */
   align-items: center;
-  justify-content: flex-start;  /* Start from left, give more space */
 }
 
 .nav-sections li {
@@ -409,7 +409,7 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
    ======================================== */
 .nav-tools {
   order: 3;
-  margin-left: auto;  /* Push button to far right */
+  margin-left: auto;  /* Push button to right within 1200px container */
   display: flex;
   align-items: center;
   justify-content: flex-end;
