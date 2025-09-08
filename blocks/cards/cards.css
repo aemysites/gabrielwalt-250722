@@ -1206,7 +1206,7 @@
   display: flex;
   flex-direction: row;
   align-items: stretch; /* Stretch children to the same height */
-  min-height: 220px;
+  min-height: 180px;
   padding: 0;
   background: transparent;
   border: none;
@@ -1272,26 +1272,49 @@
 .cards.cards33 .cards-card-body {
   flex: 1 1 46%;
   max-width: 46%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  justify-content: start;
+  align-items: start;
   min-width: 0;
   height: 100%;
   padding: 0 var(--spacing-md); /* Remove top/bottom padding, keep left/right */
   margin: 0;
   box-sizing: border-box;
+  gap: var(--spacing-md) 0; /* Vertical gap between elements */
 }
 
-.cards.cards33 .cards-card-body p:nth-child(1),
+/* First row: inline paragraphs */
+.cards.cards33 .cards-card-body p:nth-child(1) {
+  grid-row: 1;
+  display: inline;
+  justify-self: start;
+}
+
 .cards.cards33 .cards-card-body p:nth-child(2) {
-  display: inline-block;
-  vertical-align: baseline;
-  margin-bottom: 0;
-  margin-top: 0;
-  line-height: 1.4; /* Ensure same line height for alignment */
+  grid-row: 1;
+  display: inline;
+  justify-self: start;
+  margin-left: 8px;
 }
 
+/* Second row: heading */
+.cards.cards33 .cards-card-body h3 {
+  grid-row: 2;
+}
+
+/* Third row: description */
+.cards.cards33 .cards-card-body p:nth-child(4) {
+  grid-row: 3;
+}
+
+/* Fourth row: read link */
+.cards.cards33 .cards-card-body p:last-child {
+  grid-row: 4;
+  align-self: end;
+}
+
+/* Additional styling for first paragraph (pill) */
 .cards.cards33 .cards-card-body p:nth-child(1) {
   background: #e0e0e0;
   color: #000;
@@ -1301,8 +1324,11 @@
   text-transform: uppercase;
   padding: 2px 12px;
   margin-right: 4px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
+/* Additional styling for second paragraph (read time) */
 .cards.cards33 .cards-card-body p:nth-child(2) {
   color: #000;
   font-size: 12px;
@@ -1311,7 +1337,9 @@
   border-radius: 0;
   text-transform: none;
   padding: 0;
-  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 .cards.cards33 .cards-card-body h3 {
