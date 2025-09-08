@@ -159,7 +159,7 @@ export default async function decorate(block) {
         navSection.classList.add('nav-drop');
         // All dropdowns start closed to match original WKND design
         navSection.setAttribute('aria-expanded', 'false');
-        
+
         // Add click-only interaction to match original WKND site
         navSection.addEventListener('click', (e) => {
           if (isDesktop.matches) {
@@ -169,7 +169,7 @@ export default async function decorate(block) {
             navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
           }
         });
-        
+
         // Close dropdown when clicking outside
         document.addEventListener('click', (e) => {
           if (!navSection.contains(e.target)) {
