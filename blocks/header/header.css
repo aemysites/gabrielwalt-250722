@@ -55,7 +55,7 @@ header nav {
   align-items: center;
   justify-content: space-between;
   height: var(--header-height);
-  max-width: 1200px;  /* Match original's narrower container */
+  max-width: 1280px;  /* Match original container width */
   margin: 0 auto;
   padding: 0 var(--spacing-2xl);  /* Design system padding (40px) */
 
@@ -222,15 +222,15 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   background: rgb(59 99 251 / 5%);
 }
 
-/* Dropdown Arrow - V-shape like accordion34 */
+/* Dropdown Arrow - V-shape bigger and thicker */
 .nav-drop::after {
   content: "";
   display: inline-block;
   margin-left: 6px;
-  width: 5px;  /* Small V-shape */
-  height: 5px;
-  border: 1.5px solid var(--nav-text);
-  border-width: 0 1.5px 1.5px 0;  /* Right and bottom borders for V */
+  width: 7px;  /* Bigger V-shape */
+  height: 7px;
+  border: 2px solid var(--nav-text);  /* Thicker border */
+  border-width: 0 2px 2px 0;  /* Right and bottom borders for V */
   transform: rotate(45deg);  /* Rotate to make V point down */
   transition: transform 0.3s ease;
   vertical-align: middle;
