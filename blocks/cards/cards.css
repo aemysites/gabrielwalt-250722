@@ -1230,8 +1230,8 @@
 }
 
 .cards.cards33 .cards-card-image {
-  flex: 1 1 54%;
-  max-width: 54%;
+  flex: 1 1 45%;
+  max-width: 45%;
   min-width: 0;
   display: flex;
   align-items: stretch;
@@ -1270,8 +1270,8 @@
 }
 
 .cards.cards33 .cards-card-body {
-  flex: 1 1 46%;
-  max-width: 46%;
+  flex: 1 1 55%;
+  max-width: 55%;
   display: grid;
   grid-template-rows: auto auto 1fr auto;
   justify-content: start;
