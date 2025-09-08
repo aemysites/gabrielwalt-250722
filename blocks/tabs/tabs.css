@@ -108,6 +108,11 @@ from { opacity: 0; transform: translateY(24px);}
   justify-content: center;
 }
 
+/* Hover effect: simple white color */
+.tabs.tabs22 .tabs-tab:hover {
+  color: #fff;
+}
+
 /* Only the active tab gets a white underline, no background */
 .tabs.tabs22 .tabs-tab[aria-selected="true"] {
   color: #fff;
