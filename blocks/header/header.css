@@ -241,37 +241,9 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
    DROPDOWN MENUS
    ======================================== */
 
-/* Base dropdown styles for all dropdowns */
+/* Base dropdown - hidden by default */
 .nav-drop > ul {
   display: none;
-  position: absolute;
-  top: 100%;
-  margin-top: 10px;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  list-style: none;
-  z-index: 1000;
-  padding: 8px 0;
-  min-width: 150px;
-}
-
-/* Show dropdown on click */
-.nav-drop[aria-expanded="true"] > ul {
-  display: block;
-}
-
-/* Simple dropdown items (Support menu) */
-.nav-drop > ul > li > a {
-  display: block;
-  padding: 8px 20px;
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.nav-drop > ul > li > a:hover {
-  background: #f5f5f5;
 }
 
 /* ========================================
