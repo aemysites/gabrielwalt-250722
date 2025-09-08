@@ -28,6 +28,7 @@
 header {
   display: flex;
   justify-content: center;
+
   /* Removed background - inherits from body */
   width: 100%;
   height: var(--header-height);
@@ -42,6 +43,7 @@ header {
   position: relative;
   z-index: 999;
   width: 100%;
+
   /* Removed background - inherits from body */
 }
 
@@ -56,6 +58,7 @@ header nav {
   max-width: 1200px;  /* Match original's narrower container */
   margin: 0 auto;
   padding: 0 var(--spacing-2xl);  /* Design system padding (40px) */
+
   /* Removed background - inherits from body */
   box-sizing: border-box;
   font-family: var(--body-font-family);
