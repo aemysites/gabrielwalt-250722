@@ -12,8 +12,8 @@
  */
 :root {
   /* Core color system with CSS variables */
-  --background-color: #f7f8f5;  /* Original site background rgb(247, 248, 245) */
-  --light-color: #f7f8f5;        /* Same as background for consistency */
+  --background-color: #ffffff;  /* Clean white to match original site */
+  --light-color: #ffffff;        /* Same as background for consistency */
   --white: #ffffff;              /* Pure white */
   --dark-color: #000000;         /* Pure black for dark elements */
   --text-color: #131313;         /* Near black for text */
