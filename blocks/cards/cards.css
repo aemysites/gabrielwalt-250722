@@ -1284,35 +1284,23 @@
   gap: var(--spacing-md); /* Vertical gap between elements */
 }
 
-/* Make first two paragraphs inline within the flex column */
-.cards.cards33 .cards-card-body p:nth-child(1),
+/* Float approach: pill floats left, read time flows next to it */
+
 .cards.cards33 .cards-card-body p:nth-child(2) {
-  display: inline-block;
-  vertical-align: baseline;
   margin-bottom: 0;
   margin-top: 0;
-  order: 1; /* Both paragraphs come first */
+  margin-left: 0; /* Will flow next to floated pill */
 }
 
-/* Heading comes after the inline paragraphs */
+/* Clear float on heading so it appears below the pill/read time line */
 .cards.cards33 .cards-card-body h3 {
-  order: 2;
+  clear: both;
+  margin-top: var(--spacing-md); /* Add proper spacing after pill line */
 }
 
-/* Description paragraph */
-.cards.cards33 .cards-card-body p:nth-child(4) {
-  order: 3;
-  flex-grow: 1; /* Take remaining space */
-}
-
-/* Read link at bottom */
-.cards.cards33 .cards-card-body p:last-child {
-  order: 4;
-  margin-top: auto; /* Push to bottom */
-}
-
-/* Additional styling for first paragraph (pill) */
+/* Combine float and styling for pill */
 .cards.cards33 .cards-card-body p:nth-child(1) {
+  float: left;
   background: #e0e0e0;
   color: #000;
   border-radius: 18px;
