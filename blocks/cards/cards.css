@@ -1284,23 +1284,17 @@
   gap: var(--spacing-md); /* Vertical gap between elements */
 }
 
-/* Float approach: pill floats left, read time flows next to it */
-
-.cards.cards33 .cards-card-body p:nth-child(2) {
-  margin-bottom: 0;
-  margin-top: 0;
-  margin-left: 0; /* Will flow next to floated pill */
+/* Inline meta wrapper: contains pill and read time on same line */
+.cards.cards33 .cards-inline-meta {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: var(--spacing-md);
 }
 
-/* Clear float on heading so it appears below the pill/read time line */
-.cards.cards33 .cards-card-body h3 {
-  clear: both;
-  margin-top: var(--spacing-md); /* Add proper spacing after pill line */
-}
-
-/* Combine float and styling for pill */
-.cards.cards33 .cards-card-body p:nth-child(1) {
-  float: left;
+/* Pill styling - now properly contained in wrapper */
+.cards.cards33 .cards-inline-meta p:first-child {
   background: #e0e0e0;
   color: #000;
   border-radius: 18px;
@@ -1308,13 +1302,12 @@
   font-weight: 600;
   text-transform: uppercase;
   padding: 2px 12px;
-  margin-right: 8px;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+  flex-shrink: 0; /* Don't shrink */
 }
 
-/* Additional styling for second paragraph (read time) */
-.cards.cards33 .cards-card-body p:nth-child(2) {
+/* Read time styling - flows next to pill */
+.cards.cards33 .cards-inline-meta p:last-child {
   color: #000;
   font-size: 12px;
   font-weight: 400;
@@ -1322,9 +1315,8 @@
   border-radius: 0;
   text-transform: none;
   padding: 0;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0;
+  flex-shrink: 0; /* Don't shrink */
 }
 
 .cards.cards33 .cards-card-body h3 {
