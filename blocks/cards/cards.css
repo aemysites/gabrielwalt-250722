@@ -1246,8 +1246,6 @@
 .cards.cards33 .cards-card-image picture {
   width: 100%;
   aspect-ratio: 1 / 1;
-  height: 100%;
-  min-height: 160px;
   border-radius: var(--spacing-md); /* Design system 16px (close to 12px) */
   object-fit: cover;
   display: block;
@@ -1265,7 +1263,7 @@
 
   .cards.cards33 .cards-card-image img,
   .cards.cards33 .cards-card-image picture {
-    min-height: 120px;
+    /* Removed min-height to allow proper square aspect ratio */
   }
 }
 
@@ -1288,9 +1286,9 @@
 .cards.cards33 .cards-inline-meta {
   display: flex;
   flex-direction: row;
-  align-items: baseline;
+  align-items: baseline; /* Align text baselines for better horizontal alignment */
   gap: 8px;
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0; /* No bottom margin per user request */
 }
 
 /* Pill styling - now properly contained in wrapper */
@@ -1299,7 +1297,7 @@
   color: #000;
   border-radius: 18px;
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 400; /* Thinner weight to match read time */
   text-transform: uppercase;
   padding: 2px 12px;
   margin: 0;
@@ -1323,18 +1321,19 @@
   font-size: 22px;
   font-weight: 700;
   text-transform: uppercase;
-  margin: var(--spacing-md) 0 var(--spacing-sm); /* Design system spacing */
+  margin: 0; /* No margins per user request */
   color: #222;
   line-height: 1.17;
   letter-spacing: 0.6px;
   word-break: normal;
 }
 
-.cards.cards33 .cards-card-body p:nth-child(4) {
+/* Description paragraph - now it's the first p after the wrapper and h3 */
+.cards.cards33 .cards-card-body p:not(.cards-inline-meta p):not(:last-child) {
   color: #444;
-  font-size: 16px;
+  font-size: 16px; /* Same size as Read text per user request */
   font-weight: 400;
-  margin: 0 0 4px;
+  margin: 0; /* No margins per user request */
   line-height: 1.5;
   word-break: normal;
   width: 100%; /* Take full width of card body */
@@ -1344,7 +1343,7 @@
   color: #000;
   font-size: 16px;
   font-weight: 600;
-  margin: 8px 0 0;
+  margin: 0; /* No margins per user request */
   text-decoration: none;
   align-self: flex-start;
   cursor: pointer;
