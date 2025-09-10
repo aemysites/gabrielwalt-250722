@@ -133,7 +133,8 @@ from { opacity: 0; transform: translateY(24px);}
   box-shadow: none;
   background: #000;
   padding-bottom: 128px;
-  max-width: 1150px;
+  max-width: 1248px; /* Match original width */
+  min-height: 808px; /* Match original height */
 }
 
 .tabs.tabs22 .tabs-panel {
